@@ -135,11 +135,49 @@
                         <param name="itemgap">osd_itemgap</param>
                     </include>
 
+                    <!-- Button 5.5 (Playlist) -->
+                    <control type="button" id="6009">
+                        <include>Defs_OSD_Button</include>
+                        <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                        <onclick>Dialog.Close(all,true)</onclick>
+                        <onclick>ActivateWindow(musicplaylist)</onclick>
+                        <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6005</onleft>
+                        <onright>6010</onright>
+                    </control>
+                    <include content="OSD_Button_Icon_Overlay">
+                        <param name="icon">special://skin/extras/icons/playlist.png</param>
+                        <param name="id">6009</param>
+                        <param name="groupid">6109</param>
+                        <param name="itemgap">osd_itemgap</param>
+                    </include>
+
+                    <!-- Button 5.6 (Comments) -->
+                    <control type="button" id="6010">
+                        <include>Defs_OSD_Button</include>
+                        <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                        <onclick>Dialog.Close(all,true)</onclick>
+                        <!-- 动态识别当前播放的插件，并调用对应的评论路由 -->
+                        <onclick condition="String.Contains(Player.Filenameandpath,plugin.audio.musicGD)">ActivateWindow(10025,plugin://plugin.audio.musicGD/current_song_comments/0)</onclick>
+                        <onclick condition="!String.Contains(Player.Filenameandpath,plugin.audio.musicGD)">ActivateWindow(10025,plugin://plugin.audio.music/current_song_comments/0)</onclick>
+                        <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6009</onleft>
+                        <onright>6006</onright>
+                    </control>
+                    <include content="OSD_Button_Icon_Overlay">
+                        <param name="icon">special://skin/extras/icons/comment.png</param>
+                        <param name="id">6010</param>
+                        <param name="groupid">6110</param>
+                        <param name="itemgap">osd_itemgap</param>
+                    </include>
+
                     <!-- Button 6 -->
                     <control type="button" id="6006">
                         <include>Defs_OSD_Button</include>
                         <onclick>PlayerControl(Repeat)</onclick>
                         <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6010</onleft>
+                        <onright>6007</onright>
                     </control>
                     <include content="OSD_Button_Icon_Overlay">
                         <param name="icon">$VAR[Image_OSD_Repeat]</param>
