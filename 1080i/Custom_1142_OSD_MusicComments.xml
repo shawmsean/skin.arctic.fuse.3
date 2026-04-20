@@ -28,6 +28,8 @@
                 <movement>5</movement>
                 <preloaditems>0</preloaditems>
                 <onup>Close</onup>
+                <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">Close</ondown>
+                <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                 <ondown>SetFocus(9802)</ondown>
 
                 <!-- 当焦点在触发器项上按右键时，通过RunPlugin调用插件端执行加载更多 -->

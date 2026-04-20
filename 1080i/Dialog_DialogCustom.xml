@@ -1061,6 +1061,38 @@
         </include>
     </include>
 
+    <include name="DialogCustom_MusicOSD_OnDown_Items">
+        <include content="Settings_Label">
+            <param name="id">8030</param>
+            <param name="dialog">true</param>
+            <label>$LOCALIZE[31367]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8031</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1142)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1142)</selected>
+            <label>$LOCALIZE[31360]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8032</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1140)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1140)</selected>
+            <label>$LOCALIZE[559]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8033</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1141)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
+            <label>$LOCALIZE[206]</label>
+        </include>
+    </include>
+
     <include name="DialogCustom_VideoInfo_Items">
         <include content="Settings_Button" description="TMDbHelper Service">
             <param name="id">8002</param>
@@ -1472,6 +1504,37 @@
             <label>$LOCALIZE[31461]</label>
             <onclick>ActivateWindow(visualisationpresetlist)</onclick>
             <visible>Visualisation.HasPresets</visible>
+        </include>
+
+        <!-- 音乐OSD向下导航设置 -->
+        <include content="Settings_Label">
+            <param name="id">8030</param>
+            <param name="dialog">true</param>
+            <label>$LOCALIZE[31367]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8031</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1142)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1142)</selected>
+            <label>$LOCALIZE[31360]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8032</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1140)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1140)</selected>
+            <label>$LOCALIZE[559]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8033</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1141)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
+            <label>$LOCALIZE[206]</label>
         </include>
     </include>
 

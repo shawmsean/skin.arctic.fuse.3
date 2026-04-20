@@ -1375,6 +1375,11 @@ msgctxt "#31361"
 msgid "Load More"
 msgstr "加载更多"
 
+#: /1080i/Dialog_DialogCustom.xml
+msgctxt "#31367"
+msgid "Music OSD OnDown Navigation"
+msgstr "音乐OSD向下导航"
+
 #: /1080i/Includes_Items.xml
 msgctxt "#31356"
 msgid "Use online cast"

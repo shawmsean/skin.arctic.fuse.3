@@ -46,8 +46,8 @@
                 </include>
 
                 <include content="OSD_CastInfo_HintText">
-                    <param name="label">$LOCALIZE[31360]</param>
-                    <param name="visible">Window.IsActive(musicosd) + !Window.IsVisible(1142) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</param>
+                    <param name="label">$VAR[Label_MusicOSD_HintText]</param>
+                    <param name="visible">Window.IsActive(musicosd) + !Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1141) + !Window.IsVisible(script-cu-lrclyrics-main.xml)</param>
                 </include>
             </control>
         </control>

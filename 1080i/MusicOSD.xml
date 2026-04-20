@@ -32,7 +32,7 @@
                     <onright>6005</onright>
 
                     <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">SetProperty(bili_comment_content_url,plugin://plugin.audio.music/current_song_comments/0,10000)</ondown>
-                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow(1142)</ondown>
+                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 1 -->
                     <control type="button" id="6001">
@@ -120,7 +120,7 @@
                     <onup>SetFocus(9802)</onup>
 
                     <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">SetProperty(bili_comment_content_url,plugin://plugin.audio.music/current_song_comments/0,10000)</ondown>
-                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow(1142)</ondown>
+                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 5 -->
                     <control type="button" id="6005">

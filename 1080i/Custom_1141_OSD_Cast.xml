@@ -27,11 +27,14 @@
                 <param name="orientation">horizontal</param>
                 <param name="control">fixedlist</param>
                 <param name="id">6501</param>
-                <content>$VAR[Path_OSD_Cast]</content>
+                <content condition="Window.IsActive(musicosd)">plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(VideoOSD.PersonCredits.CastCrew)]&amp;tmdb_type=artist$INFO[MusicPlayer.Artist,&amp;query=,]</content>
+                <content condition="!Window.IsActive(musicosd)">$VAR[Path_OSD_Cast]</content>
                 <include>OSD_List_Dimensions</include>
 
                 <onfocus>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onfocus>
 
+                <onup condition="Window.IsActive(musicosd) + !Skin.HasSetting(MusicOSD.OnDown.Disable1140)">Close</onup>
+                <onup condition="Window.IsActive(musicosd) + !Skin.HasSetting(MusicOSD.OnDown.Disable1140)">AlarmClock(musicosd_nav,ActivateWindow(1140),00:00,silent)</onup>
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">PreviousMenu</onup>
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,crew)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onup>
                 <ondown condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,crew)</ondown>

@@ -387,6 +387,27 @@
         <value condition="!Skin.HasSetting(OSD.OnDown.Disable1141)">$LOCALIZE[31293]</value>
     </variable>
 
+    <!-- 音乐OSD提示文本变量 -->
+    <variable name="Label_MusicOSD_HintText">
+        <value condition="Window.IsVisible(1142)">$VAR[Label_MusicOSD_HintText_1142]</value>
+        <value condition="Window.IsVisible(1140)">$VAR[Label_MusicOSD_HintText_1140]</value>
+        <value>$VAR[Label_MusicOSD_HintText_Main]</value>
+    </variable>
+
+    <variable name="Label_MusicOSD_HintText_Main">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">$LOCALIZE[31360]</value>
+        <value>$VAR[Label_MusicOSD_HintText_1142]</value>
+    </variable>
+
+    <variable name="Label_MusicOSD_HintText_1142">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">$LOCALIZE[559]</value>
+        <value>$VAR[Label_MusicOSD_HintText_1140]</value>
+    </variable>
+
+    <variable name="Label_MusicOSD_HintText_1140">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1141)">$LOCALIZE[206]</value>
+    </variable>
+
     <variable name="Label_Studio">
         <value condition="!String.IsEmpty(ListItem.Studio)">$INFO[ListItem.Studio]</value>
         <value condition="!String.IsEmpty(Window(Home).Property(TMDbHelper.ListItem.Network.1.Name))">$INFO[Window(Home).Property(TMDbHelper.ListItem.Network.1.Name)]</value>
