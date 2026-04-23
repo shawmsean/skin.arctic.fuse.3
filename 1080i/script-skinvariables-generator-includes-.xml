@@ -22,6 +22,16 @@
             <param name="limit"/>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0d3bac6b)</param>
         </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-4b02a77a)</param>
+        </include>
         <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
         <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
     </include>
@@ -45,6 +55,15 @@
             <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?url=%7Bserver%7D/emby/Users/%7Buserid%7D/Items%3FIncludeItemTypes%3DMovie%26CollapseBoxSetItems%3DFalse%26GroupItemsIntoCollections%3DFalse%26Recursive%3DTrue%26IsMissing%3DFalse%26Fields%3D%7Bfield_filters%7D%26ImageTypeLimit%3D1%26format%3Djson%26IsPlayed%3DFalse%26SortBy%3DDateCreated%26SortOrder%3DDescending%26Filters%3DIsNotFolder%26Limit%3D%7BItemLimit%7D&amp;mode=GET_CONTENT&amp;media_type=movies&amp;sort=none,return)</onclick>
             <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
         </item>
+        <item>
+            <label>电影 - 推荐 (40)</label>
+            <property name="guid">guid-4b02a77a</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
     </include>
     <!-- Combined Info -->
     <include name="skinvariables-homewidgets-wall-info">
@@ -53,6 +72,9 @@
         </include>
         <include content="Hub_Wall_Info">
             <param name="id">504</param>
+        </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">507</param>
         </include>
     </include>
     <!-- Wall Widgets -->
@@ -79,6 +101,17 @@
             <param name="autoscroll">False</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0d3bac6b)</param>
         </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">507</param>
+            <param name="content">plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">videos</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-4b02a77a)</param>
+        </include>
     </include>
     <!-- Wall Widgets Selector -->
     <include name="skinvariables-homewidgets-combined-selector">
@@ -100,6 +133,15 @@
             <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?url=%7Bserver%7D/emby/Users/%7Buserid%7D/Items%3FIncludeItemTypes%3DMovie%26CollapseBoxSetItems%3DFalse%26GroupItemsIntoCollections%3DFalse%26Recursive%3DTrue%26IsMissing%3DFalse%26Fields%3D%7Bfield_filters%7D%26ImageTypeLimit%3D1%26format%3Djson%26IsPlayed%3DFalse%26SortBy%3DDateCreated%26SortOrder%3DDescending%26Filters%3DIsNotFolder%26Limit%3D%7BItemLimit%7D&amp;mode=GET_CONTENT&amp;media_type=movies&amp;sort=none,return)</onclick>
             <visible>!Integer.IsEqual(Container(504).NumItems,0) | Container(504).IsUpdating</visible>
         </item>
+        <item>
+            <label>电影 - 推荐 (40)</label>
+            <property name="guid">guid-4b02a77a</property>
+            <property name="widget_id">$NUMBER[507]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations,return)</onclick>
+            <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
+        </item>
     </include>
     <!-- Combined Info -->
     <include name="skinvariables-homewidgets-combined-info">
@@ -108,6 +150,9 @@
         </include>
         <include content="Hub_Combined_Info">
             <param name="id">504</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">507</param>
         </include>
     </include>
     <!-- Standard Widgets -->
@@ -163,6 +208,32 @@
                 <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.embycon/?url=%7Bserver%7D/emby/Users/%7Buserid%7D/Items%3FIncludeItemTypes%3DMovie%26CollapseBoxSetItems%3DFalse%26GroupItemsIntoCollections%3DFalse%26Recursive%3DTrue%26IsMissing%3DFalse%26Fields%3D%7Bfield_filters%7D%26ImageTypeLimit%3D1%26format%3Djson%26IsPlayed%3DFalse%26SortBy%3DDateCreated%26SortOrder%3DDescending%26Filters%3DIsNotFolder%26Limit%3D%7BItemLimit%7D&amp;mode=GET_CONTENT&amp;media_type=movies&amp;sort=none</content>
                 <include content="Defs_AutoScroll" condition="False">
                     <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">507</param>
+                <param name="groupid">707</param>
+                <param name="label">电影 - 推荐 (40)</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">507</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
                 </include>
             </include>
         </include>
@@ -1780,7 +1851,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-6489b9e7)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -2080,7 +2151,7 @@
                     <param name="id">501</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.bili/home/1/</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
                 </include>
             </include>
