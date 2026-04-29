@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <window>
     <defaultcontrol always="true">6001</defaultcontrol>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
     <animation effect="fade" start="0" end="100" time="300" delay="200" condition="Window.IsVisible(DialogSeekBar.xml)">WindowOpen</animation>
     <animation effect="fade" start="0" end="100" time="300" delay="0" condition="!Window.IsVisible(DialogSeekBar.xml)">WindowOpen</animation>
     <animation effect="fade" end="0" start="100" time="300">WindowClose</animation>
     <onunload>ClearProperty(OSDArtistDetails,Home)</onunload>
     <onunload>CancelAlarm(osd_timeout,true)</onunload>
+    <onunload>AlarmClock(musicosd_showlyrics,RunScript(script.cu.lrclyrics),00:05,silent)</onunload>
     <controls>
 
 
@@ -31,7 +33,8 @@
                     <onleft>6008</onleft>
                     <onright>6005</onright>
 
-                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow(1142)</ondown>
+                    <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
+                    <ondown>ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 1 -->
                     <control type="button" id="6001">
@@ -118,7 +121,8 @@
                     <onright>6001</onright>
                     <onup>SetFocus(9802)</onup>
 
-                    <ondown condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow(1142)</ondown>
+                    <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
+                    <ondown>ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 5 -->
                     <control type="button" id="6005">
@@ -135,11 +139,47 @@
                         <param name="itemgap">osd_itemgap</param>
                     </include>
 
+                    <!-- Button 5.5 (Playlist) -->
+                    <control type="button" id="6009">
+                        <include>Defs_OSD_Button</include>
+                        <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                        <onclick>Dialog.Close(all,true)</onclick>
+                        <onclick>ActivateWindow(musicplaylist)</onclick>
+                        <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6005</onleft>
+                        <onright>6010</onright>
+                    </control>
+                    <include content="OSD_Button_Icon_Overlay">
+                        <param name="icon">special://skin/extras/icons/playlist.png</param>
+                        <param name="id">6009</param>
+                        <param name="groupid">6109</param>
+                        <param name="itemgap">osd_itemgap</param>
+                    </include>
+
+                    <!-- Button 5.6 (Comments) -->
+                    <control type="button" id="6010">
+                        <include>Defs_OSD_Button</include>
+                        <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                        <onclick>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</onclick>
+                        <onclick>ActivateWindow(1142)</onclick>
+                        <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6009</onleft>
+                        <onright>6006</onright>
+                    </control>
+                    <include content="OSD_Button_Icon_Overlay">
+                        <param name="icon">special://skin/extras/icons/comment.png</param>
+                        <param name="id">6010</param>
+                        <param name="groupid">6110</param>
+                        <param name="itemgap">osd_itemgap</param>
+                    </include>
+
                     <!-- Button 6 -->
                     <control type="button" id="6006">
                         <include>Defs_OSD_Button</include>
                         <onclick>PlayerControl(Repeat)</onclick>
                         <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
+                        <onleft>6010</onleft>
+                        <onright>6007</onright>
                     </control>
                     <include content="OSD_Button_Icon_Overlay">
                         <param name="icon">$VAR[Image_OSD_Repeat]</param>
@@ -259,8 +299,8 @@
                     <texturesliderbar />
                     <textureslidernib />
                     <textureslidernibfocus />
-                    <onup condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">6091</onup>
-                    <onup condition="!Window.IsVisible(script-cu-lrclyrics-main.xml)">ActivateWindow(1142)</onup>
+                    <onup>6091</onup>
+                    <onup>ActivateWindow(1142)</onup>
                     <ondown>6091</ondown>
                 </control>
             </control>
