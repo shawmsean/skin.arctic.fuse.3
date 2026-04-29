@@ -1380,6 +1380,11 @@ msgctxt "#31367"
 msgid "Music OSD OnDown Navigation"
 msgstr ""
 
+#: /1080i/Dialog_DialogCustom.xml
+msgctxt "#31443"
+msgid "Comments Background Dim"
+msgstr ""
+
 #: /1080i/Includes_Items.xml
 msgctxt "#31356"
 msgid "Use online cast"

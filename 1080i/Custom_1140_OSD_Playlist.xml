@@ -3,8 +3,21 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">7000</defaultcontrol>
     <onload>CancelAlarm(osd_timeout,true)</onload>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <!-- 音乐模式：打开播放列表时，插件端延迟2秒后获取位置并SetFocus到当前播放项 -->
+    <onload condition="Window.IsActive(musicosd)">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/playlist_focus_current/)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
+
+        <!-- 全屏半透明遮罩背景（音乐模式下虚化效果） -->
+        <control type="image">
+            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
+            <visible>Window.IsActive(musicosd)</visible>
+            <texture colordiffuse="B2000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
+
         <control type="group">
             <visible>!Window.IsActive(pvrchannelguide)</visible>
             <visible>!Window.IsActive(pvrosdchannels)</visible>
@@ -28,7 +41,9 @@
                         <param name="content">playlistmusic://</param>
                     </include>
                     <include>OSD_List_Dimensions</include>
-                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">SetProperty(bili_comment_content_url,plugin://plugin.audio.music/current_song_comments/0,10000)</onup>
+                    <onclick condition="Window.IsActive(musicosd)">SetProperty(nc_play_offset,$INFO[Container(7000).CurrentItem],Home)</onclick>
+                    <onclick condition="Window.IsActive(musicosd)">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/play_playlist_offset/)</onclick>
+                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</onup>
                     <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">Close</onup>
                     <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">AlarmClock(musicosd_nav,ActivateWindow(1142),00:00,silent)</onup>
                     <onup>Close</onup>

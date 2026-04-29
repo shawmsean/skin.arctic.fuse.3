@@ -2215,6 +2215,11 @@
                         <param name="control">image</param>
                         <include>Texture_Box_Highlight_V</include>
                     </include>
+                    <!-- IsPlaying高亮边框：未获焦点时为正在播放的项显示微妙的高亮边框 -->
+                    <include content="Object_Control" condition="!$PARAM[selected] + $PARAM[listitem].IsPlaying">
+                        <param name="control">image</param>
+                        <texture border="20" colordiffuse="main_fg_30">common/box.png</texture>
+                    </include>
 
                     <include content="Object_Layout_Image_Icon">
                         <param name="selected">$PARAM[selected]</param>

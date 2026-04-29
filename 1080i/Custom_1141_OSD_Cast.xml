@@ -3,10 +3,21 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">6501</defaultcontrol>
     <onload>CancelAlarm(osd_timeout,true)</onload>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
     <onload>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onload>
     <onload>Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
+
+        <!-- 全屏半透明遮罩背景（音乐模式下虚化效果） -->
+        <control type="image">
+            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
+            <visible>Window.IsActive(musicosd)</visible>
+            <texture colordiffuse="B2000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
+
         <control type="group">
             <include>OSD_Info_Dimensions</include>
 
@@ -37,7 +48,8 @@
                     <orientation>horizontal</orientation>
                     <scrolltime tween="quadratic">400</scrolltime>
                     <preloaditems>2</preloaditems>
-                    <content>plugin://plugin.audio.music/artist/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
+                    <content condition="String.IsEqual(Window(10000).Property(nc_music_plugin_id),plugin.audio.musicJH)">plugin://plugin.audio.musicJH/artist/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
+                    <content condition="!String.IsEqual(Window(10000).Property(nc_music_plugin_id),plugin.audio.musicJH)">plugin://plugin.audio.music/artist/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
 
                     <onfocus>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onfocus>
 

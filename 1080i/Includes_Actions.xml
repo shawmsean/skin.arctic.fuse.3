@@ -125,6 +125,10 @@
     </variable>
 
     <!-- 音乐OSD链式导航变量 -->
+    <variable name="Action_MusicOSD_CommentPlugin">
+        <value condition="String.IsEqual(Window(10000).Property(nc_music_plugin_id),plugin.audio.musicJH)">plugin.audio.musicJH</value>
+        <value>plugin.audio.music</value>
+    </variable>
     <variable name="Action_MusicOSD_Main_OnDown">
         <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">1142</value>
         <value>$VAR[Action_MusicOSD_1142_OnDown]</value>

@@ -32,6 +32,16 @@
             <param name="limit"/>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-4b02a77a)</param>
         </include>
+        <include content="Hub_Wall_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.audio.musicJH/source/tx?action=hotsearch</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">music</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e8d235f4)</param>
+        </include>
         <animation effect="slide" start="0" end="0,260" time="400" tween="quadratic" reversible="false" condition="$EXP[Exp_Hubs_Spotlight_SlideDown]">Conditional</animation>
         <animation effect="slide" end="0" start="0,260" time="400" tween="quadratic" reversible="false" condition="![$EXP[Exp_Hubs_Spotlight_SlideDown]]">Conditional</animation>
     </include>
@@ -64,6 +74,15 @@
             <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations,return)</onclick>
             <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
         </item>
+        <item>
+            <label>QQ音乐 - 热搜</label>
+            <property name="guid">guid-e8d235f4</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay">true</property>
+            <property name="hide_overlay"/>
+            <onclick>ActivateWindow(music,plugin://plugin.audio.musicJH/source/tx?action=hotsearch,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
     </include>
     <!-- Combined Info -->
     <include name="skinvariables-homewidgets-wall-info">
@@ -76,6 +95,9 @@
         <include content="Hub_Wall_Info">
             <param name="id">507</param>
         </include>
+        <include content="Hub_Wall_Info">
+            <param name="id">508</param>
+        </include>
     </include>
     <!-- Wall Widgets -->
     <include name="skinvariables-homewidgets-combined">
@@ -87,7 +109,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-b2e4c01f)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -98,7 +120,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-0d3bac6b)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -109,8 +131,19 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-4b02a77a)</param>
+        </include>
+        <include content="Hub_Combined_Widget">
+            <param name="id">508</param>
+            <param name="content">plugin://plugin.audio.musicJH/source/tx?action=hotsearch</param>
+            <param name="include">List_Landscape_Row</param>
+            <param name="target">music</param>
+            <param name="sortby"/>
+            <param name="sortorder">ascending</param>
+            <param name="limit"/>
+            <param name="autoscroll">False</param>
+            <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-e8d235f4)</param>
         </include>
     </include>
     <!-- Wall Widgets Selector -->
@@ -142,6 +175,15 @@
             <onclick>ActivateWindow(videos,plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations,return)</onclick>
             <visible>!Integer.IsEqual(Container(507).NumItems,0) | Container(507).IsUpdating</visible>
         </item>
+        <item>
+            <label>QQ音乐 - 热搜</label>
+            <property name="guid">guid-e8d235f4</property>
+            <property name="widget_id">$NUMBER[508]</property>
+            <property name="show_overlay"/>
+            <property name="hide_overlay">true</property>
+            <onclick>ActivateWindow(music,plugin://plugin.audio.musicJH/source/tx?action=hotsearch,return)</onclick>
+            <visible>!Integer.IsEqual(Container(508).NumItems,0) | Container(508).IsUpdating</visible>
+        </item>
     </include>
     <!-- Combined Info -->
     <include name="skinvariables-homewidgets-combined-info">
@@ -153,6 +195,9 @@
         </include>
         <include content="Hub_Combined_Info">
             <param name="id">507</param>
+        </include>
+        <include content="Hub_Combined_Info">
+            <param name="id">508</param>
         </include>
     </include>
     <!-- Standard Widgets -->
@@ -180,7 +225,7 @@
                     <param name="id">503</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.embycon/?url=%7Bserver%7D/emby/Users/%7Buserid%7D/Items%3FIncludeItemTypes%3DMovie%26CollapseBoxSetItems%3DFalse%26GroupItemsIntoCollections%3DFalse%26Recursive%3DTrue%26IsMissing%3DFalse%26Fields%3D%7Bfield_filters%7D%26ImageTypeLimit%3D1%26format%3Djson%26Filters%3DIsResumable%26SortBy%3DDatePlayed%26SortOrder%3DDescending%26Limit%3D%7BItemLimit%7D&amp;mode=GET_CONTENT&amp;media_type=movies&amp;sort=none</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(503) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -206,7 +251,7 @@
                     <param name="id">504</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.embycon/?url=%7Bserver%7D/emby/Users/%7Buserid%7D/Items%3FIncludeItemTypes%3DMovie%26CollapseBoxSetItems%3DFalse%26GroupItemsIntoCollections%3DFalse%26Recursive%3DTrue%26IsMissing%3DFalse%26Fields%3D%7Bfield_filters%7D%26ImageTypeLimit%3D1%26format%3Djson%26IsPlayed%3DFalse%26SortBy%3DDateCreated%26SortOrder%3DDescending%26Filters%3DIsNotFolder%26Limit%3D%7BItemLimit%7D&amp;mode=GET_CONTENT&amp;media_type=movies&amp;sort=none</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(504) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -232,8 +277,34 @@
                     <param name="id">507</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="videos" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.video.embycon/?mode=WIDGET_CONTENT&amp;type=movie_recommendations</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(507) | System.IdleTime(3)]</param>
+                </include>
+            </include>
+            <include content="Widget_Row">
+                <param name="id">508</param>
+                <param name="groupid">708</param>
+                <param name="label">QQ音乐 - 热搜</param>
+                <param name="usewidgetlabel">False</param>
+                <param name="include">List_Landscape_Row</param>
+                <param name="grouplistid">602</param>
+                <param name="refocus">SetFocus(302)</param>
+                <param name="detailed">False</param>
+                <param name="visible">[True] + [True]</param>
+                <param name="altvisible">False</param>
+                <param name="busy_isupdating">True</param>
+                <param name="widgetfade_include">true</param>
+                <param name="widgetfade_disable">false</param>
+                <param name="widgetconstants_affix">_detailed</param>
+                <onfocus>ClearProperty(HomeSwitcher.IsVisible,Home)</onfocus>
+                <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                <description/>
+                <include content="Widget_NoResults">
+                    <param name="id">508</param>
+                </include>
+                <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.audio.musicJH/source/tx?action=hotsearch</content>
+                <include content="Defs_AutoScroll" condition="False">
+                    <param name="condition">[!Control.HasFocus(508) | System.IdleTime(3)]</param>
                 </include>
             </include>
         </include>
@@ -567,7 +638,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-7ebc8097)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -600,7 +671,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-8d138279)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -655,7 +726,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-aed4eca9)</param>
         </include>
         <include content="Hub_Combined_Widget">
@@ -710,7 +781,7 @@
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
             <param name="limit"/>
-            <param name="autoscroll">False</param>
+            <param name="autoscroll">True</param>
             <param name="visible">String.IsEqual(Container(601).ListItem.Property(guid),guid-7700e221)</param>
         </include>
     </include>
@@ -913,7 +984,7 @@
                     <param name="id">501</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.audio.music/recommend_songs/</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(501) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -991,7 +1062,7 @@
                     <param name="id">506</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.audio.music/user_playlists/1475873256/</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(506) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -1121,7 +1192,7 @@
                     <param name="id">511</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.audio.music/top_artists/</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(511) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -1251,7 +1322,7 @@
                     <param name="id">520</param>
                 </include>
                 <content sortby="" sortorder="ascending" target="music" limit="" browse="$VAR[Defs_BrowseLimitedLists]">plugin://plugin.audio.music/history/</content>
-                <include content="Defs_AutoScroll" condition="False">
+                <include content="Defs_AutoScroll" condition="True">
                     <param name="condition">[!Control.HasFocus(520) | System.IdleTime(3)]</param>
                 </include>
             </include>
@@ -1621,7 +1692,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">506</param>
             <param name="content">plugin://plugin.video.bili/followingLive/1/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">videos</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -1901,7 +1972,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">506</param>
             <param name="content">plugin://plugin.video.bili/followingLive/1/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">videos</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2264,7 +2335,7 @@
                 <param name="groupid">706</param>
                 <param name="label">我关注的直播</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -2468,7 +2539,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">503</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%AC%A7%E7%BE%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2478,7 +2549,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">504</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%97%A5%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2488,7 +2559,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">505</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%9F%A9%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2498,7 +2569,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">506</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%B2%A4%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2548,7 +2619,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">511</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%88%9E%E6%9B%B2/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2558,7 +2629,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">512</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%AF%B4%E5%94%B1/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2568,7 +2639,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">513</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%BD%BB%E9%9F%B3%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2578,7 +2649,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">514</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%88%B5%E5%A3%AB/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2588,7 +2659,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">515</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B9%A1%E6%9D%91/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2598,7 +2669,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">516</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/R%26B%2FSoul/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2608,7 +2679,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">517</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8F%A4%E5%85%B8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2618,7 +2689,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">518</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B0%91%E6%97%8F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2628,7 +2699,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">519</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%8B%B1%E4%BC%A6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2638,7 +2709,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">520</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%87%91%E5%B1%9E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2648,7 +2719,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">521</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%9C%8B%E5%85%8B/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2658,7 +2729,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">522</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%93%9D%E8%B0%83/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2668,7 +2739,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">523</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%9B%B7%E9%AC%BC/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2678,7 +2749,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">524</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B8%96%E7%95%8C%E9%9F%B3%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2688,7 +2759,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">525</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%8B%89%E4%B8%81/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2698,7 +2769,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">526</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/New+Age/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2708,7 +2779,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">527</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8F%A4%E9%A3%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2718,7 +2789,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">528</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%90%8E%E6%91%87/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2728,7 +2799,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">529</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/Bossa+Nova/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2738,7 +2809,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">530</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%85%E6%99%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2748,7 +2819,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">531</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%A4%9C%E6%99%9A/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2758,7 +2829,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">532</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AD%A6%E4%B9%A0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2768,7 +2839,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">533</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%B7%A5%E4%BD%9C/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2778,7 +2849,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">534</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8D%88%E4%BC%91/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2788,7 +2859,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">535</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B8%8B%E5%8D%88%E8%8C%B6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2798,7 +2869,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">536</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%9C%B0%E9%93%81/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2808,7 +2879,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">537</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%A9%BE%E8%BD%A6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2818,7 +2889,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">538</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%BF%90%E5%8A%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2828,7 +2899,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">539</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%97%85%E8%A1%8C/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2838,7 +2909,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">540</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%95%A3%E6%AD%A5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2848,7 +2919,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">541</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%85%92%E5%90%A7/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2858,7 +2929,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">542</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%80%80%E6%97%A7/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2868,7 +2939,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">543</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%85%E6%96%B0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2878,7 +2949,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">544</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B5%AA%E6%BC%AB/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2888,7 +2959,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">545</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%BC%A4%E6%84%9F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2898,7 +2969,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">546</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B2%BB%E6%84%88/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2908,7 +2979,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">547</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%94%BE%E6%9D%BE/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2918,7 +2989,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">548</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AD%A4%E7%8B%AC/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2928,7 +2999,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">549</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%84%9F%E5%8A%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2938,7 +3009,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">550</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%85%B4%E5%A5%8B/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2948,7 +3019,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">551</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%BF%AB%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2958,7 +3029,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">552</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AE%89%E9%9D%99/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2968,7 +3039,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">553</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%80%9D%E5%BF%B5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2978,7 +3049,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">554</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BB%BC%E8%89%BA/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2988,7 +3059,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">555</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%BD%B1%E8%A7%86%E5%8E%9F%E5%A3%B0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -2998,7 +3069,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">556</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/ACG/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3008,7 +3079,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">557</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%84%BF%E7%AB%A5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3018,7 +3089,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">558</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%A0%A1%E5%9B%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3028,7 +3099,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">559</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%B8%E6%88%8F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3038,7 +3109,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">560</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/70%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3048,7 +3119,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">561</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/80%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3058,7 +3129,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">562</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/90%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3068,7 +3139,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">563</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BD%91%E7%BB%9C%E6%AD%8C%E6%9B%B2/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3078,7 +3149,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">564</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/KTV/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3088,7 +3159,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">565</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BB%8F%E5%85%B8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3098,7 +3169,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">566</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BF%BB%E5%94%B1/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3108,7 +3179,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">567</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%90%89%E4%BB%96/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3118,7 +3189,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">568</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%92%A2%E7%90%B4/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3128,7 +3199,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">569</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%99%A8%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3138,7 +3209,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">570</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%A6%9C%E5%8D%95/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -3148,7 +3219,7 @@
         <include content="Hub_Wall_Widget">
             <param name="id">571</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/00%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4043,7 +4114,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">503</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%AC%A7%E7%BE%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4054,7 +4125,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">504</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%97%A5%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4065,7 +4136,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">505</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%9F%A9%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4076,7 +4147,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">506</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%B2%A4%E8%AF%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4131,7 +4202,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">511</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%88%9E%E6%9B%B2/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4142,7 +4213,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">512</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%AF%B4%E5%94%B1/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4153,7 +4224,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">513</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%BD%BB%E9%9F%B3%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4164,7 +4235,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">514</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%88%B5%E5%A3%AB/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4175,7 +4246,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">515</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B9%A1%E6%9D%91/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4186,7 +4257,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">516</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/R%26B%2FSoul/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4197,7 +4268,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">517</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8F%A4%E5%85%B8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4208,7 +4279,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">518</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B0%91%E6%97%8F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4219,7 +4290,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">519</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%8B%B1%E4%BC%A6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4230,7 +4301,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">520</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%87%91%E5%B1%9E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4241,7 +4312,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">521</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%9C%8B%E5%85%8B/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4252,7 +4323,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">522</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%93%9D%E8%B0%83/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4263,7 +4334,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">523</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%9B%B7%E9%AC%BC/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4274,7 +4345,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">524</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B8%96%E7%95%8C%E9%9F%B3%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4285,7 +4356,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">525</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%8B%89%E4%B8%81/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4296,7 +4367,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">526</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/New+Age/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4307,7 +4378,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">527</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8F%A4%E9%A3%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4318,7 +4389,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">528</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%90%8E%E6%91%87/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4329,7 +4400,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">529</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/Bossa+Nova/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4340,7 +4411,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">530</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%85%E6%99%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4351,7 +4422,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">531</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%A4%9C%E6%99%9A/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4362,7 +4433,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">532</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AD%A6%E4%B9%A0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4373,7 +4444,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">533</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%B7%A5%E4%BD%9C/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4384,7 +4455,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">534</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%8D%88%E4%BC%91/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4395,7 +4466,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">535</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%B8%8B%E5%8D%88%E8%8C%B6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4406,7 +4477,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">536</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%9C%B0%E9%93%81/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4417,7 +4488,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">537</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%A9%BE%E8%BD%A6/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4428,7 +4499,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">538</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E8%BF%90%E5%8A%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4439,7 +4510,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">539</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%97%85%E8%A1%8C/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4450,7 +4521,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">540</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%95%A3%E6%AD%A5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4461,7 +4532,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">541</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%85%92%E5%90%A7/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4472,7 +4543,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">542</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%80%80%E6%97%A7/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4483,7 +4554,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">543</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%85%E6%96%B0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4494,7 +4565,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">544</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B5%AA%E6%BC%AB/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4505,7 +4576,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">545</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E4%BC%A4%E6%84%9F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4516,7 +4587,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">546</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B2%BB%E6%84%88/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4527,7 +4598,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">547</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%94%BE%E6%9D%BE/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4538,7 +4609,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">548</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AD%A4%E7%8B%AC/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4549,7 +4620,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">549</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%84%9F%E5%8A%A8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4560,7 +4631,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">550</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%85%B4%E5%A5%8B/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4571,7 +4642,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">551</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%BF%AB%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4582,7 +4653,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">552</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%AE%89%E9%9D%99/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4593,7 +4664,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">553</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%80%9D%E5%BF%B5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4604,7 +4675,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">554</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BB%BC%E8%89%BA/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4615,7 +4686,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">555</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%BD%B1%E8%A7%86%E5%8E%9F%E5%A3%B0/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4626,7 +4697,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">556</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/ACG/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4637,7 +4708,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">557</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%84%BF%E7%AB%A5/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4648,7 +4719,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">558</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%A0%A1%E5%9B%AD/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4659,7 +4730,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">559</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%B8%B8%E6%88%8F/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4670,7 +4741,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">560</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/70%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4681,7 +4752,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">561</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/80%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4692,7 +4763,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">562</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/90%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4703,7 +4774,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">563</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BD%91%E7%BB%9C%E6%AD%8C%E6%9B%B2/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4714,7 +4785,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">564</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/KTV/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4725,7 +4796,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">565</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BB%8F%E5%85%B8/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4736,7 +4807,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">566</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E7%BF%BB%E5%94%B1/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4747,7 +4818,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">567</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%90%89%E4%BB%96/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4758,7 +4829,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">568</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E9%92%A2%E7%90%B4/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4769,7 +4840,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">569</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E5%99%A8%E4%B9%90/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4780,7 +4851,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">570</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/%E6%A6%9C%E5%8D%95/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -4791,7 +4862,7 @@
         <include content="Hub_Combined_Widget">
             <param name="id">571</param>
             <param name="content">plugin://plugin.audio.music/hot_playlists_by_tag/00%E5%90%8E/0/</param>
-            <param name="include">List_Landscape_Row</param>
+            <param name="include">List_Square_Row</param>
             <param name="target">music</param>
             <param name="sortby"/>
             <param name="sortorder">ascending</param>
@@ -5718,7 +5789,7 @@
                 <param name="groupid">703</param>
                 <param name="label">欧美</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5744,7 +5815,7 @@
                 <param name="groupid">704</param>
                 <param name="label">日语</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5770,7 +5841,7 @@
                 <param name="groupid">705</param>
                 <param name="label">韩语</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5796,7 +5867,7 @@
                 <param name="groupid">706</param>
                 <param name="label">粤语</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5926,7 +5997,7 @@
                 <param name="groupid">711</param>
                 <param name="label">舞曲</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5952,7 +6023,7 @@
                 <param name="groupid">712</param>
                 <param name="label">说唱</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -5978,7 +6049,7 @@
                 <param name="groupid">713</param>
                 <param name="label">轻音乐</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6004,7 +6075,7 @@
                 <param name="groupid">714</param>
                 <param name="label">爵士</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6030,7 +6101,7 @@
                 <param name="groupid">715</param>
                 <param name="label">乡村</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6056,7 +6127,7 @@
                 <param name="groupid">716</param>
                 <param name="label">R&amp;B/Soul</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6082,7 +6153,7 @@
                 <param name="groupid">717</param>
                 <param name="label">古典</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6108,7 +6179,7 @@
                 <param name="groupid">718</param>
                 <param name="label">民族</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6134,7 +6205,7 @@
                 <param name="groupid">719</param>
                 <param name="label">英伦</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6160,7 +6231,7 @@
                 <param name="groupid">720</param>
                 <param name="label">金属</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6186,7 +6257,7 @@
                 <param name="groupid">721</param>
                 <param name="label">朋克</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6212,7 +6283,7 @@
                 <param name="groupid">722</param>
                 <param name="label">蓝调</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6238,7 +6309,7 @@
                 <param name="groupid">723</param>
                 <param name="label">雷鬼</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6264,7 +6335,7 @@
                 <param name="groupid">724</param>
                 <param name="label">世界音乐</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6290,7 +6361,7 @@
                 <param name="groupid">725</param>
                 <param name="label">拉丁</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6316,7 +6387,7 @@
                 <param name="groupid">726</param>
                 <param name="label">New Age</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6342,7 +6413,7 @@
                 <param name="groupid">727</param>
                 <param name="label">古风</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6368,7 +6439,7 @@
                 <param name="groupid">728</param>
                 <param name="label">后摇</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6394,7 +6465,7 @@
                 <param name="groupid">729</param>
                 <param name="label">Bossa Nova</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6420,7 +6491,7 @@
                 <param name="groupid">730</param>
                 <param name="label">清晨</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6446,7 +6517,7 @@
                 <param name="groupid">731</param>
                 <param name="label">夜晚</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6472,7 +6543,7 @@
                 <param name="groupid">732</param>
                 <param name="label">学习</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6498,7 +6569,7 @@
                 <param name="groupid">733</param>
                 <param name="label">工作</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6524,7 +6595,7 @@
                 <param name="groupid">734</param>
                 <param name="label">午休</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6550,7 +6621,7 @@
                 <param name="groupid">735</param>
                 <param name="label">下午茶</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6576,7 +6647,7 @@
                 <param name="groupid">736</param>
                 <param name="label">地铁</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6602,7 +6673,7 @@
                 <param name="groupid">737</param>
                 <param name="label">驾车</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6628,7 +6699,7 @@
                 <param name="groupid">738</param>
                 <param name="label">运动</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6654,7 +6725,7 @@
                 <param name="groupid">739</param>
                 <param name="label">旅行</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6680,7 +6751,7 @@
                 <param name="groupid">740</param>
                 <param name="label">散步</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6706,7 +6777,7 @@
                 <param name="groupid">741</param>
                 <param name="label">酒吧</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6732,7 +6803,7 @@
                 <param name="groupid">742</param>
                 <param name="label">怀旧</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6758,7 +6829,7 @@
                 <param name="groupid">743</param>
                 <param name="label">清新</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6784,7 +6855,7 @@
                 <param name="groupid">744</param>
                 <param name="label">浪漫</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6810,7 +6881,7 @@
                 <param name="groupid">745</param>
                 <param name="label">伤感</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6836,7 +6907,7 @@
                 <param name="groupid">746</param>
                 <param name="label">治愈</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6862,7 +6933,7 @@
                 <param name="groupid">747</param>
                 <param name="label">放松</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6888,7 +6959,7 @@
                 <param name="groupid">748</param>
                 <param name="label">孤独</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6914,7 +6985,7 @@
                 <param name="groupid">749</param>
                 <param name="label">感动</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6940,7 +7011,7 @@
                 <param name="groupid">750</param>
                 <param name="label">兴奋</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6966,7 +7037,7 @@
                 <param name="groupid">751</param>
                 <param name="label">快乐</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -6992,7 +7063,7 @@
                 <param name="groupid">752</param>
                 <param name="label">安静</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7018,7 +7089,7 @@
                 <param name="groupid">753</param>
                 <param name="label">思念</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7044,7 +7115,7 @@
                 <param name="groupid">754</param>
                 <param name="label">综艺</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7070,7 +7141,7 @@
                 <param name="groupid">755</param>
                 <param name="label">影视原声</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7096,7 +7167,7 @@
                 <param name="groupid">756</param>
                 <param name="label">ACG</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7122,7 +7193,7 @@
                 <param name="groupid">757</param>
                 <param name="label">儿童</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7148,7 +7219,7 @@
                 <param name="groupid">758</param>
                 <param name="label">校园</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7174,7 +7245,7 @@
                 <param name="groupid">759</param>
                 <param name="label">游戏</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7200,7 +7271,7 @@
                 <param name="groupid">760</param>
                 <param name="label">70后</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7226,7 +7297,7 @@
                 <param name="groupid">761</param>
                 <param name="label">80后</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7252,7 +7323,7 @@
                 <param name="groupid">762</param>
                 <param name="label">90后</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7278,7 +7349,7 @@
                 <param name="groupid">763</param>
                 <param name="label">网络歌曲</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7304,7 +7375,7 @@
                 <param name="groupid">764</param>
                 <param name="label">KTV</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7330,7 +7401,7 @@
                 <param name="groupid">765</param>
                 <param name="label">经典</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7356,7 +7427,7 @@
                 <param name="groupid">766</param>
                 <param name="label">翻唱</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7382,7 +7453,7 @@
                 <param name="groupid">767</param>
                 <param name="label">吉他</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7408,7 +7479,7 @@
                 <param name="groupid">768</param>
                 <param name="label">钢琴</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7434,7 +7505,7 @@
                 <param name="groupid">769</param>
                 <param name="label">器乐</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7460,7 +7531,7 @@
                 <param name="groupid">770</param>
                 <param name="label">榜单</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>
@@ -7486,7 +7557,7 @@
                 <param name="groupid">771</param>
                 <param name="label">00后</param>
                 <param name="usewidgetlabel">False</param>
-                <param name="include">List_Landscape_Row</param>
+                <param name="include">List_Square_Row</param>
                 <param name="grouplistid">602</param>
                 <param name="refocus">SetFocus(302)</param>
                 <param name="detailed">False</param>

@@ -1091,6 +1091,14 @@
             <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
             <label>$LOCALIZE[206]</label>
         </include>
+        <include content="Settings_Button">
+            <param name="id">8034</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.CommentsDimBg)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.CommentsDimBg)</selected>
+            <label>$LOCALIZE[31443]</label>
+        </include>
     </include>
 
     <include name="DialogCustom_VideoInfo_Items">
@@ -1535,6 +1543,14 @@
             <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1141)</onclick>
             <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
             <label>$LOCALIZE[206]</label>
+        </include>
+        <include content="Settings_Button">
+            <param name="id">8034</param>
+            <param name="control">radiobutton</param>
+            <param name="dialog">true</param>
+            <onclick>Skin.ToggleSetting(MusicOSD.CommentsDimBg)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.CommentsDimBg)</selected>
+            <label>$LOCALIZE[31443]</label>
         </include>
     </include>
 

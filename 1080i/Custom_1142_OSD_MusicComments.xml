@@ -2,8 +2,17 @@
 <window type="dialog" id="1142">
     <zorder>0</zorder>
     <defaultcontrol always="true">9801</defaultcontrol>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
+
+        <!-- 全屏半透明遮罩背景（虚化效果，可设置开关） -->
+        <control type="image">
+            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
+            <texture colordiffuse="B2000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
 
         <!-- 评论列表主区域 -->
         <control type="group">
@@ -32,8 +41,8 @@
                 <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                 <ondown>SetFocus(9802)</ondown>
 
-                <!-- 当焦点在触发器项上按右键时，通过RunPlugin调用插件端执行加载更多 -->
-                <onright condition="String.IsEmpty(Container(9801).ListItem.Label)">RunPlugin(plugin://plugin.audio.music/trigger_comment_load/)</onright>
+                <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_comment_content_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
+                <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
 
                 <!-- 评论数据源：动态读取URL，首次打开时由MusicOSD设置，加载更多时由插件端设置 -->
                 <content>$INFO[Window(10000).Property(bili_comment_content_url)]</content>
@@ -230,7 +239,7 @@
                     <height>30</height>
                     <font>font_mini_bold</font>
                     <textcolor>panel_fg_90</textcolor>
-                    <label>$INFO[MusicPlayer.Artist,, - ]$INFO[MusicPlayer.Title]</label>
+                    <label>$INFO[MusicPlayer.Title,, - ]$INFO[MusicPlayer.Artist]</label>
                 </control>
 
                 <!-- 评论统计 -->

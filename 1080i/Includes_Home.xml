@@ -21,6 +21,10 @@
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Icon))">$INFO[Skin.String(HomeSwitcher.1104.Icon)]</value>
         <value>special://skin/extras/icons/shapes.png</value>
     </variable>
+    <variable name="Home_Icon_1105">
+        <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1105.Icon))">$INFO[Skin.String(HomeSwitcher.1105.Icon)]</value>
+        <value>special://skin/extras/icons/shapes.png</value>
+    </variable>
 
     <include name="Home_ControlList_Item">
         <property name="enabled">true</property>
@@ -37,10 +41,10 @@
 
     <include name="Home_ControlList_Item_1105">
         <include content="Home_ControlList_Item">
-            <param name="label">Search</param>
-            <param name="icon">special://skin/extras/icons/search.png</param>
+            <param name="label">$INFO[Skin.String(HomeSwitcher.1105.Name)]</param>
+            <param name="icon">$VAR[Home_Icon_1105]</param>
             <param name="action">ReplaceWindow(1105)</param>
-            <param name="enabled">[!Skin.HasSetting(HomeSwitcher.DisableSearch)]</param>
+            <param name="enabled">[!String.IsEmpty(Skin.String(HomeSwitcher.1105.Toggle))]</param>
             <param name="visible">Window.IsVisible(1105)</param>
             <param name="mod">$PARAM[mod]</param>
         </include>
@@ -152,6 +156,9 @@
                 <param name="mod">$PARAM[mod]</param>
             </include>
             <include content="Home_ControlList_Item_1104">
+                <param name="mod">$PARAM[mod]</param>
+            </include>
+            <include content="Home_ControlList_Item_1105">
                 <param name="mod">$PARAM[mod]</param>
             </include>
             <include content="Home_ControlList_Item_1106">
@@ -417,6 +424,10 @@
                     <include content="Home_Object_VertIcon" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Toggle))">
                         <param name="icon">$VAR[Home_Icon_1104]</param>
                         <param name="window">1104</param>
+                    </include>
+                    <include content="Home_Object_VertIcon" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1105.Toggle))">
+                        <param name="icon">$VAR[Home_Icon_1105]</param>
+                        <param name="window">1105</param>
                     </include>
                     <include content="Home_Object_VertIcon" condition="!String.IsEmpty(Skin.String(HomeSwitcher.1106.Toggle))">
                         <param name="icon">$VAR[Home_Switcher_Right_Buttons_Calendar]</param>
