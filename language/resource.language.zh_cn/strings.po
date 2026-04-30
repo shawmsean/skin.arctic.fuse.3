@@ -1380,6 +1380,18 @@ msgctxt "#31367"
 msgid "Music OSD OnDown Navigation"
 msgstr "音乐OSD向下导航"
 
+msgctxt "#31453"
+msgid "Song Comments"
+msgstr "歌曲评论"
+
+msgctxt "#31454"
+msgid "Playlist"
+msgstr "播放列表"
+
+msgctxt "#31455"
+msgid "Artist Info"
+msgstr "歌手信息"
+
 #: /1080i/Dialog_DialogCustom.xml
 msgctxt "#31443"
 msgid "Comments Background Dim"

@@ -34,6 +34,16 @@
         <value>ffffffff</value>
     </variable>
 
+    <!-- Highlight Color 50% Alpha -->
+    <variable name="ColorHighlight_50">
+        <value condition="String.IsEqual(Skin.String(focuscolor.name),ff00b8d4)">8000b8d4</value>
+        <value condition="String.IsEqual(Skin.String(focuscolor.name),fff4511e)">80f4511e</value>
+        <value condition="String.IsEqual(Skin.String(focuscolor.name),ffe91e63)">80e91e63</value>
+        <value condition="String.IsEqual(Skin.String(focuscolor.name),ff0091ea)">800091ea</value>
+        <value condition="String.IsEqual(Skin.String(focuscolor.name),ff5528a8)">805528a8</value>
+        <value>80ffffff</value>
+    </variable>
+
     <!-- Watched / Progress Color -->
     <variable name="ColorWatchedProgress">
         <value condition="!String.IsEmpty(Skin.String(watchedprogresscolor.name))">$INFO[Skin.String(watchedprogresscolor.name)]</value>

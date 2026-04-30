@@ -44,6 +44,11 @@
                 <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_comment_content_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
                 <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
 
+                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9801).ListItem.Label],10000)</onclick>
+                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
+                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9801).ListItem.Property(comment_reply_summary)],10000)</onclick>
+                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+
                 <!-- 评论数据源：动态读取URL，首次打开时由MusicOSD设置，加载更多时由插件端设置 -->
                 <content>$INFO[Window(10000).Property(bili_comment_content_url)]</content>
 
@@ -118,7 +123,18 @@
                         <height>24</height>
                         <font>font_tiny</font>
                         <textcolor>panel_fg_70</textcolor>
-                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]</label>
+                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                    </control>
+
+                    <!-- 回复摘要 -->
+                    <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                        <left>20</left>
+                        <bottom>36</bottom>
+                        <width>520</width>
+                        <height>24</height>
+                        <font>font_tiny</font>
+                        <textcolor>panel_fg_50</textcolor>
+                        <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
                     </control>
 
                     <!-- 加载更多文字（仅触发器项有next_page property时显示） -->
@@ -206,7 +222,18 @@
                         <height>24</height>
                         <font>font_tiny</font>
                         <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]</label>
+                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                    </control>
+
+                    <!-- 回复摘要 -->
+                    <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                        <left>20</left>
+                        <bottom>36</bottom>
+                        <width>520</width>
+                        <height>24</height>
+                        <font>font_tiny</font>
+                        <textcolor>$VAR[ColorSelected]</textcolor>
+                        <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
                     </control>
 
                     <!-- 加载更多文字（焦点态） -->

@@ -375,6 +375,24 @@
         <value condition="Window.IsVisible(pvrosdguide)">$VAR[Label_OSD_HintText_PVROSDGuide]</value>
         <value>$VAR[Label_OSD_HintText_Main]</value>
     </variable>
+    <variable name="Label_MusicOSD_HintText">
+        <value condition="Window.IsVisible(1142)">$VAR[Label_MusicOSD_HintText_1142]</value>
+        <value condition="Window.IsVisible(1140)">$VAR[Label_MusicOSD_HintText_1140]</value>
+        <value condition="Window.IsVisible(1141)">$VAR[Label_MusicOSD_HintText_1141]</value>
+        <value>$VAR[Label_MusicOSD_HintText_Main]</value>
+    </variable>
+    <variable name="Label_MusicOSD_HintText_Main">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">$LOCALIZE[31453]</value>
+    </variable>
+    <variable name="Label_MusicOSD_HintText_1142">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">$LOCALIZE[31454]</value>
+    </variable>
+    <variable name="Label_MusicOSD_HintText_1140">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1141)">$LOCALIZE[31455]</value>
+    </variable>
+    <variable name="Label_MusicOSD_HintText_1141">
+        <value />
+    </variable>
     <variable name="Label_OSD_HintText_Main">
         <value condition="VideoPlayer.Content(livetv) + !Skin.HasSetting(OSD.OnDown.DisablePVROSDGuide)">$LOCALIZE[31348]</value>
         <value condition="VideoPlayer.Content(livetv)">$VAR[Label_OSD_HintText_PVROSDGuide]</value>

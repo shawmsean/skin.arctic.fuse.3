@@ -87,17 +87,6 @@
                                     <onclick condition="String.IsEmpty(Container(30000).ListItem.Property(enabled))">Skin.SetString($INFO[Container(30000).ListItem.Property(rename),,.Toggle],true)</onclick>
                                     <onclick condition="String.IsEqual(Container(30000).ListItem.Property(enabled),true)">Skin.Reset($INFO[Container(30000).ListItem.Property(rename),,.Toggle])</onclick>
                                 </item>
-                                <item id="6">
-                                    <label>$INFO[Skin.String(HomeSwitcher.1105.Name)]</label>
-                                    <icon>$VAR[Home_Icon_1105]</icon>
-                                    <property name="checkmark">true</property>
-                                    <property name="editmenu">menu=1105</property>
-                                    <property name="rename">HomeSwitcher.1105</property>
-                                    <property name="enabled">$INFO[Skin.String(HomeSwitcher.1105.Toggle)]</property>
-                                    <property name="mode">$INFO[Skin.String(HomeSwitcher.1105.Mode)]</property>
-                                    <onclick condition="String.IsEmpty(Container(30000).ListItem.Property(enabled))">Skin.SetString($INFO[Container(30000).ListItem.Property(rename),,.Toggle],true)</onclick>
-                                    <onclick condition="String.IsEqual(Container(30000).ListItem.Property(enabled),true)">Skin.Reset($INFO[Container(30000).ListItem.Property(rename),,.Toggle])</onclick>
-                                </item>
                                 <item id="5">
                                     <label>$LOCALIZE[137]</label>
                                     <icon>special://skin/extras/icons/search.png</icon>
