@@ -12,7 +12,7 @@
         <!-- 全屏半透明遮罩背景（音乐模式下虚化效果） -->
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
-            <visible>Window.IsActive(musicosd)</visible>
+            <visible>Window.IsActive(musicosd) + !Window.IsActive(videoosd)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
             <animation effect="fade" start="0" end="100" time="200">Visible</animation>
             <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
@@ -26,14 +26,14 @@
             </include>
 
             <!-- Cast Icon - Music OSD -->
-            <include content="OSD_Info_Tray" condition="Window.IsActive(musicosd)">
+            <include content="OSD_Info_Tray" condition="Window.IsActive(musicosd) + !Window.IsActive(videoosd)">
                 <param name="icon">$INFO[Container(6501).ListItem.Icon]</param>
                 <param name="role">$INFO[Window(10000).Property(nc_current_artist_name)]</param>
                 <param name="name">$INFO[Container(6501).ListItem.Plot]</param>
                 <param name="text">$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot)]</param>
             </include>
             <!-- Cast Icon - Video OSD -->
-            <include content="OSD_Info_Tray" condition="!Window.IsActive(musicosd)">
+            <include content="OSD_Info_Tray" condition="!Window.IsActive(musicosd) | Window.IsActive(videoosd)">
                 <param name="icon">$INFO[Container(6501).ListItem.Icon]</param>
                 <param name="role">$INFO[Container(6501).ListItem.Label]</param>
                 <param name="name">$VAR[Label_OSD_CastMember_Appearances]</param>
@@ -41,7 +41,7 @@
             </include>
 
             <!-- Music OSD: 纯文字大字号列表 -->
-            <control type="group" condition="Window.IsActive(musicosd)">
+            <control type="group" condition="Window.IsActive(musicosd) + !Window.IsActive(videoosd)">
                 <include>OSD_List_Dimensions</include>
                 <control type="fixedlist" id="6501">
                     <top>100</top>
@@ -132,7 +132,7 @@
             </control>
 
             <!-- Video OSD: 海报行列表 -->
-            <include content="List_Poster_Row" condition="!Window.IsActive(musicosd)">
+            <include content="List_Poster_Row" condition="!Window.IsActive(musicosd) | Window.IsActive(videoosd)">
                 <param name="orientation">horizontal</param>
                 <param name="control">fixedlist</param>
                 <param name="id">6501</param>
