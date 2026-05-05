@@ -1079,16 +1079,16 @@
             <param name="id">8032</param>
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
-            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1140)</onclick>
-            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1140)</selected>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1144)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1144)</selected>
             <label>$LOCALIZE[559]</label>
         </include>
         <include content="Settings_Button">
             <param name="id">8033</param>
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
-            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1141)</onclick>
-            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1149)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1149)</selected>
             <label>$LOCALIZE[206]</label>
         </include>
         <include content="Settings_Button">
@@ -1532,16 +1532,16 @@
             <param name="id">8032</param>
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
-            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1140)</onclick>
-            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1140)</selected>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1144)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1144)</selected>
             <label>$LOCALIZE[559]</label>
         </include>
         <include content="Settings_Button">
             <param name="id">8033</param>
             <param name="control">radiobutton</param>
             <param name="dialog">true</param>
-            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1141)</onclick>
-            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1141)</selected>
+            <onclick>Skin.ToggleSetting(MusicOSD.OnDown.Disable1149)</onclick>
+            <selected>!Skin.HasSetting(MusicOSD.OnDown.Disable1149)</selected>
             <label>$LOCALIZE[206]</label>
         </include>
         <include content="Settings_Button">

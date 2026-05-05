@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1150">
+    <defaultcontrol always="true">8000</defaultcontrol>
+    <onload>CancelAlarm(osd_timeout,true)</onload>
+    <controls>
+
+        <control type="image">
+            <texture colordiffuse="DD000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
+
+        <control type="button" id="8000">
+            <texturenofocus />
+            <texturefocus />
+            <font />
+            <ondown>5000</ondown>
+            <onup>5000</onup>
+            <onleft>61</onleft>
+            <onright>61</onright>
+        </control>
+
+        <!-- 头部：歌手头像+简介 -->
+        <control type="group">
+            <visible>!ControlGroup(5000).HasFocus()</visible>
+            <include content="Animation_Zoom_Out">
+                <param name="type">Hidden</param>
+            </include>
+            <include content="Animation_Zoom_In">
+                <param name="type">Visible</param>
+                <param name="delay">200</param>
+            </include>
+            <left>view_pad</left>
+            <right>view_pad</right>
+            <top>view_top</top>
+            <bottom>view_top</bottom>
+
+            <!-- 右侧方形头像 -->
+            <control type="group">
+                <right>0</right>
+                <width>480</width>
+                <height>480</height>
+                <centertop>280</centertop>
+                <control type="image">
+                    <width>480</width>
+                    <height>480</height>
+                    <texture background="true" diffuse="diffuse/square_w560_h560.png">$INFO[Window(10000).Property(nc_current_artist_pic)]</texture>
+                    <aspectratio>scale</aspectratio>
+                </control>
+            </control>
+
+            <!-- 左侧歌手名+简介+统计 -->
+            <control type="group">
+                <right>520</right>
+                <left>-40</left>
+                <top>0</top>
+
+                <control type="label">
+                    <left>0</left>
+                    <height>60</height>
+                    <font>font_title_bold</font>
+                    <textcolor>main_fg</textcolor>
+                    <label>$INFO[Window(10000).Property(nc_current_artist_name)]</label>
+                    <scroll>true</scroll>
+                </control>
+
+                <control type="textbox">
+                    <left>0</left>
+                    <top>80</top>
+                    <height>420</height>
+                    <width>90%</width>
+                    <font>font_main</font>
+                    <textcolor>panel_fg_80</textcolor>
+                    <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
+                    <autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(8000)</autoscroll>
+                </control>
+
+                <control type="label">
+                    <left>0</left>
+                    <top>520</top>
+                    <height>30</height>
+                    <font>font_mini</font>
+                    <textcolor>panel_fg_50</textcolor>
+                    <label>$INFO[Window(10000).Property(nc_current_artist_stats)]</label>
+                </control>
+            </control>
+        </control>
+
+        <!-- 下方Widget行 -->
+        <control type="group">
+            <include>DialogInfo_Widget_Group</include>
+            <include>DialogInfo_Animation_Down</include>
+            <control type="grouplist" id="5000">
+                <include>DialogInfo_Widget_Grouplist</include>
+                <onup>8000</onup>
+                <onback>8000</onback>
+
+                <include content="Widget_Info_Row">
+                    <param name="id">01</param>
+                    <param name="baseid">50</param>
+                    <param name="basegroupid">51</param>
+                    <param name="label">热门50首</param>
+                    <param name="include">List_Square_Row</param>
+                    <param name="widgetfade_include">true</param>
+                    <param name="set_widgetcontainer">false</param>
+                    <param name="menuid">8000</param>
+                    <param name="detailed">true</param>
+                    <param name="widget_hideartwork">true</param>
+                    <param name="widget_showoverlay">true</param>
+                    <param name="altvisible">true</param>
+                    <content>plugin://plugin.audio.music/hot_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
+                </include>
+
+                <include content="Widget_Info_Row">
+                    <param name="id">02</param>
+                    <param name="baseid">50</param>
+                    <param name="basegroupid">51</param>
+                    <param name="label">专辑</param>
+                    <param name="include">List_Square_Row</param>
+                    <param name="widgetfade_include">true</param>
+                    <param name="set_widgetcontainer">false</param>
+                    <param name="menuid">8000</param>
+                    <param name="detailed">true</param>
+                    <param name="widget_hideartwork">true</param>
+                    <param name="widget_showoverlay">true</param>
+                    <param name="altvisible">true</param>
+                    <content>plugin://plugin.audio.music/albums/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                </include>
+
+                <include content="Widget_Info_Row">
+                    <param name="id">03</param>
+                    <param name="baseid">50</param>
+                    <param name="basegroupid">51</param>
+                    <param name="label">歌曲</param>
+                    <param name="include">List_Square_Row</param>
+                    <param name="widgetfade_include">true</param>
+                    <param name="set_widgetcontainer">false</param>
+                    <param name="menuid">8000</param>
+                    <param name="detailed">true</param>
+                    <param name="widget_hideartwork">true</param>
+                    <param name="widget_showoverlay">true</param>
+                    <param name="altvisible">true</param>
+                    <content>plugin://plugin.audio.music/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                </include>
+
+                <include>Widget_End_Bumper</include>
+            </control>
+        </control>
+
+        <!-- 关闭按钮 -->
+        <control type="group">
+            <right>20</right>
+            <bottom>20</bottom>
+            <width>80</width>
+            <height>80</height>
+            <control type="button" id="61">
+                <left>0</left>
+                <top>0</top>
+                <width>80</width>
+                <height>80</height>
+                <label />
+                <font />
+                <texturefocus>osd/closeFO.png</texturefocus>
+                <texturenofocus>osd/closeNF.png</texturenofocus>
+                <onclick>Close</onclick>
+                <ondown>8000</ondown>
+                <onup>8000</onup>
+            </control>
+        </control>
+
+    </controls>
+</window>

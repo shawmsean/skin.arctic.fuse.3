@@ -377,20 +377,20 @@
     </variable>
     <variable name="Label_MusicOSD_HintText">
         <value condition="Window.IsVisible(1142)">$VAR[Label_MusicOSD_HintText_1142]</value>
-        <value condition="Window.IsVisible(1140)">$VAR[Label_MusicOSD_HintText_1140]</value>
-        <value condition="Window.IsVisible(1141)">$VAR[Label_MusicOSD_HintText_1141]</value>
+        <value condition="Window.IsVisible(1144)">$VAR[Label_MusicOSD_HintText_1144]</value>
+        <value condition="Window.IsVisible(1149)">$VAR[Label_MusicOSD_HintText_1149]</value>
         <value>$VAR[Label_MusicOSD_HintText_Main]</value>
     </variable>
     <variable name="Label_MusicOSD_HintText_Main">
         <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">$LOCALIZE[31453]</value>
     </variable>
     <variable name="Label_MusicOSD_HintText_1142">
-        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">$LOCALIZE[31454]</value>
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">$LOCALIZE[31454]</value>
     </variable>
-    <variable name="Label_MusicOSD_HintText_1140">
-        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1141)">$LOCALIZE[31455]</value>
+    <variable name="Label_MusicOSD_HintText_1144">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1149)">$LOCALIZE[31455]</value>
     </variable>
-    <variable name="Label_MusicOSD_HintText_1141">
+    <variable name="Label_MusicOSD_HintText_1149">
         <value />
     </variable>
     <variable name="Label_OSD_HintText_Main">

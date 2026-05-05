@@ -3,21 +3,10 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">6501</defaultcontrol>
     <onload>CancelAlarm(osd_timeout,true)</onload>
-    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
     <onload>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onload>
     <onload>Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
-
-        <!-- 全屏半透明遮罩背景（音乐模式下虚化效果） -->
-        <control type="image">
-            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
-            <visible>Window.IsActive(musicosd) + !Window.IsActive(videoosd)</visible>
-            <texture colordiffuse="B2000000">common/white.png</texture>
-            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
-        </control>
-
         <control type="group">
             <include>OSD_Info_Dimensions</include>
 
@@ -25,114 +14,16 @@
                 <param name="label">[CAPITALIZE]$INFO[Skin.String(VideoOSD.PersonCredits.CastCrew)][/CAPITALIZE]$VAR[Label_OSD_Title, (,)]</param>
             </include>
 
-            <!-- Cast Icon - Music OSD -->
-            <include content="OSD_Info_Tray" condition="Window.IsActive(musicosd) + !Window.IsActive(videoosd)">
-                <param name="icon">$INFO[Container(6501).ListItem.Icon]</param>
-                <param name="role">$INFO[Window(10000).Property(nc_current_artist_name)]</param>
-                <param name="name">$INFO[Container(6501).ListItem.Plot]</param>
-                <param name="text">$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot)]</param>
-            </include>
-            <!-- Cast Icon - Video OSD -->
-            <include content="OSD_Info_Tray" condition="!Window.IsActive(musicosd) | Window.IsActive(videoosd)">
+            <!-- Cast Icon -->
+            <include content="OSD_Info_Tray">
                 <param name="icon">$INFO[Container(6501).ListItem.Icon]</param>
                 <param name="role">$INFO[Container(6501).ListItem.Label]</param>
                 <param name="name">$VAR[Label_OSD_CastMember_Appearances]</param>
                 <param name="text">$INFO[Window(Home).Property(TMDbHelper.ListItem.Plot)]</param>
             </include>
 
-            <!-- Music OSD: 纯文字大字号列表 -->
-            <control type="group" condition="Window.IsActive(musicosd) + !Window.IsActive(videoosd)">
-                <include>OSD_List_Dimensions</include>
-                <control type="fixedlist" id="6501">
-                    <top>100</top>
-                    <orientation>horizontal</orientation>
-                    <scrolltime tween="quadratic">400</scrolltime>
-                    <preloaditems>2</preloaditems>
-                    <content condition="String.IsEqual(Window(10000).Property(nc_music_plugin_id),plugin.audio.musicJH)">plugin://plugin.audio.musicJH/artist/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
-                    <content condition="!String.IsEqual(Window(10000).Property(nc_music_plugin_id),plugin.audio.musicJH)">plugin://plugin.audio.music/artist/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
-
-                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onfocus>
-
-                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">Close</onup>
-                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">AlarmClock(musicosd_nav,ActivateWindow(1140),00:00,silent)</onup>
-
-                    <onclick>SetProperty(musicosd_nav_path,$INFO[Container(6501).ListItem.FileNameAndPath],Home)</onclick>
-                    <onclick>Close</onclick>
-                    <onclick>AlarmClock(musicosd_back1,Action(Back),00:01,silent)</onclick>
-                    <onclick>AlarmClock(musicosd_back2,Action(Back),00:02,silent)</onclick>
-                    <onclick>AlarmClock(musicosd_nav,ActivateWindow(10502,$INFO[Window(Home).Property(musicosd_nav_path)]),00:03,silent)</onclick>
-
-                    <include>Animation_OSD_Dialog_VisibleChange</include>
-
-                    <include content="Animation_Busy_Fade">
-                        <param name="end">0</param>
-                        <param name="id">6501</param>
-                    </include>
-
-                    <itemlayout width="300" height="120">
-                        <control type="group">
-                            <left>10</left>
-                            <right>10</right>
-                            <height>120</height>
-                            <control type="label">
-                                <left>0</left>
-                                <height>40</height>
-                                <centertop>50%</centertop>
-                                <aligny>center</aligny>
-                                <font>font_head_bold</font>
-                                <textcolor>panel_fg_90</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <left>0</left>
-                                <height>24</height>
-                                <bottom>10</bottom>
-                                <aligny>center</aligny>
-                                <font>font_mini</font>
-                                <textcolor>panel_fg_50</textcolor>
-                                <label>$INFO[ListItem.Plot]</label>
-                            </control>
-                        </control>
-                    </itemlayout>
-
-                    <focusedlayout width="300" height="120">
-                        <control type="group">
-                            <left>10</left>
-                            <right>10</right>
-                            <height>120</height>
-                            <!-- 焦点高亮背景 -->
-                            <control type="image">
-                                <height>80</height>
-                                <centertop>50%</centertop>
-                                <left>-10</left>
-                                <right>-10</right>
-                                <include>Texture_Menu_Highlight_H</include>
-                            </control>
-                            <control type="label">
-                                <left>0</left>
-                                <height>40</height>
-                                <centertop>50%</centertop>
-                                <aligny>center</aligny>
-                                <font>font_head_bold</font>
-                                <include>Color_SelectedText</include>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                            <control type="label">
-                                <left>0</left>
-                                <height>24</height>
-                                <bottom>10</bottom>
-                                <aligny>center</aligny>
-                                <font>font_mini</font>
-                                <textcolor>panel_fg_70</textcolor>
-                                <label>$INFO[ListItem.Plot]</label>
-                            </control>
-                        </control>
-                    </focusedlayout>
-                </control>
-            </control>
-
-            <!-- Video OSD: 海报行列表 -->
-            <include content="List_Poster_Row" condition="!Window.IsActive(musicosd) | Window.IsActive(videoosd)">
+            <!-- Cast List -->
+            <include content="List_Poster_Row">
                 <param name="orientation">horizontal</param>
                 <param name="control">fixedlist</param>
                 <param name="id">6501</param>
@@ -144,6 +35,7 @@
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">PreviousMenu</onup>
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,crew)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onup>
                 <ondown condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,crew)</ondown>
+
 
                 <include>Animation_OSD_Dialog_VisibleChange</include>
 

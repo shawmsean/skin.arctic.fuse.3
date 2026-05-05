@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1149">
+    <zorder>0</zorder>
+    <defaultcontrol always="true">6501</defaultcontrol>
+    <onload>CancelAlarm(osd_timeout,true)</onload>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <onload>SetProperty(TMDbHelper.WidgetContainer,6501,1149)</onload>
+    <include>Animation_OSD_Dialog_WindowChange</include>
+    <controls>
+
+        <control type="image">
+            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
+            <texture colordiffuse="B2000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
+
+        <control type="group">
+            <include>OSD_Info_Dimensions</include>
+
+            <include content="OSD_View_Line">
+                <param name="label">$INFO[Window(10000).Property(nc_current_artist_name)]</param>
+            </include>
+
+            <include content="OSD_Info_Tray">
+                <param name="icon">$INFO[Window(10000).Property(nc_current_artist_pic)]</param>
+                <param name="role">$INFO[Window(10000).Property(nc_current_artist_name)]</param>
+                <param name="name">$INFO[Window(10000).Property(nc_current_artist_desc)]</param>
+                <param name="text">$INFO[Window(10000).Property(nc_current_artist_desc)]</param>
+            </include>
+
+            <control type="group">
+                <include>OSD_List_Dimensions</include>
+
+                <control type="group">
+                    <left>0</left>
+                    <centertop>50%</centertop>
+                    <height>200</height>
+                    <width>200</width>
+                    <control type="image">
+                        <width>200</width>
+                        <height>200</height>
+                        <bordersize>4</bordersize>
+                        <bordertexture colordiffuse="panel_fg_50">common/circle.png</bordertexture>
+                        <texture diffuse="common/circle.png" background="true">$INFO[Window(10000).Property(nc_current_artist_pic)]</texture>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                        <visible>!String.IsEmpty(Window(10000).Property(nc_current_artist_pic))</visible>
+                    </control>
+                    <control type="image">
+                        <width>200</width>
+                        <height>200</height>
+                        <texture colordiffuse="panel_fg_30">common/circle.png</texture>
+                        <visible>String.IsEmpty(Window(10000).Property(nc_current_artist_pic))</visible>
+                    </control>
+                </control>
+
+                <control type="group">
+                    <left>230</left>
+                    <right>0</right>
+                    <centertop>50%</centertop>
+                    <height>200</height>
+                    <control type="label">
+                        <left>0</left>
+                        <height>50</height>
+                        <font>font_head_bold</font>
+                        <textcolor>panel_fg_90</textcolor>
+                        <label>$INFO[Window(10000).Property(nc_current_artist_name)]</label>
+                        <scroll>true</scroll>
+                    </control>
+                    <control type="textbox">
+                        <left>0</left>
+                        <top>60</top>
+                        <bottom>0</bottom>
+                        <font>font_mini</font>
+                        <textcolor>panel_fg_50</textcolor>
+                        <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
+                        <autoscroll delay="5000" time="2000" repeat="10000">true</autoscroll>
+                    </control>
+                </control>
+
+                <control type="button" id="6501">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>1600</width>
+                    <height>450</height>
+                    <texturenofocus />
+                    <texturefocus />
+                    <onclick>Close</onclick>
+                    <onclick>AlarmClock(musicosd_nav,ActivateWindow(1150),00:00,silent)</onclick>
+                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">Close</onup>
+                    <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">AlarmClock(musicosd_nav,ActivateWindow(1144),00:00,silent)</onup>
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,6501,1149)</onfocus>
+                </control>
+            </control>
+        </control>
+
+    </controls>
+</window>

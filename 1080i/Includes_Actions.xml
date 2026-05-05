@@ -135,12 +135,12 @@
     </variable>
 
     <variable name="Action_MusicOSD_1142_OnDown">
-        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1140)">1140</value>
-        <value>$VAR[Action_MusicOSD_1140_OnDown]</value>
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">1144</value>
+        <value>$VAR[Action_MusicOSD_1144_OnDown]</value>
     </variable>
 
-    <variable name="Action_MusicOSD_1140_OnDown">
-        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1141)">1141</value>
+    <variable name="Action_MusicOSD_1144_OnDown">
+        <value condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1149)">1149</value>
     </variable>
 
     <include name="Action_BlurImage_SimpleBackground_Onload">

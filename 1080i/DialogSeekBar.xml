@@ -47,7 +47,7 @@
 
                 <include content="OSD_CastInfo_HintText">
                     <param name="label">$VAR[Label_MusicOSD_HintText]</param>
-                    <param name="visible">Window.IsActive(musicosd) | [Window.IsVisible(1142) + Window.IsActive(musicosd)] | [Window.IsVisible(1140) + Window.IsActive(musicosd)] | [Window.IsVisible(1141) + Window.IsActive(musicosd)]</param>
+                    <param name="visible">Window.IsActive(musicosd) | [Window.IsVisible(1142) + Window.IsActive(musicosd)] | [Window.IsVisible(1144) + Window.IsActive(musicosd)] | [Window.IsVisible(1149) + Window.IsActive(musicosd)]</param>
                 </include>
             </control>
         </control>

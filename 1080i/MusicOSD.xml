@@ -13,7 +13,7 @@
 
         <control type="group">
 
-            <visible allowhiddenfocus="true">!Window.IsVisible(1142)</visible>
+            <visible allowhiddenfocus="true">!Window.IsVisible(1142) + !Window.IsVisible(1144) + !Window.IsVisible(1149) + !Window.IsVisible(1150)</visible>
             <animation effect="fade" start="0" end="100" time="300" delay="0">Visible</animation>
             <animation effect="fade" end="0" start="100" time="150">Hidden</animation>
 
@@ -221,7 +221,7 @@
 
                 <control type="group">
                     <visible>!String.IsEmpty(Window(Home).Property(OSDArtistDetails))</visible>
-                    <visible>!Window.IsVisible(1142)</visible>
+                    <visible>!Window.IsVisible(1142) + !Window.IsVisible(1144) + !Window.IsVisible(1149) + !Window.IsVisible(1150)</visible>
                     <visible>!Window.IsVisible(script-cu-lrclyrics-main.xml)</visible>
                     <animation type="Visible" reversible="false">
                         <effect type="fade" start="0" end="100" time="600" delay="200" />
