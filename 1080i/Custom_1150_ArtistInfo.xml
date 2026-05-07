@@ -51,33 +51,37 @@
 
             <!-- 左侧歌手名+简介+统计 -->
             <control type="group">
-                <right>520</right>
+                <right>440</right>
                 <left>-40</left>
-                <top>0</top>
+                <centertop>250</centertop>
+                <height>440</height>
 
+                <!-- 第一行：歌手姓名 大号字体 -->
                 <control type="label">
                     <left>0</left>
-                    <height>60</height>
-                    <font>font_title_bold</font>
-                    <textcolor>main_fg</textcolor>
+                    <height>70</height>
+                    <font>font_head_bold</font>
+                    <textcolor>white</textcolor>
                     <label>$INFO[Window(10000).Property(nc_current_artist_name)]</label>
                     <scroll>true</scroll>
                 </control>
 
+                <!-- 第二行：歌手简介 小号字体 -->
                 <control type="textbox">
                     <left>0</left>
                     <top>80</top>
-                    <height>420</height>
+                    <height>400</height>
                     <width>90%</width>
-                    <font>font_main</font>
-                    <textcolor>panel_fg_80</textcolor>
+                    <font>font_mini</font>
+                    <textcolor>green</textcolor>
                     <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
                     <autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(8000)</autoscroll>
                 </control>
 
+                <!-- 第三行：数据统计 -->
                 <control type="label">
                     <left>0</left>
-                    <top>520</top>
+                    <top>600</top>
                     <height>30</height>
                     <font>font_mini</font>
                     <textcolor>panel_fg_50</textcolor>
