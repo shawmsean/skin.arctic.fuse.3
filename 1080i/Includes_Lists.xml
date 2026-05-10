@@ -823,8 +823,19 @@
                 <orientation>$PARAM[orientation]</orientation>
                 <preloaditems>$PARAM[preloaditems]</preloaditems>
                 <scrolltime tween="$PARAM[tween]">$PARAM[scrolltime]</scrolltime>
+
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_refocus_index,$INFO[Window(10000).Property(bili_trigger_index)],Home)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[Container($PARAM[id]).ListItem.Property(next_page)],replace)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_refocus,SetFocus($PARAM[id],$INFO[Window(Home).Property(bili_refocus_index)],absolute),00:00,silent)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</ondown>
+
                 <itemlayout width="$PARAM[itemlayout_w]" height="$PARAM[itemlayout_h]">
-                    <control type="group">
+                    <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
+                        <visible>false</visible>
+                    </control>
+
+                    <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                         <left>$PARAM[offset_x]</left>
                         <right>-$PARAM[offset_x]</right>
                         <top>$PARAM[offset_y]</top>
@@ -859,7 +870,14 @@
                         <right>-$PARAM[offset_x]</right>
                         <top>$PARAM[offset_y]</top>
                         <bottom>-$PARAM[offset_y]</bottom>
-                        <control type="group">
+
+                        <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</onfocus>
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[ListItem.Property(next_page)],replace)</onfocus>
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</onfocus>
+                        </control>
+
+                        <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                             <animation effect="fade" start="100" end="0" condition="[Control.HasFocus($PARAM[id]) | $PARAM[altfocus]]">Conditional</animation>
                             <include content="$PARAM[itemlayout_include]">
                                 <param name="focusedlayout">true</param>
@@ -879,7 +897,8 @@
                                 <param name="use_label2">$PARAM[use_label2]</param>
                             </include>
                         </control>
-                        <control type="group">
+
+                        <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                             <animation effect="fade" start="100" end="0" condition="![Control.HasFocus($PARAM[id]) | $PARAM[altfocus]]">Conditional</animation>
                             <include content="$PARAM[itemlayout_include]">
                                 <param name="focusedlayout">true</param>
