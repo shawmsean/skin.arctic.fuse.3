@@ -3,10 +3,11 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">9801</defaultcontrol>
     <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <onload condition="String.IsEmpty(Window(10000).Property(bili_hot_comment_url))">SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</onload>
+    <onload condition="String.IsEmpty(Window(10000).Property(bili_latest_comment_url))">SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
 
-        <!-- 全屏半透明遮罩背景（虚化效果，可设置开关） -->
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
@@ -14,271 +15,284 @@
             <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
         </control>
 
-        <!-- 评论列表主区域 -->
+        <!-- 评论主区域 -->
         <control type="group">
-            <height>640</height>
-            <bottom>200</bottom>
+            <left>view_pad</left>
+            <right>view_pad</right>
+            <bottom>100</bottom>
+            <top>80</top>
 
-            <!-- 标题行 -->
-            <include content="View_Line">
-                <param name="label">$LOCALIZE[31360]</param>
-                <param name="top">10</param>
-            </include>
+            <!-- 第一行：热门评论 - 自定义卡片 -->
+            <control type="group">
+                <height>360</height>
 
-            <!-- 横向评论列表 -->
-            <control type="fixedlist" id="9801">
-                <left>view_pad</left>
-                <right>view_pad</right>
-                <top>80</top>
-                <bottom>100</bottom>
-                <orientation>horizontal</orientation>
-                <scrolltime>300</scrolltime>
-                <focusposition>0</focusposition>
-                <movement>5</movement>
-                <preloaditems>0</preloaditems>
-                <onup>Close</onup>
-                <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">Close</ondown>
-                <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
-                <ondown>SetFocus(9802)</ondown>
+                <include content="View_Line">
+                    <param name="label">热门评论</param>
+                    <param name="top">0</param>
+                </include>
 
-                <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_comment_content_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
-                <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
+                <control type="fixedlist" id="9801">
+                    <left>0</left>
+                    <right>0</right>
+                    <top>50</top>
+                    <bottom>0</bottom>
+                    <orientation>horizontal</orientation>
+                    <scrolltime>300</scrolltime>
+                    <focusposition>0</focusposition>
+                    <movement>5</movement>
+                    <preloaditems>0</preloaditems>
+                    <onup>Close</onup>
+                    <ondown>SetFocus(9802)</ondown>
+                    <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
+                    <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
+                    <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9801).ListItem.Label],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9801).ListItem.Property(comment_reply_summary)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+                    <content>$INFO[Window(10000).Property(bili_hot_comment_url)]</content>
 
-                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9801).ListItem.Label],10000)</onclick>
-                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
-                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9801).ListItem.Property(comment_reply_summary)],10000)</onclick>
-                <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+                    <itemlayout width="420" height="300">
+                        <control type="image">
+                            <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>16</left><top>10</top><width>auto</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>panel_fg_70</textcolor>
+                            <label>HOT</label>
+                        </control>
+                        <control type="image">
+                            <left>16</left><top>36</top><width>40</width><height>40</height>
+                            <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <fallback>special://skin/extras/icons/user.png</fallback>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>36</top><width>340</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>panel_fg_100</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>58</top><width>340</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
+                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>16</left><top>84</top><width>388</width><bottom>40</bottom>
+                            <font>font_tiny</font><textcolor>white</textcolor>
+                            <label>$INFO[ListItem.Property(comment_content)]</label>
+                            <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9801)</autoscroll>
+                        </control>
+                        <control type="label">
+                            <left>16</left><bottom>8</bottom><width>auto</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
+                            <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                        </control>
+                        <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                            <left>16</left><bottom>28</bottom><width>388</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_50</textcolor>
+                            <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
+                        </control>
+                        <control type="label">
+                            <left>20</left><top>0</top><width>388</width><height>300</height>
+                            <font>font_main_bold</font><textcolor>panel_fg_70</textcolor>
+                            <align>center</align><aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
+                        </control>
+                    </itemlayout>
 
-                <!-- 评论数据源：动态读取URL，首次打开时由MusicOSD设置，加载更多时由插件端设置 -->
-                <content>$INFO[Window(10000).Property(bili_comment_content_url)]</content>
-
-                <!-- 普通评论项布局 -->
-                <itemlayout width="560" height="460">
-                    <!-- 卡片背景 -->
-                    <control type="image">
-                        <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
-                    </control>
-
-                    <!-- 热门评论标记 -->
-                    <control type="label" condition="String.IsEqual(ListItem.Property(comment_type),hot)">
-                        <left>20</left>
-                        <top>16</top>
-                        <width>auto</width>
-                        <height>30</height>
-                        <font>font_mini_bold</font>
-                        <textcolor>panel_fg_70</textcolor>
-                        <label>HOT</label>
-                    </control>
-
-                    <!-- 用户头像 -->
-                    <control type="image">
-                        <left>20</left>
-                        <top>50</top>
-                        <width>48</width>
-                        <height>48</height>
-                        <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio scalediffuse="false">keep</aspectratio>
-                        <fallback>special://skin/extras/icons/user.png</fallback>
-                    </control>
-
-                    <!-- 用户昵称（触发器项label为空，自然不显示） -->
-                    <control type="label">
-                        <left>78</left>
-                        <top>50</top>
-                        <width>460</width>
-                        <height>30</height>
-                        <font>font_mini_bold</font>
-                        <textcolor>panel_fg_100</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-
-                    <!-- 评论时间 -->
-                    <control type="label">
-                        <left>78</left>
-                        <top>78</top>
-                        <width>460</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>panel_fg_70</textcolor>
-                        <label>$INFO[ListItem.Property(comment_time)]</label>
-                    </control>
-
-                    <!-- 评论内容（自动滚动，触发器项comment_content为空，自然不显示） -->
-                    <control type="textbox">
-                        <left>20</left>
-                        <top>110</top>
-                        <width>520</width>
-                        <bottom>50</bottom>
-                        <font>font_mini</font>
-                        <textcolor>panel_fg_100</textcolor>
-                        <label>$INFO[ListItem.Property(comment_content)]</label>
-                        <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9801)</autoscroll>
-                    </control>
-
-                    <!-- 点赞数 -->
-                    <control type="label">
-                        <left>20</left>
-                        <bottom>12</bottom>
-                        <width>auto</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>panel_fg_70</textcolor>
-                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
-                    </control>
-
-                    <!-- 回复摘要 -->
-                    <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
-                        <left>20</left>
-                        <bottom>36</bottom>
-                        <width>520</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>panel_fg_50</textcolor>
-                        <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
-                    </control>
-
-                    <!-- 加载更多文字（仅触发器项有next_page property时显示） -->
-                    <control type="label">
-                        <left>20</left>
-                        <top>0</top>
-                        <width>520</width>
-                        <height>460</height>
-                        <font>font_main_bold</font>
-                        <textcolor>panel_fg_70</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
-                    </control>
-                </itemlayout>
-
-                <!-- 焦点评论项布局 -->
-                <focusedlayout width="560" height="460">
-                    <!-- 卡片背景（焦点态：主题色50%透明度） -->
-                    <control type="image">
-                        <texture colordiffuse="$VAR[ColorHighlight_50]" border="20">common/box.png</texture>
-                    </control>
-
-                    <!-- 热门评论标记 -->
-                    <control type="label" condition="String.IsEqual(ListItem.Property(comment_type),hot)">
-                        <left>20</left>
-                        <top>16</top>
-                        <width>auto</width>
-                        <height>30</height>
-                        <font>font_mini_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>HOT</label>
-                    </control>
-
-                    <!-- 用户头像 -->
-                    <control type="image">
-                        <left>20</left>
-                        <top>50</top>
-                        <width>48</width>
-                        <height>48</height>
-                        <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
-                        <aspectratio scalediffuse="false">keep</aspectratio>
-                        <fallback>special://skin/extras/icons/user.png</fallback>
-                    </control>
-
-                    <!-- 用户昵称（跟随主题选中色） -->
-                    <control type="label">
-                        <left>78</left>
-                        <top>50</top>
-                        <width>460</width>
-                        <height>30</height>
-                        <font>font_mini_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Label]</label>
-                    </control>
-
-                    <!-- 评论时间 -->
-                    <control type="label">
-                        <left>78</left>
-                        <top>78</top>
-                        <width>460</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(comment_time)]</label>
-                    </control>
-
-                    <!-- 评论内容（自动滚动） -->
-                    <control type="textbox">
-                        <left>20</left>
-                        <top>110</top>
-                        <width>520</width>
-                        <bottom>50</bottom>
-                        <font>font_mini</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(comment_content)]</label>
-                        <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9801)</autoscroll>
-                    </control>
-
-                    <!-- 点赞数 -->
-                    <control type="label">
-                        <left>20</left>
-                        <bottom>12</bottom>
-                        <width>auto</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
-                    </control>
-
-                    <!-- 回复摘要 -->
-                    <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
-                        <left>20</left>
-                        <bottom>36</bottom>
-                        <width>520</width>
-                        <height>24</height>
-                        <font>font_tiny</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
-                    </control>
-
-                    <!-- 加载更多文字（焦点态） -->
-                    <control type="label">
-                        <left>20</left>
-                        <top>0</top>
-                        <width>520</width>
-                        <height>460</height>
-                        <font>font_main_bold</font>
-                        <textcolor>$VAR[ColorSelected]</textcolor>
-                        <align>center</align>
-                        <aligny>center</aligny>
-                        <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
-                    </control>
-                </focusedlayout>
+                    <focusedlayout width="420" height="300">
+                        <control type="image">
+                            <texture colordiffuse="$VAR[ColorHighlight_50]" border="20">common/box.png</texture>
+                        </control>
+                        <control type="label">
+                            <left>16</left><top>10</top><width>auto</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>HOT</label>
+                        </control>
+                        <control type="image">
+                            <left>16</left><top>36</top><width>40</width><height>40</height>
+                            <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <fallback>special://skin/extras/icons/user.png</fallback>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>36</top><width>340</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>58</top><width>340</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>16</left><top>84</top><width>388</width><bottom>40</bottom>
+                            <font>font_tiny</font><textcolor>white</textcolor>
+                            <label>$INFO[ListItem.Property(comment_content)]</label>
+                            <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9801)</autoscroll>
+                        </control>
+                        <control type="label">
+                            <left>16</left><bottom>8</bottom><width>auto</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                        </control>
+                        <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                            <left>16</left><bottom>28</bottom><width>388</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
+                        </control>
+                        <control type="label">
+                            <left>20</left><top>0</top><width>388</width><height>300</height>
+                            <font>font_main_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <align>center</align><aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
+                        </control>
+                    </focusedlayout>
+                </control>
             </control>
 
-            <!-- 底部信息栏：当前歌曲信息 + 评论统计 -->
+            <!-- 第二行：最新评论 - 自定义卡片 -->
             <control type="group">
-                <left>view_pad</left>
-                <right>view_pad</right>
-                <height>80</height>
-                <bottom>10</bottom>
+                <top>370</top>
+                <bottom>0</bottom>
 
-                <!-- 歌曲信息 -->
-                <control type="label">
-                    <left>0</left>
-                    <top>0</top>
-                    <width>800</width>
-                    <height>30</height>
-                    <font>font_mini_bold</font>
-                    <textcolor>panel_fg_90</textcolor>
-                    <label>$INFO[MusicPlayer.Title,, - ]$INFO[MusicPlayer.Artist]</label>
-                </control>
+                <include content="View_Line">
+                    <param name="label">最新评论</param>
+                    <param name="top">0</param>
+                </include>
 
-                <!-- 评论统计 -->
-                <control type="label">
+                <control type="fixedlist" id="9802">
                     <left>0</left>
-                    <top>30</top>
-                    <width>800</width>
-                    <height>24</height>
-                    <font>font_tiny</font>
-                    <textcolor>panel_fg_50</textcolor>
-                    <label>$INFO[Window(10000).Property(bili_comment_loaded),已加载 ,]$INFO[Window(10000).Property(bili_comment_total),/ , 条评论]</label>
+                    <right>0</right>
+                    <top>50</top>
+                    <bottom>0</bottom>
+                    <orientation>horizontal</orientation>
+                    <scrolltime>300</scrolltime>
+                    <focusposition>0</focusposition>
+                    <movement>5</movement>
+                    <preloaditems>0</preloaditems>
+                    <onup>SetFocus(9801)</onup>
+                    <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">Close</ondown>
+                    <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
+                    <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onright>
+                    <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onright>
+                    <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9802).ListItem.Label],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9802).ListItem.Property(comment_reply_summary)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+                    <content>$INFO[Window(10000).Property(bili_latest_comment_url)]</content>
+
+                    <itemlayout width="420" height="300">
+                        <control type="image">
+                            <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>16</left><top>10</top><width>40</width><height>40</height>
+                            <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <fallback>special://skin/extras/icons/user.png</fallback>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>10</top><width>340</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>panel_fg_100</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>32</top><width>340</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
+                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>16</left><top>58</top><width>388</width><bottom>40</bottom>
+                            <font>font_tiny</font><textcolor>white</textcolor>
+                            <label>$INFO[ListItem.Property(comment_content)]</label>
+                            <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9802)</autoscroll>
+                        </control>
+                        <control type="label">
+                            <left>16</left><bottom>8</bottom><width>auto</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
+                            <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                        </control>
+                        <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                            <left>16</left><bottom>28</bottom><width>388</width><height>20</height>
+                            <font>font_tiny</font><textcolor>panel_fg_50</textcolor>
+                            <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
+                        </control>
+                        <control type="label">
+                            <left>20</left><top>0</top><width>388</width><height>300</height>
+                            <font>font_main_bold</font><textcolor>panel_fg_70</textcolor>
+                            <align>center</align><aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="420" height="300">
+                        <control type="image">
+                            <texture colordiffuse="$VAR[ColorHighlight_50]" border="20">common/box.png</texture>
+                        </control>
+                        <control type="image">
+                            <left>16</left><top>10</top><width>40</width><height>40</height>
+                            <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                            <aspectratio scalediffuse="false">keep</aspectratio>
+                            <fallback>special://skin/extras/icons/user.png</fallback>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>10</top><width>340</width><height>24</height>
+                            <font>font_tiny_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                        <control type="label">
+                            <left>64</left><top>32</top><width>340</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                        </control>
+                        <control type="textbox">
+                            <left>16</left><top>58</top><width>388</width><bottom>40</bottom>
+                            <font>font_tiny</font><textcolor>white</textcolor>
+                            <label>$INFO[ListItem.Property(comment_content)]</label>
+                            <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(9802)</autoscroll>
+                        </control>
+                        <control type="label">
+                            <left>16</left><bottom>8</bottom><width>auto</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_liked_count),&#x2764; ,]$INFO[ListItem.Property(comment_reply_count), | , replies]</label>
+                        </control>
+                        <control type="label" condition="!String.IsEmpty(ListItem.Property(comment_reply_summary))">
+                            <left>16</left><bottom>28</bottom><width>388</width><height>20</height>
+                            <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <label>$INFO[ListItem.Property(comment_reply_summary),&#x21AA; ,]</label>
+                        </control>
+                        <control type="label">
+                            <left>20</left><top>0</top><width>388</width><height>300</height>
+                            <font>font_main_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                            <align>center</align><aligny>center</aligny>
+                            <label>$INFO[ListItem.Property(next_page),$LOCALIZE[31361],]</label>
+                        </control>
+                    </focusedlayout>
                 </control>
+            </control>
+        </control>
+
+        <!-- 底部信息栏 -->
+        <control type="group">
+            <left>view_pad</left>
+            <right>view_pad</right>
+            <height>80</height>
+            <bottom>10</bottom>
+
+            <control type="label">
+                <left>0</left><top>0</top><width>800</width><height>30</height>
+                <font>font_mini_bold</font><textcolor>panel_fg_90</textcolor>
+                <label>$INFO[MusicPlayer.Title,, - ]$INFO[MusicPlayer.Artist]</label>
+            </control>
+            <control type="label">
+                <left>0</left><top>30</top><width>800</width><height>24</height>
+                <font>font_tiny</font><textcolor>panel_fg_50</textcolor>
+                <label>$INFO[Window(10000).Property(bili_comment_loaded),已加载 ,]$INFO[Window(10000).Property(bili_comment_total),/ , 条评论]</label>
             </control>
         </control>
 

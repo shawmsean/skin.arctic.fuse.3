@@ -71,7 +71,7 @@
                     <left>0</left>
                     <top>80</top>
                     <height>400</height>
-                    <width>90%</width>
+                    <width>92%</width>
                     <font>font_mini</font>
                     <textcolor>green</textcolor>
                     <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
@@ -146,6 +146,45 @@
                     <param name="altvisible">true</param>
                     <content>plugin://plugin.audio.music/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
                 </include>
+
+                <include content="Widget_Info_Row">
+                    <param name="id">04</param>
+                    <param name="baseid">50</param>
+                    <param name="basegroupid">51</param>
+                    <param name="label">MV</param>
+                    <param name="include">List_Landscape_Row</param>
+                    <param name="widgetfade_include">true</param>
+                    <param name="set_widgetcontainer">false</param>
+                    <param name="menuid">8000</param>
+                    <param name="detailed">true</param>
+                    <param name="widget_hideartwork">true</param>
+                    <param name="widget_showoverlay">true</param>
+                    <param name="altvisible">true</param>
+                    <content>plugin://plugin.audio.music/artist_mvs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                </include>
+
+                <include content="Widget_Info_Row">
+                    <param name="id">05</param>
+                    <param name="baseid">50</param>
+                    <param name="basegroupid">51</param>
+                    <param name="label">相似歌手</param>
+                    <param name="include">List_CircleLabel_Row</param>
+                    <param name="widgetfade_include">true</param>
+                    <param name="set_widgetcontainer">false</param>
+                    <param name="menuid">8000</param>
+                    <param name="detailed">true</param>
+                    <param name="widget_hideartwork">true</param>
+                    <param name="widget_showoverlay">true</param>
+                    <param name="altvisible">true</param>
+                    <content>plugin://plugin.audio.music/similar_artist/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">RunPlugin(plugin://plugin.audio.music/set_artist_info/$INFO[ListItem.Property(artist_id)]/)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_id,$INFO[ListItem.Property(artist_id)],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_name,$INFO[ListItem.Label],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_pic,$INFO[ListItem.Icon],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">Close</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">AlarmClock(nav_1150,ActivateWindow(1150),00:01,silent)</onclick>
+                </include>
+
 
                 <include>Widget_End_Bumper</include>
             </control>

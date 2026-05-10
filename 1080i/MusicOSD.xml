@@ -34,6 +34,8 @@
                     <onright>6005</onright>
 
                     <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
+                    <ondown>SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</ondown>
+                    <ondown>SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</ondown>
                     <ondown>ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 1 -->
@@ -122,6 +124,8 @@
                     <onup>SetFocus(9802)</onup>
 
                     <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
+                    <ondown>SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</ondown>
+                    <ondown>SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</ondown>
                     <ondown>ActivateWindow($VAR[Action_MusicOSD_Main_OnDown])</ondown>
 
                     <!-- Button 5 -->
@@ -161,6 +165,8 @@
                         <include>Defs_OSD_Button</include>
                         <onclick>CancelAlarm(osd_timeout,true)</onclick>
                         <onclick>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</onclick>
+                        <onclick>SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</onclick>
+                        <onclick>SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</onclick>
                         <onclick>ActivateWindow(1142)</onclick>
                         <onfocus>SetProperty(OSDArtistDetails,1,Home)</onfocus>
                         <onleft>6009</onleft>
