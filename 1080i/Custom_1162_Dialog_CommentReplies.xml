@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<window type="dialog" id="1162">
+    <zorder>0</zorder>
+    <defaultcontrol always="true">7001</defaultcontrol>
+    <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <onload>DialogClose(1142)</onload>
+    <onunload>AlarmClock(reopen_comments,ActivateWindow(1142),00:00,silent)</onunload>
+    <controls>
+
+        <control type="image">
+            <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
+            <texture colordiffuse="B2000000">common/white.png</texture>
+            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
+            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
+        </control>
+
+        <control type="group">
+            <left>view_pad</left>
+            <right>view_pad</right>
+            <height>720</height>
+            <bottom>200</bottom>
+
+            <control type="group">
+                <height>50</height>
+                <include content="View_Line">
+                    <param name="label">回复</param>
+                    <param name="top">0</param>
+                </include>
+                <control type="label">
+                    <left>80</left><top>10</top><width>1600</width><height>36</height>
+                    <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
+                    <scroll>true</scroll>
+                    <label>$INFO[Window(10000).Property(nc_reply_comment_summary)]</label>
+                </control>
+                <control type="label">
+                    <right>16</right><top>10</top><width>auto</width><height>24</height>
+                    <font>font_tiny</font><textcolor>panel_fg_50</textcolor><align>right</align>
+                    <label>$INFO[Window(10000).Property(nc_reply_total),共 , 条回复]</label>
+                </control>
+            </control>
+
+            <control type="list" id="7001">
+                <left>0</left><right>0</right><top>60</top><bottom>10</bottom>
+                <orientation>vertical</orientation>
+                <scrolltime>300</scrolltime>
+                <onleft>Close</onleft>
+                <onright>Close</onright>
+                <ondown condition="!String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">SetFocus(7001)</ondown>
+                <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">SetProperty(nc_reply_content_url,$INFO[Container(7001).ListItem.Property(next_page)],10000)</ondown>
+                <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">Container.Update($INFO[Container(7001).ListItem.Property(next_page)],replace)</ondown>
+                <content>$INFO[Window(10000).Property(nc_reply_content_url)]</content>
+
+                <itemlayout width="1760" height="100">
+                    <control type="image">
+                        <texture colordiffuse="main_fg_12" border="10">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>12</left><top>20</top><width>44</width><height>44</height>
+                        <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <fallback>special://skin/extras/icons/user.png</fallback>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>12</top><width>500</width><height>24</height>
+                        <font>font_tiny_bold</font><textcolor>panel_fg_100</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <right>16</right><top>12</top><width>auto</width><height>24</height>
+                        <font>font_tiny</font><textcolor>panel_fg_50</textcolor><align>right</align>
+                        <label>$INFO[ListItem.Property(reply_floor),#,]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>34</top><width>400</width><height>20</height>
+                        <font>font_tiny</font><textcolor>panel_fg_50</textcolor>
+                        <label>$INFO[ListItem.Property(reply_time)]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <right>16</right><top>34</top><width>auto</width><height>20</height>
+                        <font>font_tiny</font><textcolor>panel_fg_50</textcolor><align>right</align>
+                        <label>$INFO[ListItem.Property(reply_liked),&#x2764; ,]</label>
+                    </control>
+                    <control type="textbox">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>56</top><right>16</right><bottom>8</bottom>
+                        <font>font_tiny</font><textcolor>white</textcolor>
+                        <label>$INFO[ListItem.Property(reply_content)]</label>
+                        <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(7001)</autoscroll>
+                    </control>
+                    <control type="label">
+                        <visible>String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>0</left><top>0</top><width>1760</width><height>100</height>
+                        <font>font_mini_bold</font><textcolor>panel_fg_70</textcolor>
+                        <align>center</align><aligny>center</aligny>
+                        <label>$LOCALIZE[31361]</label>
+                    </control>
+                </itemlayout>
+
+                <focusedlayout width="1760" height="100">
+                    <control type="image">
+                        <texture colordiffuse="$VAR[ColorHighlight_50]" border="10">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>12</left><top>20</top><width>44</width><height>44</height>
+                        <texture diffuse="diffuse/square_w460_h460.png" background="true">$INFO[ListItem.Icon]</texture>
+                        <aspectratio scalediffuse="false">keep</aspectratio>
+                        <fallback>special://skin/extras/icons/user.png</fallback>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>12</top><width>500</width><height>24</height>
+                        <font>font_tiny_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                        <label>$INFO[ListItem.Label]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <right>16</right><top>12</top><width>auto</width><height>24</height>
+                        <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor><align>right</align>
+                        <label>$INFO[ListItem.Property(reply_floor),#,]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>34</top><width>400</width><height>20</height>
+                        <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
+                        <label>$INFO[ListItem.Property(reply_time)]</label>
+                    </control>
+                    <control type="label">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <right>16</right><top>34</top><width>auto</width><height>20</height>
+                        <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor><align>right</align>
+                        <label>$INFO[ListItem.Property(reply_liked),&#x2764; ,]</label>
+                    </control>
+                    <control type="textbox">
+                        <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>64</left><top>56</top><right>16</right><bottom>8</bottom>
+                        <font>font_tiny</font><textcolor>white</textcolor>
+                        <label>$INFO[ListItem.Property(reply_content)]</label>
+                        <autoscroll delay="6000" time="3000" repeat="10000">!Control.HasFocus(7001)</autoscroll>
+                    </control>
+                    <control type="label">
+                        <visible>String.IsEqual(ListItem.Property(is_trigger),1)</visible>
+                        <left>0</left><top>0</top><width>1760</width><height>100</height>
+                        <font>font_mini_bold</font><textcolor>$VAR[ColorSelected]</textcolor>
+                        <align>center</align><aligny>center</aligny>
+                        <label>$LOCALIZE[31361]</label>
+                    </control>
+                </focusedlayout>
+            </control>
+        </control>
+
+    </controls>
+</window>

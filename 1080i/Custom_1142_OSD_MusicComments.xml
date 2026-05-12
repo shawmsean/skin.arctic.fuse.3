@@ -5,9 +5,11 @@
     <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
     <onload condition="String.IsEmpty(Window(10000).Property(bili_hot_comment_url))">SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</onload>
     <onload condition="String.IsEmpty(Window(10000).Property(bili_latest_comment_url))">SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</onload>
+    <onload>SetProperty(bili_comment_tab,hot,Home)</onload>
     <include>Animation_OSD_Dialog_WindowChange</include>
     <controls>
 
+        <!-- 全屏半透明遮罩背景 -->
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
@@ -19,41 +21,122 @@
         <control type="group">
             <left>view_pad</left>
             <right>view_pad</right>
+            <height>720</height>
             <bottom>100</bottom>
-            <top>80</top>
 
-            <!-- 第一行：热门评论 - 自定义卡片 -->
+            <!-- 标题行 + TAB 切换 -->
             <control type="group">
-                <height>360</height>
+                <height>50</height>
 
-                <include content="View_Line">
-                    <param name="label">热门评论</param>
-                    <param name="top">0</param>
-                </include>
+                <!-- 标题 -->
+                <control type="label">
+                    <left>0</left>
+                    <top>0</top>
+                    <width>200</width>
+                    <height>50</height>
+                    <font>font_midi_bold</font>
+                    <textcolor>panel_fg_100</textcolor>
+                    <label>$LOCALIZE[31360]</label>
+                </control>
 
+                <!-- TAB: 热门 -->
+                <control type="button" id="9811">
+                    <left>220</left>
+                    <top>5</top>
+                    <width>120</width>
+                    <height>40</height>
+                    <label>热门</label>
+                    <font>font_mini_bold</font>
+                    <textcolor>panel_fg_70</textcolor>
+                    <focusedcolor>panel_fg_100</focusedcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texturefocus>
+                    <texturenofocus colordiffuse="main_fg_12" border="8">common/box.png</texturenofocus>
+                    <onclick>SetProperty(bili_comment_tab,hot,Home)</onclick>
+                    <onclick>SetFocus(9801)</onclick>
+                    <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),hot)</visible>
+                </control>
+                <control type="button" id="9811">
+                    <left>220</left>
+                    <top>5</top>
+                    <width>120</width>
+                    <height>40</height>
+                    <label>热门</label>
+                    <font>font_mini_bold</font>
+                    <textcolor>panel_fg_70</textcolor>
+                    <focusedcolor>panel_fg_100</focusedcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texturefocus>
+                    <texturenofocus colordiffuse="00ffffff" border="8">common/box.png</texturenofocus>
+                    <onclick>SetProperty(bili_comment_tab,hot,Home)</onclick>
+                    <onclick>SetFocus(9801)</onclick>
+                    <visible>!String.IsEqual(Window(Home).Property(bili_comment_tab),hot)</visible>
+                </control>
+
+                <!-- TAB: 最新 -->
+                <control type="button" id="9812">
+                    <left>350</left>
+                    <top>5</top>
+                    <width>120</width>
+                    <height>40</height>
+                    <label>最新</label>
+                    <font>font_mini_bold</font>
+                    <textcolor>panel_fg_70</textcolor>
+                    <focusedcolor>panel_fg_100</focusedcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texturefocus>
+                    <texturenofocus colordiffuse="main_fg_12" border="8">common/box.png</texturenofocus>
+                    <onclick>SetProperty(bili_comment_tab,latest,Home)</onclick>
+                    <onclick>SetFocus(9802)</onclick>
+                    <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),latest)</visible>
+                </control>
+                <control type="button" id="9812">
+                    <left>350</left>
+                    <top>5</top>
+                    <width>120</width>
+                    <height>40</height>
+                    <label>最新</label>
+                    <font>font_mini_bold</font>
+                    <textcolor>panel_fg_70</textcolor>
+                    <focusedcolor>panel_fg_100</focusedcolor>
+                    <texturefocus colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texturefocus>
+                    <texturenofocus colordiffuse="00ffffff" border="8">common/box.png</texturenofocus>
+                    <onclick>SetProperty(bili_comment_tab,latest,Home)</onclick>
+                    <onclick>SetFocus(9802)</onclick>
+                    <visible>!String.IsEqual(Window(Home).Property(bili_comment_tab),latest)</visible>
+                </control>
+            </control>
+
+            <!-- 单行评论卡片区域 -->
+            <control type="group">
+                <top>60</top>
+                <bottom>0</bottom>
+
+                <!-- 热门评论列表 -->
                 <control type="fixedlist" id="9801">
+                    <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),hot)</visible>
                     <left>0</left>
                     <right>0</right>
-                    <top>50</top>
+                    <top>0</top>
                     <bottom>0</bottom>
                     <orientation>horizontal</orientation>
                     <scrolltime>300</scrolltime>
                     <focusposition>0</focusposition>
                     <movement>5</movement>
                     <preloaditems>0</preloaditems>
-                    <onup>Close</onup>
-                    <ondown>SetFocus(9802)</ondown>
+                    <onup>SetProperty(bili_comment_tab,latest,Home)</onup>
+                    <onup>AlarmClock(cmt_tab,SetFocus(9802),00:00,silent)</onup>
+                    <ondown>Close</ondown>
+                    <ondown>AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
                     <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9801).ListItem.Label],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9801).ListItem.Property(comment_reply_summary)],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_id,$INFO[Container(9801).ListItem.Property(comment_id)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9801).ListItem.Property(comment_song_id)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9801).ListItem.Label]: $INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">ActivateWindow(1162)</onclick>
                     <content>$INFO[Window(10000).Property(bili_hot_comment_url)]</content>
 
-                    <itemlayout width="420" height="300">
+                    <itemlayout width="420" height="350">
                         <control type="image">
                             <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
                         </control>
@@ -102,7 +185,7 @@
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="420" height="300">
+                    <focusedlayout width="420" height="350">
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight_50]" border="20">common/box.png</texture>
                         </control>
@@ -151,42 +234,35 @@
                         </control>
                     </focusedlayout>
                 </control>
-            </control>
 
-            <!-- 第二行：最新评论 - 自定义卡片 -->
-            <control type="group">
-                <top>370</top>
-                <bottom>0</bottom>
-
-                <include content="View_Line">
-                    <param name="label">最新评论</param>
-                    <param name="top">0</param>
-                </include>
-
+                <!-- 最新评论列表 -->
                 <control type="fixedlist" id="9802">
+                    <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),latest)</visible>
                     <left>0</left>
                     <right>0</right>
-                    <top>50</top>
+                    <top>0</top>
                     <bottom>0</bottom>
                     <orientation>horizontal</orientation>
                     <scrolltime>300</scrolltime>
                     <focusposition>0</focusposition>
                     <movement>5</movement>
                     <preloaditems>0</preloaditems>
-                    <onup>SetFocus(9801)</onup>
-                    <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">Close</ondown>
-                    <ondown condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1144)">AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
+                    <onup>SetProperty(bili_comment_tab,hot,Home)</onup>
+                    <onup>AlarmClock(cmt_tab,SetFocus(9801),00:00,silent)</onup>
+                    <ondown>Close</ondown>
+                    <ondown>AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onright>
                     <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_title,$INFO[Container(9802).ListItem.Label],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_content,$INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(comment_reply_summary,$INFO[Container(9802).ListItem.Property(comment_reply_summary)],10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/show_comment_replies/)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_id,$INFO[Container(9802).ListItem.Property(comment_id)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9802).ListItem.Property(comment_song_id)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9802).ListItem.Label]: $INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">ActivateWindow(1162)</onclick>
                     <content>$INFO[Window(10000).Property(bili_latest_comment_url)]</content>
 
-                    <itemlayout width="420" height="300">
+                    <itemlayout width="420" height="350">
                         <control type="image">
                             <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
                         </control>
@@ -230,7 +306,7 @@
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="420" height="300">
+                    <focusedlayout width="420" height="350">
                         <control type="image">
                             <texture colordiffuse="$VAR[ColorHighlight_50]" border="20">common/box.png</texture>
                         </control>
