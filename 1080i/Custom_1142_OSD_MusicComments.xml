@@ -133,7 +133,8 @@
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9801).ListItem.Property(comment_song_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9801).ListItem.Label]: $INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">ActivateWindow(1162)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">Close</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">AlarmClock(open_replies,ActivateWindow(1162),00:00,silent)</onclick>
                     <content>$INFO[Window(10000).Property(bili_hot_comment_url)]</content>
 
                     <itemlayout width="420" height="350">
@@ -259,7 +260,8 @@
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9802).ListItem.Property(comment_song_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9802).ListItem.Label]: $INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
-                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">ActivateWindow(1162)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">Close</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">AlarmClock(open_replies,ActivateWindow(1162),00:00,silent)</onclick>
                     <content>$INFO[Window(10000).Property(bili_latest_comment_url)]</content>
 
                     <itemlayout width="420" height="350">

@@ -3,8 +3,9 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">7001</defaultcontrol>
     <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
-    <onload>DialogClose(1142)</onload>
     <onunload>AlarmClock(reopen_comments,ActivateWindow(1142),00:00,silent)</onunload>
+    <animation effect="fade" start="0" end="100" time="300" delay="0">WindowOpen</animation>
+    <animation effect="fade" start="100" end="0" time="200" delay="0">WindowClose</animation>
     <controls>
 
         <control type="image">
