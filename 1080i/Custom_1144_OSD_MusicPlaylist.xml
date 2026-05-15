@@ -11,8 +11,6 @@
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
-            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
         </control>
 
         <control type="group">

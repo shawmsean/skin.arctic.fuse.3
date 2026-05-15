@@ -3,18 +3,17 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">9801</defaultcontrol>
     <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <onload>ClearProperty(musicosd_icon_hide,Home)</onload>
     <onload condition="String.IsEmpty(Window(10000).Property(bili_hot_comment_url))">SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</onload>
     <onload condition="String.IsEmpty(Window(10000).Property(bili_latest_comment_url))">SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</onload>
     <onload>SetProperty(bili_comment_tab,hot,Home)</onload>
-    <include>Animation_OSD_Dialog_WindowChange</include>
+    <include content="Animation_MusicOSD_AppleNav" condition="Window.IsActive(musicosd)"/>
+    <include content="Animation_OSD_Dialog_WindowChange" condition="!Window.IsActive(musicosd)"/>
     <controls>
 
-        <!-- 全屏半透明遮罩背景 -->
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
-            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
         </control>
 
         <!-- 评论主区域 -->
@@ -123,6 +122,7 @@
                     <preloaditems>0</preloaditems>
                     <onup>SetProperty(bili_comment_tab,latest,Home)</onup>
                     <onup>AlarmClock(cmt_tab,SetFocus(9802),00:00,silent)</onup>
+                    <ondown>SetProperty(musicosd_nav_dir,down,Home)</ondown>
                     <ondown>Close</ondown>
                     <ondown>AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
@@ -133,6 +133,7 @@
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9801).ListItem.Property(comment_song_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9801).ListItem.Label]: $INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(musicosd_nav_dir,down,Home)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">Close</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">AlarmClock(open_replies,ActivateWindow(1162),00:00,silent)</onclick>
                     <content>$INFO[Window(10000).Property(bili_hot_comment_url)]</content>
@@ -250,6 +251,7 @@
                     <preloaditems>0</preloaditems>
                     <onup>SetProperty(bili_comment_tab,hot,Home)</onup>
                     <onup>AlarmClock(cmt_tab,SetFocus(9801),00:00,silent)</onup>
+                    <ondown>SetProperty(musicosd_nav_dir,down,Home)</ondown>
                     <ondown>Close</ondown>
                     <ondown>AlarmClock(musicosd_nav,ActivateWindow($VAR[Action_MusicOSD_1142_OnDown]),00:00,silent)</ondown>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onright>
@@ -260,6 +262,7 @@
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_song_id,$INFO[Container(9802).ListItem.Property(comment_song_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9802).ListItem.Label]: $INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/comment_replies/0/,10000)</onclick>
+                    <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(musicosd_nav_dir,down,Home)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">Close</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">AlarmClock(open_replies,ActivateWindow(1162),00:00,silent)</onclick>
                     <content>$INFO[Window(10000).Property(bili_latest_comment_url)]</content>

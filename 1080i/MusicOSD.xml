@@ -13,7 +13,7 @@
 
         <control type="group">
 
-            <visible allowhiddenfocus="true">!Window.IsVisible(1142) + !Window.IsVisible(1144) + !Window.IsVisible(1149) + !Window.IsVisible(1150)</visible>
+            <visible allowhiddenfocus="true">!Window.IsVisible(1142) + !Window.IsVisible(1144) + !Window.IsVisible(1149) + !Window.IsVisible(1150) + !Window.IsVisible(1162)</visible>
             <animation effect="fade" start="0" end="100" time="300" delay="0">Visible</animation>
             <animation effect="fade" end="0" start="100" time="150">Hidden</animation>
 
@@ -32,7 +32,9 @@
                     <itemgap>osd_itemgap</itemgap>
                     <onleft>6008</onleft>
                     <onright>6005</onright>
+                    <visible>!Window.IsVisible(1162)</visible>
 
+                    <ondown>SetProperty(musicosd_nav_dir,down,Home)</ondown>
                     <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
                     <ondown>SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</ondown>
                     <ondown>SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</ondown>
@@ -122,7 +124,9 @@
                     <onleft>6004</onleft>
                     <onright>6001</onright>
                     <onup>SetFocus(9802)</onup>
+                    <visible>!Window.IsVisible(1162)</visible>
 
+                    <ondown>SetProperty(musicosd_nav_dir,down,Home)</ondown>
                     <ondown>SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</ondown>
                     <ondown>SetProperty(bili_hot_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/hot_song_comments/,10000)</ondown>
                     <ondown>SetProperty(bili_latest_comment_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/latest_song_comments/0/,10000)</ondown>
@@ -245,7 +249,7 @@
                     <control type="textbox">
                         <font>font_midi_plot</font>
                         <textcolor>panel_fg_90</textcolor>
-                        <label>$INFO[MusicPlayer.Property(Album_Description),,[CR]]$INFO[MusicPlayer.Property(Artist_Description)]$INFO[Window(Home).Property(ResetScroll)]</label>
+                        <label>$INFO[MusicPlayer.Property(Album_Description),,[CR]]$INFO[Window(10000).Property(nc_current_artist_desc)]$INFO[Window(Home).Property(ResetScroll)]</label>
                         <autoscroll delay="6000" time="3000" repeat="10000">!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Control.HasFocus(9802)</autoscroll>
                         <pagecontrol>9802</pagecontrol>
                         <bottom>60</bottom>

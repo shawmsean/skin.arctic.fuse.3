@@ -17,10 +17,10 @@
                 <height>280</height>
                 <bottom>320</bottom>
                 <left>view_pad</left>
-                <visible>!Window.IsVisible(1142)</visible>
+                <visible>!Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1144) + !Window.IsVisible(1141) + !Window.IsVisible(1149) + !Window.IsVisible(1162) + !String.IsEqual(Window(Home).Property(musicosd_icon_hide),1)</visible>
                 <control type="group">
-                    <animation effect="zoom" start="0,0,280,280" end="0,-400,480,480" time="400" tween="cubic" easing="out" reversible="false" condition="[Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142)]]">Conditional</animation>
-                    <animation effect="zoom" end="0,0,280,280" start="0,-400,480,480" time="400" tween="cubic" easing="out" reversible="false" condition="![Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142)]]">Conditional</animation>
+                    <animation effect="zoom" start="0,0,280,280" end="0,-400,480,480" time="400" tween="cubic" easing="out" reversible="false" condition="[Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1144) + !Window.IsVisible(1141) + !Window.IsVisible(1149) + !Window.IsVisible(1162) + !String.IsEqual(Window(Home).Property(musicosd_icon_hide),1)]]">Conditional</animation>
+                    <animation effect="zoom" end="0,0,280,280" start="0,-400,480,480" time="400" tween="cubic" easing="out" reversible="false" condition="![Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1144) + !Window.IsVisible(1141) + !Window.IsVisible(1149) + !Window.IsVisible(1162) + !String.IsEqual(Window(Home).Property(musicosd_icon_hide),1)]]">Conditional</animation>
                     <include content="Object_BigPoster">
                         <param name="diffuse">diffuse/square_w460_h460.png</param>
                         <param name="icon">$INFO[Player.Icon]</param>
@@ -33,7 +33,7 @@
                     <bottom>-20</bottom>
                     <control type="group">
                         <width>460</width>
-                        <visible>[Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142)]]</visible>
+                        <visible>[Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1144) + !Window.IsVisible(1141) + !Window.IsVisible(1149) + !Window.IsVisible(1162) + !String.IsEqual(Window(Home).Property(musicosd_icon_hide),1)]]</visible>
                         <animation effect="slide" start="340" end="0" time="400" tween="cubic" easing="out" reversible="false">Visible</animation>
                         <animation type="Hidden" reversible="false">
                             <effect type="slide" end="340" start="0" time="400" tween="cubic" easing="out" reversible="false" />
@@ -69,7 +69,7 @@
                     <control type="group">
                         <left>340</left>
                         <width>1080</width>
-                        <visible>![Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142)]]</visible>
+                        <visible>![Window.IsVisible(script-cu-lrclyrics-main.xml) | [!String.IsEmpty(Window(Home).Property(OSDArtistDetails)) + !Window.IsVisible(1142) + !Window.IsVisible(1140) + !Window.IsVisible(1144) + !Window.IsVisible(1141) + !Window.IsVisible(1149) + !Window.IsVisible(1162) + !String.IsEqual(Window(Home).Property(musicosd_icon_hide),1)]]</visible>
                         <animation type="Visible" reversible="false">
                             <effect type="slide" end="0" start="-340" time="400" tween="cubic" easing="out" reversible="false" />
                             <effect type="fade" start="0" end="100" delay="400" time="0" reversible="false" />

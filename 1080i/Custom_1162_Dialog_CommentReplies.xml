@@ -3,16 +3,17 @@
     <zorder>0</zorder>
     <defaultcontrol always="true">7001</defaultcontrol>
     <onload>CancelAlarm(musicosd_showlyrics,true)</onload>
+    <onunload>SetProperty(musicosd_nav_dir,up,Home)</onunload>
+    <onunload>SetProperty(musicosd_icon_hide,1,Home)</onunload>
     <onunload>AlarmClock(reopen_comments,ActivateWindow(1142),00:00,silent)</onunload>
-    <animation effect="fade" start="0" end="100" time="300" delay="0">WindowOpen</animation>
-    <animation effect="fade" start="100" end="0" time="200" delay="0">WindowClose</animation>
+    <include content="Animation_MusicOSD_AppleNav" condition="Window.IsActive(musicosd)"/>
+    <include content="Animation_OSD_Dialog_WindowChange" condition="!Window.IsActive(musicosd)"/>
+
     <controls>
 
         <control type="image">
             <visible>!Skin.HasSetting(MusicOSD.CommentsDimBg)</visible>
             <texture colordiffuse="B2000000">common/white.png</texture>
-            <animation effect="fade" start="0" end="100" time="200">Visible</animation>
-            <animation effect="fade" start="100" end="0" time="150">Hidden</animation>
         </control>
 
         <control type="group">

@@ -5,7 +5,8 @@
     <onload>CancelAlarm(osd_timeout,true)</onload>
     <onload>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onload>
     <onload>Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onload>
-    <include>Animation_OSD_Dialog_WindowChange</include>
+    <include content="Animation_MusicOSD_AppleNav" condition="Window.IsActive(musicosd)"/>
+    <include content="Animation_OSD_Dialog_WindowChange" condition="!Window.IsActive(musicosd)"/>
     <controls>
         <control type="group">
             <include>OSD_Info_Dimensions</include>
@@ -32,6 +33,7 @@
 
                 <onfocus>SetProperty(TMDbHelper.WidgetContainer,6501,1141)</onfocus>
 
+                <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">SetProperty(musicosd_nav_dir,up,Home)</onup>
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">PreviousMenu</onup>
                 <onup condition="Skin.String(VideoOSD.PersonCredits.CastCrew,crew)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,cast)</onup>
                 <ondown condition="Skin.String(VideoOSD.PersonCredits.CastCrew,cast)">Skin.SetString(VideoOSD.PersonCredits.CastCrew,crew)</ondown>
