@@ -221,6 +221,16 @@
                         <ondown>6091</ondown>
                     </control>
                 </control>
+                <control type="image">
+                    <left>0</left>
+                    <right>0</right>
+                    <height>8</height>
+                    <centertop>2</centertop>
+                    <texture>$INFO[Window(Home).Property(DanmakuHeatmap)]</texture>
+                    <visible>!String.IsEmpty(Window(Home).Property(DanmakuHeatmap))</visible>
+                    <aspectratio>stretch</aspectratio>
+                    <colordiffuse>BBFFFFFF</colordiffuse>
+                </control>
             </control>
         </control>
     </controls>
