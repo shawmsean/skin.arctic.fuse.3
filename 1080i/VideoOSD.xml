@@ -224,8 +224,8 @@
                 <control type="image">
                     <left>0</left>
                     <right>0</right>
-                    <height>8</height>
-                    <centertop>2</centertop>
+                    <height>20</height>
+                    <centertop>4</centertop>
                     <texture>$INFO[Window(Home).Property(DanmakuHeatmap)]</texture>
                     <visible>!String.IsEmpty(Window(Home).Property(DanmakuHeatmap))</visible>
                     <aspectratio>stretch</aspectratio>
