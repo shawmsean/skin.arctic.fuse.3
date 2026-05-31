@@ -25,23 +25,23 @@
 
             <!-- 标题行 + TAB 切换 -->
             <control type="group">
-                <height>50</height>
+                <height>90</height>
 
                 <!-- 标题 -->
                 <control type="label">
                     <left>0</left>
                     <top>0</top>
-                    <width>200</width>
-                    <height>50</height>
+                    <width>100%</width>
+                    <height>40</height>
                     <font>font_midi_bold</font>
                     <textcolor>panel_fg_100</textcolor>
-                    <label>$LOCALIZE[31360]</label>
+                    <label>$INFO[MusicPlayer.Title,, 的评论]</label>
                 </control>
 
                 <!-- TAB: 热门 -->
                 <control type="button" id="9811">
-                    <left>220</left>
-                    <top>5</top>
+                    <left>0</left>
+                    <top>45</top>
                     <width>120</width>
                     <height>40</height>
                     <label>热门</label>
@@ -55,8 +55,8 @@
                     <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),hot)</visible>
                 </control>
                 <control type="button" id="9811">
-                    <left>220</left>
-                    <top>5</top>
+                    <left>0</left>
+                    <top>45</top>
                     <width>120</width>
                     <height>40</height>
                     <label>热门</label>
@@ -72,8 +72,8 @@
 
                 <!-- TAB: 最新 -->
                 <control type="button" id="9812">
-                    <left>350</left>
-                    <top>5</top>
+                    <left>130</left>
+                    <top>45</top>
                     <width>120</width>
                     <height>40</height>
                     <label>最新</label>
@@ -87,8 +87,8 @@
                     <visible>String.IsEqual(Window(Home).Property(bili_comment_tab),latest)</visible>
                 </control>
                 <control type="button" id="9812">
-                    <left>350</left>
-                    <top>5</top>
+                    <left>130</left>
+                    <top>45</top>
                     <width>120</width>
                     <height>40</height>
                     <label>最新</label>
@@ -105,7 +105,7 @@
 
             <!-- 单行评论卡片区域 -->
             <control type="group">
-                <top>60</top>
+                <top>100</top>
                 <bottom>0</bottom>
 
                 <!-- 热门评论列表 -->
@@ -161,7 +161,7 @@
                         <control type="label">
                             <left>64</left><top>58</top><width>340</width><height>20</height>
                             <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
-                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                            <label>$INFO[ListItem.Property(comment_time)]$INFO[ListItem.Property(comment_location), | 来自,]</label>
                         </control>
                         <control type="textbox">
                             <left>16</left><top>84</top><width>388</width><bottom>40</bottom>
@@ -210,7 +210,7 @@
                         <control type="label">
                             <left>64</left><top>58</top><width>340</width><height>20</height>
                             <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
-                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                            <label>$INFO[ListItem.Property(comment_time)]$INFO[ListItem.Property(comment_location), | 来自,]</label>
                         </control>
                         <control type="textbox">
                             <left>16</left><top>84</top><width>388</width><bottom>40</bottom>
@@ -285,7 +285,7 @@
                         <control type="label">
                             <left>64</left><top>32</top><width>340</width><height>20</height>
                             <font>font_tiny</font><textcolor>panel_fg_70</textcolor>
-                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                            <label>$INFO[ListItem.Property(comment_time)]$INFO[ListItem.Property(comment_location), | 来自,]</label>
                         </control>
                         <control type="textbox">
                             <left>16</left><top>58</top><width>388</width><bottom>40</bottom>
@@ -329,7 +329,7 @@
                         <control type="label">
                             <left>64</left><top>32</top><width>340</width><height>20</height>
                             <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
-                            <label>$INFO[ListItem.Property(comment_time)]</label>
+                            <label>$INFO[ListItem.Property(comment_time)]$INFO[ListItem.Property(comment_location), | 来自,]</label>
                         </control>
                         <control type="textbox">
                             <left>16</left><top>58</top><width>388</width><bottom>40</bottom>
