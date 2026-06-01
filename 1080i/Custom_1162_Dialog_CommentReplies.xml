@@ -79,7 +79,7 @@
                         <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
                         <left>64</left><top>34</top><width>400</width><height>20</height>
                         <font>font_tiny</font><textcolor>panel_fg_50</textcolor>
-                        <label>$INFO[ListItem.Property(reply_time)]</label>
+                        <label>$INFO[ListItem.Property(reply_time)]$INFO[ListItem.Property(reply_location), | 来自,]</label>
                     </control>
                     <control type="label">
                         <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
@@ -130,7 +130,7 @@
                         <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
                         <left>64</left><top>34</top><width>400</width><height>20</height>
                         <font>font_tiny</font><textcolor>$VAR[ColorSelected]</textcolor>
-                        <label>$INFO[ListItem.Property(reply_time)]</label>
+                        <label>$INFO[ListItem.Property(reply_time)]$INFO[ListItem.Property(reply_location), | 来自,]</label>
                     </control>
                     <control type="label">
                         <visible>!String.IsEqual(ListItem.Property(is_trigger),1)</visible>
