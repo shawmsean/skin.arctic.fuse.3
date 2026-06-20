@@ -937,17 +937,17 @@
                 <scrolltime tween="quadratic">400</scrolltime>
                 <preloaditems>2</preloaditems>
                 <pagecontrol>60</pagecontrol>
-                <itemlayout width="350" height="90">
+                <itemlayout width="440" height="90">
                     <include content="Layout_MusicTrack">
                         <param name="selected">false</param>
-                        <param name="item_w">350</param>
+                        <param name="item_w">440</param>
                         <param name="item_h">90</param>
                     </include>
                 </itemlayout>
-                <focusedlayout width="350" height="90">
+                <focusedlayout width="440" height="90">
                     <include content="Layout_MusicTrack">
                         <param name="selected">true</param>
-                        <param name="item_w">350</param>
+                        <param name="item_w">440</param>
                         <param name="item_h">90</param>
                     </include>
                 </focusedlayout>
