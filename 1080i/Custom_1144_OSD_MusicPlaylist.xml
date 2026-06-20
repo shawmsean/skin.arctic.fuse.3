@@ -17,15 +17,13 @@
             <include>Animation_OSD_Dialog_VisibleChange</include>
             <control type="group">
                 <include>OSD_Info_Dimensions</include>
-                <top>-60</top>
 
                 <include content="OSD_View_Line">
                     <param name="label">$LOCALIZE[559]</param>
                 </include>
 
                 <control type="panel" id="7000">
-                    <height>420</height>
-                    <bottom>160</bottom>
+                    <include>OSD_List_Dimensions</include>
                     <left>view_pad</left>
                     <right>view_pad</right>
                     <orientation>vertical</orientation>
