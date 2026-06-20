@@ -23,7 +23,8 @@
                 </include>
 
                 <control type="panel" id="7000">
-                    <include>OSD_List_Dimensions</include>
+                    <height>370</height>
+                    <bottom>120</bottom>
                     <left>view_pad</left>
                     <right>view_pad</right>
                     <orientation>vertical</orientation>
