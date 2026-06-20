@@ -931,7 +931,7 @@
                 <nested />
                 <left>view_pad</left>
                 <right>view_pad</right>
-                <top>200</top>
+                <top>290</top>
                 <bottom>80</bottom>
                 <orientation>vertical</orientation>
                 <scrolltime tween="quadratic">400</scrolltime>
