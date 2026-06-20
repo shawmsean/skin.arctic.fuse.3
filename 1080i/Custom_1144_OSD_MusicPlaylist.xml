@@ -22,14 +22,14 @@
                     <param name="label">$LOCALIZE[559]</param>
                 </include>
 
-                <include content="List_Square_Row">
-                    <param name="orientation">horizontal</param>
-                    <param name="control">fixedlist</param>
-                    <param name="id">7000</param>
-                    <include content="Object_ContentDynamic">
-                        <param name="content">playlistmusic://</param>
-                    </include>
+                <control type="panel" id="7000">
                     <include>OSD_List_Dimensions</include>
+                    <left>view_pad</left>
+                    <right>view_pad</right>
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <preloaditems>2</preloaditems>
+                    <content>playlistmusic://</content>
                     <onclick>SetProperty(nc_play_offset,$INFO[Container(7000).CurrentItem],Home)</onclick>
                     <onclick>RunPlugin(plugin://$VAR[Action_MusicOSD_CommentPlugin]/play_playlist_offset/)</onclick>
                     <onup condition="!Skin.HasSetting(MusicOSD.OnDown.Disable1142)">SetProperty(bili_comment_content_url,plugin://$VAR[Action_MusicOSD_CommentPlugin]/current_song_comments/0,10000)</onup>
@@ -43,7 +43,141 @@
                     <include content="Animation_ConditionalFade">
                         <param name="condition">Container(7000).IsUpdating</param>
                     </include>
-                </include>
+
+                    <itemlayout width="440" height="80">
+                        <control type="group">
+                            <width>440</width>
+                            <height>80</height>
+                            <control type="group">
+                                <centertop>50%</centertop>
+                                <width>60</width>
+                                <height>60</height>
+                                <control type="image">
+                                    <texture colordiffuse="main_fg_12">diffuse/circle/circle_50.png</texture>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <texture diffuse="diffuse/circle/circle_50.png" colordiffuse="main_bg_90" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <bordersize>2</bordersize>
+                                    <bordertexture colordiffuse="main_fg_100">common/circle.png</bordertexture>
+                                </control>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>14</top>
+                                <height>26</height>
+                                <aligny>center</aligny>
+                                <font>font_mini_bold</font>
+                                <textcolor>main_fg_90</textcolor>
+                                <label>$INFO[ListItem.Title]</label>
+                                <scroll>false</scroll>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>42</top>
+                                <height>22</height>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_70</textcolor>
+                                <label>$INFO[ListItem.Artist]$INFO[ListItem.Album, • ,]$INFO[ListItem.Duration, • ,]</label>
+                                <scroll>false</scroll>
+                            </control>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="440" height="80">
+                        <control type="group">
+                            <width>440</width>
+                            <height>80</height>
+                            <control type="image">
+                                <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
+                                <visible>!ListItem.IsPlaying</visible>
+                            </control>
+                            <control type="image">
+                                <texture colordiffuse="$VAR[ColorHighlight]" border="20">common/box.png</texture>
+                                <visible>Control.HasFocus(7000)</visible>
+                            </control>
+                            <control type="image">
+                                <texture border="20" colordiffuse="main_fg_30">common/box.png</texture>
+                                <visible>ListItem.IsPlaying + !Control.HasFocus(7000)</visible>
+                            </control>
+                            <control type="group">
+                                <centertop>50%</centertop>
+                                <width>60</width>
+                                <height>60</height>
+                                <control type="image">
+                                    <texture colordiffuse="main_fg_12">diffuse/circle/circle_50.png</texture>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                </control>
+                                <control type="image">
+                                    <texture diffuse="diffuse/circle/circle_50.png" colordiffuse="white" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <bordersize>2</bordersize>
+                                    <bordertexture colordiffuse="$VAR[ColorHighlight]">common/circle.png</bordertexture>
+                                    <visible>Control.HasFocus(7000)</visible>
+                                </control>
+                                <control type="image">
+                                    <texture diffuse="diffuse/circle/circle_50.png" colordiffuse="main_bg_90" fallback="DefaultAudio.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                    <aspectratio scalediffuse="false">scale</aspectratio>
+                                    <bordersize>2</bordersize>
+                                    <bordertexture colordiffuse="main_fg_100">common/circle.png</bordertexture>
+                                    <visible>!Control.HasFocus(7000)</visible>
+                                </control>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>14</top>
+                                <height>26</height>
+                                <aligny>center</aligny>
+                                <font>font_mini_bold</font>
+                                <textcolor>main_fg_90</textcolor>
+                                <label>$INFO[ListItem.Title]</label>
+                                <scroll>true</scroll>
+                                <visible>Control.HasFocus(7000)</visible>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>14</top>
+                                <height>26</height>
+                                <aligny>center</aligny>
+                                <font>font_mini_bold</font>
+                                <textcolor>main_fg_90</textcolor>
+                                <label>$INFO[ListItem.Title]</label>
+                                <scroll>false</scroll>
+                                <visible>!Control.HasFocus(7000)</visible>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>42</top>
+                                <height>22</height>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_70</textcolor>
+                                <label>$INFO[ListItem.Artist]$INFO[ListItem.Album, • ,]$INFO[ListItem.Duration, • ,]</label>
+                                <scroll>true</scroll>
+                                <visible>Control.HasFocus(7000)</visible>
+                            </control>
+                            <control type="label">
+                                <left>76</left>
+                                <right>10</right>
+                                <top>42</top>
+                                <height>22</height>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_70</textcolor>
+                                <label>$INFO[ListItem.Artist]$INFO[ListItem.Album, • ,]$INFO[ListItem.Duration, • ,]</label>
+                                <scroll>false</scroll>
+                                <visible>!Control.HasFocus(7000)</visible>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
 
                 <include content="OSD_Info_Tray">
                     <param name="icon">$VAR[Image_OSD_7000_Poster]</param>
@@ -55,7 +189,7 @@
                 <include content="Widget_Busy">
                     <param name="label">$PARAM[label]</param>
                     <param name="visible">Container(7000).IsUpdating</param>
-                    <param name="include">List_Square_Row</param>
+                    <param name="include">List_DialogSelect</param>
                     <left>view_pad</left>
                     <top>-150</top>
                 </include>
