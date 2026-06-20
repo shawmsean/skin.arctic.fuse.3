@@ -931,8 +931,8 @@
                 <nested />
                 <left>view_pad</left>
                 <right>view_pad</right>
-                <top>view_row</top>
-                <bottom>view_pad</bottom>
+                <top>180</top>
+                <bottom>40</bottom>
                 <orientation>vertical</orientation>
                 <scrolltime tween="quadratic">400</scrolltime>
                 <preloaditems>2</preloaditems>
