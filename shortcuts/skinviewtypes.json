@@ -66,15 +66,15 @@
             "icon": "special://skin/extras/icons/table-columns.png"
         },
         "535": {
-            "viewtypes": ["506","507","508","509","549"],
+            "viewtypes": ["506","507","508","509","549","515"],
             "icon": "special://skin/extras/icons/table-list.png"
         },
         "31008": {
-            "viewtypes": ["510","511","512","513","514"],
+            "viewtypes": ["510","511","512","513","514","515"],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
         "31083": {
-            "viewtypes": ["520","521","522","523","524","526","528"],
+            "viewtypes": ["520","521","522","523","524","526","528","515"],
             "icon": "special://skin/extras/icons/view-combined.png"
         }
     },
