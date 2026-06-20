@@ -924,4 +924,35 @@
         </definition>
     </include>
 
+    <include name="List_MusicTrack_Row">
+        <param name="id">515</param>
+        <definition>
+            <control type="panel" id="$PARAM[id]">
+                <nested />
+                <left>view_pad</left>
+                <right>view_pad</right>
+                <top>view_row</top>
+                <bottom>view_pad</bottom>
+                <orientation>vertical</orientation>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <itemlayout width="440" height="80">
+                    <include content="Layout_MusicTrack">
+                        <param name="selected">false</param>
+                        <param name="item_w">440</param>
+                        <param name="item_h">80</param>
+                    </include>
+                </itemlayout>
+                <focusedlayout width="440" height="80">
+                    <include content="Layout_MusicTrack">
+                        <param name="selected">true</param>
+                        <param name="item_w">440</param>
+                        <param name="item_h">80</param>
+                    </include>
+                </focusedlayout>
+            </control>
+        </definition>
+    </include>
+
 </includes>

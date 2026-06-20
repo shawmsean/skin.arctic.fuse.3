@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,520,521,522,523,524,526,528</views>
+        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,520,521,522,523,524,526,528</views>
     </include>
 
     <include name="View_Row_Items">
@@ -229,6 +229,9 @@
                 <include condition="$EXP[Exp_View_503_Include]">View_503_Circle_Row</include>
                 <include condition="$EXP[Exp_View_504_Include]">View_504_Board_Row</include>
                 <include condition="$EXP[Exp_View_505_Include]">View_505_Card_Row</include>
+
+                <!-- MusicTrack Row -->
+                <include condition="$EXP[Exp_View_515_Include]">View_515_MusicTrack_Row</include>
 
                 <!-- Wall Views -->
                 <include condition="$EXP[Exp_View_510_Include]">View_510_Square_Wall</include>
@@ -297,6 +300,7 @@
         <value condition="Control.IsVisible(512)">512</value>
         <value condition="Control.IsVisible(513)">513</value>
         <value condition="Control.IsVisible(514)">514</value>
+        <value condition="Control.IsVisible(515)">515</value>
         <value condition="Control.IsVisible(520)">530</value>
         <value condition="Control.IsVisible(521)">531</value>
         <value condition="Control.IsVisible(522)">532</value>
