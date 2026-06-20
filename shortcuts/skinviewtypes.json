@@ -295,15 +295,9 @@
             "library": "500",
             "plugins": "500"
         },
-        "none-music-plugin": {
-            "rule": "Container.Content() + !Window.IsVisible(MyGames.xml) + !Window.IsVisible(MyPVRRecordings.xml) + !Window.IsVisible(MyPVRTimers.xml) + !Window.IsVisible(MyPVRSearch.xml) + !String.IsEqual(Container.Property(param.info),watch_providers) + ![String.IsEqual(Container.Property(param.info),dir_calendar_library) | String.IsEqual(Container.Property(param.info),dir_calendar_trakt)] + [String.IsEqual(Container.PluginName,plugin.audio.music) | String.IsEqual(Container.PluginName,plugin.audio.musicjh)]",
-            "viewtypes": ["500", "510", "515", "506"],
-            "library": "515",
-            "plugins": "515"
-        },
         "none": {
             "rule": "Container.Content() + !Window.IsVisible(MyGames.xml) + !Window.IsVisible(MyPVRRecordings.xml) + !Window.IsVisible(MyPVRTimers.xml) + !Window.IsVisible(MyPVRSearch.xml) + !String.IsEqual(Container.Property(param.info),watch_providers) + ![String.IsEqual(Container.Property(param.info),dir_calendar_library) | String.IsEqual(Container.Property(param.info),dir_calendar_trakt)]",
-            "viewtypes": ["500", "510", "506"],
+            "viewtypes": ["500", "510", "515", "506"],
             "library": "500",
             "plugins": "500"
         }
