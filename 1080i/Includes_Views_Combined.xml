@@ -574,6 +574,19 @@
                             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                             <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
                             <onright>517</onright>
+                            <include content="Action_View_Movement_OnUp">
+                                <param name="id">516</param>
+                            </include>
+                            <include content="Action_View_Movement_OnBack">
+                                <param name="id">516</param>
+                                <param name="onback">[Integer.IsEqual(Container(516).CurrentItem,1)]</param>
+                                <param name="always">True</param>
+                                <param name="backid">63</param>
+                                <param name="menuid">63</param>
+                            </include>
+                            <include content="Action_View_Movement_OnDown">
+                                <param name="id">516</param>
+                            </include>
 
                             <itemlayout width="220" height="220">
                                 <control type="group">
@@ -620,6 +633,19 @@
                             <pagecontrol>60</pagecontrol>
                             <preloaditems>2</preloaditems>
                             <onleft>516</onleft>
+                            <include content="Action_View_Movement_OnUp">
+                                <param name="id">517</param>
+                            </include>
+                            <include content="Action_View_Movement_OnBack">
+                                <param name="id">517</param>
+                                <param name="onback">[Integer.IsEqual(Container(517).CurrentItem,1)]</param>
+                                <param name="always">True</param>
+                                <param name="backid">63</param>
+                                <param name="menuid">63</param>
+                            </include>
+                            <include content="Action_View_Movement_OnDown">
+                                <param name="id">517</param>
+                            </include>
 
                             <animation type="Conditional" reversible="false" condition="Container(517).IsUpdating">
                                 <effect type="fade" start="100" end="0" time="200" delay="600" />
@@ -811,6 +837,19 @@
                         <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                         <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
                         <onright>519</onright>
+                        <include content="Action_View_Movement_OnUp">
+                            <param name="id">518</param>
+                        </include>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">518</param>
+                            <param name="onback">[Integer.IsEqual(Container(518).CurrentItem,1)]</param>
+                            <param name="always">True</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">63</param>
+                        </include>
+                        <include content="Action_View_Movement_OnDown">
+                            <param name="id">518</param>
+                        </include>
 
                         <itemlayout width="440" height="120">
                             <control type="group">
@@ -882,6 +921,19 @@
                         <pagecontrol>60</pagecontrol>
                         <preloaditems>2</preloaditems>
                         <onleft>518</onleft>
+                        <include content="Action_View_Movement_OnUp">
+                            <param name="id">519</param>
+                        </include>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">519</param>
+                            <param name="onback">[Integer.IsEqual(Container(519).CurrentItem,1)]</param>
+                            <param name="always">True</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">63</param>
+                        </include>
+                        <include content="Action_View_Movement_OnDown">
+                            <param name="id">519</param>
+                        </include>
 
                         <animation type="Conditional" reversible="false" condition="Container(519).IsUpdating">
                             <effect type="fade" start="100" end="0" time="200" delay="600" />
