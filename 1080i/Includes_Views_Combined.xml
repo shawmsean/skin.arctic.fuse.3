@@ -577,13 +577,7 @@
                             <include content="Action_View_Movement_OnUp">
                                 <param name="id">516</param>
                             </include>
-                            <include content="Action_View_Movement_OnBack">
-                                <param name="id">516</param>
-                                <param name="onback">[Integer.IsEqual(Container(516).CurrentItem,1)]</param>
-                                <param name="always">True</param>
-                                <param name="backid">63</param>
-                                <param name="menuid">63</param>
-                            </include>
+                            <onback condition="!Integer.IsEqual(Container(516).CurrentItem,1)">SetFocus(516,0,absolute)</onback>
                             <include content="Action_View_Movement_OnDown">
                                 <param name="id">516</param>
                             </include>
@@ -636,13 +630,7 @@
                             <include content="Action_View_Movement_OnUp">
                                 <param name="id">517</param>
                             </include>
-                            <include content="Action_View_Movement_OnBack">
-                                <param name="id">517</param>
-                                <param name="onback">[Integer.IsEqual(Container(517).CurrentItem,1)]</param>
-                                <param name="always">True</param>
-                                <param name="backid">63</param>
-                                <param name="menuid">63</param>
-                            </include>
+                            <onback condition="!Integer.IsEqual(Container(517).CurrentItem,1)">SetFocus(517,0,absolute)</onback>
                             <include content="Action_View_Movement_OnDown">
                                 <param name="id">517</param>
                             </include>
@@ -840,13 +828,7 @@
                         <include content="Action_View_Movement_OnUp">
                             <param name="id">518</param>
                         </include>
-                        <include content="Action_View_Movement_OnBack">
-                            <param name="id">518</param>
-                            <param name="onback">[Integer.IsEqual(Container(518).CurrentItem,1)]</param>
-                            <param name="always">True</param>
-                            <param name="backid">63</param>
-                            <param name="menuid">63</param>
-                        </include>
+                        <onback condition="!Integer.IsEqual(Container(518).CurrentItem,1)">SetFocus(518,0,absolute)</onback>
                         <include content="Action_View_Movement_OnDown">
                             <param name="id">518</param>
                         </include>
@@ -926,11 +908,8 @@
                         </include>
                         <include content="Action_View_Movement_OnBack">
                             <param name="id">519</param>
-                            <param name="onback">[Integer.IsEqual(Container(519).CurrentItem,1)]</param>
-                            <param name="always">True</param>
-                            <param name="backid">63</param>
-                            <param name="menuid">63</param>
                         </include>
+                        <onback condition="!Integer.IsEqual(Container(519).CurrentItem,1)">SetFocus(519,0,absolute)</onback>
                         <include content="Action_View_Movement_OnDown">
                             <param name="id">519</param>
                         </include>
