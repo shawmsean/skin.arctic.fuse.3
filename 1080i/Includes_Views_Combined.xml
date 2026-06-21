@@ -526,6 +526,11 @@
         </control>
     </include>
 
+    <variable name="View_517_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(516).ListItem.FolderPath) + Container(516).ListItem.IsFolder">$INFO[Container(516).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+
     <!-- Album Track Combined -->
     <include name="View_516_AlbumTrack_Combined">
         <control type="group">
@@ -546,7 +551,7 @@
                         <aligny>center</aligny>
                         <font>font_large_bold</font>
                         <textcolor>main_fg_90</textcolor>
-                        <label>$INFO[ListItem.Album]$INFO[ListItem.Artist, · ,]$INFO[ListItem.Year, · ,]$INFO[Container(516).NumItems, · , 首]</label>
+                        <label>$INFO[Container(516).ListItem.Label]$INFO[Container(516).ListItem.Artist, · ,]$INFO[Container(516).ListItem.Year, · ,]$INFO[Container(517).NumItems, · , 首]</label>
                         <scroll>true</scroll>
                     </control>
                 </control>
@@ -555,27 +560,10 @@
                 <control type="group">
                     <top>80</top>
 
-                    <!-- Left: Album cover -->
+                    <!-- Left: Album wall (panel) -->
                     <control type="group">
-                        <width>600</width>
-                        <height>600</height>
-                        <centertop>240</centertop>
-                        <control type="image">
-                            <texture colordiffuse="main_fg_12" border="24">common/box.png</texture>
-                            <aspectratio>scale</aspectratio>
-                        </control>
-                        <control type="image">
-                            <texture colordiffuse="white" border="24" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
-                            <aspectratio>scale</aspectratio>
-                            <bordersize>2</bordersize>
-                            <bordertexture colordiffuse="main_fg_100" border="24">common/box.png</bordertexture>
-                        </control>
-                    </control>
-
-                    <!-- Right: Song list -->
-                    <control type="group">
-                        <left>660</left>
-                        <control type="list" id="516">
+                        <width>680</width>
+                        <control type="panel" id="516">
                             <visible>$EXP[Exp_View_516]</visible>
                             <viewtype label="$LOCALIZE[31607]">list</viewtype>
                             <orientation>vertical</orientation>
@@ -585,6 +573,72 @@
                             <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
                             <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                             <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                            <onright>517</onright>
+
+                            <itemlayout width="220" height="220">
+                                <control type="group">
+                                    <width>210</width>
+                                    <height>210</height>
+                                    <control type="image">
+                                        <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
+                                        <aspectratio>scale</aspectratio>
+                                    </control>
+                                    <control type="image">
+                                        <texture colordiffuse="white" border="16" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                        <aspectratio>scale</aspectratio>
+                                        <bordersize>2</bordersize>
+                                        <bordertexture colordiffuse="main_fg_100" border="16">common/box.png</bordertexture>
+                                    </control>
+                                </control>
+                            </itemlayout>
+
+                            <focusedlayout width="220" height="220">
+                                <control type="group">
+                                    <width>210</width>
+                                    <height>210</height>
+                                    <control type="image">
+                                        <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
+                                        <visible>Control.HasFocus(516)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <texture colordiffuse="main_fg_20" border="16">common/box.png</texture>
+                                        <visible>!Control.HasFocus(516)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <texture colordiffuse="white" border="16" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                        <aspectratio>scale</aspectratio>
+                                        <bordersize>2</bordersize>
+                                        <bordertexture colordiffuse="main_fg_100" border="16">common/box.png</bordertexture>
+                                    </control>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+
+                    <!-- Right: Song list -->
+                    <control type="group">
+                        <left>720</left>
+                        <control type="list" id="517">
+                            <visible>Container(516).ListItem.IsFolder</visible>
+                            <orientation>vertical</orientation>
+                            <scrolltime tween="quadratic">400</scrolltime>
+                            <pagecontrol>60</pagecontrol>
+                            <preloaditems>2</preloaditems>
+                            <onleft>516</onleft>
+
+                            <animation type="Conditional" reversible="false" condition="Container(517).IsUpdating">
+                                <effect type="fade" start="100" end="0" time="200" delay="600" />
+                            </animation>
+
+                            <content target="music" sortby="track" sortorder="ascending">$VAR[View_517_Content]</content>
+
+                            <onfocus>SetProperty(TMDbHelper.WidgetContainer,517)</onfocus>
+                            <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                            <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+
+                            <onclick condition="Container(517).ListItem.IsFolder">Container.Update($INFO[Container(517).ListItem.FolderPath])</onclick>
+                            <onclick condition="Container(517).ListItem.IsFolder">SetFocus(50)</onclick>
+                            <onclick condition="!Container(517).ListItem.IsFolder">PlayMedia($ESCINFO[Container(517).ListItem.FileNameAndPath])</onclick>
 
                             <itemlayout width="1100" height="70">
                                 <control type="group">
@@ -629,11 +683,11 @@
                                     <height>70</height>
                                     <control type="image">
                                         <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
-                                        <visible>Control.HasFocus(516)</visible>
+                                        <visible>Control.HasFocus(517)</visible>
                                     </control>
                                     <control type="image">
                                         <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
-                                        <visible>!Control.HasFocus(516)</visible>
+                                        <visible>!Control.HasFocus(517)</visible>
                                     </control>
                                     <control type="label">
                                         <left>0</left>
