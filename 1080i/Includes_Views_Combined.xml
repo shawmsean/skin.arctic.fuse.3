@@ -639,9 +639,7 @@
                                 <control type="group">
                                     <width>1100</width>
                                     <height>70</height>
-                                    <control type="image">
-                                        <texture colordiffuse="main_fg_8" border="12">common/box.png</texture>
-                                    </control>
+
                                     <control type="label">
                                         <left>0</left>
                                         <width>50</width>
