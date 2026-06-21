@@ -2336,3 +2336,8 @@ msgstr "音乐曲目"
 msgctxt "#31607"
 msgid "Album Track"
 msgstr "专辑曲目"
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31608"
+msgid "Rank"
+msgstr "排行榜"

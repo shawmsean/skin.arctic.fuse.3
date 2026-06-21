@@ -22,6 +22,7 @@
 
         "515":  "31606",
         "516":  "31607",
+        "518":  "31608",
 
         "520":  "31002",
         "521":  "31003",
@@ -53,6 +54,7 @@
 
         "515":  "special://skin/extras/viewtypes/row-square.jpg",
         "516":  "special://skin/extras/viewtypes/combined-square.jpg",
+        "518":  "special://skin/extras/viewtypes/combined-landscape.jpg",
 
         "520":  "special://skin/extras/viewtypes/combined-square.jpg",
         "521":  "special://skin/extras/viewtypes/combined-landscape.jpg",
@@ -76,7 +78,7 @@
             "icon": "special://skin/extras/icons/table-cells.png"
         },
         "31083": {
-            "viewtypes": ["520","521","522","523","524","526","528","515","516"],
+            "viewtypes": ["520","521","522","523","524","526","528","515","516","518"],
             "icon": "special://skin/extras/icons/view-combined.png"
         }
     },
@@ -89,7 +91,7 @@
         },
         "videos": {
             "rule": "Container.Content(videos)",
-            "viewtypes": ["500", "501", "502", "503", "504", "505", "515", "516", "510", "511", "512", "513", "514", "520", "521", "522", "523", "524", "526", "528", "506", "507", "508", "509", "549"],
+            "viewtypes": ["500", "501", "502", "503", "504", "505", "515", "516", "518", "510", "511", "512", "513", "514", "520", "521", "522", "523", "524", "526", "528", "506", "507", "508", "509", "549"],
             "library": "501",
             "plugins": "501"
         },
@@ -203,7 +205,7 @@
         },
         "playlists": {
             "rule": "Container.Content(playlists)",
-            "viewtypes": ["500", "503", "510", "513", "516", "521", "522", "523", "524", "526", "528", "506"],
+            "viewtypes": ["500", "503", "510", "513", "516", "518", "521", "522", "523", "524", "526", "528", "506"],
             "library": "500",
             "plugins": "500"
         },
@@ -215,19 +217,19 @@
         },
         "artists": {
             "rule": "Container.Content(artists)",
-            "viewtypes": ["500", "501", "503", "504", "510", "511", "513", "514", "515", "516", "520", "523", "526", "528", "506", "507", "508", "509"],
+            "viewtypes": ["500", "501", "503", "504", "510", "511", "513", "514", "515", "516", "518", "520", "523", "526", "528", "506", "507", "508", "509"],
             "library": "500",
             "plugins": "500"
         },
         "albums": {
             "rule": "Container.Content(albums)",
-            "viewtypes": ["500", "501", "503", "504", "510", "511", "513", "514", "515", "516", "520", "523", "526", "528", "506", "507", "508", "509"],
+            "viewtypes": ["500", "501", "503", "504", "510", "511", "513", "514", "515", "516", "518", "520", "523", "526", "528", "506", "507", "508", "509"],
             "library": "500",
             "plugins": "500"
         },
         "songs": {
             "rule": "Container.Content(songs)",
-            "viewtypes": ["500", "503", "510", "513", "515", "516", "506", "507", "508", "509"],
+            "viewtypes": ["500", "503", "510", "513", "515", "516", "518", "506", "507", "508", "509"],
             "library": "508",
             "plugins": "508"
         },
@@ -299,7 +301,7 @@
         },
         "none": {
             "rule": "Container.Content() + !Window.IsVisible(MyGames.xml) + !Window.IsVisible(MyPVRRecordings.xml) + !Window.IsVisible(MyPVRTimers.xml) + !Window.IsVisible(MyPVRSearch.xml) + !String.IsEqual(Container.Property(param.info),watch_providers) + ![String.IsEqual(Container.Property(param.info),dir_calendar_library) | String.IsEqual(Container.Property(param.info),dir_calendar_trakt)]",
-            "viewtypes": ["500", "501", "502", "503", "504", "505", "515", "516", "510", "511", "512", "513", "514", "520", "521", "522", "523", "524", "526", "528", "506", "507", "508", "509", "549"],
+            "viewtypes": ["500", "501", "502", "503", "504", "505", "515", "516", "518", "510", "511", "512", "513", "514", "520", "521", "522", "523", "524", "526", "528", "506", "507", "508", "509", "549"],
             "library": "500",
             "plugins": "500"
         }
