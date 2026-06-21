@@ -938,6 +938,14 @@
                                 <width>590</width>
                                 <height>95</height>
                                 <control type="image">
+                                    <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
+                                    <visible>Control.HasFocus(519)</visible>
+                                </control>
+                                <control type="image">
+                                    <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
+                                    <visible>!Control.HasFocus(519)</visible>
+                                </control>
+                                <control type="image">
                                     <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
                                     <aspectratio>scale</aspectratio>
                                     <left>10</left>
