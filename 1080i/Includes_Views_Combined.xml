@@ -898,9 +898,9 @@
                         <onclick condition="!Container(519).ListItem.IsFolder">PlayMedia($ESCINFO[Container(519).ListItem.FileNameAndPath])</onclick>
                         <onclick condition="Container(519).ListItem.IsFolder">Container.Update($INFO[Container(519).ListItem.FolderPath])</onclick>
 
-                        <itemlayout width="700" height="80">
+                        <itemlayout width="660" height="80">
                             <control type="group">
-                                <width>690</width>
+                                <width>650</width>
                                 <height>75</height>
                                 <control type="image">
                                     <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
@@ -937,9 +937,9 @@
                             </control>
                         </itemlayout>
 
-                        <focusedlayout width="700" height="80">
+                        <focusedlayout width="660" height="80">
                             <control type="group">
-                                <width>690</width>
+                                <width>650</width>
                                 <height>75</height>
                                 <control type="image">
                                     <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
