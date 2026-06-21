@@ -848,7 +848,7 @@
                                     <aligny>top</aligny>
                                     <font>font_tiny</font>
                                     <textcolor>main_fg_70</textcolor>
-                                    <label>$INFO[ListItem.Property(description)]</label>
+                                    <label>$INFO[ListItem.Plot]</label>
                                     <scroll>true</scroll>
                                     <autoscroll delay="3000" time="2000" repeat="5000">True</autoscroll>
                                     <wrapmultiline>true</wrapmultiline>
@@ -902,7 +902,7 @@
                                     <aligny>top</aligny>
                                     <font>font_tiny</font>
                                     <textcolor>main_fg_90</textcolor>
-                                    <label>$INFO[ListItem.Property(description)]</label>
+                                    <label>$INFO[ListItem.Plot]</label>
                                     <scroll>true</scroll>
                                     <autoscroll delay="3000" time="2000" repeat="5000">True</autoscroll>
                                     <wrapmultiline>true</wrapmultiline>
