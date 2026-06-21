@@ -851,7 +851,7 @@
                             <param name="id">518</param>
                         </include>
 
-                        <itemlayout width="440" height="120">
+                        <itemlayout width="440" height="115">
                             <control type="group">
                                 <width>440</width>
                                 <height>110</height>
@@ -880,7 +880,7 @@
                             </control>
                         </itemlayout>
 
-                        <focusedlayout width="440" height="120">
+                        <focusedlayout width="440" height="115">
                             <control type="group">
                                 <width>440</width>
                                 <height>110</height>
