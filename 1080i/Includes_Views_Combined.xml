@@ -812,10 +812,10 @@
                         <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
                         <onright>519</onright>
 
-                        <itemlayout width="440" height="80">
+                        <itemlayout width="440" height="120">
                             <control type="group">
                                 <width>440</width>
-                                <height>70</height>
+                                <height>110</height>
                                 <control type="image">
                                     <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
                                 </control>
@@ -825,27 +825,51 @@
                                     <bordersize>2</bordersize>
                                     <bordertexture colordiffuse="main_fg_30" border="16">common/box.png</bordertexture>
                                     <left>10</left>
-                                    <centertop>35</centertop>
-                                    <width>50</width>
-                                    <height>50</height>
+                                    <top>10</top>
+                                    <width>90</width>
+                                    <height>90</height>
                                 </control>
                                 <control type="label">
-                                    <left>75</left>
+                                    <left>115</left>
                                     <right>10</right>
-                                    <height>70</height>
+                                    <top>10</top>
+                                    <height>30</height>
                                     <aligny>center</aligny>
-                                    <font>font_mini</font>
+                                    <font>font_mini_bold</font>
                                     <textcolor>main_fg_90</textcolor>
                                     <label>$INFO[ListItem.Label]</label>
                                     <scroll>true</scroll>
                                 </control>
+                                <control type="label">
+                                    <left>115</left>
+                                    <right>10</right>
+                                    <top>42</top>
+                                    <height>40</height>
+                                    <aligny>top</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>main_fg_70</textcolor>
+                                    <label>$INFO[ListItem.Property(description)]</label>
+                                    <scroll>true</scroll>
+                                    <autoscroll delay="3000" time="2000" repeat="5000">True</autoscroll>
+                                    <wrapmultiline>true</wrapmultiline>
+                                </control>
+                                <control type="label">
+                                    <left>115</left>
+                                    <right>10</right>
+                                    <bottom>8</bottom>
+                                    <height>20</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>main_fg_50</textcolor>
+                                    <label>$INFO[ListItem.Property(update_frequency)]$INFO[ListItem.Property(track_count), · ,首]$INFO[ListItem.Property(play_count), · ,次播放]</label>
+                                </control>
                             </control>
                         </itemlayout>
 
-                        <focusedlayout width="440" height="80">
+                        <focusedlayout width="440" height="120">
                             <control type="group">
                                 <width>440</width>
-                                <height>70</height>
+                                <height>110</height>
                                 <control type="image">
                                     <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
                                 </control>
@@ -855,19 +879,43 @@
                                     <bordersize>3</bordersize>
                                     <bordertexture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</bordertexture>
                                     <left>10</left>
-                                    <centertop>35</centertop>
-                                    <width>50</width>
-                                    <height>50</height>
+                                    <top>10</top>
+                                    <width>90</width>
+                                    <height>90</height>
                                 </control>
                                 <control type="label">
-                                    <left>75</left>
+                                    <left>115</left>
                                     <right>10</right>
-                                    <height>70</height>
+                                    <top>10</top>
+                                    <height>30</height>
                                     <aligny>center</aligny>
                                     <font>font_mini_bold</font>
                                     <textcolor>main_fg_100</textcolor>
                                     <label>$INFO[ListItem.Label]</label>
                                     <scroll>true</scroll>
+                                </control>
+                                <control type="label">
+                                    <left>115</left>
+                                    <right>10</right>
+                                    <top>42</top>
+                                    <height>40</height>
+                                    <aligny>top</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>main_fg_90</textcolor>
+                                    <label>$INFO[ListItem.Property(description)]</label>
+                                    <scroll>true</scroll>
+                                    <autoscroll delay="3000" time="2000" repeat="5000">True</autoscroll>
+                                    <wrapmultiline>true</wrapmultiline>
+                                </control>
+                                <control type="label">
+                                    <left>115</left>
+                                    <right>10</right>
+                                    <bottom>8</bottom>
+                                    <height>20</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>main_fg_70</textcolor>
+                                    <label>$INFO[ListItem.Property(update_frequency)]$INFO[ListItem.Property(track_count), · ,首]$INFO[ListItem.Property(play_count), · ,次播放]</label>
                                 </control>
                             </control>
                         </focusedlayout>
