@@ -2345,3 +2345,8 @@ msgstr ""
 msgctxt "#31606"
 msgid "Music Track"
 msgstr ""
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31607"
+msgid "Album Track"
+msgstr ""

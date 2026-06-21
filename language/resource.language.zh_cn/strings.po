@@ -2331,3 +2331,8 @@ msgstr "下次播出"
 msgctxt "#31606"
 msgid "Music Track"
 msgstr "音乐曲目"
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31607"
+msgid "Album Track"
+msgstr "专辑曲目"

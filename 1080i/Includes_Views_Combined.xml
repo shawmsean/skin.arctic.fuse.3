@@ -526,6 +526,154 @@
         </control>
     </include>
 
+    <!-- Album Track Combined -->
+    <include name="View_516_AlbumTrack_Combined">
+        <control type="group">
+            <visible>Control.IsVisible(516)</visible>
+            <control type="group">
+                <left>view_pad</left>
+                <right>view_pad</right>
+                <top>200</top>
+                <bottom>80</bottom>
+
+                <!-- Header -->
+                <control type="group">
+                    <height>60</height>
+                    <control type="label">
+                        <left>0</left>
+                        <right>0</right>
+                        <height>60</height>
+                        <aligny>center</aligny>
+                        <font>font_large_bold</font>
+                        <textcolor>main_fg_90</textcolor>
+                        <label>$INFO[ListItem.Album]$INFO[ListItem.Artist, · ,]$INFO[ListItem.Year, · ,]$INFO[Container(516).NumItems, · , 首]</label>
+                        <scroll>true</scroll>
+                    </control>
+                </control>
+
+                <!-- Content area -->
+                <control type="group">
+                    <top>80</top>
+
+                    <!-- Left: Album cover -->
+                    <control type="group">
+                        <width>600</width>
+                        <height>600</height>
+                        <centertop>240</centertop>
+                        <control type="image">
+                            <texture colordiffuse="main_fg_12" border="24">common/box.png</texture>
+                            <aspectratio>scale</aspectratio>
+                        </control>
+                        <control type="image">
+                            <texture colordiffuse="white" border="24" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                            <aspectratio>scale</aspectratio>
+                            <bordersize>2</bordersize>
+                            <bordertexture colordiffuse="main_fg_100" border="24">common/box.png</bordertexture>
+                        </control>
+                    </control>
+
+                    <!-- Right: Song list -->
+                    <control type="group">
+                        <left>660</left>
+                        <control type="list" id="516">
+                            <visible>$EXP[Exp_View_516]</visible>
+                            <viewtype label="$LOCALIZE[31607]">list</viewtype>
+                            <orientation>vertical</orientation>
+                            <scrolltime tween="quadratic">400</scrolltime>
+                            <pagecontrol>60</pagecontrol>
+                            <preloaditems>2</preloaditems>
+                            <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                            <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                            <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+
+                            <itemlayout width="1100" height="70">
+                                <control type="group">
+                                    <width>1100</width>
+                                    <height>70</height>
+                                    <control type="label">
+                                        <left>0</left>
+                                        <width>50</width>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <align>center</align>
+                                        <font>font_tiny</font>
+                                        <textcolor>main_fg_50</textcolor>
+                                        <label>$INFO[ListItem.TrackNumber]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>60</left>
+                                        <right>100</right>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <font>font_mini</font>
+                                        <textcolor>main_fg_80</textcolor>
+                                        <label>$INFO[ListItem.Title]</label>
+                                        <scroll>false</scroll>
+                                    </control>
+                                    <control type="label">
+                                        <right>0</right>
+                                        <width>90</width>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <align>right</align>
+                                        <font>font_tiny</font>
+                                        <textcolor>main_fg_50</textcolor>
+                                        <label>$INFO[ListItem.Duration]</label>
+                                    </control>
+                                </control>
+                            </itemlayout>
+
+                            <focusedlayout width="1100" height="70">
+                                <control type="group">
+                                    <width>1100</width>
+                                    <height>70</height>
+                                    <control type="image">
+                                        <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
+                                        <visible>Control.HasFocus(516)</visible>
+                                    </control>
+                                    <control type="image">
+                                        <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
+                                        <visible>!Control.HasFocus(516)</visible>
+                                    </control>
+                                    <control type="label">
+                                        <left>0</left>
+                                        <width>50</width>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <align>center</align>
+                                        <font>font_tiny</font>
+                                        <textcolor>main_fg_90</textcolor>
+                                        <label>$INFO[ListItem.TrackNumber]</label>
+                                    </control>
+                                    <control type="label">
+                                        <left>60</left>
+                                        <right>100</right>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <font>font_mini_bold</font>
+                                        <textcolor>main_fg_90</textcolor>
+                                        <label>$INFO[ListItem.Title]</label>
+                                        <scroll>true</scroll>
+                                    </control>
+                                    <control type="label">
+                                        <right>0</right>
+                                        <width>90</width>
+                                        <height>70</height>
+                                        <aligny>center</aligny>
+                                        <align>right</align>
+                                        <font>font_tiny</font>
+                                        <textcolor>main_fg_70</textcolor>
+                                        <label>$INFO[ListItem.Duration]</label>
+                                    </control>
+                                </control>
+                            </focusedlayout>
+                        </control>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+
     <include name="View_Combined_Row_Horz_Selector">
         <control type="group">
             <top>520</top>
