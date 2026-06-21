@@ -587,7 +587,7 @@
                                         <texture colordiffuse="white" border="16" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
                                         <aspectratio>scale</aspectratio>
                                         <bordersize>2</bordersize>
-                                        <bordertexture colordiffuse="main_fg_100" border="16">common/box.png</bordertexture>
+                                        <bordertexture colordiffuse="main_fg_30" border="16">common/box.png</bordertexture>
                                     </control>
                                 </control>
                             </itemlayout>
@@ -598,17 +598,12 @@
                                     <height>210</height>
                                     <control type="image">
                                         <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
-                                        <visible>Control.HasFocus(516)</visible>
-                                    </control>
-                                    <control type="image">
-                                        <texture colordiffuse="main_fg_20" border="16">common/box.png</texture>
-                                        <visible>!Control.HasFocus(516)</visible>
                                     </control>
                                     <control type="image">
                                         <texture colordiffuse="white" border="16" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
                                         <aspectratio>scale</aspectratio>
-                                        <bordersize>2</bordersize>
-                                        <bordertexture colordiffuse="main_fg_100" border="16">common/box.png</bordertexture>
+                                        <bordersize>4</bordersize>
+                                        <bordertexture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</bordertexture>
                                     </control>
                                 </control>
                             </focusedlayout>
@@ -644,6 +639,9 @@
                                 <control type="group">
                                     <width>1100</width>
                                     <height>70</height>
+                                    <control type="image">
+                                        <texture colordiffuse="main_fg_8" border="12">common/box.png</texture>
+                                    </control>
                                     <control type="label">
                                         <left>0</left>
                                         <width>50</width>
@@ -651,7 +649,7 @@
                                         <aligny>center</aligny>
                                         <align>center</align>
                                         <font>font_tiny</font>
-                                        <textcolor>main_fg_50</textcolor>
+                                        <textcolor>main_fg_70</textcolor>
                                         <label>$INFO[ListItem.TrackNumber]</label>
                                     </control>
                                     <control type="label">
@@ -660,7 +658,7 @@
                                         <height>70</height>
                                         <aligny>center</aligny>
                                         <font>font_mini</font>
-                                        <textcolor>main_fg_80</textcolor>
+                                        <textcolor>main_fg_90</textcolor>
                                         <label>$INFO[ListItem.Title]</label>
                                         <scroll>false</scroll>
                                     </control>
@@ -671,7 +669,7 @@
                                         <aligny>center</aligny>
                                         <align>right</align>
                                         <font>font_tiny</font>
-                                        <textcolor>main_fg_50</textcolor>
+                                        <textcolor>main_fg_70</textcolor>
                                         <label>$INFO[ListItem.Duration]</label>
                                     </control>
                                 </control>
