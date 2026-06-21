@@ -1026,7 +1026,7 @@
             <include>Dimension_Info</include>
 
             <control type="group">
-                <width>480</width>
+                <width>384</width>
                 <top>130</top>
                 <bottom>-5</bottom>
 
@@ -1039,7 +1039,7 @@
                     <param name="item_height">85</param>
 
                     <left>-20</left>
-                    <right>-80</right>
+                    <right>-40</right>
 
                     <onleft>600</onleft>
                     <onright>537</onright>
@@ -1055,12 +1055,12 @@
             </control>
 
             <control type="group">
-                <left>520</left>
+                <left>420</left>
                 <control type="group">
                     <top>88</top>
                     <bottom>-45</bottom>
-                    <left>40</left>
-                    <right>-100</right>
+                    <left>20</left>
+                    <right>-60</right>
 
                     <control type="panel" id="537">
                         <visible>Container(527).ListItem.IsFolder</visible>
@@ -1089,9 +1089,9 @@
                             <param name="id">537</param>
                         </include>
 
-                        <itemlayout width="680" height="225">
+                        <itemlayout width="700" height="225">
                             <control type="group">
-                                <width>670</width>
+                                <width>690</width>
                                 <height>220</height>
                                 <control type="image">
                                     <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
@@ -1144,9 +1144,9 @@
                             </control>
                         </itemlayout>
 
-                        <focusedlayout width="680" height="225">
+                        <focusedlayout width="700" height="225">
                             <control type="group">
-                                <width>670</width>
+                                <width>690</width>
                                 <height>220</height>
                                 <control type="image">
                                     <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
