@@ -1025,44 +1025,44 @@
             <visible>Control.IsVisible(527)</visible>
             <include>Dimension_Info</include>
 
-                <!-- Left: Selector list (1/4 screen) -->
+            <control type="group">
+                <width>480</width>
+                <top>130</top>
+                <bottom>-5</bottom>
+
+                <include content="List_DialogSelect">
+                    <param name="id">527</param>
+                    <param name="textcolor">main_fg</param>
+                    <param name="control">list</param>
+                    <param name="itemlayout_include">Layout_MediaList</param>
+                    <param name="variation">true</param>
+                    <param name="item_height">85</param>
+
+                    <left>-20</left>
+                    <right>-80</right>
+
+                    <onleft>600</onleft>
+                    <onright>537</onright>
+
+                    <onback condition="!Integer.IsEqual(Container(527).CurrentItem,1)">SetFocus(527,0,absolute)</onback>
+
+                    <visible>$EXP[Exp_View_527]</visible>
+                    <viewtype label="$LOCALIZE[31609]">list</viewtype>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                </include>
+            </control>
+
+            <control type="group">
+                <left>520</left>
                 <control type="group">
-                    <width>480</width>
-                    <top>130</top>
-                    <bottom>-5</bottom>
-                    <include content="List_DialogSelect">
-                        <param name="id">527</param>
-                        <param name="textcolor">main_fg</param>
-                        <param name="control">list</param>
-                        <param name="itemlayout_include">Layout_MediaList</param>
-                        <param name="variation">true</param>
-                        <param name="item_height">85</param>
+                    <top>88</top>
+                    <bottom>-45</bottom>
+                    <left>40</left>
+                    <right>-100</right>
 
-                        <left>-20</left>
-                        <right>-80</right>
-
-                        <onleft>600</onleft>
-                        <onright>537</onright>
-
-                        <onback condition="!Integer.IsEqual(Container(527).CurrentItem,1)">SetFocus(527,0,absolute)</onback>
-
-                        <visible>$EXP[Exp_View_527]</visible>
-                        <viewtype label="$LOCALIZE[31609]">list</viewtype>
-                        <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
-                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                    </include>
-                </control>
-
-                <!-- Right: Content panel (2 columns) -->
-                <control type="group">
-                    <left>520</left>
-                    <control type="group">
-                        <top>88</top>
-                        <bottom>-45</bottom>
-                        <left>40</left>
-                        <right>-100</right>
-                        <control type="panel" id="537">
+                    <control type="panel" id="537">
                         <visible>Container(527).ListItem.IsFolder</visible>
                         <orientation>vertical</orientation>
                         <scrolltime tween="quadratic">400</scrolltime>
@@ -1170,7 +1170,6 @@
                                 </control>
                             </control>
                         </focusedlayout>
-                    </control>
                     </control>
                 </control>
             </control>
