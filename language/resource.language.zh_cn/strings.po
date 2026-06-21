@@ -2341,3 +2341,8 @@ msgstr "专辑曲目"
 msgctxt "#31608"
 msgid "Rank"
 msgstr "排行榜"
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31609"
+msgid "Combined List Compact"
+msgstr "混合：列表紧凑"

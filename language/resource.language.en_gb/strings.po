@@ -2355,3 +2355,8 @@ msgstr ""
 msgctxt "#31608"
 msgid "Rank"
 msgstr ""
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31609"
+msgid "Combined List Compact"
+msgstr ""
