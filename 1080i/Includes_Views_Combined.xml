@@ -1023,15 +1023,13 @@
     <include name="View_527_List_Combined_Compact">
         <control type="group">
             <visible>Control.IsVisible(527)</visible>
-            <control type="group">
-                <left>view_pad</left>
-                <right>view_pad</right>
-                <top>130</top>
-                <bottom>-5</bottom>
+            <include>Dimension_Info</include>
 
                 <!-- Left: Selector list (1/4 screen) -->
                 <control type="group">
                     <width>480</width>
+                    <top>130</top>
+                    <bottom>-5</bottom>
                     <include content="List_DialogSelect">
                         <param name="id">527</param>
                         <param name="textcolor">main_fg</param>
@@ -1059,9 +1057,12 @@
                 <!-- Right: Content panel (2 columns) -->
                 <control type="group">
                     <left>520</left>
-                    <top>0</top>
-                    <bottom>0</bottom>
-                    <control type="panel" id="537">
+                    <control type="group">
+                        <top>88</top>
+                        <bottom>-45</bottom>
+                        <left>40</left>
+                        <right>-100</right>
+                        <control type="panel" id="537">
                         <visible>Container(527).ListItem.IsFolder</visible>
                         <orientation>vertical</orientation>
                         <scrolltime tween="quadratic">400</scrolltime>
@@ -1169,6 +1170,7 @@
                                 </control>
                             </control>
                         </focusedlayout>
+                    </control>
                     </control>
                 </control>
             </control>
