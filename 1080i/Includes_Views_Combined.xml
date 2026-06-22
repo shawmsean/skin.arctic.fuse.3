@@ -1096,9 +1096,9 @@
                             <param name="id">537</param>
                         </include>
 
-                        <itemlayout width="700" height="225">
+                        <itemlayout width="680" height="225">
                             <control type="group">
-                                <width>690</width>
+                                <width>670</width>
                                 <height>220</height>
                                 <control type="image">
                                     <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
@@ -1151,9 +1151,9 @@
                             </control>
                         </itemlayout>
 
-                        <focusedlayout width="700" height="225">
+                        <focusedlayout width="680" height="225">
                             <control type="group">
-                                <width>690</width>
+                                <width>670</width>
                                 <height>220</height>
                                 <control type="image">
                                     <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
