@@ -1267,7 +1267,6 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
 
-                    <onup>529</onup>
 
                     <animation type="Conditional" reversible="false" condition="Container(539).IsUpdating">
                         <effect type="fade" start="100" end="0" time="200" delay="600" />
@@ -1281,9 +1280,7 @@
 
                     <onback condition="!Integer.IsEqual(Container(539).CurrentItem,1)">SetFocus(539,0,absolute)</onback>
 
-                    <include content="Action_View_Movement_OnUp">
-                        <param name="id">539</param>
-                    </include>
+
                     <include content="Action_View_Movement_OnDown">
                         <param name="id">539</param>
                     </include>
