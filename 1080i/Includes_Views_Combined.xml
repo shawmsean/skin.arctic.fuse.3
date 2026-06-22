@@ -1267,6 +1267,7 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
 
+                    <onup>529</onup>
 
                     <animation type="Conditional" reversible="false" condition="Container(539).IsUpdating">
                         <effect type="fade" start="100" end="0" time="200" delay="600" />
