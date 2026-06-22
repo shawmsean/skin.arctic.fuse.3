@@ -1233,8 +1233,7 @@
                 <right>80</right>
                 <top>130</top>
                 <height>60</height>
-                <visible>!Control.HasFocus(539)</visible>
-                <animation effect="fade" start="100" end="0" time="200" reversible="true">Hidden</animation>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(539)">Conditional</animation>
                 <include content="Categories_Selector">
                     <param name="id">529</param>
                     <param name="font">font_mini</param>
