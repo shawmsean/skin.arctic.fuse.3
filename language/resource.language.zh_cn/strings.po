@@ -2346,3 +2346,7 @@ msgstr "排行榜"
 msgctxt "#31609"
 msgid "Combined List Compact"
 msgstr "混合：列表紧凑"
+
+msgctxt "#31610"
+msgid "Combined Poster Wall"
+msgstr "混合：海报墙"

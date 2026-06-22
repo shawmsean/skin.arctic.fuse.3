@@ -2360,3 +2360,7 @@ msgstr ""
 msgctxt "#31609"
 msgid "Combined List Compact"
 msgstr ""
+
+msgctxt "#31610"
+msgid "Combined Poster Wall"
+msgstr ""

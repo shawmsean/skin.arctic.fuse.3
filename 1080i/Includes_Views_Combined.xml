@@ -1218,4 +1218,148 @@
             </control>
         </control>
     </include>
+
+    <variable name="View_539_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(529).ListItem.FolderPath) + Container(529).ListItem.IsFolder">$INFO[Container(529).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+
+    <include name="View_529_Poster_Combined_Wall">
+        <control type="group">
+            <visible>Control.IsVisible(529)</visible>
+
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>130</top>
+                <height>60</height>
+                <include content="Categories_Selector">
+                    <param name="id">529</param>
+                    <param name="font">font_mini</param>
+                    <param name="hitrect_x">0</param>
+                    <param name="hitrect_y">0</param>
+                    <param name="hitrect_w">1080</param>
+                    <param name="hitrect_h">120</param>
+                    <param name="detailed">true</param>
+                    <include content="View_Combined_List_Horz_Selector_Content">
+                        <param name="id">9</param>
+                        <param name="visible">$EXP[Exp_View_529]</param>
+                        <param name="viewtype_label">$LOCALIZE[31610]</param>
+                        <param name="include_movement">View_Combined_List_Horz_Selector_Movement</param>
+                        <param name="overlay">true</param>
+                    </include>
+                </include>
+            </control>
+
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>200</top>
+                <bottom>80</bottom>
+
+                <control type="panel" id="539">
+                    <visible>Container(529).ListItem.IsFolder</visible>
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+
+                    <onup>529</onup>
+
+                    <animation type="Conditional" reversible="false" condition="Container(539).IsUpdating">
+                        <effect type="fade" start="100" end="0" time="200" delay="600" />
+                    </animation>
+
+                    <content target="$VAR[Path_CollectionNode_Target]" sortby="$VAR[View_Combined_SortBy]" sortorder="ascending">$VAR[View_539_Content]</content>
+
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,539)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,Wall,Home)</onfocus>
+
+                    <onback condition="!Integer.IsEqual(Container(539).CurrentItem,1)">SetFocus(539,0,absolute)</onback>
+
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">539</param>
+                    </include>
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">539</param>
+                    </include>
+
+                    <itemlayout width="220" height="310">
+                        <control type="group">
+                            <width>210</width>
+                            <height>300</height>
+                            <include content="Object_ItemBack">
+                                <param name="selected">false</param>
+                            </include>
+                            <control type="image">
+                                <left>10</left>
+                                <top>5</top>
+                                <width>190</width>
+                                <height>255</height>
+                                <texture background="true">$VAR[Image_Poster]</texture>
+                                <aspectratio>scale</aspectratio>
+                            </control>
+                            <control type="label">
+                                <top>265</top>
+                                <left>10</left>
+                                <right>10</right>
+                                <height>24</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_90</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                            <include content="Object_Indicator">
+                                <param name="affix"></param>
+                                <param name="listitem">ListItem</param>
+                            </include>
+                        </control>
+                    </itemlayout>
+
+                    <focusedlayout width="220" height="310">
+                        <control type="group">
+                            <width>210</width>
+                            <height>300</height>
+                            <include content="Object_ItemBack">
+                                <param name="selected">true</param>
+                            </include>
+                            <include content="Object_Control">
+                                <param name="control">image</param>
+                                <include>Texture_Box_Highlight_V</include>
+                            </include>
+                            <control type="image">
+                                <left>10</left>
+                                <top>5</top>
+                                <width>190</width>
+                                <height>255</height>
+                                <texture background="true">$VAR[Image_Poster]</texture>
+                                <aspectratio>scale</aspectratio>
+                            </control>
+                            <control type="label">
+                                <top>265</top>
+                                <left>10</left>
+                                <right>10</right>
+                                <height>24</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_tiny_bold</font>
+                                <textcolor>main_fg_100</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                            <include content="Object_SelectBox">
+                                <param name="affix"></param>
+                                <param name="listitem">ListItem</param>
+                                <param name="indicator">true</param>
+                                <param name="focusbounce">true</param>
+                            </include>
+                        </control>
+                    </focusedlayout>
+                </control>
+            </control>
+        </control>
+    </include>
 </includes>
