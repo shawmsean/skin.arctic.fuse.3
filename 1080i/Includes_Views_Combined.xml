@@ -1233,6 +1233,8 @@
                 <right>80</right>
                 <top>130</top>
                 <height>60</height>
+                <visible>!Control.HasFocus(539)</visible>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true">Hidden</animation>
                 <include content="Categories_Selector">
                     <param name="id">529</param>
                     <param name="font">font_mini</param>
@@ -1254,8 +1256,9 @@
             <control type="group">
                 <left>80</left>
                 <right>80</right>
-                <top>200</top>
+                <top>130</top>
                 <bottom>80</bottom>
+                <animation effect="slide" start="0" end="0,70" time="200" reversible="true" condition="!Control.HasFocus(539)">Conditional</animation>
 
                 <control type="panel" id="539">
                     <visible>Container(529).ListItem.IsFolder</visible>
