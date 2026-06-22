@@ -1046,6 +1046,13 @@
 
                     <onback condition="!Integer.IsEqual(Container(527).CurrentItem,1)">SetFocus(527,0,absolute)</onback>
 
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">527</param>
+                    </include>
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">527</param>
+                    </include>
+
                     <visible>$EXP[Exp_View_527]</visible>
                     <viewtype label="$LOCALIZE[31609]">list</viewtype>
                     <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
