@@ -2368,3 +2368,7 @@ msgstr ""
 msgctxt "#31611"
 msgid "Combined Landscape Wall"
 msgstr ""
+
+msgctxt "#31612"
+msgid "Combined Square Wall"
+msgstr ""
