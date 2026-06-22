@@ -1391,9 +1391,10 @@
                         <param name="id">10</param>
                         <param name="visible">$EXP[Exp_View_540]</param>
                         <param name="viewtype_label">$LOCALIZE[31611]</param>
-                        <param name="include_movement">View_Combined_List_Horz_Selector_Movement</param>
                         <param name="overlay">true</param>
                     </include>
+                    <ondown>550</ondown>
+                    <onup>ActivateWindow(1171)</onup>
                 </include>
             </control>
 
