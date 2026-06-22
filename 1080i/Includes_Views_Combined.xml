@@ -1231,7 +1231,7 @@
             <control type="group">
                 <left>80</left>
                 <right>80</right>
-                <top>130</top>
+                <top>258</top>
                 <height>60</height>
                 <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(539)">Conditional</animation>
                 <include content="Categories_Selector">
@@ -1255,7 +1255,7 @@
             <control type="group">
                 <left>80</left>
                 <right>80</right>
-                <top>130</top>
+                <top>258</top>
                 <bottom>80</bottom>
                 <animation effect="slide" start="0" end="0,70" time="200" reversible="true" condition="!Control.HasFocus(539)">Conditional</animation>
 
