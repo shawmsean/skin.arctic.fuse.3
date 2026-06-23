@@ -78,6 +78,16 @@
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),537)</param>
             <param name="include_details">false</param>
         </include>
+        <include content="Info_Panel" condition="$EXP[Exp_View_516_Include]">
+            <param name="container">Container(517).</param>
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),517)</param>
+            <param name="include_details">false</param>
+        </include>
+        <include content="Info_Panel" condition="$EXP[Exp_View_518_Include]">
+            <param name="container">Container(519).</param>
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),519)</param>
+            <param name="include_details">false</param>
+        </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_540_Include]">
             <param name="container">Container(550).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),550)</param>
