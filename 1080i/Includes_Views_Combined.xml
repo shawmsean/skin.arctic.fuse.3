@@ -1293,14 +1293,13 @@
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <control type="image">
-                                <left>10</left>
-                                <top>5</top>
-                                <width>190</width>
-                                <height>255</height>
-                                <texture background="true">$VAR[Image_Poster]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                                <param name="icon">$VAR[Image_Poster]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">false</param>
+                            </include>
                             <control type="label">
                                 <top>265</top>
                                 <left>10</left>
@@ -1331,14 +1330,13 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_V</include>
                             </include>
-                            <control type="image">
-                                <left>10</left>
-                                <top>5</top>
-                                <width>190</width>
-                                <height>255</height>
-                                <texture background="true">$VAR[Image_Poster]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                                <param name="icon">$VAR[Image_Poster]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">true</param>
+                            </include>
                             <control type="label">
                                 <top>265</top>
                                 <left>10</left>
@@ -1447,14 +1445,13 @@
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <control type="image">
-                                <left>5</left>
-                                <top>5</top>
-                                <width>350</width>
-                                <height>170</height>
-                                <texture diffuse="diffuse/landscape_w356_h200.png" background="true">$VAR[Image_Landscape]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/landscape_w356_h200.png</param>
+                                <param name="icon">$VAR[Image_Landscape]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">false</param>
+                            </include>
                             <control type="label">
                                 <top>180</top>
                                 <left>10</left>
@@ -1485,14 +1482,13 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_H</include>
                             </include>
-                            <control type="image">
-                                <left>5</left>
-                                <top>5</top>
-                                <width>350</width>
-                                <height>170</height>
-                                <texture diffuse="diffuse/landscape_w356_h200.png" background="true">$VAR[Image_Landscape]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/landscape_w356_h200.png</param>
+                                <param name="icon">$VAR[Image_Landscape]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">true</param>
+                            </include>
                             <control type="label">
                                 <top>180</top>
                                 <left>10</left>
@@ -1601,14 +1597,13 @@
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <control type="image">
-                                <left>10</left>
-                                <top>5</top>
-                                <width>190</width>
-                                <height>190</height>
-                                <texture diffuse="diffuse/square_w217_h217.png" background="true">$VAR[Image_Square]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                <param name="icon">$VAR[Image_Square]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">false</param>
+                            </include>
                             <control type="label">
                                 <top>200</top>
                                 <left>10</left>
@@ -1639,14 +1634,13 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_V</include>
                             </include>
-                            <control type="image">
-                                <left>10</left>
-                                <top>5</top>
-                                <width>190</width>
-                                <height>190</height>
-                                <texture diffuse="diffuse/square_w217_h217.png" background="true">$VAR[Image_Square]</texture>
-                                <aspectratio>scale</aspectratio>
-                            </control>
+                            <include content="Object_Layout_Image_Icon">
+                                <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                <param name="icon">$VAR[Image_Square]</param>
+                                <param name="listitem">ListItem</param>
+                                <param name="aspectratio">scale</param>
+                                <param name="selected">true</param>
+                            </include>
                             <control type="label">
                                 <top>200</top>
                                 <left>10</left>
