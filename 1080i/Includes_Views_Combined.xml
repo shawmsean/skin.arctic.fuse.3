@@ -71,32 +71,32 @@
         <include content="Info_Panel" condition="$EXP[Exp_View_529_Include]">
             <param name="container">Container(539).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),539)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_527_Include]">
             <param name="container">Container(537).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),537)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_516_Include]">
             <param name="container">Container(517).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),517)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_518_Include]">
             <param name="container">Container(519).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),519)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_540_Include]">
             <param name="container">Container(550).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),550)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
         <include content="Info_Panel" condition="$EXP[Exp_View_541_Include]">
             <param name="container">Container(551).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),551)</param>
-            <param name="include_details">false</param>
+            <param name="include_details">$PARAM[include_details]</param>
         </include>
     </include>
 
@@ -1323,17 +1323,23 @@
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/poster_w217_h310.png</param>
-                                <param name="icon">$VAR[Image_Poster]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">false</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>260</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                                    <param name="icon">$VAR[Image_Poster]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">false</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>265</top>
-                                <left>10</left>
-                                <right>10</right>
+                                <top>270</top>
+                                <left>5</left>
+                                <right>5</right>
                                 <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -1360,17 +1366,23 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_V</include>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/poster_w217_h310.png</param>
-                                <param name="icon">$VAR[Image_Poster]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">true</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>260</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/poster_w217_h310.png</param>
+                                    <param name="icon">$VAR[Image_Poster]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">true</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>265</top>
-                                <left>10</left>
-                                <right>10</right>
+                                <top>270</top>
+                                <left>5</left>
+                                <right>5</right>
                                 <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
@@ -1468,25 +1480,31 @@
                         <param name="id">550</param>
                     </include>
 
-                    <itemlayout width="370" height="220">
+                    <itemlayout width="370" height="240">
                         <control type="group">
                             <width>360</width>
-                            <height>210</height>
+                            <height>230</height>
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/landscape_w356_h200.png</param>
-                                <param name="icon">$VAR[Image_Landscape]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">false</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>350</width>
+                                <height>190</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/landscape_w356_h200.png</param>
+                                    <param name="icon">$VAR[Image_Landscape]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">false</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>180</top>
-                                <left>10</left>
-                                <right>10</right>
-                                <height>22</height>
+                                <top>200</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny</font>
@@ -1501,10 +1519,10 @@
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="370" height="220">
+                    <focusedlayout width="370" height="240">
                         <control type="group">
                             <width>360</width>
-                            <height>210</height>
+                            <height>230</height>
                             <include content="Object_ItemBack">
                                 <param name="selected">true</param>
                             </include>
@@ -1512,18 +1530,24 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_H</include>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/landscape_w356_h200.png</param>
-                                <param name="icon">$VAR[Image_Landscape]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">true</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>350</width>
+                                <height>190</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/landscape_w356_h200.png</param>
+                                    <param name="icon">$VAR[Image_Landscape]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">true</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>180</top>
-                                <left>10</left>
-                                <right>10</right>
-                                <height>22</height>
+                                <top>200</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny_bold</font>
@@ -1620,25 +1644,31 @@
                         <param name="id">551</param>
                     </include>
 
-                    <itemlayout width="220" height="260">
+                    <itemlayout width="220" height="280">
                         <control type="group">
                             <width>210</width>
-                            <height>250</height>
+                            <height>270</height>
                             <include content="Object_ItemBack">
                                 <param name="selected">false</param>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/square_w217_h217.png</param>
-                                <param name="icon">$VAR[Image_Square]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">false</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>220</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                    <param name="icon">$VAR[Image_Square]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">false</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>200</top>
-                                <left>10</left>
-                                <right>10</right>
-                                <height>22</height>
+                                <top>230</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny</font>
@@ -1653,10 +1683,10 @@
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="220" height="260">
+                    <focusedlayout width="220" height="280">
                         <control type="group">
                             <width>210</width>
-                            <height>250</height>
+                            <height>270</height>
                             <include content="Object_ItemBack">
                                 <param name="selected">true</param>
                             </include>
@@ -1664,18 +1694,24 @@
                                 <param name="control">image</param>
                                 <include>Texture_Box_Highlight_V</include>
                             </include>
-                            <include content="Object_Layout_Image_Icon">
-                                <param name="diffuse">diffuse/square_w217_h217.png</param>
-                                <param name="icon">$VAR[Image_Square]</param>
-                                <param name="listitem">ListItem</param>
-                                <param name="aspectratio">scale</param>
-                                <param name="selected">true</param>
-                            </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>220</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                    <param name="icon">$VAR[Image_Square]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">true</param>
+                                </include>
+                            </control>
                             <control type="label">
-                                <top>200</top>
-                                <left>10</left>
-                                <right>10</right>
-                                <height>22</height>
+                                <top>230</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny_bold</font>
