@@ -807,33 +807,7 @@
                     <param name="viewtype_label">$LOCALIZE[31006]</param>
                     <param name="visible">$EXP[Exp_View_524]</param>
                 </include>
-                <include content="Categories_Selector" condition="$EXP[Exp_View_542_Include]">
-                    <param name="id">542</param>
-                    <param name="font">font_mini</param>
-                    <param name="hitrect_x">0</param>
-                    <param name="hitrect_y">0</param>
-                    <param name="hitrect_w">1080</param>
-                    <param name="hitrect_h">120</param>
-                    <param name="detailed">true</param>
-                    <include content="Action_View_Movement_OnBack">
-                        <param name="id">542</param>
-                        <param name="onback">[Integer.IsEqual(Container(542).CurrentItem,1)]</param>
-                        <param name="backid">63</param>
-                        <param name="menuid">300</param>
-                    </include>
-                    <include content="Action_View_Movement_OnUp">
-                        <param name="id">542</param>
-                    </include>
-                    <ondown>552</ondown>
-                    <onleft>542</onleft>
-                    <onright>542</onright>
-                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
-                    <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
-                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                    <visible>$EXP[Exp_View_542]</visible>
-                    <viewtype label="$LOCALIZE[31613]">wrap</viewtype>
-                </include>
+
 
             </control>
         </control>
@@ -1800,6 +1774,44 @@
                     <top>view_row</top>
                     <left>view_pad</left>
                 </include>
+            </control>
+
+            <control type="group">
+                <top>520</top>
+                <height>40</height>
+                <control type="group">
+                    <left>view_pad</left>
+                    <include>View_Line_Divider</include>
+                </control>
+                <control type="group">
+                    <include content="Categories_Selector">
+                        <param name="id">542</param>
+                        <param name="font">font_mini</param>
+                        <param name="hitrect_x">0</param>
+                        <param name="hitrect_y">0</param>
+                        <param name="hitrect_w">1080</param>
+                        <param name="hitrect_h">120</param>
+                        <param name="detailed">true</param>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">542</param>
+                            <param name="onback">[Integer.IsEqual(Container(542).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <include content="Action_View_Movement_OnUp">
+                            <param name="id">542</param>
+                        </include>
+                        <ondown>552</ondown>
+                        <onleft>542</onleft>
+                        <onright>542</onright>
+                        <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                        <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <visible>$EXP[Exp_View_542]</visible>
+                        <viewtype label="$LOCALIZE[31613]">wrap</viewtype>
+                    </include>
+                </control>
             </control>
         </control>
     </include>
