@@ -2358,3 +2358,7 @@ msgstr "混合：横版墙"
 msgctxt "#31612"
 msgid "Combined Square Wall"
 msgstr "混合：方形墙"
+
+msgctxt "#31613"
+msgid "Combined Music Track"
+msgstr "混合：音乐曲目"

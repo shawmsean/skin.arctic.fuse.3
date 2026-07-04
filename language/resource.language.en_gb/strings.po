@@ -2372,3 +2372,7 @@ msgstr ""
 msgctxt "#31612"
 msgid "Combined Square Wall"
 msgstr ""
+
+msgctxt "#31613"
+msgid "Combined Music Track"
+msgstr ""
