@@ -101,7 +101,7 @@
         <include content="Info_Panel" condition="$EXP[Exp_View_542_Include]">
             <param name="container">Container(552).</param>
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),552)</param>
-            <param name="include_details">false</param>
+
         </include>
     </include>
 
@@ -1732,9 +1732,14 @@
             <visible>Control.IsVisible(542)</visible>
             <control type="group">
 
-                <include content="List_MusicTrack_Row">
-                    <param name="id">552</param>
-                    <top>view_row</top>
+                <control type="panel" id="552">
+                    <left>view_pad</left>
+                    <right>view_pad</right>
+                    <top>290</top>
+                    <bottom>200</bottom>
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <preloaditems>2</preloaditems>
                     <pagecontrol>60</pagecontrol>
 
                     <include content="Action_View_Movement_OnBack">
@@ -1765,13 +1770,28 @@
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                     <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
 
-                </include>
+                    <itemlayout width="440" height="90">
+                        <include content="Layout_MusicTrack">
+                            <param name="selected">false</param>
+                            <param name="item_w">440</param>
+                            <param name="item_h">90</param>
+                        </include>
+                    </itemlayout>
+
+                    <focusedlayout width="440" height="90">
+                        <include content="Layout_MusicTrack">
+                            <param name="selected">true</param>
+                            <param name="item_w">440</param>
+                            <param name="item_h">90</param>
+                        </include>
+                    </focusedlayout>
+                </control>
 
                 <include content="Widget_Busy">
                     <param name="label">$INFO[Container(542).ListItem.Label]</param>
                     <param name="visible">Container(552).IsUpdating</param>
                     <param name="include">List_MusicTrack_Row</param>
-                    <top>view_row</top>
+                    <top>290</top>
                     <left>view_pad</left>
                 </include>
             </control>
