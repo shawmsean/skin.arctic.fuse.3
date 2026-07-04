@@ -1730,45 +1730,77 @@
     <include name="View_542_MusicTrack_Combined">
         <control type="group">
             <visible>Control.IsVisible(542)</visible>
+
             <control type="group">
-
-                <control type="panel" id="552">
-                    <left>view_pad</left>
-                    <right>view_pad</right>
-                    <top>290</top>
-                    <bottom>560</bottom>
-                    <orientation>vertical</orientation>
-                    <scrolltime tween="quadratic">400</scrolltime>
-                    <preloaditems>2</preloaditems>
-                    <pagecontrol>60</pagecontrol>
-
+                <left>80</left>
+                <right>80</right>
+                <top>200</top>
+                <height>60</height>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(552)">Conditional</animation>
+                <include content="Categories_Selector">
+                    <param name="id">542</param>
+                    <param name="font">font_mini</param>
+                    <param name="hitrect_x">0</param>
+                    <param name="hitrect_y">0</param>
+                    <param name="hitrect_w">1080</param>
+                    <param name="hitrect_h">120</param>
+                    <param name="detailed">true</param>
                     <include content="Action_View_Movement_OnBack">
-                        <param name="id">552</param>
-                        <param name="onback">[Integer.IsEqual(Container(552).CurrentItem,1)]</param>
-                        <param name="always">True</param>
+                        <param name="id">542</param>
+                        <param name="onback">[Integer.IsEqual(Container(542).CurrentItem,1)]</param>
                         <param name="backid">63</param>
-                        <param name="menuid">63</param>
+                        <param name="menuid">300</param>
                     </include>
-
-                    <onup>SetFocus(552,0,absolute)</onup>
-                    <onup>542</onup>
-
-                    <include content="Action_View_Movement_OnDown">
+                    <include content="Action_View_Movement_OnUp">
                         <param name="id">542</param>
                     </include>
+                    <ondown>552</ondown>
+                    <onleft>542</onleft>
+                    <onright>542</onright>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                    <visible>$EXP[Exp_View_542]</visible>
+                    <viewtype label="$LOCALIZE[31613]">wrap</viewtype>
+                </include>
+            </control>
+
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>270</top>
+                <bottom>80</bottom>
+                <animation effect="slide" start="0" end="0,70" time="200" reversible="true" condition="!Control.HasFocus(552)">Conditional</animation>
+
+                <control type="panel" id="552">
+                    <visible>Container(542).ListItem.IsFolder</visible>
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+
+                    <onup>542</onup>
 
                     <animation type="Conditional" reversible="false" condition="Container(552).IsUpdating">
                         <effect type="fade" start="100" end="0" time="200" delay="600" />
                     </animation>
 
-                    <visible>Container(542).ListItem.IsFolder</visible>
-                    <onclick condition="Container(552).ListItem.IsFolder">Container.Update($INFO[Container(552).ListItem.FolderPath])</onclick>
-                    <onclick condition="Container(552).ListItem.IsFolder">SetFocus(50)</onclick>
-                    <onclick condition="!Container(552).ListItem.IsFolder">PlayMedia($ESCINFO[Container(552).ListItem.FileNameAndPath])</onclick>
                     <content target="music" sortby="track" sortorder="ascending">$VAR[View_552_Content]</content>
+
                     <onfocus>SetProperty(TMDbHelper.WidgetContainer,552)</onfocus>
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                     <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+
+                    <onback condition="!Integer.IsEqual(Container(552).CurrentItem,1)">SetFocus(552,0,absolute)</onback>
+
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">552</param>
+                    </include>
+
+                    <onclick condition="Container(552).ListItem.IsFolder">Container.Update($INFO[Container(552).ListItem.FolderPath])</onclick>
+                    <onclick condition="Container(552).ListItem.IsFolder">SetFocus(50)</onclick>
+                    <onclick condition="!Container(552).ListItem.IsFolder">PlayMedia($ESCINFO[Container(552).ListItem.FileNameAndPath])</onclick>
 
                     <itemlayout width="440" height="90">
                         <include content="Layout_MusicTrack">
@@ -1785,52 +1817,6 @@
                             <param name="item_h">90</param>
                         </include>
                     </focusedlayout>
-                </control>
-
-                <include content="Widget_Busy">
-                    <param name="label">$INFO[Container(542).ListItem.Label]</param>
-                    <param name="visible">Container(552).IsUpdating</param>
-                    <param name="include">List_MusicTrack_Row</param>
-                    <top>290</top>
-                    <left>view_pad</left>
-                </include>
-            </control>
-
-            <control type="group">
-                <top>520</top>
-                <height>40</height>
-                <control type="group">
-                    <left>view_pad</left>
-                    <include>View_Line_Divider</include>
-                </control>
-                <control type="group">
-                    <include content="Categories_Selector">
-                        <param name="id">542</param>
-                        <param name="font">font_mini</param>
-                        <param name="hitrect_x">0</param>
-                        <param name="hitrect_y">0</param>
-                        <param name="hitrect_w">1080</param>
-                        <param name="hitrect_h">120</param>
-                        <param name="detailed">true</param>
-                        <include content="Action_View_Movement_OnBack">
-                            <param name="id">542</param>
-                            <param name="onback">[Integer.IsEqual(Container(542).CurrentItem,1)]</param>
-                            <param name="backid">63</param>
-                            <param name="menuid">300</param>
-                        </include>
-                        <include content="Action_View_Movement_OnUp">
-                            <param name="id">542</param>
-                        </include>
-                        <ondown>552</ondown>
-                        <onleft>542</onleft>
-                        <onright>542</onright>
-                        <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
-                        <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
-                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                        <visible>$EXP[Exp_View_542]</visible>
-                        <viewtype label="$LOCALIZE[31613]">wrap</viewtype>
-                    </include>
                 </control>
             </control>
         </control>
