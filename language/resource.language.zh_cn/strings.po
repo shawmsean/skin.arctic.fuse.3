@@ -2479,3 +2479,23 @@ msgctxt "#31633"
 msgid "Combined Music Track"
 msgstr "混合：音乐曲目"
 
+msgctxt "#31634"
+msgid "Filter Browse"
+msgstr "筛选浏览"
+
+msgctxt "#31635"
+msgid "Genre"
+msgstr "类型"
+
+msgctxt "#31636"
+msgid "Region"
+msgstr "地区"
+
+msgctxt "#31637"
+msgid "Year"
+msgstr "年代"
+
+msgctxt "#31638"
+msgid "Sort"
+msgstr "排序"
+

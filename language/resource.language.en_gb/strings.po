@@ -2411,6 +2411,26 @@ msgctxt "#31633"
 msgid "Combined Music Track"
 msgstr ""
 
+msgctxt "#31634"
+msgid "Filter Browse"
+msgstr ""
+
+msgctxt "#31635"
+msgid "Genre"
+msgstr ""
+
+msgctxt "#31636"
+msgid "Region"
+msgstr ""
+
+msgctxt "#31637"
+msgid "Year"
+msgstr ""
+
+msgctxt "#31638"
+msgid "Sort"
+msgstr ""
+
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31614"
 msgid "Seasonal Themes"
