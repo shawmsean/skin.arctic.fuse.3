@@ -1865,7 +1865,20 @@
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>547</onleft>
                         <onright>547</onright>
+                        <onup>546</onup>
                         <ondown>543</ondown>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,547)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">547</param>
+                            <param name="onback">[Integer.IsEqual(Container(547).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <include content="Action_View_Movement_OnUp">
+                            <param name="id">547</param>
+                        </include>
                         <content>
                             <item id="1"><label>电影</label><property name="filter_value">movie_filter</property></item>
                             <item id="2"><label>电视剧</label><property name="filter_value">tv_filter</property></item>
@@ -1949,9 +1962,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <include content="Action_View_Movement_OnUp">
-                            <param name="id">543</param>
-                        </include>
+
                         <content>
                             <item id="1"><label>全部</label><property name="filter_value"></property></item>
                             <item id="2"><label>喜剧</label><property name="filter_value">喜剧</property></item>
