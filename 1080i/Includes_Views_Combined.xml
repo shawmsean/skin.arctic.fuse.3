@@ -1860,7 +1860,7 @@
                         <width>1600</width>
                         <height>45</height>
                         <orientation>horizontal</orientation>
-                        <focusposition>0</focusposition>
+
                         <movement>1</movement>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>547</onleft>
@@ -1944,8 +1944,8 @@
                         <width>1600</width>
                         <height>45</height>
                         <orientation>horizontal</orientation>
-                        <focusposition>0</focusposition>
-                        <movement>3</movement>
+
+                        <movement>1</movement>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>543</onleft>
                         <onright>543</onright>
@@ -2052,8 +2052,8 @@
                         <width>1600</width>
                         <height>45</height>
                         <orientation>horizontal</orientation>
-                        <focusposition>0</focusposition>
-                        <movement>3</movement>
+
+                        <movement>1</movement>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>544</onleft>
                         <onright>544</onright>
@@ -2145,8 +2145,8 @@
                         <width>1600</width>
                         <height>45</height>
                         <orientation>horizontal</orientation>
-                        <focusposition>0</focusposition>
-                        <movement>3</movement>
+
+                        <movement>1</movement>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>545</onleft>
                         <onright>545</onright>
@@ -2154,22 +2154,14 @@
                         <ondown>546</ondown>
                         <content>
                             <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>2026</label><property name="filter_value">2026</property></item>
-                            <item id="3"><label>2025</label><property name="filter_value">2025</property></item>
-                            <item id="4"><label>2024</label><property name="filter_value">2024</property></item>
-                            <item id="5"><label>2023</label><property name="filter_value">2023</property></item>
-                            <item id="6"><label>2022</label><property name="filter_value">2022</property></item>
-                            <item id="7"><label>2021</label><property name="filter_value">2021</property></item>
-                            <item id="8"><label>2020</label><property name="filter_value">2020</property></item>
-                            <item id="9"><label>2019</label><property name="filter_value">2019</property></item>
-                            <item id="10"><label>2020年代</label><property name="filter_value">2020年代</property></item>
-                            <item id="11"><label>2010年代</label><property name="filter_value">2010年代</property></item>
-                            <item id="12"><label>2000年代</label><property name="filter_value">2000年代</property></item>
-                            <item id="13"><label>90年代</label><property name="filter_value">90年代</property></item>
-                            <item id="14"><label>80年代</label><property name="filter_value">80年代</property></item>
-                            <item id="15"><label>70年代</label><property name="filter_value">70年代</property></item>
-                            <item id="16"><label>60年代</label><property name="filter_value">60年代</property></item>
-                            <item id="17"><label>更早</label><property name="filter_value">更早</property></item>
+                            <item id="2"><label>2020年代</label><property name="filter_value">2020年代</property></item>
+                            <item id="3"><label>2010年代</label><property name="filter_value">2010年代</property></item>
+                            <item id="4"><label>2000年代</label><property name="filter_value">2000年代</property></item>
+                            <item id="5"><label>90年代</label><property name="filter_value">90年代</property></item>
+                            <item id="6"><label>80年代</label><property name="filter_value">80年代</property></item>
+                            <item id="7"><label>70年代</label><property name="filter_value">70年代</property></item>
+                            <item id="8"><label>60年代</label><property name="filter_value">60年代</property></item>
+                            <item id="9"><label>更早</label><property name="filter_value">更早</property></item>
                         </content>
                         <itemlayout width="110" height="45">
                             <control type="label">
@@ -2231,7 +2223,7 @@
                         <width>1600</width>
                         <height>45</height>
                         <orientation>horizontal</orientation>
-                        <focusposition>0</focusposition>
+
                         <movement>1</movement>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>546</onleft>
@@ -2288,7 +2280,7 @@
             </control>
 
             <control type="group">
-                <left>140</left>
+                <left>80</left>
                 <right>80</right>
                 <top>460</top>
                 <height>720</height>
@@ -2328,18 +2320,18 @@
                     <onclick condition="Container(553).ListItem.IsFolder">SetFocus(50)</onclick>
                     <onclick condition="!Container(553).ListItem.IsFolder">PlayMedia($ESCINFO[Container(553).ListItem.FileNameAndPath])</onclick>
 
-                    <itemlayout width="170" height="230">
+                    <itemlayout width="220" height="310">
                         <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
                             <visible>false</visible>
                         </control>
                         <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
-                            <width>160</width>
-                            <height>220</height>
+                            <width>210</width>
+                            <height>300</height>
                             <control type="group">
                                 <left>5</left>
                                 <top>5</top>
-                                <width>150</width>
-                                <height>190</height>
+                                <width>200</width>
+                                <height>260</height>
                                 <include content="Object_Layout_Image_Icon">
                                     <param name="diffuse">diffuse/poster_w217_h310.png</param>
                                     <param name="icon">$VAR[Image_Poster]</param>
@@ -2349,10 +2341,10 @@
                                 </include>
                             </control>
                             <control type="label">
-                                <top>198</top>
+                                <top>270</top>
                                 <left>5</left>
                                 <right>5</right>
-                                <height>20</height>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny</font>
@@ -2363,20 +2355,20 @@
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="170" height="230">
+                    <focusedlayout width="220" height="310">
                         <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</onfocus>
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[ListItem.Property(next_page)],replace)</onfocus>
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</onfocus>
                         </control>
                         <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
-                            <width>160</width>
-                            <height>220</height>
+                            <width>210</width>
+                            <height>300</height>
                             <control type="group">
                                 <left>5</left>
                                 <top>5</top>
-                                <width>150</width>
-                                <height>190</height>
+                                <width>200</width>
+                                <height>260</height>
                                 <include content="Object_SelectBox">
                                     <param name="affix"></param>
                                     <param name="listitem">ListItem</param>
@@ -2396,10 +2388,10 @@
                                 </include>
                             </control>
                             <control type="label">
-                                <top>198</top>
+                                <top>270</top>
                                 <left>5</left>
                                 <right>5</right>
-                                <height>20</height>
+                                <height>24</height>
                                 <align>center</align>
                                 <aligny>center</aligny>
                                 <font>font_tiny_bold</font>
