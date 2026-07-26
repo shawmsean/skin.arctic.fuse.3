@@ -64,5 +64,50 @@
             <param name="plot_linespacing_tiny">1.11</param>
         </include>
     </fontset>
+
+    <fontset id="ZhenKai Mega (霞鹜臻楷 + Symbols + Emoji)" unicode="true">
+        <include content="Font_Default">
+            <param name="font_bold">ZhenKaiMega-Regular.ttf</param>
+            <param name="font_regular">ZhenKaiMega-Regular.ttf</param>
+            <param name="font_light">ZhenKaiMega-Regular.ttf</param>
+            <param name="style_light" />
+
+            <param name="plot_linespacing_head">1.03</param>
+            <param name="plot_linespacing_midi">1.45</param>
+            <param name="plot_linespacing_main">1.13</param>
+            <param name="plot_linespacing_mini">1.20</param>
+            <param name="plot_linespacing_tiny">1.11</param>
+        </include>
+    </fontset>
+
+    <fontset id="WenKai Mega (霞鹜文楷 + Symbols + Emoji)" unicode="true">
+        <include content="Font_Default">
+            <param name="font_bold">WenKaiMega-Bold.ttf</param>
+            <param name="font_regular">WenKaiMega-Regular.ttf</param>
+            <param name="font_light">WenKaiMega-Light.ttf</param>
+            <param name="style_light" />
+
+            <param name="plot_linespacing_head">1.03</param>
+            <param name="plot_linespacing_midi">1.45</param>
+            <param name="plot_linespacing_main">1.13</param>
+            <param name="plot_linespacing_mini">1.20</param>
+            <param name="plot_linespacing_tiny">1.11</param>
+        </include>
+    </fontset>
+
+    <fontset id="WenKai Mono Mega (文楷等宽 + Symbols + Emoji)" unicode="true">
+        <include content="Font_Default">
+            <param name="font_bold">WenKaiMonoMega-Bold.ttf</param>
+            <param name="font_regular">WenKaiMonoMega-Regular.ttf</param>
+            <param name="font_light">WenKaiMonoMega-Regular.ttf</param>
+            <param name="style_light" />
+
+            <param name="plot_linespacing_head">1.03</param>
+            <param name="plot_linespacing_midi">1.45</param>
+            <param name="plot_linespacing_main">1.13</param>
+            <param name="plot_linespacing_mini">1.20</param>
+            <param name="plot_linespacing_tiny">1.11</param>
+        </include>
+    </fontset>
 </fonts>
 
