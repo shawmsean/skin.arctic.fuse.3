@@ -79,7 +79,7 @@
                         <param name="id">515</param>
                     </include>
                     <visible>$EXP[Exp_View_515]</visible>
-                    <viewtype label="$LOCALIZE[31606]">wrap</viewtype>
+                    <viewtype label="$LOCALIZE[31626]">wrap</viewtype>
                     <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
                     <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
                     <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>

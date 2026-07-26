@@ -709,9 +709,20 @@ msgctxt "#31148"
 msgid "Black Onyx"
 msgstr ""
 
+#: /1080i/Settings.xml
+#: /1080i/SettingsSystemInfo.xml 
+msgctxt "#31149"
+msgid "Used memory"
+msgstr ""
+
 #: /1080i/Includes_Labels.xml
 msgctxt "#31150"
 msgid "Categories"
+msgstr ""
+
+#: /1080i/Settings.xml
+msgctxt "#31151"
+msgid "Customise video info"
 msgstr ""
 
 msgctxt "#31154"
@@ -1299,8 +1310,9 @@ msgid "Square"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
+#: /1080i/Settings.xml
 msgctxt "#31321"
-msgid "Select viewtypes"
+msgid "Customise viewtypes"
 msgstr ""
 
 #: /1080i/SkinSettings.xml /1080i/Includes_Labels.xml
@@ -1731,7 +1743,8 @@ msgctxt "#31430"
 msgid "Customise style"
 msgstr ""
 
-#: /1080i/SkinSettings.xml /1080i/Includes_Views_Row.xml
+#: /1080i/SkinSettings.xml 
+#: /1080i/Includes_Views_Row.xml
 msgctxt "#31431"
 msgid "Circle"
 msgstr ""
@@ -1741,9 +1754,10 @@ msgctxt "#31432"
 msgid "Adaptive"
 msgstr ""
 
-#: /1080i/SkinSettings.xml
+#: /1080i/Includes_SkinSettings.xml
+#: /1080i/Settings.xml
 msgctxt "#31434"
-msgid "Video OSD"
+msgid "Customise video OSD"
 msgstr ""
 
 #: /1080i/SkinSettings.xml
@@ -2362,38 +2376,38 @@ msgid "Next aired"
 msgstr ""
 
 #: /1080i/Includes_Views_Row.xml
-msgctxt "#31606"
+msgctxt "#31626"
 msgid "Music Track"
 msgstr ""
 
 #: /1080i/Includes_Views_Combined.xml
-msgctxt "#31607"
+msgctxt "#31627"
 msgid "Album Track"
 msgstr ""
 
 #: /1080i/Includes_Views_Combined.xml
-msgctxt "#31608"
+msgctxt "#31628"
 msgid "Rank"
 msgstr ""
 
 #: /1080i/Includes_Views_Combined.xml
-msgctxt "#31609"
+msgctxt "#31629"
 msgid "Combined List Compact"
 msgstr ""
 
-msgctxt "#31610"
+msgctxt "#31630"
 msgid "Combined Poster Wall"
 msgstr ""
 
-msgctxt "#31611"
+msgctxt "#31631"
 msgid "Combined Landscape Wall"
 msgstr ""
 
-msgctxt "#31612"
+msgctxt "#31632"
 msgid "Combined Square Wall"
 msgstr ""
 
-msgctxt "#31613"
+msgctxt "#31633"
 msgid "Combined Music Track"
 msgstr ""
 

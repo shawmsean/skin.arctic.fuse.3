@@ -600,7 +600,7 @@
                         <width>680</width>
                         <control type="panel" id="516">
                             <visible>$EXP[Exp_View_516]</visible>
-                            <viewtype label="$LOCALIZE[31607]">list</viewtype>
+                            <viewtype label="$LOCALIZE[31627]">list</viewtype>
                             <orientation>vertical</orientation>
                             <scrolltime tween="quadratic">400</scrolltime>
                             <pagecontrol>60</pagecontrol>
@@ -853,7 +853,7 @@
                     <width>460</width>
                     <control type="list" id="518">
                         <visible>$EXP[Exp_View_518]</visible>
-                        <viewtype label="$LOCALIZE[31608]">list</viewtype>
+                        <viewtype label="$LOCALIZE[31628]">list</viewtype>
                         <orientation>vertical</orientation>
                         <scrolltime tween="quadratic">400</scrolltime>
                         <pagecontrol>60</pagecontrol>
@@ -1091,7 +1091,7 @@
                     </include>
 
                     <visible>$EXP[Exp_View_527]</visible>
-                    <viewtype label="$LOCALIZE[31609]">list</viewtype>
+                    <viewtype label="$LOCALIZE[31629]">list</viewtype>
                     <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
@@ -1283,7 +1283,7 @@
                     <include content="View_Combined_List_Horz_Selector_Content">
                         <param name="id">9</param>
                         <param name="visible">$EXP[Exp_View_529]</param>
-                        <param name="viewtype_label">$LOCALIZE[31610]</param>
+                        <param name="viewtype_label">$LOCALIZE[31630]</param>
                         <param name="include_movement">View_Combined_List_Horz_Selector_Movement</param>
                         <param name="overlay">true</param>
                     </include>
@@ -1445,7 +1445,7 @@
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
                     <visible>$EXP[Exp_View_540]</visible>
-                    <viewtype label="$LOCALIZE[31611]">wrap</viewtype>
+                    <viewtype label="$LOCALIZE[31631]">wrap</viewtype>
                 </include>
             </control>
 
@@ -1604,7 +1604,7 @@
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
                     <visible>$EXP[Exp_View_541]</visible>
-                    <viewtype label="$LOCALIZE[31612]">wrap</viewtype>
+                    <viewtype label="$LOCALIZE[31632]">wrap</viewtype>
                 </include>
             </control>
 
@@ -1762,7 +1762,7 @@
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
                     <visible>$EXP[Exp_View_542]</visible>
-                    <viewtype label="$LOCALIZE[31613]">wrap</viewtype>
+                    <viewtype label="$LOCALIZE[31633]">wrap</viewtype>
                 </include>
             </control>
 
