@@ -488,9 +488,13 @@
                     <include>Animation_View_WindowChange</include>
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Row_Items</include>
-                    <include>View_Row_Line</include>
+                    <control type="group">
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="[Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)] + !Control.HasFocus(553)">Conditional</animation>
+                        <include>View_Row_Line</include>
+                    </control>
                     <control type="group">
                         <visible>!$EXP[View_Mode_Wall_Expression]</visible>
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="[Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)] + !Control.HasFocus(553)">Conditional</animation>
                         <include>Furniture_Footer_Left</include>
                     </control>
                 </control>
