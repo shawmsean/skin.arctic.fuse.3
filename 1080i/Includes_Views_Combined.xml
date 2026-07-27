@@ -2539,6 +2539,7 @@
                         <onleft>546</onleft>
                         <onright>546</onright>
                         <onup>545</onup>
+                        <ondown>553</ondown>
                         <content>
                             <item id="1"><label>热度</label><property name="filter_value">U</property></item>
                             <item id="2"><label>评分</label><property name="filter_value">S</property></item>
