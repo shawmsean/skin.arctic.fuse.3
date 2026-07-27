@@ -327,7 +327,7 @@
         <value condition="Control.IsVisible(540)">550</value>
         <value condition="Control.IsVisible(541)">551</value>
         <value condition="Control.IsVisible(542)">552</value>
-        <value condition="Control.IsVisible(543)">553</value>
+        <value condition="Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)">553</value>
         <value condition="Control.IsVisible(549)">549</value>
         <value>500</value>
     </variable>
