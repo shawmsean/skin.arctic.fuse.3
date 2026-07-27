@@ -1271,9 +1271,8 @@
             <visible>Control.IsVisible(529)</visible>
 
             <control type="group">
-                <left>80</left>
+                <left>40</left>
                 <right>80</right>
-
                 <top>200</top>
                 <height>60</height>
                 <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(539)">Conditional</animation>
@@ -1838,9 +1837,9 @@
             <visible>Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)</visible>
 
             <control type="group">
-                <left>140</left>
+                <left>30</left>
                 <right>80</right>
-                <top>200</top>
+                <top>100</top>
                 <height>250</height>
                 <animation effect="slide" start="0" end="0,-250" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
@@ -2592,9 +2591,9 @@
             <control type="group">
                 <left>80</left>
                 <right>80</right>
-                <top>460</top>
+                <top>360</top>
                 <height>720</height>
-                <animation effect="slide" start="0" end="0,-180" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
+                <animation effect="slide" start="0" end="0,-80" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
 
                 <control type="panel" id="553">
                     <orientation>vertical</orientation>
