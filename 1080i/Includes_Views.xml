@@ -327,7 +327,7 @@
         <value condition="Control.IsVisible(540)">550</value>
         <value condition="Control.IsVisible(541)">551</value>
         <value condition="Control.IsVisible(542)">552</value>
-        <value condition="Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)">553</value>
+        <value condition="Control.IsVisible(543)">553</value>
         <value condition="Control.IsVisible(549)">549</value>
         <value>500</value>
     </variable>
@@ -489,12 +489,12 @@
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Row_Items</include>
                     <control type="group">
-                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="[Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)] + !Control.HasFocus(553)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <include>View_Row_Line</include>
                     </control>
                     <control type="group">
                         <visible>!$EXP[View_Mode_Wall_Expression]</visible>
-                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="[Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)] + !Control.HasFocus(553)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <include>Furniture_Footer_Left</include>
                     </control>
                 </control>

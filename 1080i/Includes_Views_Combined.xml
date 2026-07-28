@@ -1826,15 +1826,13 @@
         </control>
     </include>
 
-        <variable name="View_553_Content">
-        <value condition="!String.IsEmpty(Container(547).ListItem.Property(filter_value)) + String.IsEqual(Container(547).ListItem.Property(filter_value),movie_filter)">plugin://plugin.video.douban/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
-        <value condition="!String.IsEmpty(Container(547).ListItem.Property(filter_value)) + String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter)">plugin://plugin.video.douban/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(554).ListItem.Property(filter_value)]&amp;region=$INFO[Container(556).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
-        <value condition="!String.IsEmpty(Container(547).ListItem.Property(filter_value)) + String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter)">plugin://plugin.video.douban/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(555).ListItem.Property(filter_value)]&amp;region=$INFO[Container(557).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
+            <variable name="View_553_Content">
+        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(547).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
     </variable>
 
     <include name="View_543_FilterBrowse_Combined">
         <control type="group">
-            <visible>Control.IsVisible(543) | Control.IsVisible(554) | Control.IsVisible(555)</visible>
+            <visible>Control.IsVisible(543)</visible>
 
             <control type="group">
                 <left>30</left>
@@ -1865,9 +1863,7 @@
                         <onleft>547</onleft>
                         <onright>547</onright>
                         <onup>546</onup>
-                        <ondown condition="String.IsEqual(Container(547).ListItem.Property(filter_value),movie_filter)">543</ondown>
-                        <ondown condition="String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter)">554</ondown>
-                        <ondown condition="String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter)">555</ondown>
+                        <ondown>543</ondown>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,547)</onfocus>
                         <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                         <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
@@ -1880,11 +1876,7 @@
                         <include content="Action_View_Movement_OnUp">
                             <param name="id">547</param>
                         </include>
-                        <content>
-                            <item id="1"><label>电影</label><property name="filter_value">movie_filter</property></item>
-                            <item id="2"><label>电视剧</label><property name="filter_value">tv_filter</property></item>
-                            <item id="3"><label>综艺</label><property name="filter_value">show_filter</property></item>
-                        </content>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_categories</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -1951,7 +1943,7 @@
                         <onright>543</onright>
                         <onup>547</onup>
                         <ondown>544</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),movie_filter) + $EXP[Exp_View_543]</visible>
+                        <visible>$EXP[Exp_View_543]</visible>
                         <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,543)</onfocus>
                         <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
@@ -1962,188 +1954,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>喜剧</label><property name="filter_value">喜剧</property></item>
-                            <item id="3"><label>爱情</label><property name="filter_value">爱情</property></item>
-                            <item id="4"><label>动作</label><property name="filter_value">动作</property></item>
-                            <item id="5"><label>科幻</label><property name="filter_value">科幻</property></item>
-                            <item id="6"><label>动画</label><property name="filter_value">动画</property></item>
-                            <item id="7"><label>悬疑</label><property name="filter_value">悬疑</property></item>
-                            <item id="8"><label>犯罪</label><property name="filter_value">犯罪</property></item>
-                            <item id="9"><label>惊悚</label><property name="filter_value">惊悚</property></item>
-                            <item id="10"><label>冒险</label><property name="filter_value">冒险</property></item>
-                            <item id="11"><label>音乐</label><property name="filter_value">音乐</property></item>
-                            <item id="12"><label>历史</label><property name="filter_value">历史</property></item>
-                            <item id="13"><label>奇幻</label><property name="filter_value">奇幻</property></item>
-                            <item id="14"><label>恐怖</label><property name="filter_value">恐怖</property></item>
-                            <item id="15"><label>战争</label><property name="filter_value">战争</property></item>
-                            <item id="16"><label>传记</label><property name="filter_value">传记</property></item>
-                            <item id="17"><label>歌舞</label><property name="filter_value">歌舞</property></item>
-                            <item id="18"><label>武侠</label><property name="filter_value">武侠</property></item>
-                            <item id="19"><label>情色</label><property name="filter_value">情色</property></item>
-                            <item id="20"><label>灾难</label><property name="filter_value">灾难</property></item>
-                            <item id="21"><label>西部</label><property name="filter_value">西部</property></item>
-                            <item id="22"><label>纪录片</label><property name="filter_value">纪录片</property></item>
-                            <item id="23"><label>短片</label><property name="filter_value">短片</property></item>
-                        </content>
-                        <itemlayout width="100" height="45">
-                            <control type="label">
-                                <width>100</width>
-                                <height>45</height>
-                                <align>center</align>
-                                <aligny>center</aligny>
-                                <font>font_tiny</font>
-                                <textcolor>main_fg_50</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="100" height="45">
-                            <control type="group">
-                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
-                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
-                                <control type="image">
-                                    <left>5</left>
-                                    <right>5</right>
-                                    <top>5</top>
-                                    <bottom>5</bottom>
-                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
-                                </control>
-                                <control type="image">
-                                    <left>10</left>
-                                    <right>10</right>
-                                    <bottom>4</bottom>
-                                    <height>2</height>
-                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                                </control>
-                                <control type="label">
-                                    <width>100</width>
-                                    <height>45</height>
-                                    <align>center</align>
-                                    <aligny>center</aligny>
-                                    <font>font_tiny_bold</font>
-                                    <textcolor>main_fg_100</textcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                            </control>
-                        </focusedlayout>
-                    </control>
-                    <control type="fixedlist" id="554">
-                        <left>70</left>
-                        <width>1600</width>
-                        <height>45</height>
-                        <orientation>horizontal</orientation>
-                        <movement>1</movement>
-                        <scrolltime tween="quadratic">400</scrolltime>
-                        <onleft>554</onleft>
-                        <onright>554</onright>
-                        <onup>547</onup>
-                        <ondown>556</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter) + $EXP[Exp_View_543]</visible>
-                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,554)</onfocus>
-                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                        <include content="Action_View_Movement_OnBack">
-                            <param name="id">554</param>
-                            <param name="onback">[Integer.IsEqual(Container(554).CurrentItem,1)]</param>
-                            <param name="backid">63</param>
-                            <param name="menuid">300</param>
-                        </include>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>喜剧</label><property name="filter_value">喜剧</property></item>
-                            <item id="3"><label>爱情</label><property name="filter_value">爱情</property></item>
-                            <item id="4"><label>悬疑</label><property name="filter_value">悬疑</property></item>
-                            <item id="5"><label>动画</label><property name="filter_value">动画</property></item>
-                            <item id="6"><label>武侠</label><property name="filter_value">武侠</property></item>
-                            <item id="7"><label>古装</label><property name="filter_value">古装</property></item>
-                            <item id="8"><label>家庭</label><property name="filter_value">家庭</property></item>
-                            <item id="9"><label>犯罪</label><property name="filter_value">犯罪</property></item>
-                            <item id="10"><label>科幻</label><property name="filter_value">科幻</property></item>
-                            <item id="11"><label>恐怖</label><property name="filter_value">恐怖</property></item>
-                            <item id="12"><label>历史</label><property name="filter_value">历史</property></item>
-                            <item id="13"><label>战争</label><property name="filter_value">战争</property></item>
-                            <item id="14"><label>动作</label><property name="filter_value">动作</property></item>
-                            <item id="15"><label>冒险</label><property name="filter_value">冒险</property></item>
-                            <item id="16"><label>传记</label><property name="filter_value">传记</property></item>
-                            <item id="17"><label>剧情</label><property name="filter_value">剧情</property></item>
-                            <item id="18"><label>奇幻</label><property name="filter_value">奇幻</property></item>
-                            <item id="19"><label>惊悚</label><property name="filter_value">惊悚</property></item>
-                            <item id="20"><label>灾难</label><property name="filter_value">灾难</property></item>
-                            <item id="21"><label>歌舞</label><property name="filter_value">歌舞</property></item>
-                            <item id="22"><label>音乐</label><property name="filter_value">音乐</property></item>
-                        </content>
-                        <itemlayout width="100" height="45">
-                            <control type="label">
-                                <width>100</width>
-                                <height>45</height>
-                                <align>center</align>
-                                <aligny>center</aligny>
-                                <font>font_tiny</font>
-                                <textcolor>main_fg_50</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="100" height="45">
-                            <control type="group">
-                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
-                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
-                                <control type="image">
-                                    <left>5</left>
-                                    <right>5</right>
-                                    <top>5</top>
-                                    <bottom>5</bottom>
-                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
-                                </control>
-                                <control type="image">
-                                    <left>10</left>
-                                    <right>10</right>
-                                    <bottom>4</bottom>
-                                    <height>2</height>
-                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                                </control>
-                                <control type="label">
-                                    <width>100</width>
-                                    <height>45</height>
-                                    <align>center</align>
-                                    <aligny>center</aligny>
-                                    <font>font_tiny_bold</font>
-                                    <textcolor>main_fg_100</textcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                            </control>
-                        </focusedlayout>
-                    </control>
-                    <control type="fixedlist" id="555">
-                        <left>70</left>
-                        <width>1600</width>
-                        <height>45</height>
-                        <orientation>horizontal</orientation>
-                        <movement>1</movement>
-                        <scrolltime tween="quadratic">400</scrolltime>
-                        <onleft>555</onleft>
-                        <onright>555</onright>
-                        <onup>547</onup>
-                        <ondown>557</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter) + $EXP[Exp_View_543]</visible>
-                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
-                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,555)</onfocus>
-                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                        <include content="Action_View_Movement_OnBack">
-                            <param name="id">555</param>
-                            <param name="onback">[Integer.IsEqual(Container(555).CurrentItem,1)]</param>
-                            <param name="backid">63</param>
-                            <param name="menuid">300</param>
-                        </include>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>真人秀</label><property name="filter_value">真人秀</property></item>
-                            <item id="3"><label>脱口秀</label><property name="filter_value">脱口秀</property></item>
-                            <item id="4"><label>音乐</label><property name="filter_value">音乐</property></item>
-                            <item id="5"><label>歌舞</label><property name="filter_value">歌舞</property></item>
-                        </content>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_genres&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
@@ -2210,190 +2021,18 @@
                         <onright>544</onright>
                         <onup>543</onup>
                         <ondown>545</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),movie_filter)</visible>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>华语</label><property name="filter_value">华语</property></item>
-                            <item id="3"><label>欧美</label><property name="filter_value">欧美</property></item>
-                            <item id="4"><label>韩国</label><property name="filter_value">韩国</property></item>
-                            <item id="5"><label>日本</label><property name="filter_value">日本</property></item>
-                            <item id="6"><label>中国大陆</label><property name="filter_value">中国大陆</property></item>
-                            <item id="7"><label>美国</label><property name="filter_value">美国</property></item>
-                            <item id="8"><label>中国香港</label><property name="filter_value">中国香港</property></item>
-                            <item id="9"><label>中国台湾</label><property name="filter_value">中国台湾</property></item>
-                            <item id="10"><label>英国</label><property name="filter_value">英国</property></item>
-                            <item id="11"><label>法国</label><property name="filter_value">法国</property></item>
-                            <item id="12"><label>德国</label><property name="filter_value">德国</property></item>
-                            <item id="13"><label>意大利</label><property name="filter_value">意大利</property></item>
-                            <item id="14"><label>西班牙</label><property name="filter_value">西班牙</property></item>
-                            <item id="15"><label>印度</label><property name="filter_value">印度</property></item>
-                            <item id="16"><label>泰国</label><property name="filter_value">泰国</property></item>
-                            <item id="17"><label>俄罗斯</label><property name="filter_value">俄罗斯</property></item>
-                            <item id="18"><label>加拿大</label><property name="filter_value">加拿大</property></item>
-                            <item id="19"><label>澳大利亚</label><property name="filter_value">澳大利亚</property></item>
-                            <item id="20"><label>爱尔兰</label><property name="filter_value">爱尔兰</property></item>
-                            <item id="21"><label>瑞典</label><property name="filter_value">瑞典</property></item>
-                            <item id="22"><label>巴西</label><property name="filter_value">巴西</property></item>
-                            <item id="23"><label>丹麦</label><property name="filter_value">丹麦</property></item>
-                        </content>
-                        <itemlayout width="120" height="45">
-                            <control type="label">
-                                <width>120</width>
-                                <height>45</height>
-                                <align>center</align>
-                                <aligny>center</aligny>
-                                <font>font_tiny</font>
-                                <textcolor>main_fg_50</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="120" height="45">
-                            <control type="group">
-                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
-                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
-                                <control type="image">
-                                    <left>5</left>
-                                    <right>5</right>
-                                    <top>5</top>
-                                    <bottom>5</bottom>
-                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
-                                </control>
-                                <control type="image">
-                                    <left>10</left>
-                                    <right>10</right>
-                                    <bottom>4</bottom>
-                                    <height>2</height>
-                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                                </control>
-                                <control type="label">
-                                    <width>120</width>
-                                    <height>45</height>
-                                    <align>center</align>
-                                    <aligny>center</aligny>
-                                    <font>font_tiny_bold</font>
-                                    <textcolor>main_fg_100</textcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                            </control>
-                        </focusedlayout>
-                    </control>
-                    <control type="fixedlist" id="556">
-                        <left>70</left>
-                        <width>1600</width>
-                        <height>45</height>
-                        <orientation>horizontal</orientation>
-                        <movement>1</movement>
-                        <scrolltime tween="quadratic">400</scrolltime>
-                        <onleft>556</onleft>
-                        <onright>556</onright>
-                        <onup>554</onup>
-                        <ondown>545</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter)</visible>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>华语</label><property name="filter_value">华语</property></item>
-                            <item id="3"><label>欧美</label><property name="filter_value">欧美</property></item>
-                            <item id="4"><label>国外</label><property name="filter_value">国外</property></item>
-                            <item id="5"><label>韩国</label><property name="filter_value">韩国</property></item>
-                            <item id="6"><label>日本</label><property name="filter_value">日本</property></item>
-                            <item id="7"><label>中国大陆</label><property name="filter_value">中国大陆</property></item>
-                            <item id="8"><label>中国香港</label><property name="filter_value">中国香港</property></item>
-                            <item id="9"><label>美国</label><property name="filter_value">美国</property></item>
-                            <item id="10"><label>英国</label><property name="filter_value">英国</property></item>
-                            <item id="11"><label>泰国</label><property name="filter_value">泰国</property></item>
-                            <item id="12"><label>中国台湾</label><property name="filter_value">中国台湾</property></item>
-                            <item id="13"><label>意大利</label><property name="filter_value">意大利</property></item>
-                            <item id="14"><label>法国</label><property name="filter_value">法国</property></item>
-                            <item id="15"><label>德国</label><property name="filter_value">德国</property></item>
-                            <item id="16"><label>西班牙</label><property name="filter_value">西班牙</property></item>
-                            <item id="17"><label>俄罗斯</label><property name="filter_value">俄罗斯</property></item>
-                            <item id="18"><label>瑞典</label><property name="filter_value">瑞典</property></item>
-                            <item id="19"><label>巴西</label><property name="filter_value">巴西</property></item>
-                            <item id="20"><label>丹麦</label><property name="filter_value">丹麦</property></item>
-                            <item id="21"><label>印度</label><property name="filter_value">印度</property></item>
-                            <item id="22"><label>加拿大</label><property name="filter_value">加拿大</property></item>
-                            <item id="23"><label>爱尔兰</label><property name="filter_value">爱尔兰</property></item>
-                            <item id="24"><label>澳大利亚</label><property name="filter_value">澳大利亚</property></item>
-                        </content>
-                        <itemlayout width="120" height="45">
-                            <control type="label">
-                                <width>120</width>
-                                <height>45</height>
-                                <align>center</align>
-                                <aligny>center</aligny>
-                                <font>font_tiny</font>
-                                <textcolor>main_fg_50</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
-                            </control>
-                        </itemlayout>
-                        <focusedlayout width="120" height="45">
-                            <control type="group">
-                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
-                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
-                                <control type="image">
-                                    <left>5</left>
-                                    <right>5</right>
-                                    <top>5</top>
-                                    <bottom>5</bottom>
-                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
-                                </control>
-                                <control type="image">
-                                    <left>10</left>
-                                    <right>10</right>
-                                    <bottom>4</bottom>
-                                    <height>2</height>
-                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
-                                </control>
-                                <control type="label">
-                                    <width>120</width>
-                                    <height>45</height>
-                                    <align>center</align>
-                                    <aligny>center</aligny>
-                                    <font>font_tiny_bold</font>
-                                    <textcolor>main_fg_100</textcolor>
-                                    <label>$INFO[ListItem.Label]</label>
-                                </control>
-                            </control>
-                        </focusedlayout>
-                    </control>
-                    <control type="fixedlist" id="557">
-                        <left>70</left>
-                        <width>1600</width>
-                        <height>45</height>
-                        <orientation>horizontal</orientation>
-                        <movement>1</movement>
-                        <scrolltime tween="quadratic">400</scrolltime>
-                        <onleft>557</onleft>
-                        <onright>557</onright>
-                        <onup>555</onup>
-                        <ondown>545</ondown>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter)</visible>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>华语</label><property name="filter_value">华语</property></item>
-                            <item id="3"><label>欧美</label><property name="filter_value">欧美</property></item>
-                            <item id="4"><label>国外</label><property name="filter_value">国外</property></item>
-                            <item id="5"><label>韩国</label><property name="filter_value">韩国</property></item>
-                            <item id="6"><label>日本</label><property name="filter_value">日本</property></item>
-                            <item id="7"><label>中国大陆</label><property name="filter_value">中国大陆</property></item>
-                            <item id="8"><label>中国香港</label><property name="filter_value">中国香港</property></item>
-                            <item id="9"><label>美国</label><property name="filter_value">美国</property></item>
-                            <item id="10"><label>英国</label><property name="filter_value">英国</property></item>
-                            <item id="11"><label>泰国</label><property name="filter_value">泰国</property></item>
-                            <item id="12"><label>中国台湾</label><property name="filter_value">中国台湾</property></item>
-                            <item id="13"><label>意大利</label><property name="filter_value">意大利</property></item>
-                            <item id="14"><label>法国</label><property name="filter_value">法国</property></item>
-                            <item id="15"><label>德国</label><property name="filter_value">德国</property></item>
-                            <item id="16"><label>西班牙</label><property name="filter_value">西班牙</property></item>
-                            <item id="17"><label>俄罗斯</label><property name="filter_value">俄罗斯</property></item>
-                            <item id="18"><label>瑞典</label><property name="filter_value">瑞典</property></item>
-                            <item id="19"><label>巴西</label><property name="filter_value">巴西</property></item>
-                            <item id="20"><label>丹麦</label><property name="filter_value">丹麦</property></item>
-                            <item id="21"><label>印度</label><property name="filter_value">印度</property></item>
-                            <item id="22"><label>加拿大</label><property name="filter_value">加拿大</property></item>
-                            <item id="23"><label>爱尔兰</label><property name="filter_value">爱尔兰</property></item>
-                            <item id="24"><label>澳大利亚</label><property name="filter_value">澳大利亚</property></item>
-                        </content>
+                        <visible>$EXP[Exp_View_543]</visible>
+                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,544)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">544</param>
+                            <param name="onback">[Integer.IsEqual(Container(544).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_regions&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2458,21 +2097,20 @@
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>545</onleft>
                         <onright>545</onright>
-                        <onup condition="String.IsEqual(Container(547).ListItem.Property(filter_value),movie_filter)">544</onup>
-                        <onup condition="String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter)">556</onup>
-                        <onup condition="String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter)">557</onup>
+                        <onup>544</onup>
                         <ondown>546</ondown>
-                        <content>
-                            <item id="1"><label>全部</label><property name="filter_value"></property></item>
-                            <item id="2"><label>2020年代</label><property name="filter_value">2020年代</property></item>
-                            <item id="3"><label>2010年代</label><property name="filter_value">2010年代</property></item>
-                            <item id="4"><label>2000年代</label><property name="filter_value">2000年代</property></item>
-                            <item id="5"><label>90年代</label><property name="filter_value">90年代</property></item>
-                            <item id="6"><label>80年代</label><property name="filter_value">80年代</property></item>
-                            <item id="7"><label>70年代</label><property name="filter_value">70年代</property></item>
-                            <item id="8"><label>60年代</label><property name="filter_value">60年代</property></item>
-                            <item id="9"><label>更早</label><property name="filter_value">更早</property></item>
-                        </content>
+                        <visible>$EXP[Exp_View_543]</visible>
+                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,545)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">545</param>
+                            <param name="onback">[Integer.IsEqual(Container(545).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_years</content>
                         <itemlayout width="110" height="45">
                             <control type="label">
                                 <width>110</width>
@@ -2539,11 +2177,18 @@
                         <onright>546</onright>
                         <onup>545</onup>
                         <ondown>553</ondown>
-                        <content>
-                            <item id="1"><label>热度</label><property name="filter_value">U</property></item>
-                            <item id="2"><label>评分</label><property name="filter_value">S</property></item>
-                            <item id="3"><label>时间</label><property name="filter_value">R</property></item>
-                        </content>
+                        <visible>$EXP[Exp_View_543]</visible>
+                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,546)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">546</param>
+                            <param name="onback">[Integer.IsEqual(Container(546).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_sorts</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
@@ -2713,6 +2358,7 @@
                 </control>
             </control>
         </control>
+
 
     </include>
 </includes>
