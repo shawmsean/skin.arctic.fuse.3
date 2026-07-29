@@ -2499,3 +2499,7 @@ msgctxt "#31638"
 msgid "Sort"
 msgstr "排序"
 
+msgctxt "#31639"
+msgid "Platform"
+msgstr "平台"
+

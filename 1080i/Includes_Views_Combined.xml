@@ -1827,7 +1827,7 @@
     </include>
 
             <variable name="View_553_Content">
-        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(547).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
+        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(547).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;platform=$INFO[Container(548).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
     </variable>
 
     <include name="View_543_FilterBrowse_Combined">
@@ -1837,9 +1837,9 @@
             <control type="group">
                 <left>30</left>
                 <right>80</right>
-                <top>100</top>
-                <height>250</height>
-                <animation effect="slide" start="0" end="0,-250" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
+                <top>50</top>
+                <height>300</height>
+                <animation effect="slide" start="0" end="0,-300" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
                 <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(553)">Conditional</animation>
 
                 <control type="group">
@@ -2098,7 +2098,7 @@
                         <onleft>545</onleft>
                         <onright>545</onright>
                         <onup>544</onup>
-                        <ondown>546</ondown>
+                        <ondown>548</ondown>
                         <visible>$EXP[Exp_View_543]</visible>
                         <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,545)</onfocus>
@@ -2164,6 +2164,84 @@
                         <aligny>center</aligny>
                         <font>font_tiny_bold</font>
                         <textcolor>main_fg_40</textcolor>
+                        <label>$LOCALIZE[31639]</label>
+                    </control>
+                    <control type="fixedlist" id="548">
+                        <left>70</left>
+                        <width>1600</width>
+                        <height>45</height>
+                        <orientation>horizontal</orientation>
+                        <movement>1</movement>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <onleft>548</onleft>
+                        <onright>548</onright>
+                        <onup>545</onup>
+                        <ondown>546</ondown>
+                        <visible>$EXP[Exp_View_543]</visible>
+                        <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,548)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">548</param>
+                            <param name="onback">[Integer.IsEqual(Container(548).CurrentItem,1)]</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">300</param>
+                        </include>
+                        <content>plugin://$INFO[Container.PluginName]/?action=filter_platforms&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <itemlayout width="120" height="45">
+                            <control type="label">
+                                <width>120</width>
+                                <height>45</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_50</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </itemlayout>
+                        <focusedlayout width="120" height="45">
+                            <control type="group">
+                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
+                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
+                                <control type="image">
+                                    <left>5</left>
+                                    <right>5</right>
+                                    <top>5</top>
+                                    <bottom>5</bottom>
+                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
+                                </control>
+                                <control type="image">
+                                    <left>10</left>
+                                    <right>10</right>
+                                    <bottom>4</bottom>
+                                    <height>2</height>
+                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                                </control>
+                                <control type="label">
+                                    <width>120</width>
+                                    <height>45</height>
+                                    <align>center</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny_bold</font>
+                                    <textcolor>main_fg_100</textcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                </control>
+
+                <control type="group">
+                    <top>250</top>
+                    <height>45</height>
+                    <control type="label">
+                        <width>60</width>
+                        <height>45</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>font_tiny_bold</font>
+                        <textcolor>main_fg_40</textcolor>
                         <label>$LOCALIZE[31638]</label>
                     </control>
                     <control type="fixedlist" id="546">
@@ -2175,7 +2253,7 @@
                         <scrolltime tween="quadratic">400</scrolltime>
                         <onleft>546</onleft>
                         <onright>546</onright>
-                        <onup>545</onup>
+                        <onup>548</onup>
                         <ondown>553</ondown>
                         <visible>$EXP[Exp_View_543]</visible>
                         <viewtype label="$LOCALIZE[31634]">wrap</viewtype>
