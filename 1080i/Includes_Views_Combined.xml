@@ -2248,6 +2248,9 @@
 
                     <onup>546</onup>
 
+                    <onleft>ActivateWindow(1171)</onleft>
+                    <onright>ActivateWindow(1171)</onright>
+
                     <ondown condition="String.IsEqual(Container(553).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</ondown>
                     <ondown condition="String.IsEqual(Container(553).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_refocus_index,$INFO[Window(10000).Property(bili_trigger_index)],Home)</ondown>
                     <ondown condition="String.IsEqual(Container(553).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[Container(553).ListItem.Property(next_page)],replace)</ondown>
@@ -2266,9 +2269,6 @@
 
                     <onback condition="!Integer.IsEqual(Container(553).CurrentItem,1)">SetFocus(553,0,absolute)</onback>
 
-                    <include content="Action_View_Movement_OnDown">
-                        <param name="id">553</param>
-                    </include>
 
                     <onclick condition="Container(553).ListItem.IsFolder">Container.Update($INFO[Container(553).ListItem.FolderPath])</onclick>
                     <onclick condition="Container(553).ListItem.IsFolder">SetFocus(50)</onclick>
