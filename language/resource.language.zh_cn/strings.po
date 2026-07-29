@@ -2503,3 +2503,7 @@ msgctxt "#31639"
 msgid "Platform"
 msgstr "平台"
 
+msgctxt "#31640"
+msgid "FilterBrowse Landscape"
+msgstr "筛选横版"
+

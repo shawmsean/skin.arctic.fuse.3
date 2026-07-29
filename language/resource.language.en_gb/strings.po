@@ -2435,6 +2435,10 @@ msgctxt "#31639"
 msgid "Platform"
 msgstr ""
 
+msgctxt "#31640"
+msgid "FilterBrowse Landscape"
+msgstr ""
+
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31614"
 msgid "Seasonal Themes"

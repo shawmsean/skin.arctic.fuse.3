@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,526,527,528,529,540,541,542,543</views>
+        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,526,527,528,529,540,541,542,543,554</views>
     </include>
 
     <include name="View_Row_Items">
@@ -260,6 +260,7 @@
                 <include condition="$EXP[Exp_View_541_Include]">View_541_Square_Combined_Wall</include>
                 <include condition="$EXP[Exp_View_542_Include]">View_542_MusicTrack_Combined</include>
                 <include condition="$EXP[Exp_View_543_Include]">View_543_FilterBrowse_Combined</include>
+                <include condition="$EXP[Exp_View_554_Include]">View_554_FilterBrowse_Landscape_Combined</include>
 
                 <!-- List Views -->
                 <include condition="$EXP[Exp_View_506_Include]">View_506_Basic_List</include>
@@ -328,6 +329,7 @@
         <value condition="Control.IsVisible(541)">551</value>
         <value condition="Control.IsVisible(542)">552</value>
         <value condition="Control.IsVisible(543)">553</value>
+        <value condition="Control.IsVisible(554)">560</value>
         <value condition="Control.IsVisible(549)">549</value>
         <value>500</value>
     </variable>
@@ -490,11 +492,13 @@
                     <include>View_Row_Items</include>
                     <control type="group">
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <include>View_Row_Line</include>
                     </control>
                     <control type="group">
                         <visible>!$EXP[View_Mode_Wall_Expression]</visible>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
+                        <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <include>Furniture_Footer_Left</include>
                     </control>
                 </control>
