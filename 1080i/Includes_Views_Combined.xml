@@ -2973,17 +2973,18 @@
                     <onclick condition="Container(560).ListItem.IsFolder">SetFocus(50)</onclick>
                     <onclick condition="!Container(560).ListItem.IsFolder">PlayMedia($ESCINFO[Container(560).ListItem.FileNameAndPath])</onclick>
 
-                    <itemlayout width="356" height="200">
+                    <itemlayout width="370" height="255">
                         <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
                             <visible>false</visible>
                         </control>
                         <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
-                            <width>346</width>
-                            <height>190</height>
+                            <width>360</width>
+                            <height>245</height>
                             <control type="group">
+                                <left>5</left>
                                 <top>5</top>
-                                <width>346</width>
-                                <height>180</height>
+                                <width>350</width>
+                                <height>190</height>
                                 <include content="Object_Layout_Image_Icon">
                                     <param name="diffuse">diffuse/landscape_w356_h200.png</param>
                                     <param name="icon">$VAR[Image_Landscape]</param>
@@ -2991,35 +2992,67 @@
                                     <param name="aspectratio">scale</param>
                                     <param name="selected">false</param>
                                 </include>
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>8</top>
+                                    <width>60</width>
+                                    <height>22</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ff4CAF50</textcolor>
+                                    <label>$INFO[ListItem.Year]</label>
+                                </control>
+                                <control type="label">
+                                    <right>8</right>
+                                    <top>8</top>
+                                    <width>50</width>
+                                    <height>22</height>
+                                    <align>right</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ffE91E63</textcolor>
+                                    <label>$INFO[ListItem.Rating]</label>
+                                </control>
                             </control>
                             <control type="label">
-                                <top>180</top>
+                                <top>200</top>
                                 <left>5</left>
                                 <right>5</right>
                                 <height>24</height>
-                                <align>center</align>
                                 <aligny>center</aligny>
-                                <font>font_tiny</font>
+                                <font>font_mini_bold</font>
                                 <textcolor>main_fg_90</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                            <control type="label">
+                                <top>224</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>18</height>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_50</textcolor>
+                                <label>$INFO[ListItem.Genre]</label>
                                 <scroll>true</scroll>
                             </control>
                         </control>
                     </itemlayout>
 
-                    <focusedlayout width="356" height="200">
+                    <focusedlayout width="370" height="255">
                         <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</onfocus>
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[ListItem.Property(next_page)],replace)</onfocus>
                             <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</onfocus>
                         </control>
                         <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
-                            <width>346</width>
-                            <height>190</height>
+                            <width>360</width>
+                            <height>245</height>
                             <control type="group">
+                                <left>5</left>
                                 <top>5</top>
-                                <width>346</width>
-                                <height>180</height>
+                                <width>350</width>
+                                <height>190</height>
                                 <include content="Object_SelectBox">
                                     <param name="affix"></param>
                                     <param name="listitem">ListItem</param>
@@ -3027,7 +3060,7 @@
                                     <param name="focusbounce">true</param>
                                     <include content="Object_Control">
                                         <param name="control">image</param>
-                                        <include>Texture_Box_Highlight_V</include>
+                                        <include>Texture_Box_Highlight_H</include>
                                     </include>
                                     <include content="Object_Layout_Image_Icon">
                                         <param name="diffuse">diffuse/landscape_w356_h200.png</param>
@@ -3037,17 +3070,48 @@
                                         <param name="selected">true</param>
                                     </include>
                                 </include>
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>8</top>
+                                    <width>60</width>
+                                    <height>22</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ff4CAF50</textcolor>
+                                    <label>$INFO[ListItem.Year]</label>
+                                </control>
+                                <control type="label">
+                                    <right>8</right>
+                                    <top>8</top>
+                                    <width>50</width>
+                                    <height>22</height>
+                                    <align>right</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ffE91E63</textcolor>
+                                    <label>$INFO[ListItem.Rating]</label>
+                                </control>
                             </control>
                             <control type="label">
-                                <top>180</top>
+                                <top>200</top>
                                 <left>5</left>
                                 <right>5</right>
                                 <height>24</height>
-                                <align>center</align>
                                 <aligny>center</aligny>
-                                <font>font_tiny_bold</font>
+                                <font>font_mini_bold</font>
                                 <textcolor>main_fg_100</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                            <control type="label">
+                                <top>224</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>18</height>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_50</textcolor>
+                                <label>$INFO[ListItem.Genre]</label>
                                 <scroll>true</scroll>
                             </control>
                         </control>
