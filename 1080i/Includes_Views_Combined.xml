@@ -2380,6 +2380,27 @@
                                     <param name="aspectratio">scale</param>
                                     <param name="selected">false</param>
                                 </include>
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>8</top>
+                                    <width>60</width>
+                                    <height>22</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ff4CAF50</textcolor>
+                                    <label>$INFO[ListItem.Year]</label>
+                                </control>
+                                <control type="label">
+                                    <right>8</right>
+                                    <top>8</top>
+                                    <width>50</width>
+                                    <height>22</height>
+                                    <align>right</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ffE91E63</textcolor>
+                                    <label>$INFO[ListItem.Rating]</label>
+                                </control>
                             </control>
                             <control type="label">
                                 <top>270</top>
@@ -2427,6 +2448,27 @@
                                         <param name="selected">true</param>
                                     </include>
                                 </include>
+                                <control type="label">
+                                    <left>8</left>
+                                    <top>8</top>
+                                    <width>60</width>
+                                    <height>22</height>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ff4CAF50</textcolor>
+                                    <label>$INFO[ListItem.Year]</label>
+                                </control>
+                                <control type="label">
+                                    <right>8</right>
+                                    <top>8</top>
+                                    <width>50</width>
+                                    <height>22</height>
+                                    <align>right</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny</font>
+                                    <textcolor>ffE91E63</textcolor>
+                                    <label>$INFO[ListItem.Rating]</label>
+                                </control>
                             </control>
                             <control type="label">
                                 <top>270</top>
