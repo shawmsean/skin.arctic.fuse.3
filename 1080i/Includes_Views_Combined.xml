@@ -2143,21 +2143,36 @@
                             </control>
                         </focusedlayout>
                     </control>
+                </control>
+
+                <control type="group">
+                    <top>200</top>
+                    <height>45</height>
+                    <control type="label">
+                        <width>60</width>
+                        <height>45</height>
+                        <align>right</align>
+                        <aligny>center</aligny>
+                        <font>font_tiny_bold</font>
+                        <textcolor>main_fg_40</textcolor>
+                        <label>平台</label>
+                    </control>
                     <control type="fixedlist" id="548">
-                        <left>30</left>
-                        <top>200</top>
-                        <width>1920</width>
+                        <left>70</left>
+                        <width>1600</width>
                         <height>45</height>
                         <onup>545</onup>
                         <ondown>546</ondown>
-                        <onleft>545</onleft>
-                        <onright>545</onright>
-                        <focusposition>0</focusposition>
+                        <onleft>548</onleft>
+                        <onright>548</onright>
                         <movement>1</movement>
                         <orientation>horizontal</orientation>
                         <scrolltime>200</scrolltime>
                         <itemlimit>10</itemlimit>
-                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter) | String.IsEqual(Container(547).ListItem.Property(filter_value),tv) | String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter) | String.IsEqual(Container(547).ListItem.Property(filter_value),show)</visible>
+                        <visible>String.IsEqual(Container(547).ListItem.Property(filter_value),tv_filter) | String.IsEqual(Container(547).ListItem.Property(filter_value),show_filter)</visible>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,548)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
                         <content>plugin://$INFO[Container.PluginName]/?action=filter_platforms&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
@@ -2801,7 +2816,7 @@
                         <onright>558</onright>
                         <onup>556</onup>
                         <ondown>559</ondown>
-                        <visible>$EXP[Exp_View_554]</visible>
+                        <visible>String.IsEqual(Container(557).ListItem.Property(filter_value),tv_filter) | String.IsEqual(Container(557).ListItem.Property(filter_value),show_filter)</visible>
                         <viewtype label="$LOCALIZE[31640]">wrap</viewtype>
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,558)</onfocus>
                         <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
