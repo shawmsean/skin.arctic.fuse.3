@@ -1831,12 +1831,17 @@
         </control>
     </include>
 
+    <variable name="FilterBrowse_Param">
+        <value condition="String.Contains(Container.PluginName,themoviedb)">info</value>
+        <value>action</value>
+    </variable>
+
             <variable name="View_553_Content">
-        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(547).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?action=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;platform=$INFO[Container(548).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
+        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(547).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_list&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(543).ListItem.Property(filter_value)]&amp;region=$INFO[Container(544).ListItem.Property(filter_value)]&amp;year=$INFO[Container(545).ListItem.Property(filter_value)]&amp;platform=$INFO[Container(548).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(546).ListItem.Property(filter_value)]</value>
     </variable>
 
     <variable name="View_560_Content">
-        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(557).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?action=filter_list&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(554).ListItem.Property(filter_value)]&amp;region=$INFO[Container(555).ListItem.Property(filter_value)]&amp;year=$INFO[Container(556).ListItem.Property(filter_value)]&amp;platform=$INFO[Container(558).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(559).ListItem.Property(filter_value)]</value>
+        <value condition="!String.IsEmpty(Container.PluginName) + !String.IsEmpty(Container(557).ListItem.Property(filter_value))">plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_list&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]&amp;genre=$INFO[Container(554).ListItem.Property(filter_value)]&amp;region=$INFO[Container(555).ListItem.Property(filter_value)]&amp;year=$INFO[Container(556).ListItem.Property(filter_value)]&amp;platform=$INFO[Container(558).ListItem.Property(filter_value)]&amp;sort=$INFO[Container(559).ListItem.Property(filter_value)]</value>
     </variable>
 
     <include name="View_543_FilterBrowse_Combined">
@@ -1885,7 +1890,7 @@
                         <include content="Action_View_Movement_OnUp">
                             <param name="id">547</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_categories</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_categories</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -1963,7 +1968,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_genres&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_genres&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
@@ -2041,7 +2046,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_regions&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_regions&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2119,7 +2124,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_years&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_years&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="110" height="45">
                             <control type="label">
                                 <width>110</width>
@@ -2191,7 +2196,7 @@
                         <onfocus>SetProperty(TMDbHelper.WidgetContainer,548)</onfocus>
                         <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                         <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_platforms&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_platforms&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2269,7 +2274,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_sorts&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_sorts&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
@@ -2533,7 +2538,7 @@
                         <include content="Action_View_Movement_OnUp">
                             <param name="id">557</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_categories</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_categories</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2611,7 +2616,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_genres&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_genres&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
@@ -2689,7 +2694,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_regions&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_regions&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2767,7 +2772,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_years&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_years&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
                         <itemlayout width="110" height="45">
                             <control type="label">
                                 <width>110</width>
@@ -2845,7 +2850,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_platforms&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_platforms&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
                         <itemlayout width="120" height="45">
                             <control type="label">
                                 <width>120</width>
@@ -2923,7 +2928,7 @@
                             <param name="backid">63</param>
                             <param name="menuid">300</param>
                         </include>
-                        <content>plugin://$INFO[Container.PluginName]/?action=filter_sorts&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
+                        <content>plugin://$INFO[Container.PluginName]/?$VAR[FilterBrowse_Param]=filter_sorts&amp;cat_id=$INFO[Container(557).ListItem.Property(filter_value)]</content>
                         <itemlayout width="100" height="45">
                             <control type="label">
                                 <width>100</width>
