@@ -2122,24 +2122,42 @@
                         <content>plugin://$INFO[Container.PluginName]/?action=filter_years&amp;cat_id=$INFO[Container(547).ListItem.Property(filter_value)]</content>
                         <itemlayout width="110" height="45">
                             <control type="label">
-                                <left>0</left>
-                                <top>0</top>
                                 <width>110</width>
                                 <height>45</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
                                 <font>font_tiny</font>
-                                <textcolor>$VAR[ColorHighlight_50]</textcolor>
+                                <textcolor>main_fg_50</textcolor>
                                 <label>$INFO[ListItem.Label]</label>
                             </control>
                         </itemlayout>
                         <focusedlayout width="110" height="45">
-                            <control type="label">
-                                <left>0</left>
-                                <top>0</top>
-                                <width>110</width>
-                                <height>45</height>
-                                <font>font_tiny_bold</font>
-                                <textcolor>$VAR[ColorHighlight]</textcolor>
-                                <label>$INFO[ListItem.Label]</label>
+                            <control type="group">
+                                <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
+                                <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
+                                <control type="image">
+                                    <left>5</left>
+                                    <right>5</right>
+                                    <top>5</top>
+                                    <bottom>5</bottom>
+                                    <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
+                                </control>
+                                <control type="image">
+                                    <left>10</left>
+                                    <right>10</right>
+                                    <bottom>4</bottom>
+                                    <height>2</height>
+                                    <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                                </control>
+                                <control type="label">
+                                    <width>110</width>
+                                    <height>45</height>
+                                    <align>center</align>
+                                    <aligny>center</aligny>
+                                    <font>font_tiny_bold</font>
+                                    <textcolor>main_fg_100</textcolor>
+                                    <label>$INFO[ListItem.Label]</label>
+                                </control>
                             </control>
                         </focusedlayout>
                     </control>
