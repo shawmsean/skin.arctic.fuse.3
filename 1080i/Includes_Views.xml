@@ -491,12 +491,13 @@
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Row_Items</include>
                     <control type="group">
+                        <visible>!$EXP[Exp_View_529] + !$EXP[Exp_View_540] + !$EXP[Exp_View_541] + !$EXP[Exp_View_542]</visible>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <include>View_Row_Line</include>
                     </control>
                     <control type="group">
-                        <visible>!$EXP[View_Mode_Wall_Expression]</visible>
+                        <visible>!$EXP[View_Mode_Wall_Expression] + !$EXP[Exp_View_529] + !$EXP[Exp_View_540] + !$EXP[Exp_View_541] + !$EXP[Exp_View_542]</visible>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <include>Furniture_Footer_Left</include>
