@@ -3394,11 +3394,11 @@
     </include>
 
     <variable name="View_556_Content">
-        <value condition="Integer.IsEqual(Container(555).CurrentItem,1)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/hot_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/</value>
-        <value condition="Integer.IsEqual(Container(555).CurrentItem,2)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/albums/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
-        <value condition="Integer.IsEqual(Container(555).CurrentItem,3)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
-        <value condition="Integer.IsEqual(Container(555).CurrentItem,4)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_mvs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
-        <value condition="Integer.IsEqual(Container(555).CurrentItem,5)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/similar_artist/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,1)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/hot_songs?id=$INFO[Window(10000).Property(nc_current_artist_id)]</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,2)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/albums?id=$INFO[Window(10000).Property(nc_current_artist_id)]&amp;offset=0</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,3)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_songs?id=$INFO[Window(10000).Property(nc_current_artist_id)]&amp;offset=0</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,4)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_mvs?id=$INFO[Window(10000).Property(nc_current_artist_id)]&amp;offset=0</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,5)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/similar_artist?id=$INFO[Window(10000).Property(nc_current_artist_id)]</value>
     </variable>
 
 </includes>
