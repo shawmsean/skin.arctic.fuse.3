@@ -3222,15 +3222,13 @@
                 <right>80</right>
                 <top>380</top>
                 <height>60</height>
-                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(556)">Conditional</animation>
-                <include content="Categories_Selector">
-                    <param name="id">555</param>
-                    <param name="font">font_mini</param>
-                    <param name="hitrect_x">0</param>
-                    <param name="hitrect_y">0</param>
-                    <param name="hitrect_w">1080</param>
-                    <param name="hitrect_h">120</param>
-                    <param name="detailed">true</param>
+                <control type="fixedlist" id="555">
+                    <orientation>horizontal</orientation>
+                    <movement>1</movement>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <onleft>555</onleft>
+                    <onright>555</onright>
+                    <ondown>556</ondown>
                     <include content="Action_View_Movement_OnBack">
                         <param name="id">555</param>
                         <param name="onback">[Integer.IsEqual(Container(555).CurrentItem,1)]</param>
@@ -3240,11 +3238,7 @@
                     <include content="Action_View_Movement_OnUp">
                         <param name="id">555</param>
                     </include>
-                    <ondown>556</ondown>
-                    <onleft>555</onleft>
-                    <onright>555</onright>
                     <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
-                    <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
                     <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
                     <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
                     <visible>$EXP[Exp_View_555]</visible>
@@ -3266,7 +3260,47 @@
                             <label>相似歌手</label>
                         </item>
                     </content>
-                </include>
+                    <itemlayout width="200" height="60">
+                        <control type="label">
+                            <width>200</width>
+                            <height>60</height>
+                            <align>center</align>
+                            <aligny>center</aligny>
+                            <font>font_mini</font>
+                            <textcolor>main_fg_50</textcolor>
+                            <label>$INFO[ListItem.Label]</label>
+                        </control>
+                    </itemlayout>
+                    <focusedlayout width="200" height="60">
+                        <control type="group">
+                            <animation effect="zoom" start="100" end="125" center="auto" time="120" tween="back" easing="out" reversible="false">Focus</animation>
+                            <animation effect="zoom" start="125" end="100" center="auto" time="120" tween="sine" easing="in" reversible="false" delay="120">Focus</animation>
+                            <control type="image">
+                                <left>5</left>
+                                <right>5</right>
+                                <top>5</top>
+                                <bottom>5</bottom>
+                                <texture colordiffuse="$VAR[ColorHighlight_50]" border="8">common/box.png</texture>
+                            </control>
+                            <control type="image">
+                                <left>10</left>
+                                <right>10</right>
+                                <bottom>4</bottom>
+                                <height>2</height>
+                                <texture colordiffuse="$VAR[ColorHighlight]">common/white.png</texture>
+                            </control>
+                            <control type="label">
+                                <width>200</width>
+                                <height>60</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_mini_bold</font>
+                                <textcolor>main_fg_100</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                            </control>
+                        </control>
+                    </focusedlayout>
+                </control>
             </control>
 
             <!-- Content Panel -->
