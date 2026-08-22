@@ -2521,3 +2521,7 @@ msgctxt "#31640"
 msgid "FilterBrowse Landscape"
 msgstr "筛选横版"
 
+msgctxt "#31641"
+msgid "Artist Info"
+msgstr "歌手信息"
+

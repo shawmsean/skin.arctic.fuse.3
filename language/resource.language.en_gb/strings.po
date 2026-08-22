@@ -2444,82 +2444,86 @@ msgctxt "#31640"
 msgid "FilterBrowse Landscape"
 msgstr ""
 
+msgctxt "#31641"
+msgid "Artist Info"
+msgstr ""
+
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31614"
+msgctxt "#31610"
 msgid "Seasonal Themes"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31615"
+msgctxt "#31611"
 msgid "Christmas Theme"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31616"
+msgctxt "#31612"
 msgid "Dec 7 - Jan 7"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31617"
+msgctxt "#31613"
 msgid "Winter Frost"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31618"
+msgctxt "#31614"
 msgid "Aussie Christmas"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31619"
+msgctxt "#31615"
 msgid "Summer Breeze"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31620"
+msgctxt "#31616"
 msgid "Jun 21 - Aug 15"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31621"
+msgctxt "#31617"
 msgid "Halloween Spook"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31622"
+msgctxt "#31618"
 msgid "Oct 1 - Nov 1"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31623"
+msgctxt "#31619"
 msgid "Background Overlay"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31624"
+msgctxt "#31620"
 msgid "Background Atmosphere"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31625"
+msgctxt "#31621"
 msgid "Fly-by Animations"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31626"
+msgctxt "#31622"
 msgid "Falling Props Density"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31627"
+msgctxt "#31623"
 msgid "Off"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31628"
+msgctxt "#31624"
 msgid "Normal"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml
-msgctxt "#31629"
+msgctxt "#31625"
 msgid "High"
 msgstr ""

@@ -3164,4 +3164,212 @@
 
     </include>
 
+
+    <include name="View_555_ArtistInfo">
+        <control type="group">
+            <visible>Control.IsVisible(555)</visible>
+
+            <!-- Hidden view container for Kodi view system -->
+            <control type="fixedlist" id="555">
+                <left>-9999</left>
+                <width>1</width>
+                <height>1</height>
+                <visible>$EXP[Exp_View_555]</visible>
+                <viewtype label="$LOCALIZE[31641]">wrap</viewtype>
+                <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                <include content="Action_View_Movement_OnUp">
+                    <param name="id">555</param>
+                </include>
+                <include content="Action_View_Movement_OnBack">
+                    <param name="id">555</param>
+                    <param name="onback">True</param>
+                    <param name="backid">63</param>
+                    <param name="menuid">300</param>
+                </include>
+                <include content="Action_View_Movement_OnDown">
+                    <param name="id">555</param>
+                </include>
+                <itemlayout width="1" height="1">
+                    <control type="label">
+                        <width>1</width>
+                        <height>1</height>
+                    </control>
+                </itemlayout>
+                <focusedlayout width="1" height="1">
+                    <control type="label">
+                        <width>1</width>
+                        <height>1</height>
+                    </control>
+                </focusedlayout>
+            </control>
+
+            <!-- Artist Info Header -->
+            <control type="group">
+                <visible>!ControlGroup(5000).HasFocus()</visible>
+                <include content="Animation_Zoom_Out">
+                    <param name="type">Hidden</param>
+                </include>
+                <include content="Animation_Zoom_In">
+                    <param name="type">Visible</param>
+                    <param name="delay">200</param>
+                </include>
+                <left>view_pad</left>
+                <right>view_pad</right>
+                <top>view_top</top>
+                <bottom>view_top</bottom>
+
+                <!-- Right: Artist Photo -->
+                <control type="group">
+                    <right>0</right>
+                    <width>480</width>
+                    <height>480</height>
+                    <centertop>280</centertop>
+                    <control type="image">
+                        <width>480</width>
+                        <height>480</height>
+                        <texture background="true" diffuse="diffuse/square_w560_h560.png">$INFO[Window(10000).Property(nc_current_artist_pic)]</texture>
+                        <aspectratio>scale</aspectratio>
+                    </control>
+                </control>
+
+                <!-- Left: Artist Name + Description + Stats -->
+                <control type="group">
+                    <right>440</right>
+                    <left>-40</left>
+                    <centertop>250</centertop>
+                    <height>440</height>
+
+                    <control type="label">
+                        <left>0</left>
+                        <height>70</height>
+                        <font>font_head_bold</font>
+                        <textcolor>white</textcolor>
+                        <label>$INFO[Window(10000).Property(nc_current_artist_name)]</label>
+                        <scroll>true</scroll>
+                    </control>
+
+                    <control type="textbox">
+                        <left>0</left>
+                        <top>80</top>
+                        <height>400</height>
+                        <width>92%</width>
+                        <font>font_mini</font>
+                        <textcolor>green</textcolor>
+                        <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
+                        <autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(555)</autoscroll>
+                    </control>
+
+                    <control type="label">
+                        <left>0</left>
+                        <top>600</top>
+                        <height>30</height>
+                        <font>font_mini</font>
+                        <textcolor>panel_fg_50</textcolor>
+                        <label>$INFO[Window(10000).Property(nc_current_artist_stats)]</label>
+                    </control>
+                </control>
+            </control>
+
+            <!-- Widget Rows -->
+            <control type="group">
+                <include>DialogInfo_Widget_Group</include>
+                <include>DialogInfo_Animation_Down</include>
+                <control type="grouplist" id="5000">
+                    <include>DialogInfo_Widget_Grouplist</include>
+                    <onup>555</onup>
+                    <onback>555</onback>
+
+                    <include content="Widget_Info_Row">
+                        <param name="id">01</param>
+                        <param name="baseid">50</param>
+                        <param name="basegroupid">51</param>
+                        <param name="label">热门50首</param>
+                        <param name="include">List_Square_Row</param>
+                        <param name="widgetfade_include">true</param>
+                        <param name="set_widgetcontainer">false</param>
+                        <param name="menuid">555</param>
+                        <param name="detailed">true</param>
+                        <param name="widget_hideartwork">true</param>
+                        <param name="widget_showoverlay">true</param>
+                        <param name="altvisible">true</param>
+                        <content>plugin://plugin.audio.music/hot_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
+                    </include>
+
+                    <include content="Widget_Info_Row">
+                        <param name="id">02</param>
+                        <param name="baseid">50</param>
+                        <param name="basegroupid">51</param>
+                        <param name="label">专辑</param>
+                        <param name="include">List_Square_Row</param>
+                        <param name="widgetfade_include">true</param>
+                        <param name="set_widgetcontainer">false</param>
+                        <param name="menuid">555</param>
+                        <param name="detailed">true</param>
+                        <param name="widget_hideartwork">true</param>
+                        <param name="widget_showoverlay">true</param>
+                        <param name="altvisible">true</param>
+                        <content>plugin://plugin.audio.music/albums/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                    </include>
+
+                    <include content="Widget_Info_Row">
+                        <param name="id">03</param>
+                        <param name="baseid">50</param>
+                        <param name="basegroupid">51</param>
+                        <param name="label">歌曲</param>
+                        <param name="include">List_Square_Row</param>
+                        <param name="widgetfade_include">true</param>
+                        <param name="set_widgetcontainer">false</param>
+                        <param name="menuid">555</param>
+                        <param name="detailed">true</param>
+                        <param name="widget_hideartwork">true</param>
+                        <param name="widget_showoverlay">true</param>
+                        <param name="altvisible">true</param>
+                        <content>plugin://plugin.audio.music/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                    </include>
+
+                    <include content="Widget_Info_Row">
+                        <param name="id">04</param>
+                        <param name="baseid">50</param>
+                        <param name="basegroupid">51</param>
+                        <param name="label">MV</param>
+                        <param name="include">List_Landscape_Row</param>
+                        <param name="widgetfade_include">true</param>
+                        <param name="set_widgetcontainer">false</param>
+                        <param name="menuid">555</param>
+                        <param name="detailed">true</param>
+                        <param name="widget_hideartwork">true</param>
+                        <param name="widget_showoverlay">true</param>
+                        <param name="altvisible">true</param>
+                        <content>plugin://plugin.audio.music/artist_mvs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                    </include>
+
+                    <include content="Widget_Info_Row">
+                        <param name="id">05</param>
+                        <param name="baseid">50</param>
+                        <param name="basegroupid">51</param>
+                        <param name="label">相似歌手</param>
+                        <param name="include">List_CircleLabel_Row</param>
+                        <param name="widgetfade_include">true</param>
+                        <param name="set_widgetcontainer">false</param>
+                        <param name="menuid">555</param>
+                        <param name="detailed">true</param>
+                        <param name="widget_hideartwork">true</param>
+                        <param name="widget_showoverlay">true</param>
+                        <param name="altvisible">true</param>
+                        <content>plugin://plugin.audio.music/similar_artist/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
+                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">RunPlugin(plugin://plugin.audio.music/set_artist_info/$INFO[ListItem.Property(artist_id)]/)</onclick>
+                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_id,$INFO[ListItem.Property(artist_id)],10000)</onclick>
+                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_name,$INFO[ListItem.Label],10000)</onclick>
+                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_pic,$INFO[ListItem.Icon],10000)</onclick>
+                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">Container.Refresh</onclick>
+                    </include>
+
+                    <include>Widget_End_Bumper</include>
+                </control>
+            </control>
+        </control>
+    </include>
+
 </includes>
