@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
     <include name="View_Combined_Info">
@@ -3169,81 +3169,34 @@
         <control type="group">
             <visible>Control.IsVisible(555)</visible>
 
-            <!-- Hidden view container for Kodi view system -->
-            <control type="fixedlist" id="555">
-                <left>-9999</left>
-                <width>1</width>
-                <height>1</height>
-                <visible>$EXP[Exp_View_555]</visible>
-                <viewtype label="$LOCALIZE[31641]">wrap</viewtype>
-                <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
-                <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
-                <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
-                <include content="Action_View_Movement_OnUp">
-                    <param name="id">555</param>
-                </include>
-                <include content="Action_View_Movement_OnBack">
-                    <param name="id">555</param>
-                    <param name="onback">True</param>
-                    <param name="backid">63</param>
-                    <param name="menuid">300</param>
-                </include>
-                <include content="Action_View_Movement_OnDown">
-                    <param name="id">555</param>
-                </include>
-                <itemlayout width="1" height="1">
-                    <control type="label">
-                        <width>1</width>
-                        <height>1</height>
-                    </control>
-                </itemlayout>
-                <focusedlayout width="1" height="1">
-                    <control type="label">
-                        <width>1</width>
-                        <height>1</height>
-                    </control>
-                </focusedlayout>
-            </control>
-
             <!-- Artist Info Header -->
             <control type="group">
-                <visible>!ControlGroup(5000).HasFocus()</visible>
-                <include content="Animation_Zoom_Out">
-                    <param name="type">Hidden</param>
-                </include>
-                <include content="Animation_Zoom_In">
-                    <param name="type">Visible</param>
-                    <param name="delay">200</param>
-                </include>
-                <left>view_pad</left>
-                <right>view_pad</right>
-                <top>view_top</top>
-                <bottom>view_top</bottom>
+                <left>80</left>
+                <right>80</right>
+                <top>80</top>
+                <height>280</height>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(556)">Conditional</animation>
 
                 <!-- Right: Artist Photo -->
-                <control type="group">
+                <control type="image">
                     <right>0</right>
-                    <width>480</width>
-                    <height>480</height>
-                    <centertop>280</centertop>
-                    <control type="image">
-                        <width>480</width>
-                        <height>480</height>
-                        <texture background="true" diffuse="diffuse/square_w560_h560.png">$INFO[Window(10000).Property(nc_current_artist_pic)]</texture>
-                        <aspectratio>scale</aspectratio>
-                    </control>
+                    <width>200</width>
+                    <height>200</height>
+                    <centertop>140</centertop>
+                    <texture background="true" diffuse="diffuse/square_w217_h217.png">$INFO[Window(10000).Property(nc_current_artist_pic)]</texture>
+                    <aspectratio>scale</aspectratio>
                 </control>
 
-                <!-- Left: Artist Name + Description + Stats -->
+                <!-- Left: Artist Name + Description -->
                 <control type="group">
-                    <right>440</right>
-                    <left>-40</left>
-                    <centertop>250</centertop>
-                    <height>440</height>
+                    <right>240</right>
+                    <left>0</left>
+                    <centertop>140</centertop>
+                    <height>240</height>
 
                     <control type="label">
                         <left>0</left>
-                        <height>70</height>
+                        <height>60</height>
                         <font>font_head_bold</font>
                         <textcolor>white</textcolor>
                         <label>$INFO[Window(10000).Property(nc_current_artist_name)]</label>
@@ -3252,124 +3205,200 @@
 
                     <control type="textbox">
                         <left>0</left>
-                        <top>80</top>
-                        <height>400</height>
+                        <top>70</top>
+                        <height>170</height>
                         <width>92%</width>
                         <font>font_mini</font>
                         <textcolor>green</textcolor>
                         <label>$INFO[Window(10000).Property(nc_current_artist_desc)]</label>
                         <autoscroll delay="5000" time="2000" repeat="10000">!Control.HasFocus(555)</autoscroll>
                     </control>
-
-                    <control type="label">
-                        <left>0</left>
-                        <top>600</top>
-                        <height>30</height>
-                        <font>font_mini</font>
-                        <textcolor>panel_fg_50</textcolor>
-                        <label>$INFO[Window(10000).Property(nc_current_artist_stats)]</label>
-                    </control>
                 </control>
             </control>
 
-            <!-- Widget Rows -->
+            <!-- Categories Selector -->
             <control type="group">
-                <include>DialogInfo_Widget_Group</include>
-                <include>DialogInfo_Animation_Down</include>
-                <control type="grouplist" id="5000">
-                    <include>DialogInfo_Widget_Grouplist</include>
+                <left>80</left>
+                <right>80</right>
+                <top>380</top>
+                <height>60</height>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(556)">Conditional</animation>
+                <include content="Categories_Selector">
+                    <param name="id">555</param>
+                    <param name="font">font_mini</param>
+                    <param name="hitrect_x">0</param>
+                    <param name="hitrect_y">0</param>
+                    <param name="hitrect_w">1080</param>
+                    <param name="hitrect_h">120</param>
+                    <param name="detailed">true</param>
+                    <include content="Action_View_Movement_OnBack">
+                        <param name="id">555</param>
+                        <param name="onback">[Integer.IsEqual(Container(555).CurrentItem,1)]</param>
+                        <param name="backid">63</param>
+                        <param name="menuid">300</param>
+                    </include>
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">555</param>
+                    </include>
+                    <ondown>556</ondown>
+                    <onleft>555</onleft>
+                    <onright>555</onright>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                    <visible>$EXP[Exp_View_555]</visible>
+                    <viewtype label="$LOCALIZE[31641]">wrap</viewtype>
+                    <content>
+                        <item>
+                            <label>热门50首</label>
+                        </item>
+                        <item>
+                            <label>专辑</label>
+                        </item>
+                        <item>
+                            <label>歌曲</label>
+                        </item>
+                        <item>
+                            <label>MV</label>
+                        </item>
+                        <item>
+                            <label>相似歌手</label>
+                        </item>
+                    </content>
+                </include>
+            </control>
+
+            <!-- Content Panel -->
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>460</top>
+                <bottom>80</bottom>
+                <animation effect="slide" start="0" end="0,70" time="200" reversible="true" condition="!Control.HasFocus(556)">Conditional</animation>
+
+                <control type="panel" id="556">
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+
                     <onup>555</onup>
-                    <onback>555</onback>
 
-                    <include content="Widget_Info_Row">
-                        <param name="id">01</param>
-                        <param name="baseid">50</param>
-                        <param name="basegroupid">51</param>
-                        <param name="label">热门50首</param>
-                        <param name="include">List_Square_Row</param>
-                        <param name="widgetfade_include">true</param>
-                        <param name="set_widgetcontainer">false</param>
-                        <param name="menuid">555</param>
-                        <param name="detailed">true</param>
-                        <param name="widget_hideartwork">true</param>
-                        <param name="widget_showoverlay">true</param>
-                        <param name="altvisible">true</param>
-                        <content>plugin://plugin.audio.music/hot_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/</content>
+                    <animation type="Conditional" reversible="false" condition="Container(556).IsUpdating">
+                        <effect type="fade" start="100" end="0" time="200" delay="600" />
+                    </animation>
+
+                    <content target="music">$VAR[View_556_Content]</content>
+
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,556)</onfocus>
+                    <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+
+                    <onback condition="!Integer.IsEqual(Container(556).CurrentItem,1)">SetFocus(556,0,absolute)</onback>
+
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">556</param>
                     </include>
 
-                    <include content="Widget_Info_Row">
-                        <param name="id">02</param>
-                        <param name="baseid">50</param>
-                        <param name="basegroupid">51</param>
-                        <param name="label">专辑</param>
-                        <param name="include">List_Square_Row</param>
-                        <param name="widgetfade_include">true</param>
-                        <param name="set_widgetcontainer">false</param>
-                        <param name="menuid">555</param>
-                        <param name="detailed">true</param>
-                        <param name="widget_hideartwork">true</param>
-                        <param name="widget_showoverlay">true</param>
-                        <param name="altvisible">true</param>
-                        <content>plugin://plugin.audio.music/albums/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
-                    </include>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">RunPlugin(plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/set_artist_info/$INFO[ListItem.Property(artist_id)]/)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_id,$INFO[ListItem.Property(artist_id)],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_name,$INFO[ListItem.Label],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_pic,$INFO[ListItem.Icon],10000)</onclick>
+                    <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">Container.Refresh</onclick>
+                    <onclick condition="String.IsEmpty(ListItem.Property(artist_id)) + ListItem.IsFolder">Container.Update($INFO[ListItem.FolderPath])</onclick>
+                    <onclick condition="String.IsEmpty(ListItem.Property(artist_id)) + ListItem.IsFolder">SetFocus(50)</onclick>
+                    <onclick condition="String.IsEmpty(ListItem.Property(artist_id)) + !ListItem.IsFolder">PlayMedia($ESCINFO[ListItem.FileNameAndPath])</onclick>
 
-                    <include content="Widget_Info_Row">
-                        <param name="id">03</param>
-                        <param name="baseid">50</param>
-                        <param name="basegroupid">51</param>
-                        <param name="label">歌曲</param>
-                        <param name="include">List_Square_Row</param>
-                        <param name="widgetfade_include">true</param>
-                        <param name="set_widgetcontainer">false</param>
-                        <param name="menuid">555</param>
-                        <param name="detailed">true</param>
-                        <param name="widget_hideartwork">true</param>
-                        <param name="widget_showoverlay">true</param>
-                        <param name="altvisible">true</param>
-                        <content>plugin://plugin.audio.music/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
-                    </include>
+                    <itemlayout width="220" height="280">
+                        <control type="group">
+                            <width>210</width>
+                            <height>270</height>
 
-                    <include content="Widget_Info_Row">
-                        <param name="id">04</param>
-                        <param name="baseid">50</param>
-                        <param name="basegroupid">51</param>
-                        <param name="label">MV</param>
-                        <param name="include">List_Landscape_Row</param>
-                        <param name="widgetfade_include">true</param>
-                        <param name="set_widgetcontainer">false</param>
-                        <param name="menuid">555</param>
-                        <param name="detailed">true</param>
-                        <param name="widget_hideartwork">true</param>
-                        <param name="widget_showoverlay">true</param>
-                        <param name="altvisible">true</param>
-                        <content>plugin://plugin.audio.music/artist_mvs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
-                    </include>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>220</height>
+                                <include content="Object_Layout_Image_Icon">
+                                    <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                    <param name="icon">$VAR[Image_Square]</param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="aspectratio">scale</param>
+                                    <param name="selected">false</param>
+                                </include>
+                            </control>
+                            <control type="label">
+                                <top>230</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_tiny</font>
+                                <textcolor>main_fg_90</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                            <include content="Object_Indicator">
+                                <param name="affix"></param>
+                                <param name="listitem">ListItem</param>
+                            </include>
+                        </control>
+                    </itemlayout>
 
-                    <include content="Widget_Info_Row">
-                        <param name="id">05</param>
-                        <param name="baseid">50</param>
-                        <param name="basegroupid">51</param>
-                        <param name="label">相似歌手</param>
-                        <param name="include">List_CircleLabel_Row</param>
-                        <param name="widgetfade_include">true</param>
-                        <param name="set_widgetcontainer">false</param>
-                        <param name="menuid">555</param>
-                        <param name="detailed">true</param>
-                        <param name="widget_hideartwork">true</param>
-                        <param name="widget_showoverlay">true</param>
-                        <param name="altvisible">true</param>
-                        <content>plugin://plugin.audio.music/similar_artist/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</content>
-                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">RunPlugin(plugin://plugin.audio.music/set_artist_info/$INFO[ListItem.Property(artist_id)]/)</onclick>
-                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_id,$INFO[ListItem.Property(artist_id)],10000)</onclick>
-                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_name,$INFO[ListItem.Label],10000)</onclick>
-                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">SetProperty(nc_current_artist_pic,$INFO[ListItem.Icon],10000)</onclick>
-                        <onclick condition="!String.IsEmpty(ListItem.Property(artist_id))">Container.Refresh</onclick>
-                    </include>
-
-                    <include>Widget_End_Bumper</include>
+                    <focusedlayout width="220" height="280">
+                        <control type="group">
+                            <width>210</width>
+                            <height>270</height>
+                            <control type="group">
+                                <left>5</left>
+                                <top>5</top>
+                                <width>200</width>
+                                <height>220</height>
+                                <include content="Object_SelectBox">
+                                    <param name="affix"></param>
+                                    <param name="listitem">ListItem</param>
+                                    <param name="indicator">true</param>
+                                    <param name="focusbounce">true</param>
+                                    <include content="Object_Control">
+                                        <param name="control">image</param>
+                                        <include>Texture_Box_Highlight_V</include>
+                                    </include>
+                                    <include content="Object_Layout_Image_Icon">
+                                        <param name="diffuse">diffuse/square_w217_h217.png</param>
+                                        <param name="icon">$VAR[Image_Square]</param>
+                                        <param name="listitem">ListItem</param>
+                                        <param name="aspectratio">scale</param>
+                                        <param name="selected">true</param>
+                                    </include>
+                                </include>
+                            </control>
+                            <control type="label">
+                                <top>230</top>
+                                <left>5</left>
+                                <right>5</right>
+                                <height>24</height>
+                                <align>center</align>
+                                <aligny>center</aligny>
+                                <font>font_tiny_bold</font>
+                                <textcolor>main_fg_100</textcolor>
+                                <label>$INFO[ListItem.Label]</label>
+                                <scroll>true</scroll>
+                            </control>
+                        </control>
+                    </focusedlayout>
                 </control>
             </control>
         </control>
     </include>
+
+    <variable name="View_556_Content">
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,1)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/hot_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,2)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/albums/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,3)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_songs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,4)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/artist_mvs/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
+        <value condition="Integer.IsEqual(Container(555).CurrentItem,5)">plugin://$INFO[Window(10000).Property(nc_music_plugin_id)]/similar_artist/$INFO[Window(10000).Property(nc_current_artist_id)]/0/</value>
+    </variable>
 
 </includes>
