@@ -3317,7 +3317,7 @@
                     <pagecontrol>60</pagecontrol>
                     <preloaditems>2</preloaditems>
 
-                    <onup>555</onup>
+                    <onup>SetFocus(555,0,absolute)</onup>
 
                     <animation type="Conditional" reversible="false" condition="Container(556).IsUpdating">
                         <effect type="fade" start="100" end="0" time="200" delay="600" />
