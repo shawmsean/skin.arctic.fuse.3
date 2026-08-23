@@ -1735,6 +1735,14 @@
         <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(525).ListItem.FolderPath) + Container(525).ListItem.IsFolder">$INFO[Container(525).ListItem.FolderPath]</value>
         <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
     </variable>
+    <variable name="Image_Square_C535">
+        <value condition="!String.IsEmpty(Container(535).ListItem.Property(override_square))">$INFO[Container(535).ListItem.Property(override_square)]</value>
+        <value condition="!String.IsEmpty(Container(535).ListItem.Art(poster))">$INFO[Container(535).ListItem.Art(poster)]</value>
+        <value condition="!String.IsEmpty(Container(535).ListItem.Art(season.poster))">$INFO[Container(535).ListItem.Art(season.poster)]</value>
+        <value condition="!String.IsEmpty(Container(535).ListItem.Art(tvshow.poster))">$INFO[Container(535).ListItem.Art(tvshow.poster)]</value>
+        <value condition="!String.IsEmpty(Container(535).ListItem.Art(thumb))">$INFO[Container(535).ListItem.Art(thumb)]</value>
+        <value condition="!String.IsEmpty(Container(535).ListItem.Icon)">$INFO[Container(535).ListItem.Icon]</value>
+    </variable>
 
     <include name="View_525_BasicList_Combined">
         <control type="group">
@@ -1784,6 +1792,7 @@
 
                 <control type="panel" id="535">
                     <visible>Container(525).ListItem.IsFolder</visible>
+                    <right>632</right>
                     <orientation>vertical</orientation>
                     <scrolltime tween="quadratic">400</scrolltime>
                     <pagecontrol>60</pagecontrol>
@@ -1807,19 +1816,36 @@
                         <param name="id">535</param>
                     </include>
 
-                    <itemlayout width="1760" height="80">
+                    <itemlayout width="1128" height="80">
                         <include content="Layout_MediaList">
                             <param name="selected">false</param>
                             <param name="misc">0</param>
                         </include>
                     </itemlayout>
 
-                    <focusedlayout width="1760" height="80">
+                    <focusedlayout width="1128" height="80">
                         <include content="Layout_MediaList">
                             <param name="selected">true</param>
                             <param name="misc">0</param>
                         </include>
                     </focusedlayout>
+                </control>
+
+                <control type="group">
+                    <visible>Container(525).ListItem.IsFolder</visible>
+                    <right>0</right>
+                    <bottom>0</bottom>
+                    <width>612</width>
+                    <height>612</height>
+                    <control type="image">
+                        <include>Texture_Shadow_40</include>
+                        <texture colordiffuse="main_fg_12" border="20">common/box.png</texture>
+                    </control>
+                    <control type="image">
+                        <texture diffuse="diffuse/square_w585_h585.png" background="true">$VAR[Image_Square_C535]</texture>
+                        <fadetime>background_fadetime</fadetime>
+                        <aspectratio scalediffuse="false">scale</aspectratio>
+                    </control>
                 </control>
             </control>
         </control>
