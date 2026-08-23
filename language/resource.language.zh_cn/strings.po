@@ -2525,3 +2525,7 @@ msgctxt "#31641"
 msgid "Artist Info"
 msgstr "歌手信息"
 
+msgctxt "#31642"
+msgid "Combined Basic List"
+msgstr "混合：基本列表"
+

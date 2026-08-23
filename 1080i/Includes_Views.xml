@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,526,527,528,529,540,541,542,543,554,555</views>
+        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,525,526,527,528,529,540,541,542,543,554,555</views>
     </include>
 
     <include name="View_Row_Items">
@@ -252,6 +252,7 @@
                 <include condition="$EXP[Exp_View_522_Include]">View_522_Poster_Combined_Row</include>
                 <include condition="$EXP[Exp_View_523_Include]">View_523_Circle_Combined_Row</include>
                 <include condition="$EXP[Exp_View_524_Include]">View_524_Board_Combined_Row</include>
+                <include condition="$EXP[Exp_View_525_Include]">View_525_BasicList_Combined</include>
                 <include condition="$EXP[Exp_View_526_Include]">View_526_List_Combined</include>
                 <include condition="$EXP[Exp_View_527_Include]">View_527_List_Combined_Compact</include>
                 <include condition="$EXP[Exp_View_528_Include]">View_528_List_Combined</include>
@@ -322,6 +323,7 @@
         <value condition="Control.IsVisible(522)">532</value>
         <value condition="Control.IsVisible(523)">533</value>
         <value condition="Control.IsVisible(524)">534</value>
+        <value condition="Control.IsVisible(525)">535</value>
         <value condition="Control.IsVisible(526)">536</value>
         <value condition="Control.IsVisible(527)">537</value>
         <value condition="Control.IsVisible(528)">538</value>

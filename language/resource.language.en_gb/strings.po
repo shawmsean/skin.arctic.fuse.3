@@ -2448,6 +2448,10 @@ msgctxt "#31641"
 msgid "Artist Info"
 msgstr ""
 
+msgctxt "#31642"
+msgid "Combined Basic List"
+msgstr ""
+
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31610"
 msgid "Seasonal Themes"

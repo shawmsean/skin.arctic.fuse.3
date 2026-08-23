@@ -1731,6 +1731,99 @@
             </control>
         </control>
     </include>
+    <variable name="View_535_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(525).ListItem.FolderPath) + Container(525).ListItem.IsFolder">$INFO[Container(525).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+
+    <include name="View_525_BasicList_Combined">
+        <control type="group">
+            <visible>Control.IsVisible(525)</visible>
+
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>200</top>
+                <height>60</height>
+                <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.HasFocus(535)">Conditional</animation>
+                <include content="Categories_Selector">
+                    <param name="id">525</param>
+                    <param name="font">font_mini</param>
+                    <param name="hitrect_x">0</param>
+                    <param name="hitrect_y">0</param>
+                    <param name="hitrect_w">1080</param>
+                    <param name="hitrect_h">120</param>
+                    <param name="detailed">true</param>
+                    <include content="Action_View_Movement_OnBack">
+                        <param name="id">525</param>
+                        <param name="onback">[Integer.IsEqual(Container(525).CurrentItem,1)]</param>
+                        <param name="backid">63</param>
+                        <param name="menuid">300</param>
+                    </include>
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">525</param>
+                    </include>
+                    <ondown>535</ondown>
+                    <onleft>525</onleft>
+                    <onright>525</onright>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>ClearProperty(SpecialFolderPath)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                    <visible>$EXP[Exp_View_525]</visible>
+                    <viewtype label="$LOCALIZE[31642]">wrap</viewtype>
+                </include>
+            </control>
+
+            <control type="group">
+                <left>80</left>
+                <right>80</right>
+                <top>270</top>
+                <bottom>80</bottom>
+                <animation effect="slide" start="0" end="0,70" time="200" reversible="true" condition="!Control.HasFocus(535)">Conditional</animation>
+
+                <control type="panel" id="535">
+                    <visible>Container(525).ListItem.IsFolder</visible>
+                    <orientation>vertical</orientation>
+                    <scrolltime tween="quadratic">400</scrolltime>
+                    <pagecontrol>60</pagecontrol>
+                    <preloaditems>2</preloaditems>
+
+                    <onup>525</onup>
+
+                    <animation type="Conditional" reversible="false" condition="Container(535).IsUpdating">
+                        <effect type="fade" start="100" end="0" time="200" delay="600" />
+                    </animation>
+
+                    <content target="$VAR[Path_CollectionNode_Target]" sortby="$VAR[View_Combined_SortBy]" sortorder="ascending">$VAR[View_535_Content]</content>
+
+                    <onfocus>SetProperty(TMDbHelper.WidgetContainer,535)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+
+                    <onback condition="!Integer.IsEqual(Container(535).CurrentItem,1)">SetFocus(535,0,absolute)</onback>
+
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">535</param>
+                    </include>
+
+                    <itemlayout width="1760" height="80">
+                        <include content="Layout_MediaList">
+                            <param name="selected">false</param>
+                            <param name="misc">0</param>
+                        </include>
+                    </itemlayout>
+
+                    <focusedlayout width="1760" height="80">
+                        <include content="Layout_MediaList">
+                            <param name="selected">true</param>
+                            <param name="misc">0</param>
+                        </include>
+                    </focusedlayout>
+                </control>
+            </control>
+        </control>
+    </include>
     <variable name="View_552_Content">
         <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(542).ListItem.FolderPath) + Container(542).ListItem.IsFolder">$INFO[Container(542).ListItem.FolderPath]</value>
         <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
