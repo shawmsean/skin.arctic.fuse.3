@@ -165,6 +165,14 @@
             <value>plugin://plugin.video.themoviedb.helper?info=mdblist_searchlists&amp;amp;tmdb_type=both&amp;amp;query=</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>plugin://plugin.search.pinyin/?action=search&amp;amp;type=movie&amp;amp;query=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>plugin://plugin.search.pinyin/?action=search&amp;amp;type=tv&amp;amp;query=</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-RadioDE</condition>
             <value>plugin://plugin.audio.radio_de/stations/search/</value>
         </rule>
@@ -469,6 +477,14 @@
             <value>videos</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-RadioDE</condition>
             <value>music</value>
         </rule>
@@ -645,6 +661,14 @@
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBListsMDBList</condition>
             <value>Path_SearchTerm_DoubleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-RadioDE</condition>
