@@ -2533,3 +2533,11 @@ msgctxt "#31643"
 msgid "Combined Landscape New"
 msgstr "混合：横版新"
 
+msgctxt "#31644"
+msgid "Combined Square New"
+msgstr "混合：方形新"
+
+msgctxt "#31645"
+msgid "Combined Poster New"
+msgstr "混合：海报新"
+

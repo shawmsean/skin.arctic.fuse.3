@@ -118,6 +118,16 @@
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),562)</param>
             <param name="include_details">true</param>
         </include>
+        <include content="Info_Panel" condition="$EXP[Exp_View_563_Include]">
+            <param name="container">Container(564).</param>
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),564)</param>
+            <param name="include_details">true</param>
+        </include>
+        <include content="Info_Panel" condition="$EXP[Exp_View_565_Include]">
+            <param name="container">Container(566).</param>
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),566)</param>
+            <param name="include_details">true</param>
+        </include>
     </include>
 
     <!-- Horizontal Layout (Classic) -->
@@ -3636,6 +3646,176 @@
                 <include content="Widget_Busy">
                     <param name="label">$INFO[Container(561).ListItem.Label]</param>
                     <param name="visible">Container(562).IsUpdating</param>
+                    <param name="include">List_ButtonMenu_Row</param>
+                    <top>860</top>
+                    <left>view_pad</left>
+                </include>
+            </control>
+        </control>
+    </include>
+
+    <!-- Combined Square New: Selector=Square Row (cards) / Content=ButtonMenu Row (text labels) -->
+    <variable name="View_564_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(563).ListItem.FolderPath) + Container(563).ListItem.IsFolder">$INFO[Container(563).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+
+    <include name="View_563_SquareNew_Combined">
+        <control type="group">
+            <visible>Control.IsVisible(563)</visible>
+            <control type="group">
+
+                <!-- Selector 563: Square Row (category cards), top -->
+                <include content="List_Square_Row">
+                    <param name="id">563</param>
+                    <top>view_row</top>
+                    <pagecontrol>60</pagecontrol>
+                    <include content="Object_HitRect">
+                        <param name="x">view_pad</param>
+                        <param name="y">586</param>
+                        <param name="w">1640</param>
+                        <param name="h">view_poster_item_w</param>
+                    </include>
+                    <ondown>564</ondown>
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">563</param>
+                    </include>
+                    <onback condition="!Integer.IsEqual(Container(563).CurrentItem,1)">SetFocus(563,0,absolute)</onback>
+                    <animation type="Conditional" reversible="false" condition="Container(564).IsUpdating">
+                        <effect type="fade" start="100" end="0" time="200" delay="600" />
+                    </animation>
+                    <visible>$EXP[Exp_View_563]</visible>
+                    <viewtype label="$LOCALIZE[31644]">wrap</viewtype>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                    <onclick condition="Container(563).ListItem.IsFolder">SetFocus(564,0,absolute)</onclick>
+                </include>
+
+                <!-- Content 564: ButtonMenu Row (text labels), bottom -->
+                <control type="group">
+                    <top>860</top>
+                    <height>120</height>
+                    <left>view_pad</left>
+                    <right>view_pad</right>
+                    <control type="group">
+                        <include>View_Line_Divider</include>
+                    </control>
+                    <include content="List_ButtonMenu_Row">
+                        <param name="id">564</param>
+                        <pagecontrol>60</pagecontrol>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">564</param>
+                            <param name="onback">[Integer.IsEqual(Container(564).CurrentItem,1)]</param>
+                            <param name="always">True</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">63</param>
+                        </include>
+                        <onup>563</onup>
+                        <include content="Action_View_Movement_OnDown">
+                            <param name="id">564</param>
+                        </include>
+                        <visible>Container(563).ListItem.IsFolder</visible>
+                        <viewtype label="$LOCALIZE[31644]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,564)</onfocus>
+                        <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                        <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                        <onclick condition="Container(564).ListItem.IsFolder">Container.Update($INFO[Container(564).ListItem.FolderPath])</onclick>
+                        <onclick condition="Container(564).ListItem.IsFolder">SetFocus(50)</onclick>
+                        <onclick condition="!Container(564).ListItem.IsFolder">PlayMedia($ESCINFO[Container(564).ListItem.FileNameAndPath])</onclick>
+                        <content target="$VAR[Path_CollectionNode_Target]" sortby="$VAR[View_Combined_SortBy]" sortorder="ascending">$VAR[View_564_Content]</content>
+                    </include>
+                </control>
+
+                <!-- Loading indicator for content 564 -->
+                <include content="Widget_Busy">
+                    <param name="label">$INFO[Container(563).ListItem.Label]</param>
+                    <param name="visible">Container(564).IsUpdating</param>
+                    <param name="include">List_ButtonMenu_Row</param>
+                    <top>860</top>
+                    <left>view_pad</left>
+                </include>
+            </control>
+        </control>
+    </include>
+
+    <!-- Combined Poster New: Selector=Poster Row (cards) / Content=ButtonMenu Row (text labels) -->
+    <variable name="View_566_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(565).ListItem.FolderPath) + Container(565).ListItem.IsFolder">$INFO[Container(565).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+
+    <include name="View_565_PosterNew_Combined">
+        <control type="group">
+            <visible>Control.IsVisible(565)</visible>
+            <control type="group">
+
+                <!-- Selector 565: Poster Row (category cards), top -->
+                <include content="List_Poster_Row">
+                    <param name="id">565</param>
+                    <top>view_row</top>
+                    <pagecontrol>60</pagecontrol>
+                    <include content="Object_HitRect">
+                        <param name="x">view_pad</param>
+                        <param name="y">586</param>
+                        <param name="w">1640</param>
+                        <param name="h">view_poster_item_h</param>
+                    </include>
+                    <ondown>566</ondown>
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">565</param>
+                    </include>
+                    <onback condition="!Integer.IsEqual(Container(565).CurrentItem,1)">SetFocus(565,0,absolute)</onback>
+                    <animation type="Conditional" reversible="false" condition="Container(566).IsUpdating">
+                        <effect type="fade" start="100" end="0" time="200" delay="600" />
+                    </animation>
+                    <visible>$EXP[Exp_View_565]</visible>
+                    <viewtype label="$LOCALIZE[31645]">wrap</viewtype>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                    <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                    <onclick condition="Container(565).ListItem.IsFolder">SetFocus(566,0,absolute)</onclick>
+                </include>
+
+                <!-- Content 566: ButtonMenu Row (text labels), bottom -->
+                <control type="group">
+                    <top>860</top>
+                    <height>120</height>
+                    <left>view_pad</left>
+                    <right>view_pad</right>
+                    <control type="group">
+                        <include>View_Line_Divider</include>
+                    </control>
+                    <include content="List_ButtonMenu_Row">
+                        <param name="id">566</param>
+                        <pagecontrol>60</pagecontrol>
+                        <include content="Action_View_Movement_OnBack">
+                            <param name="id">566</param>
+                            <param name="onback">[Integer.IsEqual(Container(566).CurrentItem,1)]</param>
+                            <param name="always">True</param>
+                            <param name="backid">63</param>
+                            <param name="menuid">63</param>
+                        </include>
+                        <onup>565</onup>
+                        <include content="Action_View_Movement_OnDown">
+                            <param name="id">566</param>
+                        </include>
+                        <visible>Container(565).ListItem.IsFolder</visible>
+                        <viewtype label="$LOCALIZE[31645]">wrap</viewtype>
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,566)</onfocus>
+                        <onfocus>ClearProperty(Background.ShowOverlay,Home)</onfocus>
+                        <onfocus>ClearProperty(InfoPanel.FullSwitch,Home)</onfocus>
+                        <onclick condition="Container(566).ListItem.IsFolder">Container.Update($INFO[Container(566).ListItem.FolderPath])</onclick>
+                        <onclick condition="Container(566).ListItem.IsFolder">SetFocus(50)</onclick>
+                        <onclick condition="!Container(566).ListItem.IsFolder">PlayMedia($ESCINFO[Container(566).ListItem.FileNameAndPath])</onclick>
+                        <content target="$VAR[Path_CollectionNode_Target]" sortby="$VAR[View_Combined_SortBy]" sortorder="ascending">$VAR[View_566_Content]</content>
+                    </include>
+                </control>
+
+                <!-- Loading indicator for content 566 -->
+                <include content="Widget_Busy">
+                    <param name="label">$INFO[Container(565).ListItem.Label]</param>
+                    <param name="visible">Container(566).IsUpdating</param>
                     <param name="include">List_ButtonMenu_Row</param>
                     <top>860</top>
                     <left>view_pad</left>
