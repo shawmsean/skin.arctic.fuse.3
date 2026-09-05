@@ -2452,6 +2452,10 @@ msgctxt "#31642"
 msgid "Combined Basic List"
 msgstr ""
 
+msgctxt "#31643"
+msgid "Combined Landscape New"
+msgstr ""
+
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31610"
 msgid "Seasonal Themes"
