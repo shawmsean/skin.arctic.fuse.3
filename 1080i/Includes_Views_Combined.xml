@@ -113,6 +113,11 @@
             <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),560)</param>
             <param name="include_details">false</param>
         </include>
+        <include content="Info_Panel" condition="$EXP[Exp_View_561_Include]">
+            <param name="container">Container(562).</param>
+            <param name="visible">Integer.IsEqual(Window.Property(TMDBHelper.WidgetContainer),562)</param>
+            <param name="include_details">false</param>
+        </include>
     </include>
 
     <!-- Horizontal Layout (Classic) -->
