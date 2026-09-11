@@ -487,6 +487,7 @@
 
     <variable name="Home_Switcher_Right_Buttons_Calendar">
         <value condition="Skin.String(HomeSwitcher.1106.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1106.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value>special://skin/extras/icons/calendar.png</value>
     </variable>
 
