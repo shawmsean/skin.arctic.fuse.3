@@ -7,7 +7,7 @@
         "503": "31418",
         "504": "31100",
         "505": "31563",
-        "506": "31120",
+        "506": "31156",
         "507": "31479",
         "508": "31581",
         "509": "31480",
@@ -18,7 +18,7 @@
         "513": "31557",
         "514": "31101",
         "515": "31626",
-        "516": "31627",
+        "516": "31157",
         "518": "31628",
         "520": "31002",
         "521": "31003",
@@ -53,7 +53,7 @@
         "503": "special://skin/extras/viewtypes/row-circle.jpg",
         "504": "special://skin/extras/viewtypes/row-board.jpg",
         "505": "special://skin/extras/viewtypes/row-card.jpg",
-        "506": "special://skin/extras/viewtypes/list-basic.jpg",
+        "506": "special://skin/extras/viewtypes/row-flyer.jpg",
         "507": "special://skin/extras/viewtypes/list-media.jpg",
         "508": "special://skin/extras/viewtypes/list-expanded.jpg",
         "509": "special://skin/extras/viewtypes/list-flixart.jpg",
@@ -64,7 +64,7 @@
         "513": "special://skin/extras/viewtypes/wall-circle.jpg",
         "514": "special://skin/extras/viewtypes/wall-board.jpg",
         "515": "special://skin/extras/viewtypes/row-square.jpg",
-        "516": "special://skin/extras/viewtypes/combined-square.jpg",
+        "516": "special://skin/extras/viewtypes/wall-flyer.jpg",
         "518": "special://skin/extras/viewtypes/combined-landscape.jpg",
         "520": "special://skin/extras/viewtypes/combined-square.jpg",
         "521": "special://skin/extras/viewtypes/combined-landscape.jpg",
@@ -102,27 +102,22 @@
                 "504",
                 "505",
                 "515",
-                "516",
-                "506",
-                "568"
+                "506"
             ],
             "icon": "special://skin/extras/icons/table-columns.png"
         },
         "535": {
             "viewtypes": [
-                "506",
                 "507",
                 "508",
                 "509",
                 "549",
                 "515",
-                "516",
                 "580",
                 "581",
                 "582",
                 "583",
-                "584",
-                "568"
+                "584"
             ],
             "icon": "special://skin/extras/icons/table-list.png"
         },
@@ -134,8 +129,7 @@
                 "513",
                 "514",
                 "515",
-                "516",
-                "568"
+                "516"
             ],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
@@ -161,7 +155,6 @@
                 "554",
                 "555",
                 "515",
-                "516",
                 "518",
                 "568"
             ],
