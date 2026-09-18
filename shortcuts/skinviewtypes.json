@@ -43,7 +43,8 @@
         "581": "31479",
         "582": "31581",
         "583": "31480",
-        "584": "31040"
+        "584": "31040",
+        "568": "31627"
     },
     "icons": {
         "500": "special://skin/extras/viewtypes/row-square.jpg",
@@ -88,7 +89,8 @@
         "581": "special://skin/extras/viewtypes/list-media.jpg",
         "582": "special://skin/extras/viewtypes/list-expanded.jpg",
         "583": "special://skin/extras/viewtypes/list-flixart.jpg",
-        "584": "special://skin/extras/viewtypes/list-flixart2.jpg"
+        "584": "special://skin/extras/viewtypes/list-flixart2.jpg",
+        "568": "special://skin/extras/viewtypes/combined-square.jpg"
     },
     "groups": {
         "31007": {
@@ -120,7 +122,8 @@
                 "512",
                 "513",
                 "514",
-                "516"
+                "516",
+                "568"
             ],
             "icon": "special://skin/extras/icons/table-cells.png"
         },
@@ -178,7 +181,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "502",
             "plugins": "502"
@@ -207,7 +211,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "502",
             "plugins": "502"
@@ -235,7 +240,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "502",
             "plugins": "502"
@@ -263,7 +269,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "502",
             "plugins": "502"
@@ -287,7 +294,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "521",
             "plugins": "521"
@@ -311,7 +319,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "521",
             "plugins": "521"
@@ -356,7 +365,8 @@
                 "581",
                 "582",
                 "583",
-                "584"
+                "584",
+                "568"
             ],
             "library": "521",
             "plugins": "521"
@@ -536,7 +546,8 @@
                 "524",
                 "527",
                 "528",
-                "580"
+                "580",
+                "568"
             ],
             "library": "502",
             "plugins": "502"
@@ -577,7 +588,8 @@
                 "580",
                 "581",
                 "582",
-                "583"
+                "583",
+                "568"
             ],
             "library": "501",
             "plugins": "501"
@@ -703,7 +715,8 @@
                 "580",
                 "581",
                 "582",
-                "583"
+                "583",
+                "568"
             ],
             "library": "501",
             "plugins": "501"
@@ -726,7 +739,8 @@
                 "580",
                 "581",
                 "582",
-                "583"
+                "583",
+                "568"
             ],
             "library": "501",
             "plugins": "501"
