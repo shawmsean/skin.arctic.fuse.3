@@ -146,7 +146,7 @@
     </include>
 
     <!-- Expressions -->
-    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_506]]</expression>
+    <expression name="View_Mode_Rows_Expression">[$EXP[Exp_View_500] | $EXP[Exp_View_501] | $EXP[Exp_View_502] | $EXP[Exp_View_503] | $EXP[Exp_View_504] | $EXP[Exp_View_505] | $EXP[Exp_View_506] | $EXP[Exp_View_509]]</expression>
 
     <expression name="View_Mode_Wall_Expression">[$EXP[Exp_View_510] | $EXP[Exp_View_511] | $EXP[Exp_View_512] | $EXP[Exp_View_513] | $EXP[Exp_View_514] | $EXP[Exp_View_516]]</expression>
 
@@ -155,8 +155,8 @@
     <expression name="View_Mode_List_Flix_Expression">[$EXP[Exp_View_583] | $EXP[Exp_View_584]]</expression>
 
     <expression name="View_Mode_Comb_Expression">[$EXP[View_Mode_Comb_Flix_Expression] | $EXP[View_Mode_Comb_Full_Expression]]</expression>
-    <expression name="View_Mode_Comb_Flix_Expression">[$EXP[Exp_View_520] | $EXP[Exp_View_521] | $EXP[Exp_View_522] | $EXP[Exp_View_523] | $EXP[Exp_View_524]]</expression>
-    <expression name="View_Mode_Comb_Full_Expression">[$EXP[Exp_View_527]]</expression>
+    <expression name="View_Mode_Comb_Flix_Expression">[$EXP[Exp_View_520] | $EXP[Exp_View_521] | $EXP[Exp_View_522] | $EXP[Exp_View_523] | $EXP[Exp_View_524] | $EXP[Exp_View_526]]</expression>
+    <expression name="View_Mode_Comb_Full_Expression">[$EXP[Exp_View_527] | $EXP[Exp_View_531]]</expression>
 
     <expression name="View_Mode_Comb_Tall_Expression">[$EXP[Exp_View_528]]</expression>
 
@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,525,526,527,528,529,540,541,542,543,554,555,561,563,565,568,580,581,582,583,584</views>
+        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,525,526,527,528,529,531,540,541,542,543,554,555,561,563,565,568,580,581,582,583,584</views>
     </include>
 
     <include name="View_Row_Items">
@@ -230,6 +230,7 @@
                 <include condition="$EXP[Exp_View_504_Include]">View_504_Board_Row</include>
                 <include condition="$EXP[Exp_View_505_Include]">View_505_Card_Row</include>
                 <include condition="$EXP[Exp_View_506_Include]">View_506_Flyer_Row</include>
+                <include condition="$EXP[Exp_View_509_Include]">View_509_Placard_Row</include>
 
                 <!-- MusicTrack Row -->
                 <include condition="$EXP[Exp_View_515_Include]">View_515_MusicTrack_Row</include>
@@ -255,8 +256,9 @@
                 <include condition="$EXP[Exp_View_523_Include]">View_523_Circle_Combined_Row</include>
                 <include condition="$EXP[Exp_View_524_Include]">View_524_Board_Combined_Row</include>
                 <include condition="$EXP[Exp_View_525_Include]">View_525_BasicList_Combined</include>
-                <include condition="$EXP[Exp_View_526_Include]">View_526_List_Combined</include>
-                <include condition="$EXP[Exp_View_527_Include]">View_527_List_Combined_Compact</include>
+                <include condition="$EXP[Exp_View_526_Include]">View_526_Flyer_Combined_Row</include>
+                <include condition="$EXP[Exp_View_527_Include]">View_527_List_Combined</include>
+                <include condition="$EXP[Exp_View_531_Include]">View_531_List_Combined_Compact</include>
                 <include condition="$EXP[Exp_View_528_Include]">View_528_List_Combined</include>
                 <include condition="$EXP[Exp_View_529_Include]">View_529_Poster_Combined_Wall</include>
                 <include condition="$EXP[Exp_View_540_Include]">View_540_Landscape_Combined_Wall</include>
@@ -312,6 +314,7 @@
         <value condition="Control.IsVisible(504)">504</value>
         <value condition="Control.IsVisible(505)">505</value>
         <value condition="Control.IsVisible(506)">506</value>
+        <value condition="Control.IsVisible(509)">509</value>
 
         <value condition="Control.IsVisible(510)">510</value>
         <value condition="Control.IsVisible(511)">511</value>
@@ -330,6 +333,7 @@
         <value condition="Control.IsVisible(525)">535</value>
         <value condition="Control.IsVisible(526)">536</value>
         <value condition="Control.IsVisible(527)">537</value>
+        <value condition="Control.IsVisible(531)">538</value>
         <value condition="Control.IsVisible(528)">538</value>
         <value condition="Control.IsVisible(529)">539</value>
         <value condition="Control.IsVisible(540)">550</value>

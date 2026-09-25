@@ -93,10 +93,12 @@
         <value condition="String.IsEqual(ListItem.Property(widget_style),Landscape)">special://skin/extras/icons/view-landscape.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Square)">special://skin/extras/icons/view-square.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Board)">special://skin/extras/icons/window-maximize-regular.png</value>
+        <value condition="String.IsEqual(ListItem.Property(widget_style),Flyer)">special://skin/extras/icons/window-maximize-regular.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Circle)">special://skin/extras/icons/view-circle.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Poster)">special://skin/extras/icons/view-poster.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Banner)">special://skin/extras/icons/window-maximize-regular.png</value>
         <value condition="String.IsEqual(ListItem.Property(widget_style),Card)">special://skin/extras/icons/window-maximize-regular.png</value>
+        <value condition="String.IsEqual(ListItem.Property(widget_style),Placard)">special://skin/extras/icons/window-maximize-regular.png</value>
         <value>special://skin/extras/icons/window-maximize-regular.png</value>
     </variable>
 
@@ -302,6 +304,16 @@
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),535)">$INFO[Container(535).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),536)">$INFO[Container(536).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),537)">$INFO[Container(537).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),531)">$INFO[Container(531).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),531)">$INFO[Container(531).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),531)">$INFO[Container(531).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),531)">$INFO[Container(531).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),531)">$INFO[Container(531).ListItem.Art(fanart)]</value>
+        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),539)">$INFO[Container(539).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),540)">$INFO[Container(540).ListItem.Art(fanart)]</value>

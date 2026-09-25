@@ -35,8 +35,16 @@
         <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(524).ListItem.FolderPath) + Container(524).ListItem.IsFolder">$INFO[Container(524).ListItem.FolderPath]</value>
         <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
     </variable>
+    <variable name="View_536_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(526).ListItem.FolderPath) + Container(526).ListItem.IsFolder">$INFO[Container(526).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
     <variable name="View_537_Content">
         <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(527).ListItem.FolderPath) + Container(527).ListItem.IsFolder">$INFO[Container(527).ListItem.FolderPath]</value>
+        <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
+    </variable>
+    <variable name="View_538_Content">
+        <value condition="String.IsEmpty(Window.Property(SpecialFolderPath)) + !String.IsEmpty(Container(531).ListItem.FolderPath) + Container(531).ListItem.IsFolder">$INFO[Container(531).ListItem.FolderPath]</value>
         <value condition="!String.IsEmpty(Window.Property(SpecialFolderPath))">$INFO[Window.Property(SpecialFolderPath)]</value>
     </variable>
     <variable name="View_538_Content">
@@ -59,6 +67,9 @@
         </include>
         <include content="View_Combined_Info">
             <param name="id">4</param>
+        </include>
+        <include content="View_Combined_Info">
+            <param name="id">6</param>
         </include>
         <include content="View_Combined_Info">
             <param name="id">7</param>
@@ -495,6 +506,14 @@
         </include>
     </include>
 
+    <!-- Combined Board -->
+    <include name="View_526_Flyer_Combined_Row">
+        <include content="View_Combined_Row">
+            <param name="id">6</param>
+            <param name="include">List_Flyer_Row</param>
+        </include>
+    </include>
+
     <!-- Combined List -->
     <include name="View_527_List_Combined">
         <include content="View_ComboList_Include">
@@ -833,7 +852,11 @@
                     <param name="viewtype_label">$LOCALIZE[31006]</param>
                     <param name="visible">$EXP[Exp_View_524]</param>
                 </include>
-
+                <include content="View_Combined_List_Horz" condition="$EXP[Exp_View_526_Include]">
+                    <param name="id">6</param>
+                    <param name="viewtype_label">$LOCALIZE[31163]</param>
+                    <param name="visible">$EXP[Exp_View_526]</param>
+                </include>
 
             </control>
         </control>
@@ -1272,6 +1295,206 @@
                                         <textcolor>main_fg_90</textcolor>
                                         <label>$INFO[ListItem.Plot]</label>
                                         <autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll) + Control.HasFocus(537)</autoscroll>
+                                    </control>
+                                </control>
+                            </control>
+                        </focusedlayout>
+                    </control>
+                </control>
+            </control>
+        </control>
+    </include>
+
+    <!-- Combined List Compact (531) - migrated from 527 -->
+    <include name="View_531_List_Combined_Compact">
+        <control type="group">
+            <visible>Control.IsVisible(531)</visible>
+            <include>Dimension_Info</include>
+
+            <control type="group">
+                <width>384</width>
+                <top>130</top>
+                <bottom>-5</bottom>
+
+                <include content="List_DialogSelect">
+                    <param name="id">531</param>
+                    <param name="textcolor">main_fg</param>
+                    <param name="control">list</param>
+                    <param name="itemlayout_include">Layout_MediaList</param>
+                    <param name="variation">true</param>
+                    <param name="item_height">85</param>
+
+                    <left>-20</left>
+                    <right>-40</right>
+
+                    <onleft>600</onleft>
+                    <onright>538</onright>
+
+                    <onback condition="!Integer.IsEqual(Container(531).CurrentItem,1)">SetFocus(531,0,absolute)</onback>
+
+                    <include content="Action_View_Movement_OnUp">
+                        <param name="id">531</param>
+                    </include>
+                    <include content="Action_View_Movement_OnDown">
+                        <param name="id">531</param>
+                    </include>
+
+                    <visible>$EXP[Exp_View_531]</visible>
+                    <viewtype label="$LOCALIZE[31629]">list</viewtype>
+                    <onfocus>ClearProperty(TMDbHelper.WidgetContainer)</onfocus>
+                    <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                    <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+                </include>
+            </control>
+
+            <control type="group">
+                <left>420</left>
+                <control type="group">
+                    <top>88</top>
+                    <bottom>-45</bottom>
+                    <left>20</left>
+                    <right>-60</right>
+
+                    <control type="panel" id="538">
+                        <visible>Container(531).ListItem.IsFolder</visible>
+                        <orientation>vertical</orientation>
+                        <scrolltime tween="quadratic">400</scrolltime>
+                        <pagecontrol>60</pagecontrol>
+                        <preloaditems>2</preloaditems>
+                        <onleft>531</onleft>
+
+                        <animation type="Conditional" reversible="false" condition="Container(538).IsUpdating">
+                            <effect type="fade" start="100" end="0" time="200" delay="600" />
+                        </animation>
+
+                        <content target="$VAR[Path_CollectionNode_Target]" sortby="$VAR[View_Combined_SortBy]" sortorder="ascending">$VAR[View_538_Content]</content>
+
+                        <onfocus>SetProperty(TMDbHelper.WidgetContainer,538)</onfocus>
+                        <onfocus>SetProperty(Background.ShowOverlay,True,Home)</onfocus>
+                        <onfocus>SetProperty(InfoPanel.FullSwitch,List,Home)</onfocus>
+
+                        <onback condition="!Integer.IsEqual(Container(538).CurrentItem,1)">SetFocus(538,0,absolute)</onback>
+
+                        <include content="Action_View_Movement_OnUp">
+                            <param name="id">537</param>
+                        </include>
+                        <include content="Action_View_Movement_OnDown">
+                            <param name="id">537</param>
+                        </include>
+
+                        <itemlayout width="680" height="225">
+                            <control type="group">
+                                <width>670</width>
+                                <height>220</height>
+                                <control type="image">
+                                    <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                    <left>10</left>
+                                    <centertop>110</centertop>
+                                    <width>160</width>
+                                    <height>160</height>
+                                </control>
+                                <control type="group">
+                                    <left>185</left>
+                                    <right>10</right>
+                                    <top>55</top>
+                                    <bottom>15</bottom>
+                                    <control type="label">
+                                        <height>30</height>
+                                        <aligny>center</aligny>
+                                        <font>font_mini</font>
+                                        <textcolor>main_fg_90</textcolor>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <scroll>true</scroll>
+                                    </control>
+                                    <control type="group">
+                                        <top>35</top>
+                                        <height>24</height>
+                                        <control type="label">
+                                            <right>60</right>
+                                            <font>font_tiny</font>
+                                            <textcolor>main_fg_70</textcolor>
+                                            <label>$INFO[ListItem.Property(artist)]$INFO[ListItem.Property(album), · ,]$INFO[ListItem.Premiered, · ,]</label>
+                                            <scroll>true</scroll>
+                                        </control>
+                                        <include content="Object_Indicator_List">
+                                            <param name="affix"></param>
+                                            <param name="listitem">ListItem</param>
+                                            <param name="selected">false</param>
+                                            <centertop>50%</centertop>
+                                            <centerright>15</centerright>
+                                        </include>
+                                    </control>
+                                    <control type="textbox">
+                                        <top>68</top>
+                                        <bottom>0</bottom>
+                                        <font>font_tiny_plot</font>
+                                        <textcolor>main_fg_70</textcolor>
+                                        <label>$INFO[ListItem.Plot]</label>
+                                        <autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll) + Control.HasFocus(538)</autoscroll>
+                                    </control>
+                                </control>
+                            </control>
+                        </itemlayout>
+
+                        <focusedlayout width="680" height="225">
+                            <control type="group">
+                                <width>670</width>
+                                <height>220</height>
+                                <control type="image">
+                                    <texture colordiffuse="$VAR[ColorHighlight]" border="16">common/box.png</texture>
+                                    <visible>Control.HasFocus(538)</visible>
+                                </control>
+                                <control type="image">
+                                    <texture colordiffuse="main_fg_12" border="16">common/box.png</texture>
+                                    <visible>!Control.HasFocus(538)</visible>
+                                </control>
+                                <control type="image">
+                                    <texture colordiffuse="white" fallback="DefaultAlbumCover.png" background="true">$INFO[ListItem.Art(thumb)]</texture>
+                                    <aspectratio>scale</aspectratio>
+                                    <left>10</left>
+                                    <centertop>110</centertop>
+                                    <width>160</width>
+                                    <height>160</height>
+                                </control>
+                                <control type="group">
+                                    <left>185</left>
+                                    <right>10</right>
+                                    <top>55</top>
+                                    <bottom>15</bottom>
+                                    <control type="label">
+                                        <height>30</height>
+                                        <aligny>center</aligny>
+                                        <font>font_mini_bold</font>
+                                        <textcolor>main_fg_100</textcolor>
+                                        <label>$INFO[ListItem.Label]</label>
+                                        <scroll>true</scroll>
+                                    </control>
+                                    <control type="group">
+                                        <top>35</top>
+                                        <height>24</height>
+                                        <control type="label">
+                                            <right>60</right>
+                                            <font>font_tiny</font>
+                                            <textcolor>main_fg_90</textcolor>
+                                            <label>$INFO[ListItem.Property(artist)]$INFO[ListItem.Property(album), · ,]$INFO[ListItem.Premiered, · ,]</label>
+                                            <scroll>true</scroll>
+                                        </control>
+                                        <include content="Object_Indicator_List">
+                                            <param name="affix"></param>
+                                            <param name="listitem">ListItem</param>
+                                            <param name="selected">true</param>
+                                            <centertop>50%</centertop>
+                                            <centerright>15</centerright>
+                                        </include>
+                                    </control>
+                                    <control type="textbox">
+                                        <top>68</top>
+                                        <bottom>0</bottom>
+                                        <font>font_tiny_plot</font>
+                                        <textcolor>main_fg_90</textcolor>
+                                        <label>$INFO[ListItem.Plot]</label>
+                                        <autoscroll delay="6000" time="3000" repeat="10000">!Skin.HasSetting(Textboxes.DisableAutoscroll) + Control.HasFocus(538)</autoscroll>
                                     </control>
                                 </control>
                             </control>
