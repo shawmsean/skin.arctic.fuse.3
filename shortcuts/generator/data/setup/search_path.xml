@@ -173,6 +173,18 @@
             <value>plugin://plugin.search.pinyin/?action=search&amp;amp;type=tv&amp;amp;query=</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>plugin://plugin.audio.music/sea/1/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>plugin://plugin.audio.music/sea/10/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>plugin://plugin.audio.music/sea/100/?keyword=</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>plugin://plugin.video.themoviedb.helper?info=discover&amp;amp;tmdb_type=movie&amp;amp;with_id=True&amp;amp;with_genres=28&amp;amp;with_text_query=</value>
         </rule>
@@ -683,6 +695,18 @@
             <value>videos</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>music</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>videos</value>
         </rule>
@@ -966,6 +990,18 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
             <value>Path_SearchTerm_SingleEncoded</value>
         </rule>
         <rule>
