@@ -54,26 +54,5 @@
         "path": "DefaultSearch-PinyinTV",
         "target": "videos",
         "widget_style": "Poster"
-    },
-    {
-        "label": "歌曲 (网易云)",
-        "icon": "special://skin/extras/icons/songs.png",
-        "path": "DefaultSearch-NCMSongs",
-        "target": "music",
-        "widget_style": "Square"
-    },
-    {
-        "label": "专辑 (网易云)",
-        "icon": "special://skin/extras/icons/songs.png",
-        "path": "DefaultSearch-NCMAlbums",
-        "target": "music",
-        "widget_style": "Square"
-    },
-    {
-        "label": "歌手 (网易云)",
-        "icon": "special://skin/extras/icons/songs.png",
-        "path": "DefaultSearch-NCMArtists",
-        "target": "music",
-        "widget_style": "Square"
     }
 ]

@@ -612,6 +612,27 @@
             "node": "videos",
             "link": "true"
         },
+        {
+            "name": "歌曲 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMSongs",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "专辑 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMAlbums",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌手 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMArtists",
+            "node": "music",
+            "link": "true"
+        },
 
         {
             "name": "Other",
