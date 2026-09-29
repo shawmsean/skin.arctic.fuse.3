@@ -633,6 +633,34 @@
             "node": "music",
             "link": "true"
         },
+        {
+            "name": "视频 (B站)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-BiliVideos",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "番剧 (B站)",
+            "icon": "special://skin/extras/icons/tv.png",
+            "path": "DefaultSearch-BiliBangumi",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "影视 (B站)",
+            "icon": "special://skin/extras/icons/film.png",
+            "path": "DefaultSearch-BiliMedia",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "UP主 (B站)",
+            "icon": "special://skin/extras/icons/person.png",
+            "path": "DefaultSearch-BiliUsers",
+            "node": "videos",
+            "link": "true"
+        },
 
         {
             "name": "Other",

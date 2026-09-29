@@ -185,6 +185,22 @@
             <value>plugin://plugin.audio.music/sea/100/?keyword=</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>plugin://plugin.video.bili/search_hub/video/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>plugin://plugin.video.bili/search_hub/media_bangumi/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>plugin://plugin.video.bili/search_hub/media_ft/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
+            <value>plugin://plugin.video.bili/search_hub/bili_user/?keyword=</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>plugin://plugin.video.themoviedb.helper?info=discover&amp;amp;tmdb_type=movie&amp;amp;with_id=True&amp;amp;with_genres=28&amp;amp;with_text_query=</value>
         </rule>
@@ -707,6 +723,22 @@
             <value>music</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>videos</value>
         </rule>
@@ -1002,6 +1034,22 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
             <value>Path_SearchTerm_SingleEncoded</value>
         </rule>
         <rule>
