@@ -661,6 +661,20 @@
             "node": "videos",
             "link": "true"
         },
+        {
+            "name": "综合 (B站)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-BiliAll",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "直播 (B站)",
+            "icon": "special://skin/extras/icons/livetv.png",
+            "path": "DefaultSearch-BiliLive",
+            "node": "videos",
+            "link": "true"
+        },
 
         {
             "name": "Other",
