@@ -185,6 +185,38 @@
             <value>plugin://plugin.audio.music/sea/100/?keyword=</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>plugin://plugin.audio.music/sea/1018/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>plugin://plugin.audio.music/sea/1000/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>plugin://plugin.audio.music/sea/-1/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>plugin://plugin.audio.music/sea/1006/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>plugin://plugin.audio.music/sea/1002/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>plugin://plugin.audio.music/sea/1009/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>plugin://plugin.audio.music/sea/1004/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
+            <value>plugin://plugin.audio.music/sea/1014/?keyword=</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-BiliVideos</condition>
             <value>plugin://plugin.video.bili/search_hub/video/?keyword=</value>
         </rule>
@@ -731,6 +763,38 @@
             <value>music</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-BiliVideos</condition>
             <value>videos</value>
         </rule>
@@ -1050,6 +1114,38 @@
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
             <value>Path_SearchTerm_SingleEncoded</value>
         </rule>
         <rule>

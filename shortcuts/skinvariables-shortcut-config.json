@@ -634,6 +634,62 @@
             "link": "true"
         },
         {
+            "name": "综合 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMAll",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌单 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMPlaylists",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "云盘 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMCloud",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌词 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMLyrics",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "用户 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMUsers",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "播客 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMDjRadios",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "MV (网易云)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-NCMMVs",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "视频 (网易云)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-NCMVideos",
+            "node": "videos",
+            "link": "true"
+        },
+        {
             "name": "视频 (B站)",
             "icon": "special://skin/extras/icons/video.png",
             "path": "DefaultSearch-BiliVideos",
