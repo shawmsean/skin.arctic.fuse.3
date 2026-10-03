@@ -118,6 +118,22 @@
                         <onright>6001</onright>
                         <ondown>ActivateWindow($VAR[Action_OSD_Main_OnDown])</ondown>
 
+                        <!-- Button 66 - Bilibili Comments -->
+                        <control type="button" id="6066">
+                            <include>Defs_OSD_Button</include>
+                            <onup condition="Window.IsActive(1155)">SetFocus(9801,0,absolute)</onup>
+                            <onup condition="!Window.IsActive(1155)">ActivateWindow(1155)</onup>
+                            <onfocus>ActivateWindow(1155)</onfocus>
+                            <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                            <onclick condition="!String.IsEmpty(Window(10000).Property(bili_current_bvid))">ActivateWindow(1155)</onclick>
+                        </control>
+                        <include content="OSD_Button_Icon_Overlay">
+                            <param name="icon">special://skin/extras/icons/comment.png</param>
+                            <param name="id">6066</param>
+                            <param name="groupid">6166</param>
+                            <param name="itemgap">osd_itemgap</param>
+                        </include>
+
                         <!-- Button 5 -->
                         <control type="button" id="6005">
                             <include>Defs_OSD_Button</include>
@@ -181,6 +197,7 @@
                             <param name="groupid">6108</param>
                             <param name="itemgap">osd_itemgap</param>
                         </include>
+
                     </control>
                 </control>
 
