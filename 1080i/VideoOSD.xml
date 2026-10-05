@@ -16,6 +16,8 @@
             <control type="group">
                 <visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
                 <visible>!Window.IsVisible(DialogSlider.xml)</visible>
+                <visible>!Window.IsVisible(1155)</visible>
+                <visible>!Window.IsVisible(1163)</visible>
 
                 <control type="group">
                     <!-- Left Side Buttons -->
