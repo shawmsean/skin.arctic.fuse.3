@@ -117,7 +117,7 @@
                     <onup>SetProperty(bili_comment_tab,latest,Home)</onup>
                     <onup>AlarmClock(cmt_tab,SetFocus(9802),00:00,silent)</onup>
                     <ondown>Close</ondown>
-                    <onleft>Close</onleft>
+                    <onleft>noop</onleft>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_video_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
                     <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_video_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onclick>
@@ -243,7 +243,7 @@
                     <onup>SetProperty(bili_comment_tab,hot,Home)</onup>
                     <onup>AlarmClock(cmt_tab,SetFocus(9801),00:00,silent)</onup>
                     <ondown>Close</ondown>
-                    <onleft>Close</onleft>
+                    <onleft>noop</onleft>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_video_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onright>
                     <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_video_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onclick>
