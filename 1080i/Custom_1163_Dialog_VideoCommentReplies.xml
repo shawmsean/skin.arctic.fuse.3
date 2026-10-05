@@ -43,8 +43,10 @@
                 <onleft>Close</onleft>
                 <onright>Close</onright>
                 <ondown condition="!String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">SetFocus(7001)</ondown>
+                <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">SetProperty(nc_reply_focus_idx,$INFO[Container(7001).ListItem.Property(auto_load_trigger_index)],10000)</ondown>
                 <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">SetProperty(nc_reply_content_url,$INFO[Container(7001).ListItem.Property(next_page)],10000)</ondown>
                 <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">Container.Update($INFO[Container(7001).ListItem.Property(next_page)],replace)</ondown>
+                <ondown condition="String.IsEqual(Container(7001).ListItem.Property(is_trigger),1)">AlarmClock(reply_focus,SetFocus(7001,$INFO[Window(10000).Property(nc_reply_focus_idx)],absolute),00:00,silent)</ondown>
                 <content>$INFO[Window(10000).Property(nc_reply_content_url)]</content>
 
                 <itemlayout width="1760" height="100">

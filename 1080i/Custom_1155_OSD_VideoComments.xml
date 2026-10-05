@@ -118,10 +118,14 @@
                     <onup>AlarmClock(cmt_tab,SetFocus(9802),00:00,silent)</onup>
                     <ondown>Close</ondown>
                     <onleft>noop</onleft>
+                    <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_comment_focus_idx,$INFO[Container(9801).ListItem.Property(auto_load_trigger_index)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_video_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onright>
+                    <onright condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">AlarmClock(cmt_focus,SetFocus(9801,$INFO[Window(10000).Property(bili_comment_focus_idx)],absolute),00:00,silent)</onright>
+                    <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_comment_focus_idx,$INFO[Container(9801).ListItem.Property(auto_load_trigger_index)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">SetProperty(bili_video_hot_comment_url,$INFO[Container(9801).ListItem.Property(next_page)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">Container.Update($INFO[Container(9801).ListItem.Property(next_page)],replace)</onclick>
+                    <onclick condition="!String.IsEmpty(Container(9801).ListItem.Property(next_page))">AlarmClock(cmt_focus,SetFocus(9801,$INFO[Window(10000).Property(bili_comment_focus_idx)],absolute),00:00,silent)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_id,$INFO[Container(9801).ListItem.Property(comment_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9801).ListItem.Label]: $INFO[Container(9801).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9801).ListItem.Property(next_page)) + !String.IsEmpty(Container(9801).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,$INFO[Container(9801).ListItem.Property(comment_reply_url)],10000)</onclick>
@@ -244,10 +248,14 @@
                     <onup>AlarmClock(cmt_tab,SetFocus(9801),00:00,silent)</onup>
                     <ondown>Close</ondown>
                     <onleft>noop</onleft>
+                    <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_comment_focus_idx,$INFO[Container(9802).ListItem.Property(auto_load_trigger_index)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_video_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onright>
                     <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onright>
+                    <onright condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">AlarmClock(cmt_focus,SetFocus(9802,$INFO[Window(10000).Property(bili_comment_focus_idx)],absolute),00:00,silent)</onright>
+                    <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_comment_focus_idx,$INFO[Container(9802).ListItem.Property(auto_load_trigger_index)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">SetProperty(bili_video_latest_comment_url,$INFO[Container(9802).ListItem.Property(next_page)],10000)</onclick>
                     <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">Container.Update($INFO[Container(9802).ListItem.Property(next_page)],replace)</onclick>
+                    <onclick condition="!String.IsEmpty(Container(9802).ListItem.Property(next_page))">AlarmClock(cmt_focus,SetFocus(9802,$INFO[Window(10000).Property(bili_comment_focus_idx)],absolute),00:00,silent)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_id,$INFO[Container(9802).ListItem.Property(comment_id)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_comment_summary,$INFO[Container(9802).ListItem.Label]: $INFO[Container(9802).ListItem.Property(comment_content)],10000)</onclick>
                     <onclick condition="String.IsEmpty(Container(9802).ListItem.Property(next_page)) + !String.IsEmpty(Container(9802).ListItem.Property(comment_reply_summary))">SetProperty(nc_reply_content_url,$INFO[Container(9802).ListItem.Property(comment_reply_url)],10000)</onclick>
