@@ -312,9 +312,7 @@
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),570)">$INFO[Container(570).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),571)">$INFO[Container(571).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),538)">$INFO[Container(538).ListItem.Art(fanart)]</value>
-        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),539)">$INFO[Container(539).ListItem.Art(fanart)]</value>
-        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),540)">$INFO[Container(540).ListItem.Art(fanart)]</value>
-        <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),541)">$INFO[Container(541).ListItem.Art(fanart)]</value>
+
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),542)">$INFO[Container(542).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),543)">$INFO[Container(543).ListItem.Art(fanart)]</value>
         <value condition="Integer.IsEqual(Window.Property(TMDbHelper.WidgetContainer),544)">$INFO[Container(544).ListItem.Art(fanart)]</value>

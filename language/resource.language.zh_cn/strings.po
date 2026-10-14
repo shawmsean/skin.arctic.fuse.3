@@ -2476,17 +2476,6 @@ msgctxt "#31629"
 msgid "Combined List Compact"
 msgstr "混合：列表紧凑"
 
-msgctxt "#31630"
-msgid "Combined Poster Wall"
-msgstr "混合：海报墙"
-
-msgctxt "#31631"
-msgid "Combined Landscape Wall"
-msgstr "混合：横版墙"
-
-msgctxt "#31632"
-msgid "Combined Square Wall"
-msgstr "混合：方形墙"
 
 msgctxt "#31633"
 msgid "Combined Music Track"

@@ -11,7 +11,7 @@
         <value condition="Control.IsVisible(526)">$INFO[Container(536).NumItems,, $LOCALIZE[31022]]</value>
         <value condition="Control.IsVisible(527)">$INFO[Container(537).NumItems,, $LOCALIZE[31022]]</value>
         <value condition="Control.IsVisible(528)">$INFO[Container(538).NumItems,, $LOCALIZE[31022]]</value>
-        <value condition="Control.IsVisible(529)">$INFO[Container(539).NumItems,, $LOCALIZE[31022]]</value>
+
         <value>$INFO[Container.NumItems,, $LOCALIZE[31022]]</value>
     </variable>
 
@@ -25,7 +25,7 @@
         <value condition="Control.IsVisible(526)">$LOCALIZE[31135]$INFO[Container(536).CurrentPage, , $LOCALIZE[20163] ]$INFO[Container(536).NumPages]</value>
         <value condition="Control.IsVisible(527)">$LOCALIZE[31135]$INFO[Container(537).CurrentPage, , $LOCALIZE[20163] ]$INFO[Container(537).NumPages]</value>
         <value condition="Control.IsVisible(528)">$LOCALIZE[31135]$INFO[Container(538).CurrentPage, , $LOCALIZE[20163] ]$INFO[Container(538).NumPages]</value>
-        <value condition="Control.IsVisible(529)">$LOCALIZE[31135]$INFO[Container(539).CurrentPage, , $LOCALIZE[20163] ]$INFO[Container(539).NumPages]</value>
+
         <value>$LOCALIZE[31135]$INFO[Container.CurrentPage, , $LOCALIZE[20163] ]$INFO[Container.NumPages]</value>
     </variable>
 

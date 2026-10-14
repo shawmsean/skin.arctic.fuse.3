@@ -215,7 +215,7 @@
     </include>
 
     <include name="View_MediaWindows_ID">
-        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,525,526,527,528,529,570,540,541,542,543,554,555,561,563,565,568,580,581,582,583,584</views>
+        <views>500,501,502,503,504,505,506,507,508,509,549,510,511,512,513,514,515,516,518,520,521,522,523,524,525,526,527,528,570,542,543,554,555,561,563,565,568,580,581,582,583,584</views>
     </include>
 
     <include name="View_Row_Items">
@@ -260,9 +260,7 @@
                 <include condition="$EXP[Exp_View_527_Include]">View_527_List_Combined</include>
                 <include condition="$EXP[Exp_View_570_Include]">View_570_List_Combined_Compact</include>
                 <include condition="$EXP[Exp_View_528_Include]">View_528_List_Combined</include>
-                <include condition="$EXP[Exp_View_529_Include]">View_529_Poster_Combined_Wall</include>
-                <include condition="$EXP[Exp_View_540_Include]">View_540_Landscape_Combined_Wall</include>
-                <include condition="$EXP[Exp_View_541_Include]">View_541_Square_Combined_Wall</include>
+
                 <include condition="$EXP[Exp_View_542_Include]">View_542_MusicTrack_Combined</include>
                 <include condition="$EXP[Exp_View_543_Include]">View_543_FilterBrowse_Combined</include>
                 <include condition="$EXP[Exp_View_554_Include]">View_554_FilterBrowse_Landscape_Combined</include>
@@ -335,9 +333,7 @@
         <value condition="Control.IsVisible(527)">537</value>
         <value condition="Control.IsVisible(570)">571</value>
         <value condition="Control.IsVisible(528)">538</value>
-        <value condition="Control.IsVisible(529)">539</value>
-        <value condition="Control.IsVisible(540)">550</value>
-        <value condition="Control.IsVisible(541)">551</value>
+
         <value condition="Control.IsVisible(542)">552</value>
         <value condition="Control.IsVisible(543)">553</value>
         <value condition="Control.IsVisible(554)">560</value>
@@ -512,7 +508,7 @@
                     <include>View_Scrollbar_Strip</include>
                     <include>View_Row_Items</include>
                     <control type="group">
-                        <visible>!$EXP[Exp_View_529] + !$EXP[Exp_View_540] + !$EXP[Exp_View_541] + !$EXP[Exp_View_542] + !$EXP[Exp_View_525]</visible>
+                        <visible>!$EXP[Exp_View_542] + !$EXP[Exp_View_525]</visible>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(561)">Conditional</animation>
@@ -521,7 +517,7 @@
                         <include>View_Row_Line</include>
                     </control>
                     <control type="group">
-                        <visible>!$EXP[View_Mode_Wall_Expression] + !$EXP[Exp_View_529] + !$EXP[Exp_View_540] + !$EXP[Exp_View_541] + !$EXP[Exp_View_542] + !$EXP[Exp_View_525]</visible>
+                        <visible>!$EXP[View_Mode_Wall_Expression] + !$EXP[Exp_View_542] + !$EXP[Exp_View_525]</visible>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(543) + !Control.HasFocus(553)">Conditional</animation>
                         <animation effect="fade" start="100" end="0" time="200" reversible="true" condition="Control.IsVisible(554) + !Control.HasFocus(560)">Conditional</animation>
                         <include>Furniture_Footer_Left</include>

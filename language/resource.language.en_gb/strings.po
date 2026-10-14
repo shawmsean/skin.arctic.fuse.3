@@ -2506,17 +2506,6 @@ msgctxt "#31629"
 msgid "Combined List Compact"
 msgstr ""
 
-msgctxt "#31630"
-msgid "Combined Poster Wall"
-msgstr ""
-
-msgctxt "#31631"
-msgid "Combined Landscape Wall"
-msgstr ""
-
-msgctxt "#31632"
-msgid "Combined Square Wall"
-msgstr ""
 
 msgctxt "#31633"
 msgid "Combined Music Track"
