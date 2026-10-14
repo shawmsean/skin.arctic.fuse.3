@@ -16,6 +16,8 @@
             <control type="group">
                 <visible>!Window.IsActive(DialogPlayerProcessInfo.xml)</visible>
                 <visible>!Window.IsVisible(DialogSlider.xml)</visible>
+                <visible>!Window.IsVisible(1155)</visible>
+                <visible>!Window.IsVisible(1163)</visible>
 
                 <control type="group">
                     <!-- Left Side Buttons -->
@@ -28,6 +30,7 @@
                         <orientation>horizontal</orientation>
                         <itemgap>osd_itemgap</itemgap>
                         <onleft>6008</onleft>
+                        <onright condition="!String.IsEmpty(Window(10000).Property(bili_current_bvid))">6066</onright>
                         <onright>6005</onright>
                         <ondown>ActivateWindow($VAR[Action_OSD_Main_OnDown])</ondown>
 
@@ -118,6 +121,22 @@
                         <onright>6001</onright>
                         <ondown>ActivateWindow($VAR[Action_OSD_Main_OnDown])</ondown>
 
+
+                        <!-- Button 66 - Bilibili Comments -->
+                        <control type="button" id="6066">
+                            <include>Defs_OSD_Button</include>
+                            <visible>!String.IsEmpty(Window(10000).Property(bili_current_bvid))</visible>
+                            <onup>ActivateWindow(1155)</onup>
+                            <onclick>CancelAlarm(osd_timeout,true)</onclick>
+                            <onclick>ActivateWindow(1155)</onclick>
+                        </control>
+                        <include content="OSD_Button_Icon_Overlay" condition="!String.IsEmpty(Window(10000).Property(bili_current_bvid))">
+                            <param name="icon">special://skin/extras/icons/comment.png</param>
+                            <param name="id">6066</param>
+                            <param name="groupid">6166</param>
+                            <param name="itemgap">osd_itemgap</param>
+                        </include>
+
                         <!-- Button 5 -->
                         <control type="button" id="6005">
                             <include>Defs_OSD_Button</include>
@@ -181,7 +200,9 @@
                             <param name="groupid">6108</param>
                             <param name="itemgap">osd_itemgap</param>
                         </include>
+
                     </control>
+
                 </control>
 
             </control>
@@ -220,6 +241,16 @@
                         <textureslidernibfocus />
                         <ondown>6091</ondown>
                     </control>
+                </control>
+                <control type="image">
+                    <left>0</left>
+                    <right>0</right>
+                    <height>40</height>
+                    <centertop>8</centertop>
+                    <texture>$INFO[Window(Home).Property(DanmakuHeatmap)]</texture>
+                    <visible>!String.IsEmpty(Window(Home).Property(DanmakuHeatmap))</visible>
+                    <aspectratio>stretch</aspectratio>
+                    <colordiffuse>BBFFFFFF</colordiffuse>
                 </control>
             </control>
         </control>

@@ -662,7 +662,36 @@
             </include>
         </definition>
     </include>
-    
+
+    <include name="List_CircleLabel_Row">
+        <param name="item_w">view_poster_item_h</param>
+        <param name="item_h">view_poster_item_h</param>
+        <param name="itemlayout_w">view_circle_itemlayout_w</param>
+        <param name="itemlayout_h">view_poster_itemlayout_h</param>
+        <param name="orientation">horizontal</param>
+        <param name="use_movement">true</param>
+        <param name="control">fixedlist</param>
+        <definition>
+            <include content="List_Core">
+                <param name="orientation">$PARAM[orientation]</param>
+                <param name="control">$PARAM[control]</param>
+                <param name="id">$PARAM[id]</param>
+                <param name="item_w">$PARAM[item_w]</param>
+                <param name="item_h">$PARAM[item_h]</param>
+                <param name="itemlayout_w">$PARAM[itemlayout_w]</param>
+                <param name="itemlayout_h">$PARAM[itemlayout_h]</param>
+                <param name="offset_x">$PARAM[offset_x]</param>
+                <param name="offset_y">$PARAM[offset_y]</param>
+                <param name="variation">false</param>
+                <param name="itemlayout_include">Layout_Circle_WithLabel</param>
+                <param name="hidden_button_enabled">$PARAM[hidden_button_enabled]</param>
+                <param name="hidden_button">$PARAM[hidden_button]</param>
+                <include condition="$PARAM[use_movement]">List_Card_Row_Movement</include>
+                <nested />
+            </include>
+        </definition>
+    </include>
+
     <include name="List_Square_Row">
         <param name="item_w">view_poster_item_w</param>
         <param name="item_h">view_poster_item_w</param>
@@ -919,8 +948,19 @@
                 <orientation>$PARAM[orientation]</orientation>
                 <preloaditems>$PARAM[preloaditems]</preloaditems>
                 <scrolltime tween="$PARAM[tween]">$PARAM[scrolltime]</scrolltime>
+
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_refocus_index,$INFO[Window(10000).Property(bili_trigger_index)],Home)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[Container($PARAM[id]).ListItem.Property(next_page)],replace)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_refocus,SetFocus($PARAM[id],$INFO[Window(Home).Property(bili_refocus_index)],absolute),00:00,silent)</ondown>
+                <ondown condition="String.IsEqual(Container($PARAM[id]).ListItem.Property(is_trigger),1) + !String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</ondown>
+
                 <itemlayout width="$PARAM[itemlayout_w]" height="$PARAM[itemlayout_h]">
-                    <control type="group">
+                    <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
+                        <visible>false</visible>
+                    </control>
+
+                    <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                         <left>$PARAM[offset_x]</left>
                         <right>-$PARAM[offset_x]</right>
                         <top>$PARAM[offset_y]</top>
@@ -955,7 +995,14 @@
                         <right>-$PARAM[offset_x]</right>
                         <top>$PARAM[offset_y]</top>
                         <bottom>-$PARAM[offset_y]</bottom>
-                        <control type="group">
+
+                        <control type="group" condition="String.IsEqual(ListItem.Property(is_trigger),1)">
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">SetProperty(bili_auto_loading,1,Home)</onfocus>
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">Container.Update($INFO[ListItem.Property(next_page)],replace)</onfocus>
+                            <onfocus condition="!String.IsEqual(Window(Home).Property(bili_auto_loading),1)">AlarmClock(bili_clear_loading,ClearProperty(bili_auto_loading,Home),00:03,silent)</onfocus>
+                        </control>
+
+                        <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                             <animation effect="fade" start="100" end="0" condition="[Control.HasFocus($PARAM[id]) | $PARAM[altfocus]]">Conditional</animation>
                             <include content="$PARAM[itemlayout_include]">
                                 <param name="focusedlayout">true</param>
@@ -975,7 +1022,8 @@
                                 <param name="use_label2">$PARAM[use_label2]</param>
                             </include>
                         </control>
-                        <control type="group">
+
+                        <control type="group" condition="!String.IsEqual(ListItem.Property(is_trigger),1)">
                             <animation effect="fade" start="100" end="0" condition="![Control.HasFocus($PARAM[id]) | $PARAM[altfocus]]">Conditional</animation>
                             <include content="$PARAM[itemlayout_include]">
                                 <param name="focusedlayout">true</param>
@@ -997,6 +1045,37 @@
                         </control>
                     </control>
                 </include>
+            </control>
+        </definition>
+    </include>
+
+    <include name="List_MusicTrack_Row">
+        <param name="id">515</param>
+        <definition>
+            <control type="panel" id="$PARAM[id]">
+                <nested />
+                <left>view_pad</left>
+                <right>view_pad</right>
+                <top>290</top>
+                <bottom>170</bottom>
+                <orientation>vertical</orientation>
+                <scrolltime tween="quadratic">400</scrolltime>
+                <preloaditems>2</preloaditems>
+                <pagecontrol>60</pagecontrol>
+                <itemlayout width="440" height="90">
+                    <include content="Layout_MusicTrack">
+                        <param name="selected">false</param>
+                        <param name="item_w">440</param>
+                        <param name="item_h">90</param>
+                    </include>
+                </itemlayout>
+                <focusedlayout width="440" height="90">
+                    <include content="Layout_MusicTrack">
+                        <param name="selected">true</param>
+                        <param name="item_w">440</param>
+                        <param name="item_h">90</param>
+                    </include>
+                </focusedlayout>
             </control>
         </definition>
     </include>

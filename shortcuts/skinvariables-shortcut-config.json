@@ -612,6 +612,125 @@
             "node": "videos",
             "link": "true"
         },
+        {
+            "name": "歌曲 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMSongs",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "专辑 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMAlbums",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌手 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMArtists",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "综合 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMAll",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌单 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMPlaylists",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "云盘 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMCloud",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "歌词 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMLyrics",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "用户 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMUsers",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "播客 (网易云)",
+            "icon": "special://skin/extras/icons/songs.png",
+            "path": "DefaultSearch-NCMDjRadios",
+            "node": "music",
+            "link": "true"
+        },
+        {
+            "name": "MV (网易云)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-NCMMVs",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "视频 (网易云)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-NCMVideos",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "视频 (B站)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-BiliVideos",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "番剧 (B站)",
+            "icon": "special://skin/extras/icons/tv.png",
+            "path": "DefaultSearch-BiliBangumi",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "影视 (B站)",
+            "icon": "special://skin/extras/icons/film.png",
+            "path": "DefaultSearch-BiliMedia",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "UP主 (B站)",
+            "icon": "special://skin/extras/icons/person.png",
+            "path": "DefaultSearch-BiliUsers",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "综合 (B站)",
+            "icon": "special://skin/extras/icons/video.png",
+            "path": "DefaultSearch-BiliAll",
+            "node": "videos",
+            "link": "true"
+        },
+        {
+            "name": "直播 (B站)",
+            "icon": "special://skin/extras/icons/livetv.png",
+            "path": "DefaultSearch-BiliLive",
+            "node": "videos",
+            "link": "true"
+        },
 
         {
             "name": "Other",

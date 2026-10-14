@@ -171,6 +171,9 @@
             <include content="Home_ControlList_Item_1104">
                 <param name="mod">$PARAM[mod]</param>
             </include>
+            <include content="Home_ControlList_Item_1105">
+                <param name="mod">$PARAM[mod]</param>
+            </include>
             <include content="Home_ControlList_Item_1106">
                 <param name="mod">$PARAM[mod]</param>
             </include>
@@ -283,7 +286,7 @@
                 <include>Home_Fade_Animation</include>
                 <visible>$PARAM[fade_visible]</visible>
                 <visible>!Skin.HasSetting(HomeSwitcher.Vertical)</visible>
-                <texture colordiffuse="main_bg_70">special://skin/extras/backgrounds/overlay/combined_topmenu.png</texture>
+                <texture colordiffuse="main_bg_70">background/combined_topmenu.png</texture>
                 <bottom>0</bottom>
             </control>
         </definition>
@@ -485,6 +488,7 @@
 
     <variable name="Home_Switcher_Right_Buttons_Calendar">
         <value condition="Skin.String(HomeSwitcher.1106.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1106.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value>special://skin/extras/icons/calendar.png</value>
     </variable>
 

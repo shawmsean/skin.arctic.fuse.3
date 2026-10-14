@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
 
+    <variable name="NextAired_Content_01">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=-1&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=-1&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_02">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=0&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=0&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_03">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=1&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=1&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_04">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=2&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=2&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_05">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=3&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=3&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_06">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=4&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=4&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_07">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=5&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=5&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+    <variable name="NextAired_Content_08">
+        <value condition="String.IsEqual(Skin.String(HomeSwitcher.1106.UpNextMode),nextaired_combined)">plugin://plugin.video.alist-tvbox/?action=nextaired_combined&amp;startdate=6&amp;days=1</value>
+        <value>plugin://plugin.video.themoviedb.helper/?info=$INFO[Skin.String(HomeSwitcher.1106.UpNextMode)]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=6&amp;days=1&amp;widget=True&amp;tmdb_type=episode</value>
+    </variable>
+
     <include name="NextAired_Content">
         <include content="Hub_Widgets_Grouplist">
             <include content="NextAired_Widgets">
@@ -14,57 +47,49 @@
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">01</param>
             <param name="label">$INFO[Container(501).ListItem.Property(widget)]$INFO[Container(501).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=-1&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_01]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">02</param>
             <param name="label">$INFO[Container(502).ListItem.Property(widget)]$INFO[Container(502).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=0&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_02]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">03</param>
             <param name="label">$INFO[Container(503).ListItem.Property(widget)]$INFO[Container(503).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=1&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_03]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">04</param>
             <param name="label">$INFO[Container(504).ListItem.Property(widget)]$INFO[Container(504).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=2&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_04]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">05</param>
             <param name="label">$INFO[Container(505).ListItem.Property(widget)]$INFO[Container(505).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=3&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_05]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">06</param>
             <param name="label">$INFO[Container(506).ListItem.Property(widget)]$INFO[Container(506).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=4&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_06]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">07</param>
             <param name="label">$INFO[Container(507).ListItem.Property(widget)]$INFO[Container(507).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=5&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_07]</content>
         </include>
         <include content="Hub_Standard_Widget">
             <param name="altvisible">[!String.IsEmpty(Window.Property(ReloadWidgets))]</param>
             <param name="id">08</param>
             <param name="label">$INFO[Container(508).ListItem.Property(widget)]$INFO[Container(508).ListItem.Property(air_date_short),$COMMA ,]</param>
-            <param name="visible">true</param>
-            <content target="videos">plugin://plugin.video.themoviedb.helper/?info=$PARAM[info]&amp;reload=$INFO[System.Time(hh)]&amp;startdate=6&amp;days=1&amp;widget=True&amp;tmdb_type=episode</content>
+            <content target="videos">$VAR[NextAired_Content_08]</content>
         </include>
     </include>
 

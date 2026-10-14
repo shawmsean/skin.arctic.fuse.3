@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <includes>
+
     <include name="DialogKeyboard">
         <include>Part_Dim_Overlay</include>
         <control type="group">
@@ -135,9 +136,8 @@
                             <param name="itemlayout_w">280</param>
                             <param name="itemlayout_include">Layout_DialogSimple</param>
                             <param name="orientation">vertical</param>
-                            <content>plugin://plugin.program.autocompletion?info=autocomplete&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]</content>
-                            <visible>!Control.IsViible(313)</visible>
-                            <visible>!Control.IsViible(314)</visible>
+                            <content>plugin://plugin.program.searchhistory/?info=suggest&amp;&amp;id=$INFO[Control.GetLabel(312).index(1)]</content>
+
                             <onup>9000</onup>
                             <onleft>8000</onleft>
                             <top>120</top>
@@ -493,6 +493,8 @@
             <font>font_midi_iconic</font>
             <label>&#xF058;</label>
             <onup>160</onup>
+            <onfocus>SetProperty(SearchHistory.LastText,$INFO[Control.GetLabel(312)],10000)</onfocus>
+            <onclick>RunScript(plugin.program.searchhistory,?info=record&amp;id=$INFO[Window(10000).Property(SearchHistory.LastText)])</onclick>
         </include>
         <include content="Object_Keyboard_Button" description="Cancel">
             <param name="id">301</param>

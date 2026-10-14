@@ -114,6 +114,13 @@
                 <param name="icon">special://skin/extras/icons/search.png</param>
                 <label>$LOCALIZE[137]</label>
             </include>
+            <include content="Button_Dialog">
+                <param name="id">170</param>
+                <param name="groupid">9170</param>
+                <param name="icon">special://skin/extras/icons/comment-dots.png</param>
+                <label>弹幕设置</label>
+                <onclick>Addon.OpenSettings(script.subtitles.danmu)</onclick>
+            </include>
             <include content="DialogSubtitles_Items_ListItem">
                 <param name="id">01</param>
                 <param name="pos">0</param>

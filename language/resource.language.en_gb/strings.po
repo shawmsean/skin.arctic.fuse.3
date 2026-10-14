@@ -613,16 +613,6 @@ msgctxt "#31125"
 msgid "Invert Text Colour"
 msgstr ""
 
-#: /1080i/Includes_SkinSettings.xml
-msgctxt "#31126"
-msgid "Plotline"
-msgstr ""
-
-#: /1080i/Includes_SkinSettings.xml
-msgctxt "#31127"
-msgid "Genre colours"
-msgstr ""
-
 #: /1080i/Includes_MediaFilter.xml
 msgctxt "#31128"
 msgid "Trending"
@@ -1554,6 +1544,38 @@ msgctxt "#31355"
 msgid "Seekbar time display"
 msgstr ""
 
+#: /1080i/Custom_1142_OSD_MusicComments.xml
+msgctxt "#31360"
+msgid "Song Comments"
+msgstr ""
+
+#: /1080i/Custom_1142_OSD_MusicComments.xml
+msgctxt "#31361"
+msgid "Load More"
+msgstr ""
+
+#: /1080i/Dialog_DialogCustom.xml
+msgctxt "#31367"
+msgid "Music OSD OnDown Navigation"
+msgstr ""
+
+msgctxt "#31453"
+msgid "Song Comments"
+msgstr ""
+
+msgctxt "#31454"
+msgid "Playlist"
+msgstr ""
+
+msgctxt "#31455"
+msgid "Artist Info"
+msgstr ""
+
+#: /1080i/Dialog_DialogCustom.xml
+msgctxt "#31443"
+msgid "Comments Background Dim"
+msgstr ""
+
 #: /1080i/Includes_Items.xml
 msgctxt "#31356"
 msgid "Use online cast"
@@ -2482,6 +2504,79 @@ msgstr ""
 #: /1080i/Includes_SkinSettings.xml
 msgctxt "#31605"
 msgid "Next aired"
+msgstr ""
+
+#: /1080i/Includes_Views_Row.xml
+msgctxt "#31626"
+msgid "Music Track"
+msgstr ""
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31627"
+msgid "Album Track"
+msgstr ""
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31628"
+msgid "Rank"
+msgstr ""
+
+#: /1080i/Includes_Views_Combined.xml
+msgctxt "#31629"
+msgid "Combined List Compact"
+msgstr ""
+
+
+msgctxt "#31633"
+msgid "Combined Music Track"
+msgstr ""
+
+msgctxt "#31634"
+msgid "Filter Browse"
+msgstr ""
+
+msgctxt "#31635"
+msgid "Genre"
+msgstr ""
+
+msgctxt "#31636"
+msgid "Region"
+msgstr ""
+
+msgctxt "#31637"
+msgid "Year"
+msgstr ""
+
+msgctxt "#31638"
+msgid "Sort"
+msgstr ""
+
+msgctxt "#31639"
+msgid "Platform"
+msgstr ""
+
+msgctxt "#31640"
+msgid "FilterBrowse Landscape"
+msgstr ""
+
+msgctxt "#31641"
+msgid "Artist Info"
+msgstr ""
+
+msgctxt "#31642"
+msgid "Combined Basic List"
+msgstr ""
+
+msgctxt "#31643"
+msgid "Combined Landscape New"
+msgstr ""
+
+msgctxt "#31644"
+msgid "Combined Square New"
+msgstr ""
+
+msgctxt "#31645"
+msgid "Combined Poster New"
 msgstr ""
 
 #: /1080i/Includes_SkinSettings.xml

@@ -165,6 +165,82 @@
             <value>plugin://plugin.video.themoviedb.helper?info=mdblist_searchlists&amp;amp;tmdb_type=both&amp;amp;query=</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>plugin://plugin.search.pinyin/?action=search&amp;amp;type=movie&amp;amp;query=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>plugin://plugin.search.pinyin/?action=search&amp;amp;type=tv&amp;amp;query=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>plugin://plugin.audio.music/sea/1/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>plugin://plugin.audio.music/sea/10/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>plugin://plugin.audio.music/sea/100/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>plugin://plugin.audio.music/sea/1018/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>plugin://plugin.audio.music/sea/1000/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>plugin://plugin.audio.music/sea/-1/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>plugin://plugin.audio.music/sea/1006/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>plugin://plugin.audio.music/sea/1002/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>plugin://plugin.audio.music/sea/1009/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>plugin://plugin.audio.music/sea/1004/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
+            <value>plugin://plugin.audio.music/sea/1014/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>plugin://plugin.video.bili/search_hub/video/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>plugin://plugin.video.bili/search_hub/media_bangumi/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>plugin://plugin.video.bili/search_hub/media_ft/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
+            <value>plugin://plugin.video.bili/search_hub/bili_user/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliAll</condition>
+            <value>plugin://plugin.video.bili/search_hub/all/?keyword=</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliLive</condition>
+            <value>plugin://plugin.video.bili/search_hub/live/?keyword=</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>plugin://plugin.video.themoviedb.helper?info=discover&amp;amp;tmdb_type=movie&amp;amp;with_id=True&amp;amp;with_genres=28&amp;amp;with_text_query=</value>
         </rule>
@@ -264,6 +340,7 @@
 
 
         <rule>
+
             <condition>{item_path}==DefaultSearch-RadioDE</condition>
             <value>plugin://plugin.audio.radio_de/stations/search/</value>
         </rule>
@@ -666,6 +743,82 @@
             <value>videos</value>
         </rule>
         <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>music</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliAll</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliLive</condition>
+            <value>videos</value>
+        </rule>
+        <rule>
             <condition>{item_path}==DefaultSearch-TMDBMoviesAction</condition>
             <value>videos</value>
         </rule>
@@ -765,6 +918,7 @@
 
 
         <rule>
+
             <condition>{item_path}==DefaultSearch-RadioDE</condition>
             <value>music</value>
         </rule>
@@ -941,6 +1095,82 @@
         <rule>
             <condition>{item_path}==DefaultSearch-TMDBListsMDBList</condition>
             <value>Path_SearchTerm_DoubleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinMovies</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-PinyinTV</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMSongs</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAlbums</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMArtists</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMAll</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMPlaylists</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMCloud</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMLyrics</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMUsers</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMDjRadios</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMMVs</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-NCMVideos</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliVideos</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliBangumi</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliMedia</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliUsers</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliAll</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
+        </rule>
+        <rule>
+            <condition>{item_path}==DefaultSearch-BiliLive</condition>
+            <value>Path_SearchTerm_SingleEncoded</value>
         </rule>
         <rule>
             <condition>{item_path}==DefaultSearch-RadioDE</condition>

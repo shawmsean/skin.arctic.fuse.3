@@ -40,5 +40,19 @@
         "path": "DefaultSearch-TMDBShows",
         "target": "videos",
         "widget_style": "Poster"
+    },
+    {
+        "label": "拼音搜电影",
+        "icon": "special://skin/extras/icons/film.png",
+        "path": "DefaultSearch-PinyinMovies",
+        "target": "videos",
+        "widget_style": "Poster"
+    },
+    {
+        "label": "拼音搜电视剧",
+        "icon": "special://skin/extras/icons/tv.png",
+        "path": "DefaultSearch-PinyinTV",
+        "target": "videos",
+        "widget_style": "Poster"
     }
 ]
