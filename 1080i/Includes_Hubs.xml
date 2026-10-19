@@ -738,6 +738,7 @@
             </include>
 
             <control type="group">
+                <visible>!Window.IsVisible(pvrchannelguide)</visible>
                 <include>Animation_Group_Bumper</include>
 
                 <control type="group">
@@ -820,6 +821,7 @@
             </include>
 
             <control type="group">
+                <visible>!Window.IsVisible(pvrchannelguide)</visible>
                 <include>Animation_Group_Bumper</include>
 
                 <control type="group">
