@@ -2068,7 +2068,7 @@
 
     <include name="Layout_Banner">
         <param name="selected">false</param>
-        <param name="diffuse">diffuse/banner_w1640_h310.png</param>
+        <param name="diffuse">diffuse/banner_w1760_h310.png</param>
         <param name="listitem">ListItem</param>
         <definition>
             <control type="group">
@@ -2112,7 +2112,7 @@
 
     <include name="Layout_Gallery">
         <param name="selected">false</param>
-        <param name="diffuse">diffuse/landscape_w1140_h680.png</param>
+        <param name="diffuse">diffuse/landscape_w1680_h670.png</param>
         <param name="listitem">ListItem</param>
         <definition>
             <control type="group">
@@ -2128,7 +2128,7 @@
                             <param name="pad">40</param>
                         </include>
                         <aspectratio scalediffuse="false">keep</aspectratio>
-                        <texture background="true" diffuse="diffuse/landscape_w1140_h680.png">$INFO[ListItem.Icon]</texture>
+                        <texture background="true" diffuse="diffuse/landscape_w1680_h670.png">$INFO[ListItem.Icon]</texture>
                     </control>
                 </control>
                 <control type="group">
@@ -2520,7 +2520,7 @@
         <param name="textbox_offset_y">7</param>
         <definition>
             <control type="image">
-                <texture border="20" colordiffuse="e7ffffff">common/poster_fade.png</texture>
+                <texture border="20" colordiffuse="e7000000">common/poster_fade.png</texture>
                 <visible>$PARAM[fade]</visible>
                 <height>$PARAM[item_h]</height>
             </control>
