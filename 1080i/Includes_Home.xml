@@ -13,6 +13,7 @@
     <variable name="Home_Icon_1101">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1101.Icon))">$INFO[Skin.String(HomeSwitcher.1101.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1101.Type,NextAired) + Skin.String(HomeSwitcher.1101.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1101.Type,NextAired) + Skin.String(HomeSwitcher.1101.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1101.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1101.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1101.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -21,6 +22,7 @@
     <variable name="Home_Icon_1102">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1102.Icon))">$INFO[Skin.String(HomeSwitcher.1102.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1102.Type,NextAired) + Skin.String(HomeSwitcher.1102.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1102.Type,NextAired) + Skin.String(HomeSwitcher.1102.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1102.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1102.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1102.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -29,6 +31,7 @@
     <variable name="Home_Icon_1103">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1103.Icon))">$INFO[Skin.String(HomeSwitcher.1103.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1103.Type,NextAired) + Skin.String(HomeSwitcher.1103.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1103.Type,NextAired) + Skin.String(HomeSwitcher.1103.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1103.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1103.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1103.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -37,6 +40,7 @@
     <variable name="Home_Icon_1104">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1104.Icon))">$INFO[Skin.String(HomeSwitcher.1104.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1104.Type,NextAired) + Skin.String(HomeSwitcher.1104.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1104.Type,NextAired) + Skin.String(HomeSwitcher.1104.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1104.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1104.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1104.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -45,6 +49,7 @@
     <variable name="Home_Icon_1106">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1106.Icon))">$INFO[Skin.String(HomeSwitcher.1106.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1106.Type,NextAired) + Skin.String(HomeSwitcher.1106.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1106.Type,NextAired) + Skin.String(HomeSwitcher.1106.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1106.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1106.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1106.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -53,6 +58,7 @@
     <variable name="Home_Icon_1107">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1107.Icon))">$INFO[Skin.String(HomeSwitcher.1107.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1107.Type,NextAired) + Skin.String(HomeSwitcher.1107.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1107.Type,NextAired) + Skin.String(HomeSwitcher.1107.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1107.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1107.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1107.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -61,6 +67,7 @@
     <variable name="Home_Icon_1108">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1108.Icon))">$INFO[Skin.String(HomeSwitcher.1108.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1108.Type,NextAired) + Skin.String(HomeSwitcher.1108.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1108.Type,NextAired) + Skin.String(HomeSwitcher.1108.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1108.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1108.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1108.Type,Addons)">special://skin/extras/icons/addon.png</value>
@@ -69,6 +76,7 @@
     <variable name="Home_Icon_1109">
         <value condition="!String.IsEmpty(Skin.String(HomeSwitcher.1109.Icon))">$INFO[Skin.String(HomeSwitcher.1109.Icon)]</value>
         <value condition="Skin.String(HomeSwitcher.1109.Type,NextAired) + Skin.String(HomeSwitcher.1109.UpNextMode,trakt_calendar)">special://skin/extras/icons/trakt.png</value>
+        <value condition="Skin.String(HomeSwitcher.1109.Type,NextAired) + Skin.String(HomeSwitcher.1109.UpNextMode,nextaired_combined)">special://skin/extras/icons/calendar-plus-regular.png</value>
         <value condition="Skin.String(HomeSwitcher.1109.Type,NextAired)">special://skin/extras/icons/calendar.png</value>
         <value condition="Skin.String(HomeSwitcher.1109.Type,LiveTV)">special://skin/extras/icons/livetv.png</value>
         <value condition="Skin.String(HomeSwitcher.1109.Type,Addons)">special://skin/extras/icons/addon.png</value>

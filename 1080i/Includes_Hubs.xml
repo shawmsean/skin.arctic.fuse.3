@@ -1168,7 +1168,8 @@
             <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,LiveTV)">ActivateWindow(tvchannels)</onclick>
             <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,Addons)">ActivateWindow(addonbrowser)</onclick>
             <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired) + Skin.String(HomeSwitcher.$PARAM[window].UpNextMode,library_nextaired)">Skin.SetString(HomeSwitcher.$PARAM[window].UpNextMode,trakt_calendar)</onclick>
-            <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired) + Skin.String(HomeSwitcher.$PARAM[window].UpNextMode,trakt_calendar)">Skin.SetString(HomeSwitcher.$PARAM[window].UpNextMode,library_nextaired)</onclick>
+            <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired) + Skin.String(HomeSwitcher.$PARAM[window].UpNextMode,trakt_calendar)">Skin.SetString(HomeSwitcher.$PARAM[window].UpNextMode,nextaired_combined)</onclick>
+            <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired) + Skin.String(HomeSwitcher.$PARAM[window].UpNextMode,nextaired_combined)">Skin.SetString(HomeSwitcher.$PARAM[window].UpNextMode,library_nextaired)</onclick>
             <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired)">SetProperty(ReloadWidgets,1)</onclick>
             <onclick condition="$PARAM[condition] + Skin.String(HomeSwitcher.$PARAM[window].Type,NextAired)">AlarmClock(resetproperty,ClearProperty(ReloadWidgets),00:00,silent)</onclick>
         </definition>
