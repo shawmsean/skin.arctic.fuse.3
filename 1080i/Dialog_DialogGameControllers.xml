@@ -53,7 +53,7 @@
                         <include>Part_CloseButton</include>
                         <control type="image">
                             <height>1</height>
-                            <texture colordiffuse="$VAR[Color_DialogBorder]">common/white.png</texture>
+                            <texture colordiffuse="dialog_fg_06">common/white.png</texture>
                             <centerbottom>0</centerbottom>
                             <left>40</left>
                             <right>40</right>
@@ -70,7 +70,7 @@
                             <top>480</top>
                             <control type="image">
                                 <height>1</height>
-                                <texture colordiffuse="$VAR[Color_DialogBorder]">common/white.png</texture>
+                                <texture colordiffuse="dialog_fg_06">common/white.png</texture>
                                 <centertop>0</centertop>
                                 <left>40</left>
                                 <right>40</right>
@@ -623,6 +623,8 @@
         <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge]</param>
         <param name="slide_1_condition">false</param>
         <param name="slide_2_condition">false</param>
+        <param name="slide_3_condition">false</param>
+        <param name="slide_4_condition">false</param>
         <param name="hasprogress">false</param>
         <definition>
             <control type="group">
@@ -633,6 +635,10 @@
                 <animation effect="slide" end="0,-80" time="300" tween="sine" easing="inout" condition="$PARAM[slide_1_condition]">Conditional</animation>
 
                 <animation effect="slide" end="0,-80" time="300" tween="sine" easing="inout" condition="$PARAM[slide_2_condition]">Conditional</animation>
+
+                <animation effect="slide" end="0,-80" time="300" tween="sine" easing="inout" condition="$PARAM[slide_3_condition]">Conditional</animation>
+
+                <animation effect="slide" end="0,-80" time="300" tween="sine" easing="inout" condition="$PARAM[slide_4_condition]">Conditional</animation>
 
                 <include content="Furniture_Busy_Main">
                     <param name="minilabel">$PARAM[minilabel]</param>
@@ -664,7 +670,9 @@
                         <height>100</height>
                         <control type="image">
                             <bordersize>-4</bordersize>
-                            <texture colordiffuse="$VAR[ColorHighlight]">$INFO[$PARAM[progress],progress/circle/p,.png]</texture>
+                            <include content="Texture_Progress_Circle">
+                                <param name="progress">$PARAM[progress]</param>
+                            </include>
                             <aspectratio align="center" aligny="center">keep</aspectratio>
                         </control>
                     </control>
@@ -674,12 +682,32 @@
         </definition>
     </include>
 
+    <!-- A Kodi without numbered attempts answers each place with the first one, so a
+         place that repeats the one before isn't shown again -->
+    <expression name="DialogGameControllers_GameIndicators_Challenge2_Expression">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(2)) + ![String.IsEqual(RetroPlayer.AchievementsChallengeTitle(2),RetroPlayer.AchievementsChallengeTitle) + String.IsEqual(RetroPlayer.AchievementsChallengeBadge(2),RetroPlayer.AchievementsChallengeBadge)]</expression>
+    <expression name="DialogGameControllers_GameIndicators_Challenge3_Expression">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle(3)) + ![String.IsEqual(RetroPlayer.AchievementsChallengeTitle(3),RetroPlayer.AchievementsChallengeTitle(2)) + String.IsEqual(RetroPlayer.AchievementsChallengeBadge(3),RetroPlayer.AchievementsChallengeBadge(2))]</expression>
+
     <include name="DialogGameControllers_GameIndicators">
         <include content="DialogGameControllers_GameIndicators_Notification">
             <param name="minilabel">$LOCALIZE[15312]</param>
             <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle]</param>
             <param name="visible">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
             <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge]</param>
+        </include>
+        <include content="DialogGameControllers_GameIndicators_Notification">
+            <param name="minilabel">$LOCALIZE[15312]</param>
+            <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle(2)]</param>
+            <param name="visible">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
+            <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge(2)]</param>
+            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
+        </include>
+        <include content="DialogGameControllers_GameIndicators_Notification">
+            <param name="minilabel">$LOCALIZE[15312]</param>
+            <param name="mainlabel">$INFO[RetroPlayer.AchievementsChallengeTitle(3)]</param>
+            <param name="visible">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
+            <param name="icon">$INFO[RetroPlayer.AchievementsChallengeBadge(3)]</param>
+            <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
+            <param name="slide_2_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
         </include>
         <include content="DialogGameControllers_GameIndicators_Notification">
             <param name="minilabel">$INFO[RetroPlayer.AchievementsIndicatorProgress]</param>
@@ -689,6 +717,8 @@
             <param name="progress">RetroPlayer.AchievementsIndicatorPercent</param>
             <param name="hasprogress">true</param>
             <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
+            <param name="slide_2_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
+            <param name="slide_3_condition">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
         </include>
         <include content="DialogGameControllers_GameIndicators_Notification">
             <param name="minilabel">$LOCALIZE[35331]</param>
@@ -697,6 +727,8 @@
             <param name="icon" />
             <param name="slide_1_condition">!String.IsEmpty(RetroPlayer.AchievementsChallengeTitle)</param>
             <param name="slide_2_condition">!String.IsEmpty(RetroPlayer.AchievementsIndicatorTitle)</param>
+            <param name="slide_3_condition">$EXP[DialogGameControllers_GameIndicators_Challenge2_Expression]</param>
+            <param name="slide_4_condition">$EXP[DialogGameControllers_GameIndicators_Challenge3_Expression]</param>
         </include>
     </include>
 
@@ -727,48 +759,52 @@
                     </control>
                     <control type="group">
                         <include>Size_Group_Body</include>
-                        <include content="List_Dialog">
-                            <param name="id">3</param>
-                            <param name="item_height">128</param>
-                            <param name="itemlayout_include">List_Layout_Dialog_GameDiscs</param>
-                            <param name="detailed">true</param>
-                            <include>Size_Grouplist_Pad</include>
+                        <control type="group">
                             <visible>String.IsEqual(Window.Property(GameDiscManager.ShowMenu),true)</visible>
-                            <content>
-                                <item id="108323">
-                                    <label>$LOCALIZE[35273]</label>
-                                    <label2>$LOCALIZE[35274]</label2>
-                                    <icon>special://skin/extras/icons/compact-disc.png</icon>
-                                    <property name="EnableOnEject">true</property>
-                                </item>
-                                <item id="108324">
-                                    <label>$LOCALIZE[35275]</label>
-                                    <icon>special://skin/extras/icons/eject.png</icon>
-                                </item>
-                                <item id="108325">
-                                    <label>$LOCALIZE[15019]</label>
-                                    <icon>special://skin/extras/icons/circle-plus.png</icon>
-                                    <property name="EnableOnEject">true</property>
-                                </item>
-                                <item id="108326">
-                                    <label>$LOCALIZE[117]</label>
-                                    <icon>special://skin/extras/icons/circle-xmark.png</icon>
-                                    <property name="EnableOnEject">true</property>
-                                </item>
-                                <item id="108327">
-                                    <label>$LOCALIZE[35277]</label>
-                                    <icon>special://skin/extras/icons/circle-play.png</icon>
-                                </item>
-                            </content>
-                        </include>
-                        <include content="List_Dialog">
-                            <param name="id">108321</param>
-                            <param name="item_height">128</param>
-                            <param name="itemlayout_include">List_Layout_Dialog_GameDiscs</param>
-                            <param name="detailed">true</param>
-                            <include>Size_Grouplist_Pad</include>
+                            <include content="List_Dialog">
+                                <param name="id">3</param>
+                                <param name="item_height">128</param>
+                                <param name="itemlayout_include">List_Layout_Dialog_GameDiscs</param>
+                                <param name="detailed">true</param>
+                                <include>Size_Grouplist_Pad</include>
+                                <content>
+                                    <item id="108323">
+                                        <label>$LOCALIZE[35273]</label>
+                                        <label2>$LOCALIZE[35274]</label2>
+                                        <icon>special://skin/extras/icons/compact-disc.png</icon>
+                                        <property name="EnableOnEject">true</property>
+                                    </item>
+                                    <item id="108324">
+                                        <label>$LOCALIZE[35275]</label>
+                                        <icon>special://skin/extras/icons/eject.png</icon>
+                                    </item>
+                                    <item id="108325">
+                                        <label>$LOCALIZE[15019]</label>
+                                        <icon>special://skin/extras/icons/circle-plus.png</icon>
+                                        <property name="EnableOnEject">true</property>
+                                    </item>
+                                    <item id="108326">
+                                        <label>$LOCALIZE[117]</label>
+                                        <icon>special://skin/extras/icons/circle-xmark.png</icon>
+                                        <property name="EnableOnEject">true</property>
+                                    </item>
+                                    <item id="108327">
+                                        <label>$LOCALIZE[35277]</label>
+                                        <icon>special://skin/extras/icons/circle-play.png</icon>
+                                    </item>
+                                </content>
+                            </include>
+                        </control>
+                        <control type="group">
                             <visible>String.IsEqual(Window.Property(GameDiscManager.ShowDiscList),true)</visible>
-                        </include>
+                            <include content="List_Dialog">
+                                <param name="id">108321</param>
+                                <param name="item_height">128</param>
+                                <param name="itemlayout_include">List_Layout_Dialog_GameDiscs</param>
+                                <param name="detailed">true</param>
+                                <include>Size_Grouplist_Pad</include>
+                            </include>
+                        </control>
                     </control>
                 </control>
             </control>

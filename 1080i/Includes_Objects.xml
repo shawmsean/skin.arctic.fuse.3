@@ -41,6 +41,30 @@
     <include name="Object_AltTextureFocus">
         <alttexturefocus colordiffuse="$PARAM[colordiffuse]" flipx="$PARAM[flipx]" flipy="$PARAM[flipy]" border="$PARAM[border]">$PARAM[texture]</alttexturefocus>
     </include>
+    <include name="Object_TextureNoFocus">
+        <texturenofocus colordiffuse="$PARAM[colordiffuse]" flipx="$PARAM[flipx]" flipy="$PARAM[flipy]" border="$PARAM[border]">$PARAM[texture]</texturenofocus>
+    </include>
+    <include name="Object_AltTextureNoFocus">
+        <alttexturenofocus colordiffuse="$PARAM[colordiffuse]" flipx="$PARAM[flipx]" flipy="$PARAM[flipy]" diffuse="$PARAM[diffuse]" border="$PARAM[border]">$PARAM[texture]</alttexturenofocus>
+    </include>
+    <include name="Object_TextureSliderBar">
+        <texturesliderbar colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</texturesliderbar>
+    </include>
+    <include name="Object_TextureSliderBarFocus">
+        <texturesliderbarfocus colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</texturesliderbarfocus>
+    </include>
+    <include name="Object_TextureSliderNibFocus">
+        <textureslidernibfocus colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</textureslidernibfocus>
+    </include>
+    <include name="Object_TextureProgressLeft">
+        <lefttexture colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</lefttexture>
+    </include>
+    <include name="Object_TextureProgressMid">
+        <midtexture colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</midtexture>
+    </include>
+    <include name="Object_TextureProgressRight">
+        <righttexture colordiffuse="$PARAM[colordiffuse]" border="$PARAM[border]">$PARAM[texture]</righttexture>
+    </include>
     <include name="Object_TextureSliderBackground">
         <texturesliderbackground colordiffuse="$PARAM[colordiffuse]" flipx="$PARAM[flipx]" flipy="$PARAM[flipy]" border="$PARAM[border]">$PARAM[texture]</texturesliderbackground>
     </include>
@@ -351,7 +375,11 @@
                     <description>Busy animation</description>
                     <animation effect="rotate" condition="$PARAM[spinprogress]" start="0" end="360" loop="true" time="2000" center="auto">Conditional</animation>
                     <control type="image">
-                        <texture colordiffuse="$VAR[ColorHighlight]" flipx="true" flipy="true">$INFO[$PARAM[progress],progress/circle/p,.png]</texture>
+                        <include content="Texture_Progress_Circle">
+                            <param name="progress">$PARAM[progress]</param>
+                            <param name="flipx">true</param>
+                            <param name="flipy">true</param>
+                        </include>
                         <aspectratio align="center" aligny="center">keep</aspectratio>
                     </control>
                 </include>
@@ -438,14 +466,14 @@
             </include>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <texture>diffuse/circle/circle_200_overlay.png</texture>
+                <texture diffuse="$PARAM[overlay_diffuse]">diffuse/circle/circle_200_overlay.png</texture>
                 <visible>String.IsEqual($PARAM[listitem].DBType,tvshow) | String.IsEqual($PARAM[listitem].DBType,episode) | String.IsEqual($PARAM[listitem].DBType,artist) | String.IsEqual($PARAM[listitem].DBType,video) | String.IsEqual($PARAM[listitem].DBType,set)</visible>
             </control>
         </control>
         <control type="group">
             <visible>String.IsEmpty($PARAM[listitem].Art(discart)) + String.IsEmpty($PARAM[listitem].Art(album.discart)) + [String.IsEqual($PARAM[listitem].DBType,movie) | String.IsEqual($PARAM[listitem].DBType,album) | String.IsEqual($PARAM[listitem].DBType,song) | String.IsEqual($PARAM[listitem].DBType,season)]</visible>
             <include content="Object_Layout_Image_Rectangle">
-                <param name="diffuse">diffuse/circle/discart.png</param>
+                <param name="diffuse">$PARAM[discart_diffuse]</param>
                 <param name="icon">$PARAM[icon]</param>
                 <param name="listitem">$PARAM[listitem]</param>
                 <param name="aspectratio">scale</param>
@@ -453,7 +481,7 @@
             </include>
             <control type="image">
                 <aspectratio>keep</aspectratio>
-                <texture>diffuse/circle/discart_overlay.png</texture>
+                <texture diffuse="$PARAM[overlay_diffuse]">diffuse/circle/discart_overlay.png</texture>
             </control>
         </control>
     </include>
@@ -462,6 +490,8 @@
         <param name="genre_bordersize">50</param>
         <param name="other_bordersize">20</param>
         <param name="include_discart">false</param>
+        <param name="discart_diffuse">diffuse/circle/discart.png</param>
+        <param name="overlay_diffuse" />
         <param name="selected">false</param>
         <definition>
             <control type="group">
@@ -471,6 +501,8 @@
 
                 <include content="Object_Layout_Image_Circle" condition="$PARAM[include_discart]">
                     <param name="diffuse">$PARAM[diffuse]</param>
+                    <param name="discart_diffuse">$PARAM[discart_diffuse]</param>
+                    <param name="overlay_diffuse">$PARAM[overlay_diffuse]</param>
                     <param name="icon">$PARAM[icon]</param>
                     <param name="listitem">$PARAM[listitem]</param>
                     <param name="aspectratio">$PARAM[aspectratio]</param>
@@ -962,7 +994,9 @@
                 <right>0</right>
                 <centerbottom>-15</centerbottom>
                 <texturebg colordiffuse="main_fg_12" border="12,0,12,0">progress/progress-nib.png</texturebg>
-                <midtexture colordiffuse="main_logo" border="12,0,12,0">progress/progress-nib.png</midtexture>
+                <include content="Texture_Progress_Mid">
+                    <param name="colordiffuse">main_logo</param>
+                </include>
                 <info>$PARAM[progress]</info>
                 <visible>!Integer.IsEqual($PARAM[progress],0)</visible>
             </control>
@@ -1144,6 +1178,7 @@
     </include>
 
     <include name="Object_Indicator_Selected">
+        <param name="variant" />
         <param name="shadow">true</param>
         <definition>
             <control type="group">
@@ -1155,7 +1190,9 @@
                     <include content="Dimension_Padding">
                         <param name="pad">-32</param>
                     </include>
-                    <texture colordiffuse="$VAR[ColorHighlight]">indicator/circle-fo.png</texture>
+                    <include content="Texture_Indicator_Highlight">
+                        <param name="variant">$PARAM[variant]</param>
+                    </include>
                     <bordertexture colordiffuse="shadow_hard">indicator/circle-fo-shadow.png</bordertexture>
                     <bordersize>32</bordersize>
                 </control>
@@ -1167,13 +1204,15 @@
         <param name="affix" />
         <param name="listitem">ListItem</param>
         <param name="selected">false</param>
+        <param name="variant" />
         <param name="shadow">true</param>
         <param name="backing">true</param>
+        <param name="right">25</param>
         <definition>
             <control type="group">
                 <nested />
                 <centerbottom>0</centerbottom>
-                <right>25</right>
+                <right>$PARAM[right]</right>
                 <width>64</width>
                 <height>64</height>
 
@@ -1184,6 +1223,7 @@
 
                 <!-- Focused Item -->
                 <include content="Object_Indicator_Selected" condition="$PARAM[selected]">
+                    <param name="variant">$PARAM[variant]</param>
                     <param name="shadow">$PARAM[shadow]</param>
                     <param name="listitem">$PARAM[listitem]</param>
                 </include>
@@ -1443,12 +1483,14 @@
                     </control>
                     <control type="image">
                         <aspectratio>center</aspectratio>
-                        <texture colordiffuse="$VAR[ColorHighlight]">indicator/circle-fo.png</texture>
+                        <include>Texture_Indicator_Highlight</include>
                         <visible>!String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight) | !Control.HasFocus(3000)</visible>
                     </control>
                     <control type="image">
                         <aspectratio>center</aspectratio>
-                        <texture colordiffuse="$INFO[Container(3000).ListItem.Label]">indicator/circle-fo.png</texture>
+                        <include content="Texture_Indicator_Highlight">
+                            <param name="colordiffuse">$INFO[Container(3000).ListItem.Label]</param>
+                        </include>
                         <visible>String.IsEqual(Window(Home).Property(ColorPicker_Type),Highlight) + Control.HasFocus(3000)</visible>
                     </control>
                 </include>
@@ -1526,7 +1568,7 @@
                     <height>1</height>
                     <left>40</left>
                     <right>40</right>
-                    <texture colordiffuse="$VAR[Color_DialogBorder]">common/white.png</texture>
+                    <texture colordiffuse="dialog_fg_06">common/white.png</texture>
                 </control>
             </control>
         </definition>
@@ -1549,8 +1591,8 @@
                 <selectedcolor>dialog_fg_70</selectedcolor>
                 <focusedcolor>dialog_fg_100</focusedcolor>
                 <width>40</width>
-                <textureradioondisabled colordiffuse="$VAR[Color_DialogBorder]">buttons/check-on.png</textureradioondisabled>
-                <textureradiooffdisabled colordiffuse="$VAR[Color_DialogBorder]">buttons/check-off.png</textureradiooffdisabled>
+                <textureradioondisabled colordiffuse="dialog_fg_06">buttons/check-on.png</textureradioondisabled>
+                <textureradiooffdisabled colordiffuse="dialog_fg_06">buttons/check-off.png</textureradiooffdisabled>
                 <textureradioonfocus colordiffuse="dialog_fg_100">buttons/check-on.png</textureradioonfocus>
                 <textureradioofffocus colordiffuse="dialog_fg_100">buttons/check-off.png</textureradioofffocus>
                 <textureradioonnofocus colordiffuse="dialog_fg_70">buttons/check-on.png</textureradioonnofocus>
@@ -1585,7 +1627,7 @@
                 <textcolor>dialog_fg_70</textcolor>
                 <selectedcolor>dialog_fg_70</selectedcolor>
                 <include>Texture_KeyboardButton</include>
-                <texturenofocus colordiffuse="$VAR[Color_DialogBorder]">common/circle.png</texturenofocus>
+                <texturenofocus colordiffuse="dialog_fg_06">common/circle.png</texturenofocus>
             </control>
         </definition>
     </include>
@@ -2037,6 +2079,7 @@
                     </control>
                 </include>
                 <include content="Object_Indicator" condition="$PARAM[indicator]">
+                    <param name="variant">-joined</param>
                     <param name="selected">true</param>
                     <param name="affix">$PARAM[affix]</param>
                     <param name="listitem">$PARAM[listitem]</param>
