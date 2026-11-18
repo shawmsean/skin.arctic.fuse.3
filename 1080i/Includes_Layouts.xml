@@ -1073,6 +1073,7 @@
         <param name="detailed">false</param>
         <param name="selected">false</param>
         <param name="misc">0</param>
+        <param name="label2">$INFO[ListItem.Label2]</param>
         <definition>
             <include content="Object_Control" condition="$PARAM[selected]">
                 <param name="control">image</param>
@@ -1096,7 +1097,7 @@
                     <align>right</align>
                     <textcolor>main_fg_70</textcolor>
                     <selectedcolor>main_fg_70</selectedcolor>
-                    <label>$INFO[ListItem.Label2]</label>
+                    <label>$PARAM[label2]</label>
                 </include>
             </control>
         </definition>
@@ -2687,6 +2688,7 @@
         <param name="diffuse">diffuse/landscape_w410_h231.png</param>
         <param name="progress">Progress</param>
         <param name="affix" />
+        <param name="include_generic">true</param>
         <definition>
             <control type="group">
 
@@ -2711,6 +2713,7 @@
                     <param name="main_artwork">Art(fanart)</param>
                     <param name="selected">$PARAM[selected]</param>
                     <param name="aspectratio">keep</param>
+                    <param name="include_generic">$PARAM[include_generic]</param>
                 </include>
 
                 <include content="Object_Layout_Image_Icon" condition="$PARAM[detailed]">
@@ -2719,6 +2722,7 @@
                     <param name="main_artwork">Art(fanart)</param>
                     <param name="selected">$PARAM[selected]</param>
                     <param name="aspectratio">scale</param>
+                    <param name="include_generic">$PARAM[include_generic]</param>
                 </include>
 
                 <include content="Object_ClearLogo_WithShadow">
